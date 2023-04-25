@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeCastro_PrimerParcial", "DeCastro_PrimerParcial\DeCastro_PrimerParcial.csproj", "{4938F316-EE32-4BF4-B57A-D6AE459E5BF1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimerParcial.UI", "PrimerParcial.UI\PrimerParcial.UI.csproj", "{26F34198-2479-4D11-9ECF-4ECB5DB64DB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimerParcial.Entidades", "PrimerParcial.Entidades\PrimerParcial.Entidades.csproj", "{F424E4BD-125E-4AE1-B65E-4C66662E5B0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4938F316-EE32-4BF4-B57A-D6AE459E5BF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4938F316-EE32-4BF4-B57A-D6AE459E5BF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4938F316-EE32-4BF4-B57A-D6AE459E5BF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4938F316-EE32-4BF4-B57A-D6AE459E5BF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26F34198-2479-4D11-9ECF-4ECB5DB64DB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26F34198-2479-4D11-9ECF-4ECB5DB64DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26F34198-2479-4D11-9ECF-4ECB5DB64DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26F34198-2479-4D11-9ECF-4ECB5DB64DB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F424E4BD-125E-4AE1-B65E-4C66662E5B0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F424E4BD-125E-4AE1-B65E-4C66662E5B0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F424E4BD-125E-4AE1-B65E-4C66662E5B0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F424E4BD-125E-4AE1-B65E-4C66662E5B0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
