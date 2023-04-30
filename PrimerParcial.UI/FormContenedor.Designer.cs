@@ -82,13 +82,14 @@ namespace PrimerParcial.UI
             button3_Dices.ForeColor = Color.Black;
             button3_Dices.Image = (Image)resources.GetObject("button3_Dices.Image");
             button3_Dices.ImageAlign = ContentAlignment.MiddleLeft;
-            button3_Dices.Location = new Point(676, 331);
+            button3_Dices.Location = new Point(1021, 470);
             button3_Dices.Name = "button3_Dices";
             button3_Dices.Size = new Size(154, 63);
             button3_Dices.TabIndex = 2;
             button3_Dices.Text = "Dados";
             button3_Dices.TextAlign = ContentAlignment.MiddleRight;
             button3_Dices.UseVisualStyleBackColor = false;
+            button3_Dices.Click += button3_Dices_Click;
             // 
             // menuStrip1
             // 
@@ -98,7 +99,7 @@ namespace PrimerParcial.UI
             menuStrip1.Items.AddRange(new ToolStripItem[] { reglasToolStripMenuItem, compendioToolStripMenuItem, encuentrosToolStripMenuItem, campañasToolStripMenuItem, opcionesToolStripMenuItem, usuarioToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(151, 406);
+            menuStrip1.Size = new Size(151, 545);
             menuStrip1.TabIndex = 8;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -296,12 +297,13 @@ namespace PrimerParcial.UI
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             salirToolStripMenuItem.Size = new Size(223, 22);
             salirToolStripMenuItem.Text = "Salir";
+            salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
             // FormContenedor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(842, 406);
+            ClientSize = new Size(1187, 545);
             Controls.Add(button3_Dices);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;

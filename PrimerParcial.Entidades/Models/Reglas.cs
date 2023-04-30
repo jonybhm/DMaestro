@@ -6,17 +6,16 @@ using System.Threading.Tasks;
 
 namespace PrimerParcial.Entidades.Models
 {
-    internal class Reglas
+    public class Reglas
     {
         
         private string _titulo;
+        private string _contenido;
         public string Titulo 
         { 
             get => _titulo; 
             set => _titulo = value;
         }
-
-        private string _contenido;
         public string Contenido
         {
             get => _contenido;
@@ -27,6 +26,17 @@ namespace PrimerParcial.Entidades.Models
         {
             _titulo = titulo;
             _contenido = contenido;
+        }
+
+        public string Mostrar()
+        {
+            var sb = new StringBuilder();
+
+            sb.AppendLine($"{_titulo}");
+            sb.AppendLine($"{_contenido}");
+
+            return sb.ToString();
+
         }
 
     }
