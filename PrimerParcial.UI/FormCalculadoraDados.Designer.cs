@@ -53,6 +53,9 @@
             BoxCalculo = new RichTextBox();
             BoxResultado = new RichTextBox();
             buttonTirar = new Button();
+            buttonD100 = new Button();
+            buttonClear = new Button();
+            buttonDX = new Button();
             SuspendLayout();
             // 
             // buttonD2
@@ -123,6 +126,7 @@
             buttonD6.Text = "d6";
             buttonD6.TextImageRelation = TextImageRelation.ImageAboveText;
             buttonD6.UseVisualStyleBackColor = true;
+            buttonD6.Click += buttonD6_Click;
             // 
             // buttonD12
             // 
@@ -154,9 +158,9 @@
             // 
             // buttonPlus
             // 
-            buttonPlus.Font = new Font("Universal Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonPlus.Font = new Font("Universal Serif", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
             buttonPlus.ForeColor = Color.SteelBlue;
-            buttonPlus.Location = new Point(259, 6);
+            buttonPlus.Location = new Point(259, 12);
             buttonPlus.Name = "buttonPlus";
             buttonPlus.Size = new Size(75, 70);
             buttonPlus.TabIndex = 7;
@@ -166,9 +170,9 @@
             // 
             // buttonMinus
             // 
-            buttonMinus.Font = new Font("Universal Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonMinus.Font = new Font("Universal Serif", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
             buttonMinus.ForeColor = Color.SteelBlue;
-            buttonMinus.Location = new Point(259, 82);
+            buttonMinus.Location = new Point(259, 101);
             buttonMinus.Name = "buttonMinus";
             buttonMinus.Size = new Size(75, 70);
             buttonMinus.TabIndex = 8;
@@ -178,8 +182,9 @@
             // 
             // button1
             // 
-            button1.Font = new Font("Universal Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(340, 6);
+            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 64, 64);
+            button1.Font = new Font("Universal Serif", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(340, 12);
             button1.Name = "button1";
             button1.Size = new Size(75, 70);
             button1.TabIndex = 9;
@@ -189,8 +194,8 @@
             // 
             // button4
             // 
-            button4.Font = new Font("Universal Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button4.Location = new Point(340, 82);
+            button4.Font = new Font("Universal Serif", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button4.Location = new Point(340, 101);
             button4.Name = "button4";
             button4.Size = new Size(75, 70);
             button4.TabIndex = 10;
@@ -200,8 +205,8 @@
             // 
             // button2
             // 
-            button2.Font = new Font("Universal Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(421, 6);
+            button2.Font = new Font("Universal Serif", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.Location = new Point(421, 12);
             button2.Name = "button2";
             button2.Size = new Size(75, 70);
             button2.TabIndex = 11;
@@ -211,8 +216,8 @@
             // 
             // button3
             // 
-            button3.Font = new Font("Universal Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button3.Location = new Point(502, 6);
+            button3.Font = new Font("Universal Serif", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button3.Location = new Point(502, 12);
             button3.Name = "button3";
             button3.Size = new Size(75, 70);
             button3.TabIndex = 12;
@@ -222,8 +227,8 @@
             // 
             // button5
             // 
-            button5.Font = new Font("Universal Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button5.Location = new Point(421, 82);
+            button5.Font = new Font("Universal Serif", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button5.Location = new Point(421, 101);
             button5.Name = "button5";
             button5.Size = new Size(75, 70);
             button5.TabIndex = 13;
@@ -233,8 +238,8 @@
             // 
             // button6
             // 
-            button6.Font = new Font("Universal Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button6.Location = new Point(502, 82);
+            button6.Font = new Font("Universal Serif", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button6.Location = new Point(502, 101);
             button6.Name = "button6";
             button6.Size = new Size(75, 70);
             button6.TabIndex = 14;
@@ -244,8 +249,8 @@
             // 
             // button7
             // 
-            button7.Font = new Font("Universal Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button7.Location = new Point(340, 158);
+            button7.Font = new Font("Universal Serif", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button7.Location = new Point(340, 188);
             button7.Name = "button7";
             button7.Size = new Size(75, 70);
             button7.TabIndex = 15;
@@ -255,8 +260,8 @@
             // 
             // button8
             // 
-            button8.Font = new Font("Universal Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button8.Location = new Point(421, 158);
+            button8.Font = new Font("Universal Serif", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button8.Location = new Point(421, 188);
             button8.Name = "button8";
             button8.Size = new Size(75, 70);
             button8.TabIndex = 16;
@@ -266,8 +271,8 @@
             // 
             // button9
             // 
-            button9.Font = new Font("Universal Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button9.Location = new Point(502, 158);
+            button9.Font = new Font("Universal Serif", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button9.Location = new Point(502, 188);
             button9.Name = "button9";
             button9.Size = new Size(75, 70);
             button9.TabIndex = 17;
@@ -277,8 +282,8 @@
             // 
             // button0
             // 
-            button0.Font = new Font("Universal Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button0.Location = new Point(421, 234);
+            button0.Font = new Font("Universal Serif", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button0.Location = new Point(421, 273);
             button0.Name = "button0";
             button0.Size = new Size(75, 70);
             button0.TabIndex = 18;
@@ -290,7 +295,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(421, 350);
+            label1.Location = new Point(421, 367);
             label1.Name = "label1";
             label1.Size = new Size(28, 30);
             label1.TabIndex = 20;
@@ -298,20 +303,22 @@
             // 
             // buttonDelete
             // 
-            buttonDelete.Font = new Font("Universal Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonDelete.Font = new Font("Universal Serif", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
             buttonDelete.ForeColor = Color.SteelBlue;
-            buttonDelete.Location = new Point(259, 158);
+            buttonDelete.Location = new Point(259, 188);
             buttonDelete.Name = "buttonDelete";
             buttonDelete.Size = new Size(75, 70);
             buttonDelete.TabIndex = 22;
             buttonDelete.Text = "<-";
             buttonDelete.UseVisualStyleBackColor = true;
+            buttonDelete.Click += buttonDelete_Click;
             // 
             // BoxCalculo
             // 
             BoxCalculo.Font = new Font("Universal Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            BoxCalculo.Location = new Point(12, 349);
+            BoxCalculo.Location = new Point(12, 366);
             BoxCalculo.Name = "BoxCalculo";
+            BoxCalculo.ReadOnly = true;
             BoxCalculo.Size = new Size(403, 53);
             BoxCalculo.TabIndex = 23;
             BoxCalculo.Text = "";
@@ -319,7 +326,7 @@
             // BoxResultado
             // 
             BoxResultado.Font = new Font("Universal Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            BoxResultado.Location = new Point(455, 349);
+            BoxResultado.Location = new Point(455, 366);
             BoxResultado.Name = "BoxResultado";
             BoxResultado.ReadOnly = true;
             BoxResultado.Size = new Size(122, 53);
@@ -337,11 +344,54 @@
             buttonTirar.UseVisualStyleBackColor = true;
             buttonTirar.Click += buttonTirar_Click;
             // 
+            // buttonD100
+            // 
+            buttonD100.Font = new Font("Universal Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonD100.ForeColor = Color.IndianRed;
+            buttonD100.Image = (Image)resources.GetObject("buttonD100.Image");
+            buttonD100.Location = new Point(16, 184);
+            buttonD100.Name = "buttonD100";
+            buttonD100.Size = new Size(75, 83);
+            buttonD100.TabIndex = 27;
+            buttonD100.Text = "d100";
+            buttonD100.TextImageRelation = TextImageRelation.ImageAboveText;
+            buttonD100.UseVisualStyleBackColor = true;
+            buttonD100.Click += buttonD100_Click;
+            // 
+            // buttonClear
+            // 
+            buttonClear.Font = new Font("Universal Serif", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonClear.ForeColor = Color.SteelBlue;
+            buttonClear.Location = new Point(259, 273);
+            buttonClear.Name = "buttonClear";
+            buttonClear.Size = new Size(75, 70);
+            buttonClear.TabIndex = 28;
+            buttonClear.Text = "C";
+            buttonClear.UseVisualStyleBackColor = true;
+            buttonClear.Click += buttonClear_Click;
+            // 
+            // buttonDX
+            // 
+            buttonDX.Font = new Font("Universal Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonDX.ForeColor = Color.IndianRed;
+            buttonDX.Image = (Image)resources.GetObject("buttonDX.Image");
+            buttonDX.Location = new Point(178, 184);
+            buttonDX.Name = "buttonDX";
+            buttonDX.Size = new Size(75, 83);
+            buttonDX.TabIndex = 29;
+            buttonDX.Text = "dX";
+            buttonDX.TextImageRelation = TextImageRelation.ImageAboveText;
+            buttonDX.UseVisualStyleBackColor = true;
+            buttonDX.Click += buttonDX_Click;
+            // 
             // FormCalculadoraDados
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(592, 411);
+            ClientSize = new Size(589, 432);
+            Controls.Add(buttonDX);
+            Controls.Add(buttonClear);
+            Controls.Add(buttonD100);
             Controls.Add(buttonTirar);
             Controls.Add(BoxResultado);
             Controls.Add(BoxCalculo);
@@ -409,5 +459,8 @@
         private Button button0;
         private Button buttonDelete;
         private Button buttonTirar;
+        private Button buttonD100;
+        private Button buttonClear;
+        private Button buttonDX;
     }
 }

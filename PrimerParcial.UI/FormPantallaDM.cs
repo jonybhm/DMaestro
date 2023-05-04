@@ -25,9 +25,6 @@ namespace PrimerParcial.UI
         {
             Archivos.LeerInfoArchivos(reglas);
             dataGrid_Estados_Actualizar(reglas);
-
-
-
         }
 
         private void dataGrid_Estados_Actualizar(List<Reglas> reglas)

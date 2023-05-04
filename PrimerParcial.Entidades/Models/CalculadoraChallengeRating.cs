@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace PrimerParcial.Entidades.Models
 {
-    public class Calculadora
+    internal class CalculadoraChallengeRating
     {
         public double Cuenta(string cajaNumeros)
         {
             Random random = new Random();
             double resultado = 0;
 
-            foreach(var c in cajaNumeros.Split('+').ToList())
+            foreach (var c in cajaNumeros.Split('+').ToList())
             {
                 if (c.Contains('d'))
                 {
                     try
                     {
 
-                    resultado += random.Next(1, Convert.ToInt32(c.Remove(0,1))+1);               
+                        resultado += random.Next(1, Convert.ToInt32(c.Remove(0, 1)) + 1);
                     }
-                    catch (Exception e) 
+                    catch (Exception e)
                     {
                         Console.WriteLine(e.ToString());
                     }
@@ -31,7 +31,7 @@ namespace PrimerParcial.Entidades.Models
                 }
                 else
                 {
-                    if(c.Contains("-"))
+                    if (c.Contains("-"))
                     {
                         var moduloResta = c.Split('-').ToList();
                         resultado += Convert.ToDouble(moduloResta[0]);
@@ -53,7 +53,7 @@ namespace PrimerParcial.Entidades.Models
                         {
                             resultado += Convert.ToDouble(c);
                         }
-                        catch(Exception e)
+                        catch (Exception e)
                         {
                             Console.WriteLine(e.ToString());
                         }

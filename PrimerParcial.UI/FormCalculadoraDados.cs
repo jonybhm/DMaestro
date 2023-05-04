@@ -1,9 +1,11 @@
-﻿using System;
+﻿using PrimerParcial.Entidades.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -76,41 +78,59 @@ namespace PrimerParcial.UI
 
         private void buttonD2_Click(object sender, EventArgs e)
         {
-            BoxCalculo.Text += "d2";
+            BoxCalculo.Text += "+d2";
         }
 
         private void buttonD4_Click(object sender, EventArgs e)
         {
-            BoxCalculo.Text += "d4";
+            BoxCalculo.Text += "+d4";
         }
 
         private void FormCalculadoraDados_Load(object sender, EventArgs e)
         {
-            BoxCalculo.Text += "d6";
+
         }
 
         private void buttonD8_Click(object sender, EventArgs e)
         {
-            BoxCalculo.Text += "d8";
+            BoxCalculo.Text += "+d8";
         }
 
         private void buttonD10_Click(object sender, EventArgs e)
         {
-            BoxCalculo.Text += "d10";
+            BoxCalculo.Text += "+d10";
         }
 
         private void buttonD12_Click(object sender, EventArgs e)
         {
-            BoxCalculo.Text += "d12";
+            BoxCalculo.Text += "+d12";
         }
 
         private void buttonD20_Click(object sender, EventArgs e)
         {
-            BoxCalculo.Text += "d20";
+            BoxCalculo.Text += "+d20";
+        }
+        private void buttonD100_Click(object sender, EventArgs e)
+        {
+            BoxCalculo.Text += "+d100";
+
+        }
+        private void buttonD6_Click(object sender, EventArgs e)
+        {
+            BoxCalculo.Text += "+d6";
+        }
+        private void buttonDX_Click(object sender, EventArgs e)
+        {
+            BoxCalculo.Text += "+d";
         }
 
         private void buttonTirar_Click(object sender, EventArgs e)
         {
+            SoundPlayer sonidoDados = new SoundPlayer(@"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Assets\dados\Rolling-Dice.wav");
+            sonidoDados.Play();
+            Calculadora calculadora = new Calculadora();
+            double resultadoTirada = calculadora.Cuenta(BoxCalculo.Text);
+            BoxResultado.Text = resultadoTirada.ToString();
 
         }
 
@@ -123,5 +143,36 @@ namespace PrimerParcial.UI
         {
             BoxCalculo.Text += "-";
         }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            string texto = BoxCalculo.Text;
+            try
+            {
+
+                BoxCalculo.Text = texto.Substring(0, texto.Length - 1);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            string texto = BoxCalculo.Text;
+            try
+            {
+
+                BoxCalculo.Text = texto.Remove(0, texto.Length);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+        }
+
+
     }
 }

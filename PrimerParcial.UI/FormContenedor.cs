@@ -31,7 +31,7 @@ namespace PrimerParcial.UI
             hijo.Show();
 
 
-            
+
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -44,8 +44,8 @@ namespace PrimerParcial.UI
         private void button3_Dices_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < this.MdiChildren.Length; i++)
-            {   
-                if(this.MdiChildren[i].Name == "FormCalculadoraDados")
+            {
+                if (this.MdiChildren[i].Name == "FormCalculadoraDados")
                 {
                     this.MdiChildren[i].Close();
                 }
@@ -56,6 +56,19 @@ namespace PrimerParcial.UI
             calculadora.Show();
         }
 
-       
+        private void cálculoDeDificultadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < this.MdiChildren.Length; i++)
+            {
+                if (this.MdiChildren[i].Name != "FormCalculadoraDados")
+                {
+                    this.MdiChildren[i].Close();
+                }
+            }
+            var hijo = new FormCombateDificultad();
+            hijo.MdiParent = this;
+            hijo.WindowState = FormWindowState.Maximized;
+            hijo.Show();
+        }
     }
 }

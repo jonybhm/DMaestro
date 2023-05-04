@@ -210,6 +210,7 @@ namespace PrimerParcial.UI
             cálculoDeDificultadToolStripMenuItem.Name = "cálculoDeDificultadToolStripMenuItem";
             cálculoDeDificultadToolStripMenuItem.Size = new Size(295, 22);
             cálculoDeDificultadToolStripMenuItem.Text = "Cálculo de dificultad";
+            cálculoDeDificultadToolStripMenuItem.Click += cálculoDeDificultadToolStripMenuItem_Click;
             // 
             // crearEncuentroToolStripMenuItem
             // 
