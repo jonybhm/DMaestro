@@ -19,10 +19,9 @@ namespace PrimerParcial.UI
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.Manual;
-            this.Location = new Point(1050, 500);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            this.Location = new Point(0, 0);
             this.FormBorderStyle = FormBorderStyle.None;
+            this.Dock = DockStyle.Right;
         }
 
 

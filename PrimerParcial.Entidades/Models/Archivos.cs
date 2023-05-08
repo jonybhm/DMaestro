@@ -6,6 +6,9 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
+using System.Drawing;
+
+
 
 namespace PrimerParcial.Entidades.Models
 {
@@ -26,12 +29,19 @@ namespace PrimerParcial.Entidades.Models
             usuario.Add(new Usuario(10001, "juan", "juan12", "123456"));
             usuario.Add(new Usuario(10002, "micaela", "mica100", "14271824"));
         }
+
+        public static List<object> LeerInfoReglas()
+        {
+            string rutaArchivoUno = @"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Json\06_mechanics-copia.json";
+
+            var tablaUno = Read(rutaArchivoUno);
+
+            return tablaUno;
+        }
+
+
         public static List<object> LeerInfoEnemigos()
         {
-            /*enemigo.Add(new Enemigo("goblin", 50, 1 / 4));
-            enemigo.Add(new Enemigo("dragon rojo", 5900, 10));
-            enemigo.Add(new Enemigo("quimera", 2300, 6));*/
-
             string rutaArchivo = @"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Json\17_bestiary.json";
 
             var tabla = Read(rutaArchivo);
@@ -41,18 +51,36 @@ namespace PrimerParcial.Entidades.Models
 
         public static List<object> LeerInfoTablaUno()
         {
-            string rutaArchivo = @"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Json\18_tabla1.json";
+            string rutaArchivoUno = @"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Json\18_tabla1.json";
             
-            var tabla = Read(rutaArchivo);              
+            var tablaUno = Read(rutaArchivoUno);              
                         
-            return tabla;
+            return tablaUno;
            
+        }
+
+        public static List<object> LeerInfoTablaDos()
+        {
+            string rutaArchivoDos = @"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Json\19_tabla2.json";
+
+            var tablaDos = Read(rutaArchivoDos);
+
+            return tablaDos;
+
+        }
+
+        public static List<object> LeerInfoTablaTres()
+        {
+            string rutaArchivoTres = @"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Json\20_tabla3.json";
+
+            var tablaTres = Read(rutaArchivoTres);
+
+            return tablaTres;
+
         }
 
         public static object ArmarTablaParaDataGrid(List<object> ListaDiccionarios)
         {
-            //dataGridTablaReferencia.DataSource = null;
-
             DataTable tabla = new DataTable();
 
             Dictionary<string, object> dictEnCero = (Dictionary<string, object>)ListaDiccionarios[0];
@@ -82,7 +110,39 @@ namespace PrimerParcial.Entidades.Models
             }
 
             return tabla;
-            //dataGridTablaReferencia.DataSource = tabla;
+        }
+
+        public static string ConcatenarStringsParaTextBox(List<object> ListaDiccionarios)
+        {
+            string textoFinal = "";
+            //Font fuenteTitulo = new Font("Universal Serif", 15, FontStyle.Bold);
+            //Font fuenteSubTitulo = new Font("Universal Serif", 12);
+            //Font fuenteContenido = new Font("Arial", 10);
+            string fuenteTitulo = $"{"Arial"},{20}";
+            
+            foreach (Dictionary<string, object> dict in ListaDiccionarios)
+            {
+                foreach(string key in dict.Keys)
+                {
+                    switch(key)
+                    {
+                        case "titulo":
+                            textoFinal += $"{{\\rtf1\\ansi\\deff0{{\\fonttbl{{\\f0 {fuenteTitulo};}}}}\\f0 {dict[key]}}}"+ Environment.NewLine;                            
+                            //textoFinal += dict[key] + Environment.NewLine;
+                            break;
+                        case "subtitulo":
+                            textoFinal += $"{{\\rtf1\\ansi\\deff0{{\\fonttbl{{\\f0 {fuenteTitulo};}}}}\\f0 {dict[key]}}}" + Environment.NewLine;
+                            //textoFinal += dict[key] + Environment.NewLine;
+                            break;
+                        case "contenido":
+                            textoFinal += $"{{\\rtf1\\ansi\\deff0{{\\fonttbl{{\\f0 {fuenteTitulo};}}}}\\f0 {dict[key]}}}" + Environment.NewLine;
+                            //textoFinal += dict[key] + Environment.NewLine;
+                            break;
+                    }                   
+                }
+            }
+
+            return textoFinal;
         }
 
 
@@ -100,5 +160,7 @@ namespace PrimerParcial.Entidades.Models
             return lista;
 
         }
+
+        
     }
 }

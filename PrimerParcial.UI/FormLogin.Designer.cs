@@ -40,7 +40,7 @@
             textContraseña.Name = "textContraseña";
             textContraseña.PlaceholderText = "Ingrese la contraseña";
             textContraseña.Size = new Size(286, 23);
-            textContraseña.TabIndex = 0;
+            textContraseña.TabIndex = 1;
             // 
             // label1
             // 
@@ -68,7 +68,7 @@
             textUsuario.Name = "textUsuario";
             textUsuario.PlaceholderText = "Ingrese nombre de usuario";
             textUsuario.Size = new Size(286, 23);
-            textUsuario.TabIndex = 3;
+            textUsuario.TabIndex = 0;
             // 
             // FormLogin
             // 
@@ -81,7 +81,7 @@
             Controls.Add(label1);
             Controls.Add(textContraseña);
             Name = "FormLogin";
-            Text = "FormLogin";
+            Text = "Iniciar Sesion";
             Load += FormLogin_Load;
             ResumeLayout(false);
             PerformLayout();

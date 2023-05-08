@@ -13,9 +13,9 @@ namespace PrimerParcial.UI
 {
     public partial class FormAgregarRegla : Form
     {
-        private Reglas _reglaNueva;
+        private FormReglas _reglaNueva;
 
-        public Reglas ReglaNueva
+        public FormReglas ReglaNueva
         {
             get => _reglaNueva;
             set => _reglaNueva = value;
@@ -29,7 +29,7 @@ namespace PrimerParcial.UI
         
         private void button1_Click_1(object sender, EventArgs e)
         {
-            _reglaNueva = new Reglas(textBox1.Text, richTextBox1.Text);
+            //_reglaNueva = new Reglas(textBox1.Text, richTextBox1.Text);
             DialogResult = DialogResult.OK;
         }
     }

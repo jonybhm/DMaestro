@@ -70,5 +70,77 @@ namespace PrimerParcial.UI
             hijo.WindowState = FormWindowState.Maximized;
             hijo.Show();
         }
+        private void ReglasStripMenuItem_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < this.MdiChildren.Length; i++)
+            {
+                if (this.MdiChildren[i].Name != "FormCalculadoraDados")
+                {
+                    this.MdiChildren[i].Close();
+                }
+            }
+            var hijo = new FormReglas();
+            hijo.MdiParent = this;
+            hijo.WindowState = FormWindowState.Maximized;
+            hijo.Show();
+
+        }
+
+        private void bestiarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void hechizosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void objetosYTesorosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clasesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void razasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trasfondosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void featsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void crearEncuentroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listaEncuentrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+ 
+        private void crearNuevaCampañaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listaCampañasCreadasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

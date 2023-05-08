@@ -1,0 +1,89 @@
+[
+    
+        {
+            "titulo":"Using Ability Scores\n", 
+            "contenido": "Six abilities provide a quick description of every creature’s physical and mental characteristics:\n**Strength**, measuring physical power\n**Dexterity**, measuring agility\n**Constitution**, measuring endurance\n**Intelligence**, measuring reasoning and memory\n**Wisdom**, measuring perception and insight\n**Charisma**, measuring force of personality"
+                   
+        },
+        {
+            "titulo":"Ability Scores and Modifiers\n",             
+            "contenido":"Score\n1\n2–3\n4–5\n6–7\n8–9\n10–11\n12–13\n14–15\n16–17\n18–19\n20–21\n22–23\n24–25\n26–27\n28–2930\nModifier\n−5\n−4\n−3\n−2\n−1\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\nTo determine an ability modifier without consulting the table, subtract 10 from the ability score and then divide the total by 2 (round down).\nBecause ability modifiers affect almost every attack roll, ability check, and saving throw, ability modifiers come up in play more often than their associated scores."                       
+        },
+        {
+            "titulo":"Advantage and Disadvantage",
+            "contenido":"Sometimes a special ability or spell tells you that you have advantage or disadvantage on an ability check, a saving throw, or an attack roll. When that happens, you roll a second d20 when you make the roll. Use the higher of the two rolls if you have advantage, and use the lower roll if you have disadvantage. For example, if you have disadvantage and roll a 17 and a 5, you use the 5. If you instead have advantage and roll those numbers, you use the 17.\nIf multiple situations affect a roll and each one grants advantage or imposes disadvantage on it, you don’t roll more than one additional d20. If two favorable situations grant advantage, for example, you still roll only one additional d20.\nIf circumstances cause a roll to have both advantage and disadvantage, you are considered to have neither of them, and you roll one d20. This is true even if multiple circumstances impose disadvantage and only one grants advantage or vice versa. In such a situation, you have neither advantage nor disadvantage.\nWhen you have advantage or disadvantage and something in the game, such as the halfling’s Lucky trait, lets you reroll the d20, you can reroll only one of the dice. You choose which one. For example, if a halfling has advantage or disadvantage on an ability check and rolls a 1 and a 13, the halfling could use the Lucky trait to reroll the 1.\nYou usually gain advantage or disadvantage through the use of special abilities, actions, or spells. Inspiration can also give a character advantage. The\nGM can also decide that circumstances influence a roll in one direction or the other and grant advantage or impose disadvantage as a result."
+
+        },
+        {
+            "titulo":"",
+            "contenido":""
+        },
+        {
+            "titulo":"",
+            "contenido":""
+        },
+        {
+            "titulo":"",
+            "contenido":""
+        },
+        {
+            "titulo":"",
+            "contenido":""
+        },
+        {
+            "titulo":"",
+            "contenido":""
+        },
+        {
+            "titulo":"",
+            "contenido":""
+        },
+        {
+            "titulo":"",
+            "contenido":""
+        },
+        {
+            "titulo":"",
+            "contenido":""
+        },
+        {
+            "titulo":"",
+            "contenido":""
+        },
+        {
+            "titulo":"",
+            "contenido":""
+        },
+        {
+            "titulo":"",
+            "contenido":""
+        },
+        {
+            "titulo":"",
+            "contenido":""
+        },
+        {
+            "titulo":"",
+            "contenido":""
+        },
+        {
+            "titulo":"",
+            "contenido":""
+        },
+        {
+            "titulo":"",
+            "contenido":""
+        },
+        {
+            "titulo":"",
+            "contenido":""
+        },
+        {
+            "titulo":"",
+            "contenido":""
+        },
+        {
+            "titulo":"",
+            "contenido":""
+        }    
+]

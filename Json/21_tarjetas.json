@@ -1,0 +1,34 @@
+
+[
+	{
+		"ID":0,
+		"Titulo":"Acciones",
+		"Contenido":"Atacar\nLanzar un conjuro\nCorrer\nDestrabarze\nEsquivar\nAyudar\nEsconderse\nPreparar una acción\nBuscar\nUsar un objeto\nAptitud especial",
+		"Ancho":200,
+		"Alto":200,
+		"PosicionX":200,
+		"PosicionY":200,
+		"EsNuevo":false
+	},
+	{
+		"ID":1,
+		"Titulo":"Tipos de Hechizo",
+		"Contenido":"Linea\nCono\nCubo\nEsfera\nCilindro",
+		"Ancho":200,
+		"Alto":200,
+		"PosicionX":200,
+		"PosicionY":500,
+		"EsNuevo":false
+	},
+	{
+		"ID":2,
+		"Titulo":"Comida, Bebida, Alojamiento",
+		"Contenido":"Banquete : 10 po\nBanquete : 10 po\nBanquete : 10 po\nBanquete : 10 po\nBanquete : 10 po\nBanquete : 10 po",
+		"Ancho":200,
+		"Alto":200,
+		"PosicionX":200,
+		"PosicionY":900,
+		"EsNuevo":false
+	}
+]
+
