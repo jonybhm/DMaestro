@@ -39,10 +39,27 @@ namespace PrimerParcial.Entidades.Models
             return tablaUno;
         }
 
+        public static List<object> LeerInfoItems()
+        {
+            string rutaArchivoUno = @"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Json\items-en.json";
+
+            var tablaUno = Read(rutaArchivoUno);
+
+            return tablaUno;
+        }
+
 
         public static List<object> LeerInfoEnemigos()
         {
-            string rutaArchivo = @"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Json\17_bestiary.json";
+            string rutaArchivo = @"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Json\monsters-en.json";
+
+            var tabla = Read(rutaArchivo);
+
+            return tabla;
+        }
+        public static List<object> LeerInfoHechizos()
+        {
+            string rutaArchivo = @"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Json\spells-en.json";
 
             var tabla = Read(rutaArchivo);
 
@@ -112,7 +129,61 @@ namespace PrimerParcial.Entidades.Models
             return tabla;
         }
 
-        public static string ConcatenarStringsParaTextBox(List<object> ListaDiccionarios)
+        public static Dictionary<string, object> deserializarJsonStringADictionary(string formatoJson)
+        {
+            Dictionary<string, object> dict = JsonSerializer.Deserialize<Dictionary<string, object>>(formatoJson);
+            return dict;
+        }
+
+        public static string generarStringDesdeDict(Dictionary<string, object> dict)
+        {
+            string textoBox = "";
+            foreach (KeyValuePair<string, object> item in dict)
+            {
+                textoBox += " | " + item.Key + ": " + item.Value + " | ";
+            }
+            return textoBox.ToString();
+        }
+
+
+        public static List<string> deserializarJsonStringAList(string formatoJson)
+        {
+            List<string> list = JsonSerializer.Deserialize<List<string>>(formatoJson);
+            return list;
+        }
+
+        public static List<Dictionary<string, object>> deserializarJsonStringAListDos(string formatoJson)
+        {
+            List<Dictionary<string, object>> list = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(formatoJson);
+            return list;
+        }
+
+
+        public static string generarStringDesdeList(List<string> list)
+        {
+            string textoBox = "";
+            foreach (var item in list)
+            {
+                textoBox += " | " + item + " | ";
+            }
+            return textoBox.ToString();
+        }
+        public static string generarStringDesdeListDos(string formatoDict)
+        {
+            string textoFinal = "";
+            List<Dictionary<string, object>> lista = deserializarJsonStringAListDos(formatoDict);
+            foreach (Dictionary<string, object> item in lista)
+            {
+                foreach (KeyValuePair<string, object> par in item)
+                {
+                    textoFinal += par.Value + "\n";
+                }
+                textoFinal += "\n";
+            }
+            return textoFinal.ToString();
+        }
+
+        /*public static string ConcatenarStringsParaTextBox(List<object> ListaDiccionarios)
         {
             string textoFinal = "";
             //Font fuenteTitulo = new Font("Universal Serif", 15, FontStyle.Bold);
@@ -143,7 +214,7 @@ namespace PrimerParcial.Entidades.Models
             }
 
             return textoFinal;
-        }
+        }*/
 
 
         public static List<object> Read(string ruta)
