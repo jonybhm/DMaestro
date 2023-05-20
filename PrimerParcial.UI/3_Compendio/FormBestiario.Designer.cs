@@ -92,7 +92,6 @@
             dataGridBestiario.RowTemplate.Height = 25;
             dataGridBestiario.Size = new Size(510, 456);
             dataGridBestiario.TabIndex = 14;
-            dataGridBestiario.RowEnter += dataGridBestiario_RowEnter;
             // 
             // textBoxBuscador
             // 

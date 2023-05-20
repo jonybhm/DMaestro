@@ -17,16 +17,30 @@ namespace PrimerParcial.UI._1_Contenedor
     public partial class FormStatBlock : Form
     {
         private Enemigo datosEnemigo;
-        public FormStatBlock(Enemigo datosEnemigo)
+        private bool AgregarHabilitado;
+        private bool EditarHabilitado;
+        public FormStatBlock(Enemigo datosEnemigo, bool MostrarBotonAgregar, bool MostrarBotonEditar)
         {
             InitializeComponent();
             this.datosEnemigo = datosEnemigo;
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            this.AgregarHabilitado = MostrarBotonAgregar;
+            this.EditarHabilitado = MostrarBotonEditar;
         }
 
         private void FormStatBlock_Load(object sender, EventArgs e)
         {
+            if (AgregarHabilitado && !EditarHabilitado)
+            {
+                buttonAdd.Enabled = true;
+                buttonEdit.Enabled = false;
+            }
+            else
+            {
+                buttonAdd.Enabled = false;
+                buttonEdit.Enabled = true;
+            }
             textBoxId.Text = datosEnemigo.id.ToString();
             textBoxNombre.Text = datosEnemigo.name;
             textBoxTipo.Text = datosEnemigo.meta;
@@ -52,7 +66,7 @@ namespace PrimerParcial.UI._1_Contenedor
             textBoxSABMod.Text = datosEnemigo.wisMod.ToString();
 
             textBoxSalvacion.Text = Elemento.generarStringDesdeDict(datosEnemigo.savingThrows);
-            if(datosEnemigo.skills.Count > 0)
+            if (datosEnemigo.skills.Count > 0)
             {
                 textBoxHabilidades.Text = Elemento.generarStringDesdeDict(datosEnemigo.skills);
             }
@@ -64,14 +78,26 @@ namespace PrimerParcial.UI._1_Contenedor
 
             richTextBoxHabilidades.Text = Elemento.generarStringDesdeListDict(datosEnemigo.traits);
             richTextBoxAcciones.Text = Elemento.generarStringDesdeListDict(datosEnemigo.actions);
-            if(datosEnemigo.legendaryActions.Count > 0)
+            if (datosEnemigo.legendaryActions.Count > 0)
             {
                 richTextBoxAccionesLegendarias.Text = Elemento.generarStringDesdeListDict(datosEnemigo.legendaryActions);
             }
 
         }
 
-        private void buttonSave_Click(object sender, EventArgs e)
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            CrearDatosJsonEnBaseAEnemigo();
+            Elemento.AgregarInfoEnArchivo(datosEnemigo, "monsters-en-prueba");
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            CrearDatosJsonEnBaseAEnemigo();
+            Elemento.ModificarInfoEnArchivo(datosEnemigo, "monsters-en-prueba");
+        }
+
+        private void CrearDatosJsonEnBaseAEnemigo()
         {
             datosEnemigo.name = textBoxNombre.Text;
             datosEnemigo.meta = textBoxTipo.Text;
@@ -107,8 +133,7 @@ namespace PrimerParcial.UI._1_Contenedor
             datosEnemigo.traits = Elemento.generarListDeDictDesdeString(richTextBoxHabilidades.Text);
             datosEnemigo.actions = Elemento.generarListDeDictDesdeString(richTextBoxAcciones.Text);
             datosEnemigo.legendaryActions = Elemento.generarListDeDictDesdeString(richTextBoxAccionesLegendarias.Text);
-
-            Elemento.escibirInfoEnArchivo(datosEnemigo, "monsters-en-prueba");
         }
+
     }
 }

@@ -50,17 +50,14 @@ namespace PrimerParcial.UI
             dataGridBestiario_Actualizar(Elemento.LeerInfoArchivo("monsters-en-prueba"));
         }
 
-        private void dataGridBestiario_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void buttonMostrar_Click(object sender, EventArgs e)
         {
+            bool mostrarBotonEditar = true;
+            bool mostrarBotonAgregarNuevo = false;
+
             DataGridViewRow selectedRow = dataGridBestiario.SelectedRows[0];
             Dictionary<string, object> dictDatosFilas = new Dictionary<string, object>();
-
-
             for (int i = 0; i < selectedRow.Cells.Count; i++)
             {
                 var datosCelda = selectedRow.Cells[i].Value;
@@ -69,9 +66,90 @@ namespace PrimerParcial.UI
                 dictDatosFilas.Add(nombreColumna, datosCelda);
             }
 
-
             Enemigo enemigo = new Enemigo(0, "");
+            AgregarInfoEnemigo(enemigo,dictDatosFilas);
+
+            FormStatBlock statBlock = new FormStatBlock((Enemigo)enemigo, mostrarBotonAgregarNuevo, mostrarBotonEditar);
+
+            /*statBlock.MdiParent = FormContenedor;
+            statBlock.WindowState = FormWindowState.Normal;
+            */
+           
+            statBlock.Show();
+        }
+
+        private void buttonAgregar_Click(object sender, EventArgs e)
+        {
+            bool mostrarBotonEditar = false;
+            bool mostrarBotonAgregarNuevo = true;
+
+            int idFinal = dataGridBestiario.Rows.Count;
+
             
+            Dictionary<string, object> dictDatosFilas = new Dictionary<string, object>();
+            foreach (DataGridViewColumn column in dataGridBestiario.Columns)
+            {
+                dictDatosFilas[column.Name] = "Contenido provisorio"; 
+                switch(column.HeaderText)
+                {
+                    case "id":
+                        dictDatosFilas[column.Name] = idFinal++.ToString();
+                        break;
+                    case "xp":
+                    case "str":
+                    case "dex":
+                    case "con":
+                    case "int":
+                    case "wis":
+                    case "cha":
+                    case "strMod":
+                    case "dexMod":
+                    case "conMod":
+                    case "intMod":
+                    case "wisMod":
+                    case "chaMod":
+                    case "speedRun":
+                    case "speedSwim":
+                    case "speedFly":
+                        dictDatosFilas[column.Name] = 0.ToString();
+                        break;
+                    case "senses":
+                    case "languages":
+                        //dictDatosFilas[column.Name] = new List<string>().ToString();
+                        dictDatosFilas[column.Name] = "[\"Contenido1\",\"Contenido2\"]";
+                        break;
+                    case "traits":
+                    case "actions":
+                    case "legendaryActions":
+                        //dictDatosFilas[column.Name] = new List<Dictionary<string, object>>().ToString();
+                        dictDatosFilas[column.Name] = "[{\"name\":\"Titulo1\",\"text\":\"Texto1\"},{\"name\":\"Titulo2\",\"text\":\"Texto2\"}]";
+                        break;
+                    case "savingThrows":
+                    case "skills":
+                    case "source":
+                        //dictDatosFilas[column.Name] = new Dictionary<string, object>().ToString();
+                        dictDatosFilas[column.Name] = "{\"texto1\":0,\"texto2\":0}";
+                        break;
+                }
+                
+            }
+
+
+            Enemigo enemigo = new Enemigo(idFinal++, "");
+            AgregarInfoEnemigo(enemigo, dictDatosFilas);
+
+            FormStatBlock statBlock = new FormStatBlock((Enemigo)enemigo, mostrarBotonAgregarNuevo, mostrarBotonEditar);
+           
+            /*statBlock.MdiParent = FormContenedor;
+            statBlock.WindowState = FormWindowState.Normal;
+            */
+           
+            statBlock.Show();
+
+        }
+
+        private void AgregarInfoEnemigo(Enemigo enemigo, Dictionary<string, object> dictDatosFilas)
+        {
             enemigo.id = int.Parse((string)dictDatosFilas["id"]);
             enemigo.name = (string)dictDatosFilas["name"];
             enemigo.meta = (string)dictDatosFilas["meta"];
@@ -81,7 +159,7 @@ namespace PrimerParcial.UI
             enemigo.hp = (string)dictDatosFilas["hp"];
 
             enemigo.str = int.Parse((string)dictDatosFilas["str"]);
-            enemigo.dex= int.Parse((string)dictDatosFilas["dex"]);
+            enemigo.dex = int.Parse((string)dictDatosFilas["dex"]);
             enemigo.con = int.Parse((string)dictDatosFilas["con"]);
             enemigo.@int = int.Parse((string)dictDatosFilas["int"]);
             enemigo.wis = int.Parse((string)dictDatosFilas["wis"]);
@@ -135,28 +213,9 @@ namespace PrimerParcial.UI
 
             enemigo.size = (string)dictDatosFilas["size"];
             enemigo.type = (string)dictDatosFilas["type"];
-            enemigo.alignment= (string)dictDatosFilas["alignment"];
+            enemigo.alignment = (string)dictDatosFilas["alignment"];
+            
             enemigo.source = JsonSerializer.Deserialize<Dictionary<string, object>>((string)dictDatosFilas["source"]);
-
-            FormStatBlock statBlock = new FormStatBlock((Enemigo)enemigo);
-
-            /*statBlock.MdiParent = FormContenedor;
-            statBlock.WindowState = FormWindowState.Normal;
-            */
-            statBlock.Show();
-        }
-
-        private void buttonAgregar_Click(object sender, EventArgs e)
-        {
-            int idFinal = dataGridBestiario.Rows.Count;
-            Enemigo enemigo = new Enemigo(idFinal++, "");
-            FormStatBlock statBlock = new FormStatBlock((Enemigo)enemigo);
-
-            /*statBlock.MdiParent = FormContenedor;
-            statBlock.WindowState = FormWindowState.Normal;
-            */
-            statBlock.Show();
-
         }
     }
 }

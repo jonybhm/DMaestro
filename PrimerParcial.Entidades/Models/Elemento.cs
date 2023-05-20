@@ -185,7 +185,7 @@ namespace PrimerParcial.Entidades.Models
             List<Dictionary<string, object>> list = new List<Dictionary<string, object>>();            
 
 
-            string[] parNameText = textBox.Split(new[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] parNameText = textBox.Split(new[] { '-' });
 
             foreach (string par in parNameText)
             {
@@ -195,11 +195,9 @@ namespace PrimerParcial.Entidades.Models
                 {
                     string[] nameText = par.Split('/');
 
-                    if (nameText.Length == 2)
-                    {
-                        dict["name"]  = nameText[0];
-                        dict["text"] = nameText[1];
-                    }
+                    dict["name"]  = nameText[0];
+                    dict["text"] = nameText[1];
+                    
                 }
 
                 list.Add(dict);
@@ -228,7 +226,7 @@ namespace PrimerParcial.Entidades.Models
 
         }
 
-        public static void escibirInfoEnArchivo(object elemento, string nombreArchivo)
+        public static void AgregarInfoEnArchivo(object elemento, string nombreArchivo)
         {
             string ruta = $@"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Json\{nombreArchivo}.json";
             var jsonExistente = LeerInfoArchivo(nombreArchivo);
@@ -236,6 +234,19 @@ namespace PrimerParcial.Entidades.Models
 
             string contenidoNuevo = JsonSerializer.Serialize(jsonExistente, new JsonSerializerOptions { WriteIndented = true});
             File.WriteAllText(ruta,contenidoNuevo);         
+
+        }
+
+        public static void ModificarInfoEnArchivo(Elemento elemento, string nombreArchivo)
+        {
+            string ruta = $@"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Json\{nombreArchivo}.json";
+            var jsonExistente = LeerInfoArchivo(nombreArchivo);
+            int posicionJson = elemento.id;
+            jsonExistente[posicionJson] = elemento;
+
+
+            string contenidoNuevo = JsonSerializer.Serialize(jsonExistente, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(ruta, contenidoNuevo);
 
         }
 

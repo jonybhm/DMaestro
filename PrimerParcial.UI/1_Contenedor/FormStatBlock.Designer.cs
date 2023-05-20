@@ -68,7 +68,7 @@
             textBoxNombre = new TextBox();
             textBoxTipo = new TextBox();
             richTextBoxAccionesLegendarias = new RichTextBox();
-            buttonSave = new Button();
+            buttonAdd = new Button();
             textBoxVelocidadVuelo = new TextBox();
             textBoxVelocidadNado = new TextBox();
             label1 = new Label();
@@ -92,6 +92,7 @@
             label12 = new Label();
             label13 = new Label();
             textBoxId = new TextBox();
+            buttonEdit = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -247,7 +248,6 @@
             pictureBox3.BackColor = Color.Transparent;
             pictureBox3.BackgroundImage = Properties.Resources.separador2;
             pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox3.BorderStyle = BorderStyle.Fixed3D;
             pictureBox3.Location = new Point(4, 289);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(327, 16);
@@ -312,6 +312,7 @@
             // richTextBoxAcciones
             // 
             richTextBoxAcciones.BackColor = Color.FromArgb(37, 41, 48);
+            richTextBoxAcciones.BorderStyle = BorderStyle.None;
             richTextBoxAcciones.ForeColor = SystemColors.Window;
             richTextBoxAcciones.Location = new Point(9, 504);
             richTextBoxAcciones.Name = "richTextBoxAcciones";
@@ -333,133 +334,147 @@
             // textBoxAC
             // 
             textBoxAC.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxAC.BorderStyle = BorderStyle.None;
             textBoxAC.ForeColor = Color.White;
             textBoxAC.Location = new Point(43, 115);
             textBoxAC.Name = "textBoxAC";
-            textBoxAC.Size = new Size(282, 23);
+            textBoxAC.Size = new Size(282, 16);
             textBoxAC.TabIndex = 41;
             // 
             // textBoxHP
             // 
             textBoxHP.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxHP.BorderStyle = BorderStyle.None;
             textBoxHP.ForeColor = Color.White;
             textBoxHP.Location = new Point(43, 144);
             textBoxHP.Name = "textBoxHP";
-            textBoxHP.Size = new Size(284, 23);
+            textBoxHP.Size = new Size(284, 16);
             textBoxHP.TabIndex = 42;
             // 
             // textBoxVelocidadPie
             // 
             textBoxVelocidadPie.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxVelocidadPie.BorderStyle = BorderStyle.None;
             textBoxVelocidadPie.ForeColor = Color.White;
             textBoxVelocidadPie.Location = new Point(108, 173);
             textBoxVelocidadPie.Name = "textBoxVelocidadPie";
-            textBoxVelocidadPie.Size = new Size(35, 23);
+            textBoxVelocidadPie.Size = new Size(35, 16);
             textBoxVelocidadPie.TabIndex = 43;
             // 
             // textBoxFUE
             // 
             textBoxFUE.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxFUE.BorderStyle = BorderStyle.None;
             textBoxFUE.ForeColor = Color.White;
             textBoxFUE.Location = new Point(9, 239);
             textBoxFUE.Name = "textBoxFUE";
-            textBoxFUE.Size = new Size(48, 23);
+            textBoxFUE.Size = new Size(48, 16);
             textBoxFUE.TabIndex = 44;
             textBoxFUE.TextAlign = HorizontalAlignment.Center;
             // 
             // textBoxDES
             // 
             textBoxDES.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxDES.BorderStyle = BorderStyle.None;
             textBoxDES.ForeColor = Color.White;
             textBoxDES.Location = new Point(63, 239);
             textBoxDES.Name = "textBoxDES";
-            textBoxDES.Size = new Size(48, 23);
+            textBoxDES.Size = new Size(48, 16);
             textBoxDES.TabIndex = 45;
             textBoxDES.TextAlign = HorizontalAlignment.Center;
             // 
             // textBoxCON
             // 
             textBoxCON.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxCON.BorderStyle = BorderStyle.None;
             textBoxCON.ForeColor = Color.White;
             textBoxCON.Location = new Point(117, 239);
             textBoxCON.Name = "textBoxCON";
-            textBoxCON.Size = new Size(48, 23);
+            textBoxCON.Size = new Size(48, 16);
             textBoxCON.TabIndex = 46;
             textBoxCON.TextAlign = HorizontalAlignment.Center;
             // 
             // textBoxINT
             // 
             textBoxINT.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxINT.BorderStyle = BorderStyle.None;
             textBoxINT.ForeColor = Color.White;
             textBoxINT.Location = new Point(171, 239);
             textBoxINT.Name = "textBoxINT";
-            textBoxINT.Size = new Size(48, 23);
+            textBoxINT.Size = new Size(48, 16);
             textBoxINT.TabIndex = 47;
             textBoxINT.TextAlign = HorizontalAlignment.Center;
             // 
             // textBoxSAB
             // 
             textBoxSAB.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxSAB.BorderStyle = BorderStyle.None;
             textBoxSAB.ForeColor = Color.White;
             textBoxSAB.Location = new Point(225, 239);
             textBoxSAB.Name = "textBoxSAB";
-            textBoxSAB.Size = new Size(48, 23);
+            textBoxSAB.Size = new Size(48, 16);
             textBoxSAB.TabIndex = 48;
             textBoxSAB.TextAlign = HorizontalAlignment.Center;
             // 
             // textBoxCAR
             // 
             textBoxCAR.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxCAR.BorderStyle = BorderStyle.None;
             textBoxCAR.ForeColor = Color.White;
             textBoxCAR.Location = new Point(279, 239);
             textBoxCAR.Name = "textBoxCAR";
-            textBoxCAR.Size = new Size(48, 23);
+            textBoxCAR.Size = new Size(48, 16);
             textBoxCAR.TabIndex = 49;
             textBoxCAR.TextAlign = HorizontalAlignment.Center;
             // 
             // textBoxDesafio
             // 
             textBoxDesafio.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxDesafio.BorderStyle = BorderStyle.None;
             textBoxDesafio.ForeColor = Color.White;
             textBoxDesafio.Location = new Point(70, 433);
             textBoxDesafio.Name = "textBoxDesafio";
-            textBoxDesafio.Size = new Size(111, 23);
+            textBoxDesafio.Size = new Size(111, 16);
             textBoxDesafio.TabIndex = 51;
             // 
             // textBoxIdiomas
             // 
             textBoxIdiomas.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxIdiomas.BorderStyle = BorderStyle.None;
             textBoxIdiomas.ForeColor = Color.White;
             textBoxIdiomas.Location = new Point(75, 404);
             textBoxIdiomas.Name = "textBoxIdiomas";
-            textBoxIdiomas.Size = new Size(252, 23);
+            textBoxIdiomas.Size = new Size(252, 16);
             textBoxIdiomas.TabIndex = 50;
             // 
             // textBoxSentidos
             // 
             textBoxSentidos.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxSentidos.BorderStyle = BorderStyle.None;
             textBoxSentidos.ForeColor = Color.White;
             textBoxSentidos.Location = new Point(78, 375);
             textBoxSentidos.Name = "textBoxSentidos";
-            textBoxSentidos.Size = new Size(249, 23);
+            textBoxSentidos.Size = new Size(249, 16);
             textBoxSentidos.TabIndex = 55;
             // 
             // textBoxHabilidades
             // 
             textBoxHabilidades.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxHabilidades.BorderStyle = BorderStyle.None;
             textBoxHabilidades.ForeColor = Color.White;
             textBoxHabilidades.Location = new Point(100, 346);
             textBoxHabilidades.Name = "textBoxHabilidades";
-            textBoxHabilidades.Size = new Size(227, 23);
+            textBoxHabilidades.Size = new Size(227, 16);
             textBoxHabilidades.TabIndex = 54;
             // 
             // textBoxSalvacion
             // 
             textBoxSalvacion.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxSalvacion.BorderStyle = BorderStyle.None;
             textBoxSalvacion.ForeColor = Color.White;
             textBoxSalvacion.Location = new Point(134, 317);
             textBoxSalvacion.Name = "textBoxSalvacion";
-            textBoxSalvacion.Size = new Size(193, 23);
+            textBoxSalvacion.Size = new Size(193, 16);
             textBoxSalvacion.TabIndex = 53;
             // 
             // labelSentidos
@@ -476,6 +491,7 @@
             // richTextBoxHabilidades
             // 
             richTextBoxHabilidades.BackColor = Color.FromArgb(37, 41, 48);
+            richTextBoxHabilidades.BorderStyle = BorderStyle.None;
             richTextBoxHabilidades.ForeColor = SystemColors.Window;
             richTextBoxHabilidades.Location = new Point(10, 711);
             richTextBoxHabilidades.Name = "richTextBoxHabilidades";
@@ -486,26 +502,29 @@
             // textBoxNombre
             // 
             textBoxNombre.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxNombre.BorderStyle = BorderStyle.None;
             textBoxNombre.Font = new Font("Universal Serif", 18F, FontStyle.Bold, GraphicsUnit.Point);
             textBoxNombre.ForeColor = Color.White;
             textBoxNombre.Location = new Point(6, 35);
             textBoxNombre.Name = "textBoxNombre";
-            textBoxNombre.Size = new Size(325, 36);
+            textBoxNombre.Size = new Size(325, 29);
             textBoxNombre.TabIndex = 58;
             // 
             // textBoxTipo
             // 
             textBoxTipo.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxTipo.BorderStyle = BorderStyle.None;
             textBoxTipo.Font = new Font("Segoe UI", 9.75F, FontStyle.Italic, GraphicsUnit.Point);
             textBoxTipo.ForeColor = Color.White;
             textBoxTipo.Location = new Point(6, 70);
             textBoxTipo.Name = "textBoxTipo";
-            textBoxTipo.Size = new Size(324, 25);
+            textBoxTipo.Size = new Size(324, 18);
             textBoxTipo.TabIndex = 59;
             // 
             // richTextBoxAccionesLegendarias
             // 
             richTextBoxAccionesLegendarias.BackColor = Color.FromArgb(37, 41, 48);
+            richTextBoxAccionesLegendarias.BorderStyle = BorderStyle.None;
             richTextBoxAccionesLegendarias.ForeColor = SystemColors.Window;
             richTextBoxAccionesLegendarias.Location = new Point(10, 587);
             richTextBoxAccionesLegendarias.Name = "richTextBoxAccionesLegendarias";
@@ -513,41 +532,43 @@
             richTextBoxAccionesLegendarias.TabIndex = 60;
             richTextBoxAccionesLegendarias.Text = "";
             // 
-            // buttonSave
+            // buttonAdd
             // 
-            buttonSave.BackColor = Color.Transparent;
-            buttonSave.BackgroundImage = Properties.Resources.boton2;
-            buttonSave.BackgroundImageLayout = ImageLayout.Zoom;
-            buttonSave.FlatAppearance.BorderSize = 0;
-            buttonSave.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            buttonSave.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            buttonSave.FlatStyle = FlatStyle.Flat;
-            buttonSave.Font = new Font("Universal Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonSave.ForeColor = Color.White;
-            buttonSave.Location = new Point(200, 2);
-            buttonSave.Name = "buttonSave";
-            buttonSave.Size = new Size(153, 34);
-            buttonSave.TabIndex = 61;
-            buttonSave.Text = "Guardar";
-            buttonSave.UseVisualStyleBackColor = false;
-            buttonSave.Click += buttonSave_Click;
+            buttonAdd.BackColor = Color.Transparent;
+            buttonAdd.BackgroundImage = Properties.Resources.boton2;
+            buttonAdd.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonAdd.FlatAppearance.BorderSize = 0;
+            buttonAdd.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            buttonAdd.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            buttonAdd.FlatStyle = FlatStyle.Flat;
+            buttonAdd.Font = new Font("Universal Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonAdd.ForeColor = Color.White;
+            buttonAdd.Location = new Point(87, 2);
+            buttonAdd.Name = "buttonAdd";
+            buttonAdd.Size = new Size(123, 34);
+            buttonAdd.TabIndex = 61;
+            buttonAdd.Text = "Agregar";
+            buttonAdd.UseVisualStyleBackColor = false;
+            buttonAdd.Click += buttonAdd_Click;
             // 
             // textBoxVelocidadVuelo
             // 
             textBoxVelocidadVuelo.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxVelocidadVuelo.BorderStyle = BorderStyle.None;
             textBoxVelocidadVuelo.ForeColor = Color.White;
             textBoxVelocidadVuelo.Location = new Point(201, 173);
             textBoxVelocidadVuelo.Name = "textBoxVelocidadVuelo";
-            textBoxVelocidadVuelo.Size = new Size(35, 23);
+            textBoxVelocidadVuelo.Size = new Size(35, 16);
             textBoxVelocidadVuelo.TabIndex = 62;
             // 
             // textBoxVelocidadNado
             // 
             textBoxVelocidadNado.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxVelocidadNado.BorderStyle = BorderStyle.None;
             textBoxVelocidadNado.ForeColor = Color.White;
             textBoxVelocidadNado.Location = new Point(290, 173);
             textBoxVelocidadNado.Name = "textBoxVelocidadNado";
-            textBoxVelocidadNado.Size = new Size(35, 23);
+            textBoxVelocidadNado.Size = new Size(35, 16);
             textBoxVelocidadNado.TabIndex = 63;
             // 
             // label1
@@ -586,70 +607,77 @@
             // textBoxCARMod
             // 
             textBoxCARMod.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxCARMod.BorderStyle = BorderStyle.None;
             textBoxCARMod.ForeColor = Color.White;
             textBoxCARMod.Location = new Point(291, 264);
             textBoxCARMod.Name = "textBoxCARMod";
-            textBoxCARMod.Size = new Size(23, 23);
+            textBoxCARMod.Size = new Size(23, 16);
             textBoxCARMod.TabIndex = 72;
             textBoxCARMod.TextAlign = HorizontalAlignment.Center;
             // 
             // textBoxSABMod
             // 
             textBoxSABMod.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxSABMod.BorderStyle = BorderStyle.None;
             textBoxSABMod.ForeColor = Color.White;
             textBoxSABMod.Location = new Point(237, 264);
             textBoxSABMod.Name = "textBoxSABMod";
-            textBoxSABMod.Size = new Size(23, 23);
+            textBoxSABMod.Size = new Size(23, 16);
             textBoxSABMod.TabIndex = 71;
             textBoxSABMod.TextAlign = HorizontalAlignment.Center;
             // 
             // textBoxINTMod
             // 
             textBoxINTMod.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxINTMod.BorderStyle = BorderStyle.None;
             textBoxINTMod.ForeColor = Color.White;
             textBoxINTMod.Location = new Point(183, 264);
             textBoxINTMod.Name = "textBoxINTMod";
-            textBoxINTMod.Size = new Size(23, 23);
+            textBoxINTMod.Size = new Size(23, 16);
             textBoxINTMod.TabIndex = 70;
             textBoxINTMod.TextAlign = HorizontalAlignment.Center;
             // 
             // textBoxCONMod
             // 
             textBoxCONMod.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxCONMod.BorderStyle = BorderStyle.None;
             textBoxCONMod.ForeColor = Color.White;
             textBoxCONMod.Location = new Point(129, 264);
             textBoxCONMod.Name = "textBoxCONMod";
-            textBoxCONMod.Size = new Size(23, 23);
+            textBoxCONMod.Size = new Size(23, 16);
             textBoxCONMod.TabIndex = 69;
             textBoxCONMod.TextAlign = HorizontalAlignment.Center;
             // 
             // textBoxDESMod
             // 
             textBoxDESMod.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxDESMod.BorderStyle = BorderStyle.None;
             textBoxDESMod.ForeColor = Color.White;
             textBoxDESMod.Location = new Point(75, 264);
             textBoxDESMod.Name = "textBoxDESMod";
-            textBoxDESMod.Size = new Size(23, 23);
+            textBoxDESMod.Size = new Size(23, 16);
             textBoxDESMod.TabIndex = 68;
             textBoxDESMod.TextAlign = HorizontalAlignment.Center;
             // 
             // textBoxFUEMod
             // 
             textBoxFUEMod.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxFUEMod.BorderStyle = BorderStyle.None;
             textBoxFUEMod.ForeColor = Color.White;
             textBoxFUEMod.Location = new Point(21, 264);
             textBoxFUEMod.Name = "textBoxFUEMod";
-            textBoxFUEMod.Size = new Size(23, 23);
+            textBoxFUEMod.Size = new Size(23, 16);
             textBoxFUEMod.TabIndex = 67;
             textBoxFUEMod.TextAlign = HorizontalAlignment.Center;
             // 
             // textBoxExperiencia
             // 
             textBoxExperiencia.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxExperiencia.BorderStyle = BorderStyle.None;
             textBoxExperiencia.ForeColor = Color.White;
             textBoxExperiencia.Location = new Point(200, 433);
             textBoxExperiencia.Name = "textBoxExperiencia";
-            textBoxExperiencia.Size = new Size(66, 23);
+            textBoxExperiencia.Size = new Size(66, 16);
             textBoxExperiencia.TabIndex = 73;
             // 
             // label4
@@ -765,12 +793,33 @@
             // textBoxId
             // 
             textBoxId.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxId.BorderStyle = BorderStyle.None;
             textBoxId.Font = new Font("Segoe UI", 9.75F, FontStyle.Italic, GraphicsUnit.Point);
             textBoxId.ForeColor = Color.White;
             textBoxId.Location = new Point(6, 7);
             textBoxId.Name = "textBoxId";
-            textBoxId.Size = new Size(51, 25);
+            textBoxId.ReadOnly = true;
+            textBoxId.Size = new Size(51, 18);
             textBoxId.TabIndex = 84;
+            // 
+            // buttonEdit
+            // 
+            buttonEdit.BackColor = Color.Transparent;
+            buttonEdit.BackgroundImage = Properties.Resources.boton2;
+            buttonEdit.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonEdit.FlatAppearance.BorderSize = 0;
+            buttonEdit.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            buttonEdit.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            buttonEdit.FlatStyle = FlatStyle.Flat;
+            buttonEdit.Font = new Font("Universal Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonEdit.ForeColor = Color.White;
+            buttonEdit.Location = new Point(213, 2);
+            buttonEdit.Name = "buttonEdit";
+            buttonEdit.Size = new Size(123, 34);
+            buttonEdit.TabIndex = 85;
+            buttonEdit.Text = "Editar";
+            buttonEdit.UseVisualStyleBackColor = false;
+            buttonEdit.Click += buttonEdit_Click;
             // 
             // FormStatBlock
             // 
@@ -778,6 +827,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(37, 41, 48);
             ClientSize = new Size(352, 877);
+            Controls.Add(buttonEdit);
             Controls.Add(textBoxId);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -794,7 +844,7 @@
             Controls.Add(label1);
             Controls.Add(textBoxVelocidadNado);
             Controls.Add(textBoxVelocidadVuelo);
-            Controls.Add(buttonSave);
+            Controls.Add(buttonAdd);
             Controls.Add(richTextBoxAccionesLegendarias);
             Controls.Add(textBoxTipo);
             Controls.Add(textBoxNombre);
@@ -902,7 +952,7 @@
         private Button buttonGuardar;
         private Button button1;
         private RichTextBox richTextBoxAccionesLegendarias;
-        private Button buttonSave;
+        private Button buttonAdd;
         private TextBox textBoxVelocidadVuelo;
         private TextBox textBoxVelocidadNado;
         private Label label1;
@@ -926,5 +976,6 @@
         private Label label12;
         private Label label13;
         private TextBox textBoxId;
+        private Button buttonEdit;
     }
 }

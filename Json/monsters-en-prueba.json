@@ -20721,73 +20721,6 @@
     }
   },
   {
-    "meta": "Large aberration, lawful evil",
-    "challenge": "10",
-    "xp": 5900,
-    "ac": "17 (Natural Armor)",
-    "hp": "135 (18d10 \u002B 36)",
-    "str": 21,
-    "dex": 9,
-    "con": 15,
-    "int": 18,
-    "wis": 15,
-    "cha": 18,
-    "strMod": 5,
-    "dexMod": -1,
-    "conMod": 2,
-    "intMod": 4,
-    "wisMod": 2,
-    "chaMod": 4,
-    "speedRun": 10,
-    "speedSwim": 40,
-    "speedFly": 0,
-    "senses": [
-      "Darkvision 120 ft.",
-      "Passive Perception 20"
-    ],
-    "languages": [
-      "Deep Speech",
-      "Telepathy 120 ft."
-    ],
-    "traits": [
-      {},
-      {},
-      {},
-      {}
-    ],
-    "actions": [
-      {},
-      {},
-      {},
-      {},
-      {},
-      {}
-    ],
-    "legendaryActions": [
-      {},
-      {},
-      {},
-      {},
-      {}
-    ],
-    "savingThrows": {
-      "con": 6,
-      "int": 8,
-      "wis": 6
-    },
-    "skills": {
-      "history": 12,
-      "perception": 10
-    },
-    "size": "large",
-    "type": "aberration",
-    "alignment": "le",
-    "source": {
-      "name": "SRD under the CC-BY-4.0 License",
-      "link": "https://www.dndbeyond.com/attachments/39j2li89/SRD5.1-CCBY4.0License.pdf"
-    }
-  },
-  {
     "meta": "Medium undead, neutral evil",
     "challenge": "1/4",
     "xp": 50,
@@ -20836,6 +20769,327 @@
       "link": "https://www.dndbeyond.com/attachments/39j2li89/SRD5.1-CCBY4.0License.pdf"
     },
     "id": 327,
-    "name": "Zombie prueba"
+    "name": "Zombie PRUEBA PERo"
+  },
+  {
+    "meta": "prueba",
+    "challenge": "8",
+    "xp": 2500,
+    "ac": "15",
+    "hp": "120",
+    "str": 15,
+    "dex": 12,
+    "con": 10,
+    "int": 10,
+    "wis": 10,
+    "cha": 10,
+    "strMod": 3,
+    "dexMod": 1,
+    "conMod": 0,
+    "intMod": 0,
+    "wisMod": 0,
+    "chaMod": 0,
+    "speedRun": 10,
+    "speedSwim": 0,
+    "speedFly": 0,
+    "senses": [],
+    "languages": [
+      "Common"
+    ],
+    "traits": [
+      {},
+      {}
+    ],
+    "actions": [
+      {},
+      {}
+    ],
+    "legendaryActions": [
+      {},
+      {}
+    ],
+    "savingThrows": {
+      "dex": 0
+    },
+    "skills": {
+      "persuasion": 0
+    },
+    "size": "",
+    "type": "",
+    "alignment": "",
+    "source": {
+      "": 0
+    },
+    "id": 328,
+    "name": "Monstruo Prueba"
+  },
+  {
+    "meta": "Contenido provisorio",
+    "challenge": "Contenido provisorio",
+    "xp": 0,
+    "ac": "Contenido provisorio",
+    "hp": "Contenido provisorio",
+    "str": 0,
+    "dex": 0,
+    "con": 0,
+    "int": 0,
+    "wis": 0,
+    "cha": 0,
+    "strMod": 0,
+    "dexMod": 0,
+    "conMod": 0,
+    "intMod": 0,
+    "wisMod": 0,
+    "chaMod": 0,
+    "speedRun": 0,
+    "speedSwim": 0,
+    "speedFly": 0,
+    "senses": [
+      "Contenido1",
+      "Contenido2"
+    ],
+    "languages": [
+      "Contenido1",
+      "Contenido2"
+    ],
+    "traits": [
+      {},
+      {},
+      {}
+    ],
+    "actions": [
+      {},
+      {},
+      {}
+    ],
+    "legendaryActions": [
+      {},
+      {},
+      {}
+    ],
+    "savingThrows": {
+      "texto1": 0,
+      "texto2": 0
+    },
+    "skills": {
+      "texto1": 0,
+      "texto2": 0
+    },
+    "size": "Contenido provisorio",
+    "type": "Contenido provisorio",
+    "alignment": "Contenido provisorio",
+    "source": {
+      "texto1": 0,
+      "texto2": 0
+    },
+    "id": 329,
+    "name": "Contenido provisorio"
+  },
+  {
+    "meta": "Contenido provisorio",
+    "challenge": "Contenido provisorio",
+    "xp": 0,
+    "ac": "Contenido provisorio",
+    "hp": "Contenido provisorio",
+    "str": 0,
+    "dex": 0,
+    "con": 0,
+    "int": 0,
+    "wis": 0,
+    "cha": 0,
+    "strMod": 0,
+    "dexMod": 0,
+    "conMod": 0,
+    "intMod": 0,
+    "wisMod": 0,
+    "chaMod": 0,
+    "speedRun": 0,
+    "speedSwim": 0,
+    "speedFly": 0,
+    "senses": [
+      "Contenido1",
+      "Contenido2"
+    ],
+    "languages": [
+      "Contenido1",
+      "Contenido2"
+    ],
+    "traits": [
+      {},
+      {},
+      {}
+    ],
+    "actions": [
+      {},
+      {},
+      {}
+    ],
+    "legendaryActions": [
+      {},
+      {},
+      {}
+    ],
+    "savingThrows": {
+      "texto1": 0,
+      "texto2": 0
+    },
+    "skills": {
+      "texto1": 0,
+      "texto2": 0
+    },
+    "size": "Contenido provisorio",
+    "type": "Contenido provisorio",
+    "alignment": "Contenido provisorio",
+    "source": {
+      "texto1": 0,
+      "texto2": 0
+    },
+    "id": 330,
+    "name": "Contenido provisorio"
+  },
+  {
+    "meta": "Contenido provisorio",
+    "challenge": "Contenido provisorio",
+    "xp": 0,
+    "ac": "Contenido provisorio",
+    "hp": "Contenido provisorio",
+    "str": 0,
+    "dex": 0,
+    "con": 0,
+    "int": 0,
+    "wis": 0,
+    "cha": 0,
+    "strMod": 0,
+    "dexMod": 0,
+    "conMod": 0,
+    "intMod": 0,
+    "wisMod": 0,
+    "chaMod": 0,
+    "speedRun": 0,
+    "speedSwim": 0,
+    "speedFly": 0,
+    "senses": [
+      "Contenido1",
+      "Contenido2"
+    ],
+    "languages": [
+      "Contenido1",
+      "Contenido2"
+    ],
+    "traits": [
+      {},
+      {},
+      {}
+    ],
+    "actions": [
+      {},
+      {},
+      {}
+    ],
+    "legendaryActions": [
+      {},
+      {},
+      {}
+    ],
+    "savingThrows": {
+      "texto1": 0,
+      "texto2": 0
+    },
+    "skills": {
+      "texto1": 0,
+      "texto2": 0
+    },
+    "size": "Contenido provisorio",
+    "type": "Contenido provisorio",
+    "alignment": "Contenido provisorio",
+    "source": {
+      "texto1": 0,
+      "texto2": 0
+    },
+    "id": 331,
+    "name": "Contenido provisorio"
+  },
+  {
+    "meta": "Contenido provisorio",
+    "challenge": "Contenido provisorio",
+    "xp": 0,
+    "ac": "Contenido provisorio",
+    "hp": "Contenido provisorio",
+    "str": 0,
+    "dex": 0,
+    "con": 0,
+    "int": 0,
+    "wis": 0,
+    "cha": 0,
+    "strMod": 0,
+    "dexMod": 0,
+    "conMod": 0,
+    "intMod": 0,
+    "wisMod": 0,
+    "chaMod": 0,
+    "speedRun": 0,
+    "speedSwim": 0,
+    "speedFly": 0,
+    "senses": [
+      "Contenido1",
+      "Contenido2"
+    ],
+    "languages": [
+      "Contenido1",
+      "Contenido2"
+    ],
+    "traits": [
+      {
+        "name": "Titulo1",
+        "text": "\n\nTexto1"
+      },
+      {
+        "name": "\n\nTitulo2",
+        "text": "\n\nTexto2"
+      },
+      {},
+      {}
+    ],
+    "actions": [
+      {
+        "name": "Titulo1",
+        "text": "\n\nTexto1"
+      },
+      {
+        "name": "\n\nTitulo2",
+        "text": "\n\nTexto2"
+      },
+      {},
+      {}
+    ],
+    "legendaryActions": [
+      {
+        "name": "Titulo1",
+        "text": "\n\nTexto1"
+      },
+      {
+        "name": "\n\nTitulo2",
+        "text": "\n\nTexto2"
+      },
+      {},
+      {}
+    ],
+    "savingThrows": {
+      "texto1": 0,
+      "texto2": 0
+    },
+    "skills": {
+      "texto1": 0,
+      "texto2": 0
+    },
+    "size": "Contenido provisorio",
+    "type": "Contenido provisorio",
+    "alignment": "Contenido provisorio",
+    "source": {
+      "texto1": 0,
+      "texto2": 0
+    },
+    "id": 332,
+    "name": "final"
   }
 ]
