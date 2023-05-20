@@ -9,6 +9,7 @@
     "cost": 1000,
     "weight": 10,
     "classification": "Light Armor",
+    "stealth": "",
     "damage": "",
     "damageType": "",
     "properties": [],
@@ -43,6 +44,7 @@
     "rarity": "Common",
     "cost": 4500,
     "weight": 13,
+    "properties": [],
     "classification": "Light Armor",
     "source": {
       "name": "SRD under the CC-BY-4.0 License",
@@ -58,6 +60,7 @@
     "rarity": "Common",
     "cost": 40000,
     "weight": 20,
+    "properties": [],
     "classification": "Medium Armor",
     "source": {
       "name": "SRD under the CC-BY-4.0 License",
@@ -73,6 +76,7 @@
     "rarity": "Common",
     "cost": 5000,
     "weight": 20,
+    "properties": [],
     "classification": "Medium Armor",
     "source": {
       "name": "SRD under the CC-BY-4.0 License",
@@ -89,6 +93,7 @@
     "rarity": "Common",
     "cost": 75000,
     "weight": 40,
+    "properties": [],
     "classification": "Medium Armor",
     "source": {
       "name": "SRD under the CC-BY-4.0 License",
@@ -104,6 +109,7 @@
     "rarity": "Common",
     "cost": 1000,
     "weight": 12,
+    "properties": [],
     "classification": "Medium Armor",
     "source": {
       "name": "SRD under the CC-BY-4.0 License",
@@ -120,6 +126,7 @@
     "rarity": "Common",
     "cost": 5000,
     "weight": 45,
+    "properties": [],
     "classification": "Medium Armor",
     "source": {
       "name": "SRD under the CC-BY-4.0 License",
@@ -137,6 +144,7 @@
     "rarity": "Common",
     "cost": 7500,
     "weight": 55,
+    "properties": [],
     "classification": "Heavy Armor",
     "source": {
       "name": "SRD under the CC-BY-4.0 License",
@@ -154,6 +162,7 @@
     "rarity": "Rare",
     "cost": 150000,
     "weight": 65,
+    "properties": [],
     "classification": "Heavy Armor",
     "source": {
       "name": "SRD under the CC-BY-4.0 License",
@@ -170,6 +179,7 @@
     "rarity": "Common",
     "cost": 3000,
     "weight": 40,
+    "properties": [],
     "classification": "Heavy Armor",
     "source": {
       "name": "SRD under the CC-BY-4.0 License",
@@ -187,6 +197,7 @@
     "rarity": "Uncommon",
     "cost": 20000,
     "weight": 60,
+    "properties": [],
     "classification": "Heavy Armor",
     "source": {
       "name": "SRD under the CC-BY-4.0 License",
@@ -202,6 +213,7 @@
     "rarity": "Common",
     "cost": 1000,
     "weight": 6,
+    "properties": [],
     "classification": "Shield",
     "source": {
       "name": "SRD under the CC-BY-4.0 License",
@@ -306,6 +318,7 @@
   },
   {
     "id": 20,
+    "properties": [],
     "name": "Mace",
     "category": "Weapon",
     "damage": "1d6",
@@ -457,6 +470,7 @@
     "cost": 1000,
     "weight": 2,
     "classification": "Martial Melee Weapons",
+    "properties": [],
     "source": {
       "name": "SRD under the CC-BY-4.0 License",
       "link": "https://www.dndbeyond.com/attachments/39j2li89/SRD5.1-CCBY4.0License.pdf"
@@ -584,6 +598,7 @@
     "cost": 1500,
     "weight": 4,
     "classification": "Martial Melee Weapons",
+    "properties": [],
     "source": {
       "name": "SRD under the CC-BY-4.0 License",
       "link": "https://www.dndbeyond.com/attachments/39j2li89/SRD5.1-CCBY4.0License.pdf"
@@ -679,6 +694,7 @@
     "cost": 500,
     "weight": 2,
     "classification": "Martial Melee Weapons",
+    "properties": [],
     "source": {
       "name": "SRD under the CC-BY-4.0 License",
       "link": "https://www.dndbeyond.com/attachments/39j2li89/SRD5.1-CCBY4.0License.pdf"
@@ -810,6 +826,7 @@
     "rarity": "Common",
     "cost": 100,
     "weight": 1,
+    "properties": [],
     "source": {
       "name": "SRD under the CC-BY-4.0 License",
       "link": "https://www.dndbeyond.com/attachments/39j2li89/SRD5.1-CCBY4.0License.pdf"
@@ -822,6 +839,7 @@
     "rarity": "Common",
     "cost": 100,
     "weight": 1,
+    "properties": [],
     "source": {
       "name": "SRD under the CC-BY-4.0 License",
       "link": "https://www.dndbeyond.com/attachments/39j2li89/SRD5.1-CCBY4.0License.pdf"
@@ -834,6 +852,7 @@
     "rarity": "Common",
     "cost": 100,
     "weight": 1.5,
+    "properties": [],
     "source": {
       "name": "SRD under the CC-BY-4.0 License",
       "link": "https://www.dndbeyond.com/attachments/39j2li89/SRD5.1-CCBY4.0License.pdf"
@@ -846,6 +865,7 @@
     "rarity": "Common",
     "cost": 4,
     "weight": 2.5,
+    "properties": [],
     "source": {
       "name": "SRD under the CC-BY-4.0 License",
       "link": "https://www.dndbeyond.com/attachments/39j2li89/SRD5.1-CCBY4.0License.pdf"

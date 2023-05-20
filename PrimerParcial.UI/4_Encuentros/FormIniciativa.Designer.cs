@@ -49,7 +49,7 @@
             dataGridSeguidorIniciativa.AllowUserToOrderColumns = true;
             dataGridSeguidorIniciativa.AllowUserToResizeColumns = false;
             dataGridSeguidorIniciativa.AllowUserToResizeRows = false;
-            dataGridSeguidorIniciativa.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridSeguidorIniciativa.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridSeguidorIniciativa.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridSeguidorIniciativa.BackgroundColor = Color.FromArgb(37, 41, 48);
             dataGridSeguidorIniciativa.BorderStyle = BorderStyle.None;

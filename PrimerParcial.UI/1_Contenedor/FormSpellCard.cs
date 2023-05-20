@@ -20,6 +20,8 @@ namespace PrimerParcial.UI._1_Contenedor
         {
             InitializeComponent();
             this.datosFilaHechizos = datosFilaHechizos;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
         }
 
         private void FormSpellCard_Load(object sender, EventArgs e)
@@ -29,14 +31,18 @@ namespace PrimerParcial.UI._1_Contenedor
             textBoxTiempo.Text = datosFilaHechizos["casting_time"];
             textBoxRango.Text = datosFilaHechizos["range"];
             textBoxDuracion.Text = datosFilaHechizos["duration"];
-            richTextBoxDescripcion.Text = datosFilaHechizos["description"];
-            try
+            richTextBoxDescripcion.Text += datosFilaHechizos["description"];
+            richTextBoxDescripcion.Text += "\n" + " - " + datosFilaHechizos["school"];
+
+            if (!string.IsNullOrWhiteSpace(datosFilaHechizos["higher_levels"]))
             {
-                Dictionary<string, object> dict = Archivos.deserializarJsonStringADictionary(datosFilaHechizos["components"]);
-                textBoxComponentes.Text = dict["raw"].ToString();
+                richTextBoxDescripcion.Text += "\n" + " - " + "A niveles superiores: " + datosFilaHechizos["higher_levels"];
             }
-            catch (Exception ex)
+
+            if (!string.IsNullOrWhiteSpace(datosFilaHechizos["components"]))
             {
+                Dictionary<string, object> dict = Elemento.deserializarJsonStringADictionary(datosFilaHechizos["components"]);
+                textBoxComponentes.Text = dict["raw"].ToString();
             }
         }
     }

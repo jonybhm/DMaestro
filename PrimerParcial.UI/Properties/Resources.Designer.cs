@@ -323,6 +323,16 @@ namespace PrimerParcial.UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap d206 {
+            get {
+                object obj = ResourceManager.GetObject("d206", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap d4 {
             get {
                 object obj = ResourceManager.GetObject("d4", resourceCulture);

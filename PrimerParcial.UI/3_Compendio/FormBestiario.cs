@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,13 +19,14 @@ namespace PrimerParcial.UI
         public FormBestiario()
         {
             InitializeComponent();
+
         }
 
         private void dataGridBestiario_Actualizar(List<object> ListaDiccionarios)
         {
             dataGridBestiario.DataSource = null;
 
-            var bestiario = Archivos.ArmarTablaParaDataGrid(ListaDiccionarios);
+            var bestiario = Elemento.ArmarTablaParaDataGrid(ListaDiccionarios);
 
             dataGridBestiario.DataSource = bestiario;
         }
@@ -45,34 +47,116 @@ namespace PrimerParcial.UI
 
         private void FormBestiario_Load(object sender, EventArgs e)
         {
-            dataGridBestiario_Actualizar(Archivos.LeerInfoEnemigos());
+            dataGridBestiario_Actualizar(Elemento.LeerInfoArchivo("monsters-en-prueba"));
         }
 
         private void dataGridBestiario_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void buttonMostrar_Click(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = dataGridBestiario.SelectedRows[0];
-            Dictionary<string, string> dictDatosFilas = new Dictionary<string, string>();
-            
+            Dictionary<string, object> dictDatosFilas = new Dictionary<string, object>();
+
+
             for (int i = 0; i < selectedRow.Cells.Count; i++)
             {
-            string datosCelda = selectedRow.Cells[i].Value.ToString();
-            string nombreColumna = dataGridBestiario.Columns[i].HeaderText;
-                    
-            dictDatosFilas.Add(nombreColumna, datosCelda);
+                var datosCelda = selectedRow.Cells[i].Value;
+                string nombreColumna = dataGridBestiario.Columns[i].HeaderText;
 
+                dictDatosFilas.Add(nombreColumna, datosCelda);
             }
 
-            FormStatBlock statBlock = new FormStatBlock(dictDatosFilas);
+
+            Enemigo enemigo = new Enemigo(0, "");
             
+            enemigo.id = int.Parse((string)dictDatosFilas["id"]);
+            enemigo.name = (string)dictDatosFilas["name"];
+            enemigo.meta = (string)dictDatosFilas["meta"];
+            enemigo.challenge = (string)dictDatosFilas["challenge"];
+            enemigo.xp = int.Parse((string)dictDatosFilas["xp"]);
+            enemigo.ac = (string)dictDatosFilas["ac"];
+            enemigo.hp = (string)dictDatosFilas["hp"];
+
+            enemigo.str = int.Parse((string)dictDatosFilas["str"]);
+            enemigo.dex= int.Parse((string)dictDatosFilas["dex"]);
+            enemigo.con = int.Parse((string)dictDatosFilas["con"]);
+            enemigo.@int = int.Parse((string)dictDatosFilas["int"]);
+            enemigo.wis = int.Parse((string)dictDatosFilas["wis"]);
+            enemigo.cha = int.Parse((string)dictDatosFilas["cha"]);
+            enemigo.strMod = int.Parse((string)dictDatosFilas["strMod"]);
+            enemigo.dexMod = int.Parse((string)dictDatosFilas["dexMod"]);
+            enemigo.conMod = int.Parse((string)dictDatosFilas["conMod"]);
+            enemigo.intMod = int.Parse((string)dictDatosFilas["intMod"]);
+            enemigo.wisMod = int.Parse((string)dictDatosFilas["wisMod"]);
+            enemigo.chaMod = int.Parse((string)dictDatosFilas["chaMod"]);
+            enemigo.speedRun = int.Parse((string)dictDatosFilas["speedRun"]);
+            if (!string.IsNullOrEmpty((string)dictDatosFilas["speedSwim"]))
+            {
+                enemigo.speedSwim = int.Parse((string)dictDatosFilas["speedSwim"]);
+            }
+            if (!string.IsNullOrEmpty((string)dictDatosFilas["speedFly"]))
+            {
+                enemigo.speedFly = int.Parse((string)dictDatosFilas["speedFly"]);
+            }
+
+
+            enemigo.senses = JsonSerializer.Deserialize<List<string>>((string)dictDatosFilas["senses"]);
+            enemigo.languages = JsonSerializer.Deserialize<List<string>>((string)dictDatosFilas["languages"]);
+            enemigo.traits = JsonSerializer.Deserialize<List<Dictionary<string, object>>>((string)dictDatosFilas["traits"]);
+            enemigo.actions = JsonSerializer.Deserialize<List<Dictionary<string, object>>>((string)dictDatosFilas["actions"]);
+            if (!string.IsNullOrEmpty((string)dictDatosFilas["savingThrows"]))
+            {
+                enemigo.savingThrows = JsonSerializer.Deserialize<Dictionary<string, object>>((string)dictDatosFilas["savingThrows"]);
+            }
+            else
+            {
+                enemigo.savingThrows = new Dictionary<string, object>();
+            }
+
+            if (!string.IsNullOrEmpty((string)dictDatosFilas["skills"]))
+            {
+                enemigo.skills = JsonSerializer.Deserialize<Dictionary<string, object>>((string)dictDatosFilas["skills"]);
+            }
+            else
+            {
+                enemigo.skills = new Dictionary<string, object>();
+            }
+            if (!string.IsNullOrEmpty((string)dictDatosFilas["legendaryActions"]))
+            {
+                enemigo.legendaryActions = JsonSerializer.Deserialize<List<Dictionary<string, object>>>((string)dictDatosFilas["legendaryActions"]);
+            }
+            else
+            {
+                enemigo.legendaryActions = new List<Dictionary<string, object>>();
+            }
+
+            enemigo.size = (string)dictDatosFilas["size"];
+            enemigo.type = (string)dictDatosFilas["type"];
+            enemigo.alignment= (string)dictDatosFilas["alignment"];
+            enemigo.source = JsonSerializer.Deserialize<Dictionary<string, object>>((string)dictDatosFilas["source"]);
+
+            FormStatBlock statBlock = new FormStatBlock((Enemigo)enemigo);
+
             /*statBlock.MdiParent = FormContenedor;
             statBlock.WindowState = FormWindowState.Normal;
             */
             statBlock.Show();
+        }
+
+        private void buttonAgregar_Click(object sender, EventArgs e)
+        {
+            int idFinal = dataGridBestiario.Rows.Count;
+            Enemigo enemigo = new Enemigo(idFinal++, "");
+            FormStatBlock statBlock = new FormStatBlock((Enemigo)enemigo);
+
+            /*statBlock.MdiParent = FormContenedor;
+            statBlock.WindowState = FormWindowState.Normal;
+            */
+            statBlock.Show();
+
         }
     }
 }

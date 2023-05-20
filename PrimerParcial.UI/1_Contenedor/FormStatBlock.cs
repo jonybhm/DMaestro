@@ -16,47 +16,99 @@ namespace PrimerParcial.UI._1_Contenedor
 {
     public partial class FormStatBlock : Form
     {
-        private Dictionary<string, string> datosFilaBestiario;
-        public FormStatBlock(Dictionary<string, string> datosFilaBestiario)
+        private Enemigo datosEnemigo;
+        public FormStatBlock(Enemigo datosEnemigo)
         {
             InitializeComponent();
-            this.datosFilaBestiario = datosFilaBestiario;
+            this.datosEnemigo = datosEnemigo;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
         }
 
         private void FormStatBlock_Load(object sender, EventArgs e)
         {
-            textBoxNombre.Text = datosFilaBestiario["name"];
-            textBoxTipo.Text = datosFilaBestiario["meta"];
-            textBoxAC.Text = datosFilaBestiario["ac"];
-            textBoxHP.Text = datosFilaBestiario["hp"];
-            try
-            {
-                textBoxVelocidad.Text = datosFilaBestiario["speedRun"] + datosFilaBestiario["speedSwim"] + datosFilaBestiario["speedFly"];
-            }
-            catch (Exception ex)
-            {
-            }
-            textBoxFUE.Text = datosFilaBestiario["str"] + " (+" + datosFilaBestiario["strMod"] + ")";
-            textBoxDES.Text = datosFilaBestiario["dex"] + " (+" + datosFilaBestiario["dexMod"] + ")";
-            textBoxINT.Text = datosFilaBestiario["int"] + " (+" + datosFilaBestiario["intMod"] + ")";
-            textBoxCON.Text = datosFilaBestiario["con"] + " (+" + datosFilaBestiario["conMod"] + ")";
-            textBoxCAR.Text = datosFilaBestiario["cha"] + " (+" + datosFilaBestiario["chaMod"] + ")";
-            textBoxSAB.Text = datosFilaBestiario["wis"] + " (+" + datosFilaBestiario["wisMod"] + ")";
-            try
-            {
-                textBoxSalvacion.Text = Archivos.generarStringDesdeDict(Archivos.deserializarJsonStringADictionary(datosFilaBestiario["savingThrows"]));
-                textBoxHabilidades.Text = Archivos.generarStringDesdeDict(Archivos.deserializarJsonStringADictionary(datosFilaBestiario["skills"]));
-                textBoxSentidos.Text = Archivos.generarStringDesdeList(Archivos.deserializarJsonStringAList(datosFilaBestiario["senses"]));
-                textBoxIdiomas.Text = Archivos.generarStringDesdeList(Archivos.deserializarJsonStringAList(datosFilaBestiario["languages"]));
-                textBoxDesafio.Text = datosFilaBestiario["challenge"] + " (+" + datosFilaBestiario["xp"] + " XP)";
-                richTextBoxHabilidades.Text = Archivos.generarStringDesdeListDos(datosFilaBestiario["traits"]);
-                richTextBoxAcciones.Text = Archivos.generarStringDesdeListDos(datosFilaBestiario["actions"]);
-                richTextBoxAcciones.Text = Archivos.generarStringDesdeListDos(datosFilaBestiario["legendaryActions"]);
-            }
-            catch (Exception ex)
-            {
-            }
-        }      
+            textBoxId.Text = datosEnemigo.id.ToString();
+            textBoxNombre.Text = datosEnemigo.name;
+            textBoxTipo.Text = datosEnemigo.meta;
+            textBoxAC.Text = datosEnemigo.ac;
+            textBoxHP.Text = datosEnemigo.hp;
 
+            textBoxVelocidadPie.Text = datosEnemigo.speedRun.ToString();
+            textBoxVelocidadVuelo.Text = datosEnemigo.speedFly.ToString();
+            textBoxVelocidadNado.Text = datosEnemigo.speedSwim.ToString();
+
+            textBoxFUE.Text = datosEnemigo.str.ToString();
+            textBoxDES.Text = datosEnemigo.dex.ToString();
+            textBoxINT.Text = datosEnemigo.@int.ToString();
+            textBoxCON.Text = datosEnemigo.con.ToString();
+            textBoxCAR.Text = datosEnemigo.cha.ToString();
+            textBoxSAB.Text = datosEnemigo.wis.ToString();
+
+            textBoxFUEMod.Text = datosEnemigo.strMod.ToString();
+            textBoxDESMod.Text = datosEnemigo.dexMod.ToString();
+            textBoxINTMod.Text = datosEnemigo.intMod.ToString();
+            textBoxCONMod.Text = datosEnemigo.conMod.ToString();
+            textBoxCARMod.Text = datosEnemigo.chaMod.ToString();
+            textBoxSABMod.Text = datosEnemigo.wisMod.ToString();
+
+            textBoxSalvacion.Text = Elemento.generarStringDesdeDict(datosEnemigo.savingThrows);
+            if(datosEnemigo.skills.Count > 0)
+            {
+                textBoxHabilidades.Text = Elemento.generarStringDesdeDict(datosEnemigo.skills);
+            }
+            textBoxSentidos.Text = Elemento.generarStringDesdeList(datosEnemigo.senses);
+            textBoxIdiomas.Text = Elemento.generarStringDesdeList(datosEnemigo.languages);
+
+            textBoxDesafio.Text = datosEnemigo.challenge;
+            textBoxExperiencia.Text = datosEnemigo.xp.ToString();
+
+            richTextBoxHabilidades.Text = Elemento.generarStringDesdeListDict(datosEnemigo.traits);
+            richTextBoxAcciones.Text = Elemento.generarStringDesdeListDict(datosEnemigo.actions);
+            if(datosEnemigo.legendaryActions.Count > 0)
+            {
+                richTextBoxAccionesLegendarias.Text = Elemento.generarStringDesdeListDict(datosEnemigo.legendaryActions);
+            }
+
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            datosEnemigo.name = textBoxNombre.Text;
+            datosEnemigo.meta = textBoxTipo.Text;
+            datosEnemigo.ac = textBoxAC.Text;
+            datosEnemigo.hp = textBoxHP.Text;
+
+            datosEnemigo.speedRun = int.Parse(textBoxVelocidadPie.Text);
+            datosEnemigo.speedFly = int.Parse(textBoxVelocidadVuelo.Text);
+            datosEnemigo.speedSwim = int.Parse(textBoxVelocidadNado.Text);
+
+            datosEnemigo.str = int.Parse(textBoxFUE.Text);
+            datosEnemigo.dex = int.Parse(textBoxDES.Text);
+            datosEnemigo.@int = int.Parse(textBoxINT.Text);
+            datosEnemigo.con = int.Parse(textBoxCON.Text);
+            datosEnemigo.cha = int.Parse(textBoxCAR.Text);
+            datosEnemigo.wis = int.Parse(textBoxSAB.Text);
+
+            datosEnemigo.strMod = int.Parse(textBoxFUEMod.Text);
+            datosEnemigo.dexMod = int.Parse(textBoxDESMod.Text);
+            datosEnemigo.intMod = int.Parse(textBoxINTMod.Text);
+            datosEnemigo.conMod = int.Parse(textBoxCONMod.Text);
+            datosEnemigo.chaMod = int.Parse(textBoxCARMod.Text);
+            datosEnemigo.wisMod = int.Parse(textBoxSABMod.Text);
+
+            datosEnemigo.savingThrows = Elemento.generarDictDesdeString(textBoxSalvacion.Text);
+            datosEnemigo.skills = Elemento.generarDictDesdeString(textBoxHabilidades.Text);
+            datosEnemigo.senses = Elemento.generarListDesdeString(textBoxSentidos.Text);
+            datosEnemigo.languages = Elemento.generarListDesdeString(textBoxIdiomas.Text);
+
+            datosEnemigo.challenge = textBoxDesafio.Text;
+            datosEnemigo.xp = int.Parse(textBoxExperiencia.Text);
+
+            datosEnemigo.traits = Elemento.generarListDeDictDesdeString(richTextBoxHabilidades.Text);
+            datosEnemigo.actions = Elemento.generarListDeDictDesdeString(richTextBoxAcciones.Text);
+            datosEnemigo.legendaryActions = Elemento.generarListDeDictDesdeString(richTextBoxAccionesLegendarias.Text);
+
+            Elemento.escibirInfoEnArchivo(datosEnemigo, "monsters-en-prueba");
+        }
     }
 }

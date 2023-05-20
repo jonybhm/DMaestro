@@ -1,0 +1,71 @@
+
+[
+	{
+		"id":0,
+		"titulo":"Calaveras y Orquitos",
+		"lugar":"Nivia",
+		"imagen_url":"https://cdn.vox-cdn.com/thumbor/mO_a8Y2vaxq9KkBHpkUKn05VAy4=/0x0:2048x1488/1200x800/filters:focal(858x439:1184x765)/cdn.vox-cdn.com/uploads/chorus_image/image/70744372/Party_Art.6.jpg",
+		"personajes":		
+		[
+			{
+				"nombre":"Sun",
+				"nivel":7,
+				"clase":"Monje",
+				"hp":54,
+				"ac":15
+			},
+			{
+				"nombre":"Xonan",
+				"nivel":7,
+				"clase":"Druida",
+				"hp":45,
+				"ac":13
+			}
+		],
+		"aventuras":
+		[
+			{
+				"titulo":"Viaje a Tybra",
+				"nivel":3,
+				"npcs":["Erik","Cervezanegra"],
+				"notas":"Los personajes viajan a tybra"
+			}
+		],
+		"combates":
+		[
+			{
+				"id":0,
+				"nivel":0,
+				"cr":"",
+				"enemigos":
+				[
+					{
+						"enemigo":"Wererat",
+						"cantidad":"5",
+						"ac":15,
+						"hp":10
+					}
+				]
+			}
+		],
+		"encuentros":
+		[
+			{
+				"titulo":"",
+				"contenido":"",
+				"puzzles":""
+			}
+		],
+		"tesoros":
+		[
+			{
+				"nombre":"bag of holding",
+				"descripcion":"",
+				"cantidad":1,
+				"costo":1000
+			}
+		],
+		"notas":""
+	}
+
+]

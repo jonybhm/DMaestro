@@ -1,5 +1,6 @@
 ﻿using PrimerParcial.Entidades.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,30 +19,44 @@ namespace PrimerParcial.UI._1_Contenedor
         {
             InitializeComponent();
             this.datosFilaItems = datosFilaItems;
-
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
         }
 
         private void FormItemCard_Load(object sender, EventArgs e)
         {
+            
+                    
             textBoxNombre.Text = datosFilaItems["name"];
             textBoxCategoria.Text = datosFilaItems["category"];
             textBoxCosto.Text = datosFilaItems["cost"];
             textBoxRareza.Text = datosFilaItems["rarity"];
             richTextBoxDescripcion.Text += datosFilaItems["description"];
-            try
+            if(!string.IsNullOrWhiteSpace(datosFilaItems["properties"]))
             {
-                textBoxPropiedades.Text = Archivos.generarStringDesdeList(Archivos.deserializarJsonStringAList(datosFilaItems["properties"]));
-                richTextBoxDescripcion.Text += "\n" + "Sigilo: " + datosFilaItems["stealth"];
-                richTextBoxDescripcion.Text += "\n" + "AC: " + datosFilaItems["ac"];
-                richTextBoxDescripcion.Text += "\n" + "Peso: " + datosFilaItems["weight"];
-                richTextBoxDescripcion.Text += "\n" + "Clasificación: " + datosFilaItems["classification"];
-                richTextBoxDescripcion.Text += "\n" + "Daño: " + datosFilaItems["damage"] + " | " + datosFilaItems["damageType"];
+                textBoxPropiedades.Text = Elemento.generarStringDesdeList(Elemento.deserializarJsonStringAList(datosFilaItems["properties"]));
             }
-            catch (Exception ex)
+            if (!string.IsNullOrWhiteSpace(datosFilaItems["weight"]))
             {
+                richTextBoxDescripcion.Text += "\n" + " - " + "Peso: " + datosFilaItems["weight"];
             }
-
-        }
-
+            if (!string.IsNullOrWhiteSpace(datosFilaItems["classification"]))
+            {
+                richTextBoxDescripcion.Text += "\n" + " - " + "Clasificación: " + datosFilaItems["classification"];
+            }
+            if (!string.IsNullOrWhiteSpace(datosFilaItems["damage"]))
+            {
+                richTextBoxDescripcion.Text += "\n" + " - " + "Daño: " + datosFilaItems["damage"] + " - " + datosFilaItems["damageType"];
+            }
+            if (!string.IsNullOrWhiteSpace(datosFilaItems["stealth"]))
+            {
+                richTextBoxDescripcion.Text += "\n" + " - " + "Sigilo: " + datosFilaItems["stealth"];
+            }
+            if (!string.IsNullOrWhiteSpace(datosFilaItems["ac"]))
+            {
+                richTextBoxDescripcion.Text += "\n" + " - " + "AC: " + datosFilaItems["ac"];
+            }           
+        }       
+       
     }
 }

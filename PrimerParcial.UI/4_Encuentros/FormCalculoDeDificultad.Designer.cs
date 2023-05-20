@@ -1,6 +1,6 @@
 ﻿namespace PrimerParcial.UI
 {
-    partial class FormCombateDificultad
+    partial class FormCalculoDeDificultad
     {
         /// <summary>
         /// Required designer variable.
@@ -38,7 +38,6 @@
             textBoxCantidadPC = new TextBox();
             comboBoxDificultad = new ComboBox();
             textBoxNivelPC = new TextBox();
-            comboBoxTipoEnemigos = new ComboBox();
             textBoxCantidadEnemigos = new TextBox();
             label1 = new Label();
             label2 = new Label();
@@ -59,7 +58,6 @@
             label9 = new Label();
             label10 = new Label();
             label11 = new Label();
-            label12 = new Label();
             textBoxBuscador = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridEnemigos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridTablaReferencia).BeginInit();
@@ -102,18 +100,6 @@
             textBoxNivelPC.Size = new Size(210, 20);
             textBoxNivelPC.TabIndex = 1;
             textBoxNivelPC.KeyPress += textBoxNivelPC_KeyPress;
-            // 
-            // comboBoxTipoEnemigos
-            // 
-            comboBoxTipoEnemigos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            comboBoxTipoEnemigos.BackColor = Color.LavenderBlush;
-            comboBoxTipoEnemigos.Font = new Font("Universal Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            comboBoxTipoEnemigos.FormattingEnabled = true;
-            comboBoxTipoEnemigos.Items.AddRange(new object[] { "1 Jefe", "Grupo", "1 Jefe + Grupo", "1 Jefe + 1 Subjefe", "1 Jefe + 1 Subjefe + Grupo" });
-            comboBoxTipoEnemigos.Location = new Point(12, 176);
-            comboBoxTipoEnemigos.Name = "comboBoxTipoEnemigos";
-            comboBoxTipoEnemigos.Size = new Size(210, 21);
-            comboBoxTipoEnemigos.TabIndex = 4;
             // 
             // textBoxCantidadEnemigos
             // 
@@ -249,6 +235,8 @@
             dataGridViewCellStyle6.SelectionForeColor = Color.White;
             dataGridTablaReferencia.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             dataGridTablaReferencia.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            dataGridTablaReferencia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridTablaReferencia.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridTablaReferencia.BackgroundColor = Color.IndianRed;
             dataGridTablaReferencia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridTablaReferencia.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -284,6 +272,8 @@
             // 
             dataGridNivelDificultad.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             dataGridNivelDificultad.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            dataGridNivelDificultad.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridNivelDificultad.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridNivelDificultad.BackgroundColor = Color.IndianRed;
             dataGridNivelDificultad.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridNivelDificultad.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -302,6 +292,8 @@
             // 
             dataGridCantidadModificador.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             dataGridCantidadModificador.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            dataGridCantidadModificador.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridCantidadModificador.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridCantidadModificador.BackgroundColor = Color.IndianRed;
             dataGridCantidadModificador.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridCantidadModificador.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -445,20 +437,6 @@
             label11.TabIndex = 25;
             label11.Text = "Cantidad Enemigos:";
             // 
-            // label12
-            // 
-            label12.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            label12.AutoSize = true;
-            label12.BackColor = Color.Transparent;
-            label12.FlatStyle = FlatStyle.Flat;
-            label12.Font = new Font("Universal Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label12.ForeColor = Color.Lavender;
-            label12.Location = new Point(12, 160);
-            label12.Name = "label12";
-            label12.Size = new Size(39, 13);
-            label12.TabIndex = 26;
-            label12.Text = "Tipo:";
-            // 
             // textBoxBuscador
             // 
             textBoxBuscador.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
@@ -471,7 +449,7 @@
             textBoxBuscador.TabIndex = 9;
             textBoxBuscador.TextChanged += textBoxBuscador_TextChanged;
             // 
-            // FormCombateDificultad
+            // FormCalculoDeDificultad
             // 
             AcceptButton = buttonCalcualrCR;
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -481,7 +459,6 @@
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(1200, 643);
             Controls.Add(textBoxBuscador);
-            Controls.Add(label12);
             Controls.Add(label11);
             Controls.Add(label10);
             Controls.Add(label9);
@@ -502,12 +479,11 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(textBoxCantidadEnemigos);
-            Controls.Add(comboBoxTipoEnemigos);
             Controls.Add(textBoxNivelPC);
             Controls.Add(comboBoxDificultad);
             Controls.Add(textBoxCantidadPC);
             DoubleBuffered = true;
-            Name = "FormCombateDificultad";
+            Name = "FormCalculoDeDificultad";
             Text = "FormCombateDificultad";
             Load += FormCombateDificultad_Load_1;
             ((System.ComponentModel.ISupportInitialize)dataGridEnemigos).EndInit();
@@ -523,7 +499,6 @@
         private TextBox textBoxCantidadPC;
         private ComboBox comboBoxDificultad;
         private TextBox textBoxNivelPC;
-        private ComboBox comboBoxTipoEnemigos;
         private TextBox textBoxCantidadEnemigos;
         private Label label1;
         private Label label2;
@@ -544,7 +519,6 @@
         private Label label9;
         private Label label10;
         private Label label11;
-        private Label label12;
         private TextBox textBoxBuscador;
     }
 }

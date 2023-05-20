@@ -23,7 +23,7 @@ namespace PrimerParcial.UI
         {
             dataGridHechizos.DataSource = null;
 
-            var hechizos = Archivos.ArmarTablaParaDataGrid(ListaDiccionarios);
+            var hechizos = Elemento.ArmarTablaParaDataGrid(ListaDiccionarios);
 
             dataGridHechizos.DataSource = hechizos;
         }
@@ -44,7 +44,7 @@ namespace PrimerParcial.UI
 
         private void FormHechizos_Load(object sender, EventArgs e)
         {
-            dataGridHechizos_Actualizar(Archivos.LeerInfoHechizos());
+            dataGridHechizos_Actualizar(Elemento.LeerInfoArchivo("spells-en"));
         }
 
         private void dataGridHechizos_RowEnter(object sender, DataGridViewCellEventArgs e)

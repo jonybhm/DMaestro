@@ -37,21 +37,28 @@
             textBoxBuscador = new TextBox();
             label7 = new Label();
             buttonMostrar = new Button();
+            buttonAgregar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridBestiario).BeginInit();
             SuspendLayout();
             // 
             // dataGridBestiario
             // 
+            dataGridBestiario.AllowUserToAddRows = false;
+            dataGridBestiario.AllowUserToDeleteRows = false;
+            dataGridBestiario.AllowUserToResizeColumns = false;
+            dataGridBestiario.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = Color.RosyBrown;
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = Color.Firebrick;
             dataGridViewCellStyle1.SelectionForeColor = Color.White;
             dataGridBestiario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridBestiario.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridBestiario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            dataGridBestiario.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllHeaders;
             dataGridBestiario.BackgroundColor = Color.IndianRed;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(37, 41, 48);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.Font = new Font("Universal Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = SystemColors.Menu;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientActiveCaption;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
@@ -131,12 +138,32 @@
             buttonMostrar.UseVisualStyleBackColor = false;
             buttonMostrar.Click += buttonMostrar_Click;
             // 
+            // buttonAgregar
+            // 
+            buttonAgregar.BackColor = Color.Transparent;
+            buttonAgregar.BackgroundImage = Properties.Resources.boton2;
+            buttonAgregar.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonAgregar.FlatAppearance.BorderSize = 0;
+            buttonAgregar.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            buttonAgregar.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            buttonAgregar.FlatStyle = FlatStyle.Flat;
+            buttonAgregar.Font = new Font("Universal Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonAgregar.ForeColor = Color.White;
+            buttonAgregar.Location = new Point(344, 3);
+            buttonAgregar.Name = "buttonAgregar";
+            buttonAgregar.Size = new Size(153, 34);
+            buttonAgregar.TabIndex = 23;
+            buttonAgregar.Text = "Agregar";
+            buttonAgregar.UseVisualStyleBackColor = false;
+            buttonAgregar.Click += buttonAgregar_Click;
+            // 
             // FormBestiario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(37, 41, 48);
             ClientSize = new Size(509, 537);
+            Controls.Add(buttonAgregar);
             Controls.Add(buttonMostrar);
             Controls.Add(textBoxBuscador);
             Controls.Add(label7);
@@ -155,5 +182,6 @@
         private TextBox textBoxBuscador;
         private Label label7;
         private Button buttonMostrar;
+        private Button buttonAgregar;
     }
 }

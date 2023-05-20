@@ -19,8 +19,8 @@ namespace PrimerParcial.UI
             InitializeComponent();
             _usuarios = new List<Usuario>();
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.Location = new Point(0, 0);
             this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            //this.Location = new Point(0, 0);
             //this.Dock = DockStyle.Right;
         }
 
@@ -44,7 +44,7 @@ namespace PrimerParcial.UI
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            Archivos.LeerInfoUsuarios(_usuarios);
+            Elemento.LeerInfoUsuarios(_usuarios);
         }
 
         private bool UsuarioExiste(string usuario, out Usuario usuarioEncontrado)

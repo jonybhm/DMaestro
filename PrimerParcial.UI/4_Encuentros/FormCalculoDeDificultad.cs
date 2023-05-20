@@ -12,10 +12,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PrimerParcial.UI
 {
-    public partial class FormCombateDificultad : Form
+    public partial class FormCalculoDeDificultad : Form
     {
 
-        public FormCombateDificultad()
+        public FormCalculoDeDificultad()
         {
             InitializeComponent();
         }
@@ -24,7 +24,7 @@ namespace PrimerParcial.UI
         {
             dataGridEnemigos.DataSource = null;
 
-            var bestiario = Archivos.ArmarTablaParaDataGrid(ListaDiccionarios);
+            var bestiario = Elemento.ArmarTablaParaDataGrid(ListaDiccionarios);
 
             dataGridEnemigos.DataSource = bestiario;
         }
@@ -50,7 +50,7 @@ namespace PrimerParcial.UI
         {
             dataGridTablaReferencia.DataSource = null;
 
-            var tablaUno = Archivos.ArmarTablaParaDataGrid(ListaDiccionarios);
+            var tablaUno = Elemento.ArmarTablaParaDataGrid(ListaDiccionarios);
 
             dataGridTablaReferencia.DataSource = tablaUno;
         }
@@ -59,7 +59,7 @@ namespace PrimerParcial.UI
         {
             dataGridNivelDificultad.DataSource = null;
 
-            var tablaDos = Archivos.ArmarTablaParaDataGrid(ListaDiccionarios);
+            var tablaDos = Elemento.ArmarTablaParaDataGrid(ListaDiccionarios);
 
             dataGridNivelDificultad.DataSource = tablaDos;
         }
@@ -68,27 +68,28 @@ namespace PrimerParcial.UI
         {
             dataGridCantidadModificador.DataSource = null;
 
-            var tablaTres = Archivos.ArmarTablaParaDataGrid(ListaDiccionarios);
+            var tablaTres = Elemento.ArmarTablaParaDataGrid(ListaDiccionarios);
 
             dataGridCantidadModificador.DataSource = tablaTres;
         }
         private void FormCombateDificultad_Load_1(object sender, EventArgs e)
         {
 
-            dataGridEnemigos_Actualizar(Archivos.LeerInfoEnemigos());
-            dataGridTablaReferencia_Actualizar(Archivos.LeerInfoTablaUno());
-            dataGridNivelDificultad_Actualizar(Archivos.LeerInfoTablaDos());
-            dataGridCantidadModificador_Actualizar(Archivos.LeerInfoTablaTres());
+            dataGridEnemigos_Actualizar(Elemento.LeerInfoArchivo("monsters-en"));
+            dataGridTablaReferencia_Actualizar(Elemento.LeerInfoArchivo("tabla1"));
+            dataGridNivelDificultad_Actualizar(Elemento.LeerInfoArchivo("tabla2"));
+            dataGridCantidadModificador_Actualizar(Elemento.LeerInfoArchivo("tabla3"));
         }
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int XP = Enemigo.CalcularXP(int.Parse(textBoxNivelPC.Text), int.Parse(textBoxCantidadPC.Text), comboBoxDificultad.Text, Archivos.LeerInfoTablaDos());
+            int XP = Enemigo.CalcularXP(int.Parse(textBoxNivelPC.Text), int.Parse(textBoxCantidadPC.Text), int.Parse(textBoxCantidadEnemigos.Text),
+                comboBoxDificultad.Text, Elemento.LeerInfoArchivo("tabla2"), Elemento.LeerInfoArchivo("tabla3"));
             textBoxResultadoXP.Text = XP.ToString();
             textBoxResultadoXPporPC.Text = (XP / int.Parse(textBoxCantidadPC.Text)).ToString();
 
-            string CR = Enemigo.CalcularCR(XP, Archivos.LeerInfoTablaUno());
+            string CR = Enemigo.CalcularCR(XP, Elemento.LeerInfoArchivo("tabla1"));
             textBoxResultadoCR.Text = CR;
 
         }

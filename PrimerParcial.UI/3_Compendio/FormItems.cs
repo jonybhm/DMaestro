@@ -22,7 +22,7 @@ namespace PrimerParcial.UI
         {
             dataGridItems.DataSource = null;
 
-            var items = Archivos.ArmarTablaParaDataGrid(ListaDiccionarios);
+            var items = Elemento.ArmarTablaParaDataGrid(ListaDiccionarios);
 
             dataGridItems.DataSource = items;
         }
@@ -43,7 +43,7 @@ namespace PrimerParcial.UI
 
         private void FormItems_Load(object sender, EventArgs e)
         {
-            dataGridItems_Actualizar(Archivos.LeerInfoItems());
+            dataGridItems_Actualizar(Elemento.LeerInfoArchivo("items-en"));
         }
 
         private void dataGridItems_RowEnter(object sender, DataGridViewCellEventArgs e)

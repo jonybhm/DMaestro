@@ -97,28 +97,23 @@ namespace PrimerParcial.UI
             razasToolStripMenuItem = new ToolStripMenuItem();
             trasfondosToolStripMenuItem = new ToolStripMenuItem();
             featsToolStripMenuItem = new ToolStripMenuItem();
-            encuentrosToolStripMenuItem = new ToolStripMenuItem();
-            calculadoraToolStripMenuItem = new ToolStripMenuItem();
-            cálculoDeDificultadToolStripMenuItem = new ToolStripMenuItem();
-            crearEncuentroToolStripMenuItem = new ToolStripMenuItem();
-            listaEncuentrosToolStripMenuItem = new ToolStripMenuItem();
-            exploraciónToolStripMenuItem = new ToolStripMenuItem();
-            crearEncuentroToolStripMenuItem1 = new ToolStripMenuItem();
-            listaEncuentrosToolStripMenuItem1 = new ToolStripMenuItem();
             campañasToolStripMenuItem = new ToolStripMenuItem();
             crearNuevaCampañaToolStripMenuItem = new ToolStripMenuItem();
             listaCampañasCreadasToolStripMenuItem = new ToolStripMenuItem();
-            opcionesToolStripMenuItem = new ToolStripMenuItem();
+            encuentrosToolStripMenuItem = new ToolStripMenuItem();
+            cálculoDeDificultadToolStripMenuItem1 = new ToolStripMenuItem();
+            iniciativaToolStripMenuItem = new ToolStripMenuItem();
             usuarioToolStripMenuItem = new ToolStripMenuItem();
             cambiarUsuarioToolStripMenuItem = new ToolStripMenuItem();
             crearUsuarioToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
+            DadosToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // button3_Dices
             // 
-            button3_Dices.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            button3_Dices.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button3_Dices.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             button3_Dices.BackColor = Color.Transparent;
             button3_Dices.Cursor = Cursors.Hand;
@@ -130,9 +125,9 @@ namespace PrimerParcial.UI
             button3_Dices.ForeColor = Color.Black;
             button3_Dices.Image = (Image)resources.GetObject("button3_Dices.Image");
             button3_Dices.ImageAlign = ContentAlignment.MiddleLeft;
-            button3_Dices.Location = new Point(154, 470);
+            button3_Dices.Location = new Point(843, 497);
             button3_Dices.Name = "button3_Dices";
-            button3_Dices.Size = new Size(154, 63);
+            button3_Dices.Size = new Size(154, 71);
             button3_Dices.TabIndex = 1;
             button3_Dices.Text = "Dados";
             button3_Dices.TextAlign = ContentAlignment.MiddleRight;
@@ -146,10 +141,10 @@ namespace PrimerParcial.UI
             menuStrip1.BackgroundImageLayout = ImageLayout.Zoom;
             menuStrip1.Dock = DockStyle.Left;
             menuStrip1.Font = new Font("Universal Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { reglasToolStripMenuItem, compendioToolStripMenuItem, campañasToolStripMenuItem, encuentrosToolStripMenuItem, opcionesToolStripMenuItem, usuarioToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { DadosToolStripMenuItem, reglasToolStripMenuItem, compendioToolStripMenuItem, campañasToolStripMenuItem, encuentrosToolStripMenuItem, usuarioToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(151, 545);
+            menuStrip1.Size = new Size(139, 580);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -160,7 +155,7 @@ namespace PrimerParcial.UI
             reglasToolStripMenuItem.Image = Properties.Resources.reglas1;
             reglasToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
             reglasToolStripMenuItem.Name = "reglasToolStripMenuItem";
-            reglasToolStripMenuItem.Size = new Size(138, 20);
+            reglasToolStripMenuItem.Size = new Size(126, 20);
             reglasToolStripMenuItem.Text = "Reglas";
             // 
             // verPantallaDMToolStripMenuItem
@@ -181,7 +176,7 @@ namespace PrimerParcial.UI
             // 
             mecanicasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { VentajaYDesventaja, Competencia, Estados, Inspiracion, Feats, Enfermedades, Locura, Trampas, Venenos });
             mecanicasToolStripMenuItem.Name = "mecanicasToolStripMenuItem";
-            mecanicasToolStripMenuItem.Size = new Size(180, 22);
+            mecanicasToolStripMenuItem.Size = new Size(179, 22);
             mecanicasToolStripMenuItem.Text = "Mecanicas";
             // 
             // VentajaYDesventaja
@@ -251,7 +246,7 @@ namespace PrimerParcial.UI
             // 
             combateToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { AccionesEnCombate, RealizarUnAtaque, MovimientoYPosicion, DañoYCuracion, OrdenDeCombate, Cobertura, CombatirBajoElAgua, CombatirDesdeMontura });
             combateToolStripMenuItem.Name = "combateToolStripMenuItem";
-            combateToolStripMenuItem.Size = new Size(180, 22);
+            combateToolStripMenuItem.Size = new Size(179, 22);
             combateToolStripMenuItem.Text = "Combate";
             // 
             // AccionesEnCombate
@@ -313,7 +308,7 @@ namespace PrimerParcial.UI
             // 
             personajesToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { Clases, Razas, Alineamientos, Idiomas, Trasfondos, Multiclaseo, NPC });
             personajesToolStripMenuItem1.Name = "personajesToolStripMenuItem1";
-            personajesToolStripMenuItem1.Size = new Size(180, 22);
+            personajesToolStripMenuItem1.Size = new Size(179, 22);
             personajesToolStripMenuItem1.Text = "Personajes";
             // 
             // Clases
@@ -370,7 +365,7 @@ namespace PrimerParcial.UI
             // 
             magiaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { QueEsUnConjuro, LanzarUnConjuro });
             magiaToolStripMenuItem.Name = "magiaToolStripMenuItem";
-            magiaToolStripMenuItem.Size = new Size(180, 22);
+            magiaToolStripMenuItem.Size = new Size(179, 22);
             magiaToolStripMenuItem.Text = "Magia";
             // 
             // QueEsUnConjuro
@@ -391,7 +386,7 @@ namespace PrimerParcial.UI
             // 
             equipamientoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { Armadura, Armas, EquipoDeAventuras, Herramientas, Monedas, Monturas, PacksIniciales, ProductosComerciales, Objetos, ObjetosMagicos });
             equipamientoToolStripMenuItem.Name = "equipamientoToolStripMenuItem";
-            equipamientoToolStripMenuItem.Size = new Size(180, 22);
+            equipamientoToolStripMenuItem.Size = new Size(179, 22);
             equipamientoToolStripMenuItem.Text = "Objetos";
             // 
             // Armadura
@@ -468,7 +463,7 @@ namespace PrimerParcial.UI
             // 
             aventurasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { EntreAventuras, Descansar, Entorno, Movimiento, Tiempo, Planos, Mitologia });
             aventurasToolStripMenuItem.Name = "aventurasToolStripMenuItem";
-            aventurasToolStripMenuItem.Size = new Size(180, 22);
+            aventurasToolStripMenuItem.Size = new Size(179, 22);
             aventurasToolStripMenuItem.Text = "Aventuras";
             // 
             // EntreAventuras
@@ -527,7 +522,7 @@ namespace PrimerParcial.UI
             compendioToolStripMenuItem.Image = Properties.Resources.compendio1;
             compendioToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
             compendioToolStripMenuItem.Name = "compendioToolStripMenuItem";
-            compendioToolStripMenuItem.Size = new Size(138, 20);
+            compendioToolStripMenuItem.Size = new Size(126, 20);
             compendioToolStripMenuItem.Text = "Compendio";
             // 
             // bestiarioToolStripMenuItem
@@ -586,65 +581,6 @@ namespace PrimerParcial.UI
             featsToolStripMenuItem.Text = "Feats";
             featsToolStripMenuItem.Click += featsToolStripMenuItem_Click;
             // 
-            // encuentrosToolStripMenuItem
-            // 
-            encuentrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { calculadoraToolStripMenuItem, exploraciónToolStripMenuItem });
-            encuentrosToolStripMenuItem.ForeColor = Color.Lavender;
-            encuentrosToolStripMenuItem.Image = Properties.Resources.Encuentros1;
-            encuentrosToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
-            encuentrosToolStripMenuItem.Name = "encuentrosToolStripMenuItem";
-            encuentrosToolStripMenuItem.Size = new Size(138, 20);
-            encuentrosToolStripMenuItem.Text = "Encuentros";
-            // 
-            // calculadoraToolStripMenuItem
-            // 
-            calculadoraToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cálculoDeDificultadToolStripMenuItem, crearEncuentroToolStripMenuItem, listaEncuentrosToolStripMenuItem });
-            calculadoraToolStripMenuItem.Name = "calculadoraToolStripMenuItem";
-            calculadoraToolStripMenuItem.Size = new Size(189, 22);
-            calculadoraToolStripMenuItem.Text = "Combate";
-            // 
-            // cálculoDeDificultadToolStripMenuItem
-            // 
-            cálculoDeDificultadToolStripMenuItem.Name = "cálculoDeDificultadToolStripMenuItem";
-            cálculoDeDificultadToolStripMenuItem.Size = new Size(274, 22);
-            cálculoDeDificultadToolStripMenuItem.Text = "Cálculo de dificultad";
-            cálculoDeDificultadToolStripMenuItem.Click += cálculoDeDificultadToolStripMenuItem_Click;
-            // 
-            // crearEncuentroToolStripMenuItem
-            // 
-            crearEncuentroToolStripMenuItem.Name = "crearEncuentroToolStripMenuItem";
-            crearEncuentroToolStripMenuItem.Size = new Size(274, 22);
-            crearEncuentroToolStripMenuItem.Text = "Iniciativa";
-            crearEncuentroToolStripMenuItem.Click += crearCombateToolStripMenuItem_Click;
-            // 
-            // listaEncuentrosToolStripMenuItem
-            // 
-            listaEncuentrosToolStripMenuItem.Name = "listaEncuentrosToolStripMenuItem";
-            listaEncuentrosToolStripMenuItem.Size = new Size(274, 22);
-            listaEncuentrosToolStripMenuItem.Text = "Combates creados";
-            listaEncuentrosToolStripMenuItem.Click += listaCombateToolStripMenuItem_Click;
-            // 
-            // exploraciónToolStripMenuItem
-            // 
-            exploraciónToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { crearEncuentroToolStripMenuItem1, listaEncuentrosToolStripMenuItem1 });
-            exploraciónToolStripMenuItem.Name = "exploraciónToolStripMenuItem";
-            exploraciónToolStripMenuItem.Size = new Size(189, 22);
-            exploraciónToolStripMenuItem.Text = "Exploración";
-            // 
-            // crearEncuentroToolStripMenuItem1
-            // 
-            crearEncuentroToolStripMenuItem1.Name = "crearEncuentroToolStripMenuItem1";
-            crearEncuentroToolStripMenuItem1.Size = new Size(235, 22);
-            crearEncuentroToolStripMenuItem1.Text = "Crear encuentro";
-            crearEncuentroToolStripMenuItem1.Click += crearEncuentroToolStripMenuItem1_Click;
-            // 
-            // listaEncuentrosToolStripMenuItem1
-            // 
-            listaEncuentrosToolStripMenuItem1.Name = "listaEncuentrosToolStripMenuItem1";
-            listaEncuentrosToolStripMenuItem1.Size = new Size(235, 22);
-            listaEncuentrosToolStripMenuItem1.Text = "Lista encuentros";
-            listaEncuentrosToolStripMenuItem1.Click += listaEncuentrosToolStripMenuItem1_Click;
-            // 
             // campañasToolStripMenuItem
             // 
             campañasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { crearNuevaCampañaToolStripMenuItem, listaCampañasCreadasToolStripMenuItem });
@@ -652,7 +588,7 @@ namespace PrimerParcial.UI
             campañasToolStripMenuItem.Image = Properties.Resources.Campañas1;
             campañasToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
             campañasToolStripMenuItem.Name = "campañasToolStripMenuItem";
-            campañasToolStripMenuItem.Size = new Size(138, 20);
+            campañasToolStripMenuItem.Size = new Size(126, 20);
             campañasToolStripMenuItem.Text = "Campañas";
             // 
             // crearNuevaCampañaToolStripMenuItem
@@ -669,14 +605,29 @@ namespace PrimerParcial.UI
             listaCampañasCreadasToolStripMenuItem.Text = "Lista campañas creadas";
             listaCampañasCreadasToolStripMenuItem.Click += listaCampañasCreadasToolStripMenuItem_Click;
             // 
-            // opcionesToolStripMenuItem
+            // encuentrosToolStripMenuItem
             // 
-            opcionesToolStripMenuItem.ForeColor = Color.Lavender;
-            opcionesToolStripMenuItem.Image = Properties.Resources.opciones1;
-            opcionesToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
-            opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
-            opcionesToolStripMenuItem.Size = new Size(138, 20);
-            opcionesToolStripMenuItem.Text = "Opciones";
+            encuentrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cálculoDeDificultadToolStripMenuItem1, iniciativaToolStripMenuItem });
+            encuentrosToolStripMenuItem.ForeColor = Color.Lavender;
+            encuentrosToolStripMenuItem.Image = Properties.Resources.Encuentros1;
+            encuentrosToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
+            encuentrosToolStripMenuItem.Name = "encuentrosToolStripMenuItem";
+            encuentrosToolStripMenuItem.Size = new Size(126, 20);
+            encuentrosToolStripMenuItem.Text = "Combate";
+            // 
+            // cálculoDeDificultadToolStripMenuItem1
+            // 
+            cálculoDeDificultadToolStripMenuItem1.Name = "cálculoDeDificultadToolStripMenuItem1";
+            cálculoDeDificultadToolStripMenuItem1.Size = new Size(274, 22);
+            cálculoDeDificultadToolStripMenuItem1.Text = "Cálculo de dificultad";
+            cálculoDeDificultadToolStripMenuItem1.Click += cálculoDeDificultadToolStripMenuItem_Click;
+            // 
+            // iniciativaToolStripMenuItem
+            // 
+            iniciativaToolStripMenuItem.Name = "iniciativaToolStripMenuItem";
+            iniciativaToolStripMenuItem.Size = new Size(274, 22);
+            iniciativaToolStripMenuItem.Text = "Iniciativa";
+            iniciativaToolStripMenuItem.Click += crearCombateToolStripMenuItem_Click;
             // 
             // usuarioToolStripMenuItem
             // 
@@ -685,7 +636,7 @@ namespace PrimerParcial.UI
             usuarioToolStripMenuItem.Image = Properties.Resources.usuario1;
             usuarioToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
             usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            usuarioToolStripMenuItem.Size = new Size(138, 20);
+            usuarioToolStripMenuItem.Size = new Size(126, 20);
             usuarioToolStripMenuItem.Text = "Usuario";
             // 
             // cambiarUsuarioToolStripMenuItem
@@ -707,14 +658,25 @@ namespace PrimerParcial.UI
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
+            // DadosToolStripMenuItem
+            // 
+            DadosToolStripMenuItem.ForeColor = Color.Lavender;
+            DadosToolStripMenuItem.Image = Properties.Resources.d206;
+            DadosToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
+            DadosToolStripMenuItem.Name = "DadosToolStripMenuItem";
+            DadosToolStripMenuItem.Size = new Size(126, 20);
+            DadosToolStripMenuItem.Text = "Dados";
+            DadosToolStripMenuItem.Click += button3_Dices_Click;
+            // 
             // FormContenedor
             // 
+            AcceptButton = button3_Dices;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(37, 41, 48);
             BackgroundImage = Properties.Resources.continuar;
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(1037, 545);
+            ClientSize = new Size(1009, 580);
             Controls.Add(button3_Dices);
             Controls.Add(menuStrip1);
             DoubleBuffered = true;
@@ -737,7 +699,6 @@ namespace PrimerParcial.UI
         private ToolStripMenuItem compendioToolStripMenuItem;
         private ToolStripMenuItem encuentrosToolStripMenuItem;
         private ToolStripMenuItem campañasToolStripMenuItem;
-        private ToolStripMenuItem opcionesToolStripMenuItem;
         private ToolStripMenuItem usuarioToolStripMenuItem;
         private ToolStripMenuItem verPantallaDMToolStripMenuItem;
         private ToolStripMenuItem bestiarioToolStripMenuItem;
@@ -748,13 +709,6 @@ namespace PrimerParcial.UI
         private ToolStripMenuItem razasToolStripMenuItem;
         private ToolStripMenuItem trasfondosToolStripMenuItem;
         private ToolStripMenuItem featsToolStripMenuItem;
-        private ToolStripMenuItem calculadoraToolStripMenuItem;
-        private ToolStripMenuItem exploraciónToolStripMenuItem;
-        private ToolStripMenuItem cálculoDeDificultadToolStripMenuItem;
-        private ToolStripMenuItem crearEncuentroToolStripMenuItem;
-        private ToolStripMenuItem listaEncuentrosToolStripMenuItem;
-        private ToolStripMenuItem crearEncuentroToolStripMenuItem1;
-        private ToolStripMenuItem listaEncuentrosToolStripMenuItem1;
         private ToolStripMenuItem crearNuevaCampañaToolStripMenuItem;
         private ToolStripMenuItem listaCampañasCreadasToolStripMenuItem;
         private ToolStripMenuItem cambiarUsuarioToolStripMenuItem;
@@ -843,5 +797,8 @@ namespace PrimerParcial.UI
         private ToolStripMenuItem Mitologia;
         private ToolStripMenuItem otrosToolStripMenuItem;
         private ToolStripMenuItem Clases;
+        private ToolStripMenuItem cálculoDeDificultadToolStripMenuItem1;
+        private ToolStripMenuItem iniciativaToolStripMenuItem;
+        private ToolStripMenuItem DadosToolStripMenuItem;
     }
 }

@@ -63,7 +63,7 @@ namespace PrimerParcial.UI
                     this.MdiChildren[i].Close();
                 }
             }
-            var hijo = new FormCombateDificultad();
+            var hijo = new FormCalculoDeDificultad();
             hijo.MdiParent = this;
             hijo.WindowState = FormWindowState.Maximized;
             hijo.Show();
@@ -223,52 +223,7 @@ namespace PrimerParcial.UI
             hijo.Show();
         }
 
-        private void listaCombateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < this.MdiChildren.Length; i++)
-            {
-                if (this.MdiChildren[i].Name == "FormListaCombates")
-                {
-                    this.MdiChildren[i].Close();
-                }
-            }
-            var hijo = new FormListaCombates();
-            hijo.MdiParent = this;
-            hijo.WindowState = FormWindowState.Normal;
-            hijo.Show();
-        }
-
-        private void crearEncuentroToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < this.MdiChildren.Length; i++)
-            {
-                if (this.MdiChildren[i].Name == "FormCrearEncuentro")
-                {
-                    this.MdiChildren[i].Close();
-                }
-            }
-            var hijo = new FormCrearEncuentro();
-            hijo.MdiParent = this;
-            hijo.WindowState = FormWindowState.Normal;
-            hijo.Show();
-        }
-
-        private void listaEncuentrosToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < this.MdiChildren.Length; i++)
-            {
-                if (this.MdiChildren[i].Name == "FormListaDeEncuentros")
-                {
-                    this.MdiChildren[i].Close();
-                }
-            }
-            var hijo = new FormListaDeEncuentros();
-            hijo.MdiParent = this;
-            hijo.WindowState = FormWindowState.Normal;
-            hijo.Show();
-        }
-
-
+        
         private void Alineamientos_Click(object sender, EventArgs e)
         {
             MostrarRegla(Alineamientos);
@@ -481,7 +436,8 @@ namespace PrimerParcial.UI
             MostrarRegla(Mitologia);
         }
 
-        private void MostrarRegla(ToolStripMenuItem ReglaBoton)        {
+        private void MostrarRegla(ToolStripMenuItem ReglaBoton)
+        {
             string nombreArchivo = ReglaBoton.Text;
             FormReglas regla = new FormReglas(nombreArchivo);
             regla.MdiParent = this;
