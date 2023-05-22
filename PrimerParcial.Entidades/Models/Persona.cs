@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace PrimerParcial.Entidades.Models
@@ -10,24 +11,25 @@ namespace PrimerParcial.Entidades.Models
     public class Persona
     {
         private int _id;
-        private string _nombre;
+        private string _name;
         
         public int Id 
         { get => _id; 
           set => _id = value; 
         }
 
-        public string Nombre
+        public string Name
         {
-            get => _nombre;
-            set => _nombre = value;
+            get => _name;
+            set => _name = value;
         }
 
-        public Persona(int id, string nombre)
+        public Persona(int id, string name)
         {
             _id = id;
-            _nombre = nombre;
+            _name = name;
         }
 
+        
     }
 }

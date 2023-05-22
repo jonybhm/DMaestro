@@ -5,14 +5,28 @@ namespace PrimerParcial.UI
 {
     public partial class FormContenedor : Form
     {
-        public FormContenedor()
+        bool esAdministrador;
+        private List<Usuario> _listaUsuario;
+
+        public FormContenedor(bool esAdmin, List<Usuario> listaUsuario)
         {
             InitializeComponent();
+            
+            this.esAdministrador = esAdmin;
+            _listaUsuario = listaUsuario;
+
         }
 
         private void FormContenedor_Load(object sender, EventArgs e)
         {
             IsMdiContainer = true;
+            if (!esAdministrador)
+            {
+                encuentrosToolStripMenuItem.Enabled = false;
+                crearUsuarioToolStripMenuItem.Enabled = false;
+                campañasToolStripMenuItem.Enabled = false;
+                verPantallaDMToolStripMenuItem.Enabled = false;
+            }
         }
 
 
@@ -63,9 +77,9 @@ namespace PrimerParcial.UI
                     this.MdiChildren[i].Close();
                 }
             }
-            var hijo = new FormCalculoDeDificultad();
+            var hijo = new FormCalculoDeDificultad(this);
             hijo.MdiParent = this;
-            hijo.WindowState = FormWindowState.Maximized;
+            hijo.WindowState = FormWindowState.Normal;
             hijo.Show();
         }
 
@@ -79,7 +93,7 @@ namespace PrimerParcial.UI
                     this.MdiChildren[i].Close();
                 }
             }
-            var hijo = new FormBestiario();
+            var hijo = new FormBestiario(this);
             hijo.MdiParent = this;
             hijo.WindowState = FormWindowState.Normal;
             hijo.Show();
@@ -95,7 +109,7 @@ namespace PrimerParcial.UI
                     this.MdiChildren[i].Close();
                 }
             }
-            var hijo = new FormHechizos();
+            var hijo = new FormHechizos(this);
             hijo.MdiParent = this;
             hijo.WindowState = FormWindowState.Normal;
             hijo.Show();
@@ -111,7 +125,7 @@ namespace PrimerParcial.UI
                     this.MdiChildren[i].Close();
                 }
             }
-            var hijo = new FormItems();
+            var hijo = new FormItems(this);
             hijo.MdiParent = this;
             hijo.WindowState = FormWindowState.Normal;
             hijo.Show();
@@ -147,36 +161,6 @@ namespace PrimerParcial.UI
             hijo.Show();
         }
 
-        private void trasfondosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < this.MdiChildren.Length; i++)
-            {
-                if (this.MdiChildren[i].Name == "FormTrasfondos")
-                {
-                    this.MdiChildren[i].Close();
-                }
-            }
-            var hijo = new FormTrasfondos();
-            hijo.MdiParent = this;
-            hijo.WindowState = FormWindowState.Normal;
-            hijo.Show();
-        }
-
-        private void featsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < this.MdiChildren.Length; i++)
-            {
-                if (this.MdiChildren[i].Name == "FormFeats")
-                {
-                    this.MdiChildren[i].Close();
-                }
-            }
-            var hijo = new FormFeats();
-            hijo.MdiParent = this;
-            hijo.WindowState = FormWindowState.Normal;
-            hijo.Show();
-        }
-
 
         private void crearNuevaCampañaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -202,7 +186,7 @@ namespace PrimerParcial.UI
                     this.MdiChildren[i].Close();
                 }
             }
-            var hijo = new FormListaDeCampañas();
+            var hijo = new FormListaDeCampañas(this);
             hijo.MdiParent = this;
             hijo.WindowState = FormWindowState.Normal;
             hijo.Show();
@@ -223,7 +207,7 @@ namespace PrimerParcial.UI
             hijo.Show();
         }
 
-        
+
         private void Alineamientos_Click(object sender, EventArgs e)
         {
             MostrarRegla(Alineamientos);
@@ -443,6 +427,21 @@ namespace PrimerParcial.UI
             regla.MdiParent = this;
             regla.WindowState = FormWindowState.Normal;
             regla.Show();
+        }
+
+        private void crearUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < this.MdiChildren.Length; i++)
+            {
+                if (this.MdiChildren[i].Name == "FormUsuarioNuevo")
+                {
+                    this.MdiChildren[i].Close();
+                }
+            }
+            var hijo = new FormUsuarioNuevo(_listaUsuario);
+            hijo.MdiParent = this;
+            hijo.WindowState = FormWindowState.Normal;
+            hijo.Show();
         }
     }
 }

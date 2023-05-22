@@ -9,54 +9,82 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PrimerParcial.UI._1_Contenedor
 {
     public partial class FormItemCard : Form
     {
-        private Dictionary<string, string> datosFilaItems;
-        public FormItemCard(Dictionary<string, string> datosFilaItems)
+        private Item datosItem;
+        private bool AgregarHabilitado;
+        private bool EditarHabilitado;
+        public FormItemCard(Item datosItem, bool MostrarBotonAgregar, bool MostrarBotonEditar)
         {
             InitializeComponent();
-            this.datosFilaItems = datosFilaItems;
+            this.datosItem = datosItem;
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            this.AgregarHabilitado = MostrarBotonAgregar;
+            this.EditarHabilitado = MostrarBotonEditar;
         }
 
         private void FormItemCard_Load(object sender, EventArgs e)
         {
-            
-                    
-            textBoxNombre.Text = datosFilaItems["name"];
-            textBoxCategoria.Text = datosFilaItems["category"];
-            textBoxCosto.Text = datosFilaItems["cost"];
-            textBoxRareza.Text = datosFilaItems["rarity"];
-            richTextBoxDescripcion.Text += datosFilaItems["description"];
-            if(!string.IsNullOrWhiteSpace(datosFilaItems["properties"]))
+            if (AgregarHabilitado && !EditarHabilitado)
             {
-                textBoxPropiedades.Text = Elemento.generarStringDesdeList(Elemento.deserializarJsonStringAList(datosFilaItems["properties"]));
+                buttonAdd.Enabled = true;
+                buttonEdit.Enabled = false;
             }
-            if (!string.IsNullOrWhiteSpace(datosFilaItems["weight"]))
+            else
             {
-                richTextBoxDescripcion.Text += "\n" + " - " + "Peso: " + datosFilaItems["weight"];
+                buttonAdd.Enabled = false;
+                buttonEdit.Enabled = true;
             }
-            if (!string.IsNullOrWhiteSpace(datosFilaItems["classification"]))
-            {
-                richTextBoxDescripcion.Text += "\n" + " - " + "Clasificación: " + datosFilaItems["classification"];
-            }
-            if (!string.IsNullOrWhiteSpace(datosFilaItems["damage"]))
-            {
-                richTextBoxDescripcion.Text += "\n" + " - " + "Daño: " + datosFilaItems["damage"] + " - " + datosFilaItems["damageType"];
-            }
-            if (!string.IsNullOrWhiteSpace(datosFilaItems["stealth"]))
-            {
-                richTextBoxDescripcion.Text += "\n" + " - " + "Sigilo: " + datosFilaItems["stealth"];
-            }
-            if (!string.IsNullOrWhiteSpace(datosFilaItems["ac"]))
-            {
-                richTextBoxDescripcion.Text += "\n" + " - " + "AC: " + datosFilaItems["ac"];
-            }           
-        }       
-       
+
+            textBoxId.Text = datosItem.id.ToString();
+            textBoxNombre.Text = datosItem.name;
+            textBoxCategoria.Text = datosItem.category;
+            textBoxCosto.Text = datosItem.cost.ToString();
+            textBoxRareza.Text = datosItem.rarity;
+            richTextBoxDescripcion.Text = datosItem.description;
+            textBoxPropiedades.Text = Elemento.generarStringDesdeList(datosItem.properties);
+            textBoxPeso.Text = datosItem.weight.ToString();
+
+            textBoxClasificacion.Text = datosItem.classification;
+            textBoxDaño.Text = datosItem.damage;
+            textBoxDañoTipo.Text = datosItem.damageType;
+            textBoxSigilo.Text = datosItem.stealth;
+            textBoxAC.Text = datosItem.ac;
+
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            CrearDatosJsonEnBaseAItem();
+            Elemento.AgregarInfoEnArchivo(datosItem, "items-en-prueba");
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            CrearDatosJsonEnBaseAItem();
+            Elemento.ModificarInfoEnArchivo(datosItem, "items-en-prueba");
+        }
+
+        private void CrearDatosJsonEnBaseAItem()
+        {
+            datosItem.id = int.Parse(textBoxId.Text) ;
+            datosItem.name = textBoxNombre.Text;
+            datosItem.category = textBoxCategoria.Text;
+            datosItem.cost = int.Parse(textBoxCosto.Text);
+            datosItem.rarity = textBoxRareza.Text;
+            datosItem.description = richTextBoxDescripcion.Text;
+            datosItem.properties = Elemento.generarListDesdeString(textBoxPropiedades.Text);
+            datosItem.weight = int.Parse(textBoxPeso.Text);
+            datosItem.classification = textBoxClasificacion.Text;
+            datosItem.damage = textBoxDaño.Text;
+            datosItem.damageType = textBoxDañoTipo.Text;
+            datosItem.stealth = textBoxSigilo.Text;
+            datosItem.ac = textBoxAC.Text;
+        }
     }
 }

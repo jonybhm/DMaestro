@@ -30,27 +30,16 @@ namespace PrimerParcial.Entidades.Models
 
         }
 
-        public static void LeerInfoArchivos(List<Reglas> reglas)
-        {
-            reglas.Add(new Reglas("Estado Paralizado", "Nose puede mover"));
-            reglas.Add(new Reglas("Estado Envenenado", "Desventaja"));
-            reglas.Add(new Reglas("Estado Agarrado", "Ataque"));
-            reglas.Add(new Reglas("Estado Asustado", "Nose puede acercar"));
-        }
-
-        public static void LeerInfoUsuarios(List<Usuario> usuario)
-        {
-            usuario.Add(new Usuario(10000, "jose", "admin", "admin"));
-            usuario.Add(new Usuario(10001, "juan", "juan12", "123456"));
-            usuario.Add(new Usuario(10002, "micaela", "mica100", "14271824"));
-        }
-
+        
+      
        
         public static object ArmarTablaParaDataGrid(List<object> ListaDiccionarios)
         {
             DataTable tabla = new DataTable();
 
             Dictionary<string, object> dictEnCero = (Dictionary<string, object>)ListaDiccionarios[0];
+
+            bool esCeldaVacia;
 
             foreach (string name in dictEnCero.Keys)
             {
@@ -65,11 +54,22 @@ namespace PrimerParcial.Entidades.Models
                 {
                     if (dict.ContainsKey(name))
                     {
-                        fila[name] = dict[name];
+                        esCeldaVacia = false;
                     }
                     else
                     {
-                        fila[name] = "";
+                        esCeldaVacia = true;
+
+                    }
+                    switch(esCeldaVacia)
+                    {
+                        case false:
+                            fila[name] = dict[name];
+                            break;
+                        
+                        case true:
+                            fila[name] = "";
+                            break;
                     }
 
                 }
@@ -80,27 +80,7 @@ namespace PrimerParcial.Entidades.Models
             return tabla;
         }
 
-        //ELIMINAR METODOS DE SERIALIZACION!!!
-        public static Dictionary<string, object> deserializarJsonStringADictionary(string formatoJson)
-        {
-            Dictionary<string, object> dict = JsonSerializer.Deserialize<Dictionary<string, object>>(formatoJson);
-            return dict;
-        }
-
-
-
-        public static List<string> deserializarJsonStringAList(string formatoJson)
-        {
-            List<string> list = JsonSerializer.Deserialize<List<string>>(formatoJson);
-            return list;
-        }
-
-        public static List<Dictionary<string, object>> deserializarJsonStringAListDos(string formatoJson)
-        {
-            List<Dictionary<string, object>> list = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(formatoJson);
-            return list;
-        }
-
+       
         //Metodos para generar strings desde listas y diccionarios para mostrar en tarjetas
 
         public static string generarStringDesdeDict(Dictionary<string, object> dict)
@@ -224,6 +204,14 @@ namespace PrimerParcial.Entidades.Models
                 }                     
             return lista;
 
+        }
+        public static JsonElement LeerInfoDocumento(string nombreArchivo)
+        {
+            string ruta = $@"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Json\{nombreArchivo}.json";
+
+            var rta = File.ReadAllText(ruta);
+            var jsonarray = JsonDocument.Parse(rta).RootElement;
+            return jsonarray;
         }
 
         public static void AgregarInfoEnArchivo(object elemento, string nombreArchivo)

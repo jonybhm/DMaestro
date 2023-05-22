@@ -1,4 +1,5 @@
 ﻿using PrimerParcial.Entidades.Models;
+using PrimerParcial.UI._1_Contenedor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +15,12 @@ namespace PrimerParcial.UI
 {
     public partial class FormCalculoDeDificultad : Form
     {
-
-        public FormCalculoDeDificultad()
+        private FormContenedor mdiParentForm;
+        public FormCalculoDeDificultad(FormContenedor parentForm)
         {
             InitializeComponent();
+            mdiParentForm = parentForm;
+
         }
 
         private void dataGridEnemigos_Actualizar(List<object> ListaDiccionarios)
@@ -74,6 +77,7 @@ namespace PrimerParcial.UI
         }
         private void FormCombateDificultad_Load_1(object sender, EventArgs e)
         {
+            comboBoxDificultad.SelectedIndex = 0;
 
             dataGridEnemigos_Actualizar(Elemento.LeerInfoArchivo("monsters-en"));
             dataGridTablaReferencia_Actualizar(Elemento.LeerInfoArchivo("tabla1"));
@@ -84,13 +88,20 @@ namespace PrimerParcial.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int XP = Enemigo.CalcularXP(int.Parse(textBoxNivelPC.Text), int.Parse(textBoxCantidadPC.Text), int.Parse(textBoxCantidadEnemigos.Text),
-                comboBoxDificultad.Text, Elemento.LeerInfoArchivo("tabla2"), Elemento.LeerInfoArchivo("tabla3"));
-            textBoxResultadoXP.Text = XP.ToString();
-            textBoxResultadoXPporPC.Text = (XP / int.Parse(textBoxCantidadPC.Text)).ToString();
+            try
+            {
+                int XP = Enemigo.CalcularXP(int.Parse(textBoxNivelPC.Text), int.Parse(textBoxCantidadPC.Text), int.Parse(textBoxCantidadEnemigos.Text),
+                    comboBoxDificultad.Text, Elemento.LeerInfoArchivo("tabla2"), Elemento.LeerInfoArchivo("tabla3"));
+                textBoxResultadoXP.Text = XP.ToString();
+                textBoxResultadoXPporPC.Text = (XP / int.Parse(textBoxCantidadPC.Text)).ToString();
 
-            string CR = Enemigo.CalcularCR(XP, Elemento.LeerInfoArchivo("tabla1"));
-            textBoxResultadoCR.Text = CR;
+                string CR = Enemigo.CalcularCR(XP, Elemento.LeerInfoArchivo("tabla1"));
+                textBoxResultadoCR.Text = CR;
+            }
+            catch (Exception c)
+            {
+                MessageBox.Show("Falta ingresar campos");
+            }
 
         }
 
@@ -135,26 +146,37 @@ namespace PrimerParcial.UI
             dataGridEnemigos.DataSource = bindingSource;
         }
 
-        /*private void button_Pin_Click(object sender, EventArgs e)
+        private void buttonMostrar_Click(object sender, EventArgs e)
         {
-            var agregarRegla = new FormAgregarRegla();
-            if (agregarRegla.ShowDialog() == DialogResult.OK)
+            bool mostrarBotonEditar = false;
+            bool mostrarBotonAgregarNuevo = false;
+            try
             {
-                enemigo.Add(agregarRegla.ReglaNueva);
-                dataGrid_Estados_Actualizar(enemigo);
+                DataGridViewRow selectedRow = dataGridEnemigos.SelectedRows[0];
+                Dictionary<string, object> dictDatosFilas = new Dictionary<string, object>();
+                for (int i = 0; i < selectedRow.Cells.Count; i++)
+                {
+                    var datosCelda = selectedRow.Cells[i].Value;
+                    string nombreColumna = dataGridEnemigos.Columns[i].HeaderText;
+
+                    dictDatosFilas.Add(nombreColumna, datosCelda);
+                }
+
+                Enemigo enemigo = new Enemigo(0, "");
+                FormBestiario.AgregarInfoEnemigo(enemigo, dictDatosFilas);
+
+                FormStatBlock statBlock = new FormStatBlock((Enemigo)enemigo, mostrarBotonAgregarNuevo, mostrarBotonEditar);
+
+                statBlock.MdiParent = mdiParentForm;
+                statBlock.WindowState = FormWindowState.Normal;
+
+                statBlock.Show();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Error al agregar regla");
+                MessageBox.Show("Debe seleccionar una fila para mostrar");
             }
-        }*/
-
-        /*private void button1_Click(object sender, EventArgs e)
-        {
-            Enemigo enemigo = (Enemigo)dataGridEnemigos.SelectedRows[0].DataBoundItem;
-
-            MessageBox.Show(enemigo.Mostrar());
-        }*/
+        }
 
 
     }

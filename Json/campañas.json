@@ -2,70 +2,69 @@
 [
 	{
 		"id":0,
-		"titulo":"Calaveras y Orquitos",
-		"lugar":"Nivia",
-		"imagen_url":"https://cdn.vox-cdn.com/thumbor/mO_a8Y2vaxq9KkBHpkUKn05VAy4=/0x0:2048x1488/1200x800/filters:focal(858x439:1184x765)/cdn.vox-cdn.com/uploads/chorus_image/image/70744372/Party_Art.6.jpg",
-		"personajes":		
+		"name":"Calaveras y Orquitos",
+		"place":"Nivia",
+		"imageUrl":"https://cdn.vox-cdn.com/thumbor/mO_a8Y2vaxq9KkBHpkUKn05VAy4=/0x0:2048x1488/1200x800/filters:focal(858x439:1184x765)/cdn.vox-cdn.com/uploads/chorus_image/image/70744372/Party_Art.6.jpg",
+		"characters":		
 		[
 			{
-				"nombre":"Sun",
-				"nivel":7,
-				"clase":"Monje",
+				"name":"Sun",
+				"level":7,
+				"class":"Monje",
 				"hp":54,
 				"ac":15
 			},
 			{
-				"nombre":"Xonan",
-				"nivel":7,
-				"clase":"Druida",
+				"name":"Xonan",
+				"level":7,
+				"class":"Druida",
 				"hp":45,
 				"ac":13
 			}
 		],
-		"aventuras":
+		"adventures":
 		[
 			{
-				"titulo":"Viaje a Tybra",
-				"nivel":3,
+				"name":"Viaje a Tybra",
+				"level":3,
 				"npcs":["Erik","Cervezanegra"],
-				"notas":"Los personajes viajan a tybra"
+				"notes":"Los personajes viajan a tybra"
 			}
 		],
-		"combates":
+		"combats":
 		[
 			{
-				"id":0,
-				"nivel":0,
+				"name":"",
+				"level":0,
 				"cr":"",
-				"enemigos":
+				"enemies":
 				[
 					{
-						"enemigo":"Wererat",
-						"cantidad":"5",
+						"enemy":"Wererat",
+						"quantity":"5",
 						"ac":15,
 						"hp":10
 					}
 				]
 			}
 		],
-		"encuentros":
+		"encounters":
 		[
 			{
-				"titulo":"",
-				"contenido":"",
+				"name":"",
+				"content":"",
 				"puzzles":""
 			}
 		],
-		"tesoros":
+		"treasure":
 		[
 			{
-				"nombre":"bag of holding",
-				"descripcion":"",
-				"cantidad":1,
-				"costo":1000
+				"name":"bag of holding",
+				"description":"",
+				"quantity":1,
+				"cost":1000
 			}
 		],
-		"notas":""
+		"notes":""
 	}
-
 ]

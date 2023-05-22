@@ -1,4 +1,4 @@
-﻿using PrimerParcial.EntcolumnaUnoades.Models;
+﻿using PrimerParcial.Entidades.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;

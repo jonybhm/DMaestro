@@ -1,4 +1,5 @@
-﻿using PrimerParcial.Entidades.Models;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using PrimerParcial.Entidades.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,8 +7,11 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PrimerParcial.UI
 {
@@ -30,11 +34,19 @@ namespace PrimerParcial.UI
 
             if (usuarioEncontrado is not null)
             {
-                MessageBox.Show(usuarioEncontrado!.Id.ToString());
-                var sistema = new FormContenedor();
-                sistema.Show();
-                sistema.WindowState = FormWindowState.Maximized;
-                this.Hide();
+                if (ContraseñaCoincide(textContraseña.Text))
+                {
+                    MessageBox.Show($"ID del usuario: {usuarioEncontrado!.Id.ToString()}");
+                    var sistema = new FormContenedor(usuarioEncontrado.IsAdmin, _usuarios);
+                    sistema.Show();
+                    sistema.WindowState = FormWindowState.Maximized;
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Contraseña incorrecta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
             else
             {
@@ -44,7 +56,17 @@ namespace PrimerParcial.UI
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            Elemento.LeerInfoUsuarios(_usuarios);
+                      
+            string[] arrayDeUsuarios = _usuarios.Select(user => user.UserName).ToArray();
+            textUsuario.AutoCompleteCustomSource.AddRange(arrayDeUsuarios);
+
+            var jsonArray = Elemento.LeerInfoDocumento("usuarios");
+
+            foreach (JsonElement item in jsonArray.EnumerateArray())
+            {
+                _usuarios.Add(Usuario.Parse(item));
+            }
+
         }
 
         private bool UsuarioExiste(string usuario, out Usuario usuarioEncontrado)
@@ -52,7 +74,7 @@ namespace PrimerParcial.UI
             usuarioEncontrado = null;
             foreach (Usuario item in _usuarios)
             {
-                if (item.NombreUsuario == usuario)
+                if (item.UserName == usuario)
                 {
                     usuarioEncontrado = item;
                     return true;
@@ -60,5 +82,23 @@ namespace PrimerParcial.UI
             }
             return false;
         }
+
+        private bool ContraseñaCoincide(string contraseña)
+        {
+            bool contraseñaCoincide = false;
+
+            foreach (Usuario item in _usuarios)
+            {
+                if (item.Password == contraseña)
+                {
+                    contraseñaCoincide = true;
+
+                }
+            }
+
+            return contraseñaCoincide;
+        }
+
+
     }
 }

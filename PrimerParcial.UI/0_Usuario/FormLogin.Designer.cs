@@ -36,8 +36,11 @@
             // 
             // textContraseña
             // 
+            textContraseña.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            textContraseña.AutoCompleteSource = AutoCompleteSource.CustomSource;
             textContraseña.Location = new Point(31, 130);
             textContraseña.Name = "textContraseña";
+            textContraseña.PasswordChar = '*';
             textContraseña.PlaceholderText = "Ingrese la contraseña";
             textContraseña.Size = new Size(286, 23);
             textContraseña.TabIndex = 1;
@@ -78,6 +81,8 @@
             // 
             // textUsuario
             // 
+            textUsuario.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            textUsuario.AutoCompleteSource = AutoCompleteSource.CustomSource;
             textUsuario.Location = new Point(31, 78);
             textUsuario.Name = "textUsuario";
             textUsuario.PlaceholderText = "Ingrese nombre de usuario";

@@ -37,6 +37,7 @@
             textBoxBuscador = new TextBox();
             label7 = new Label();
             dataGridItems = new DataGridView();
+            buttonAgregar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridItems).BeginInit();
             SuspendLayout();
             // 
@@ -80,9 +81,9 @@
             label7.ForeColor = Color.Lavender;
             label7.Location = new Point(8, 12);
             label7.Name = "label7";
-            label7.Size = new Size(124, 22);
+            label7.Size = new Size(234, 22);
             label7.TabIndex = 29;
-            label7.Text = "Hechizos";
+            label7.Text = "Objetos y tesoros";
             // 
             // dataGridItems
             // 
@@ -136,12 +137,32 @@
             dataGridItems.Size = new Size(507, 452);
             dataGridItems.TabIndex = 27;
             // 
+            // buttonAgregar
+            // 
+            buttonAgregar.BackColor = Color.Transparent;
+            buttonAgregar.BackgroundImage = Properties.Resources.boton2;
+            buttonAgregar.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonAgregar.FlatAppearance.BorderSize = 0;
+            buttonAgregar.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            buttonAgregar.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            buttonAgregar.FlatStyle = FlatStyle.Flat;
+            buttonAgregar.Font = new Font("Universal Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonAgregar.ForeColor = Color.White;
+            buttonAgregar.Location = new Point(341, 7);
+            buttonAgregar.Name = "buttonAgregar";
+            buttonAgregar.Size = new Size(153, 34);
+            buttonAgregar.TabIndex = 31;
+            buttonAgregar.Text = "Agregar";
+            buttonAgregar.UseVisualStyleBackColor = false;
+            buttonAgregar.Click += buttonAgregar_Click;
+            // 
             // FormItems
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(37, 41, 48);
             ClientSize = new Size(507, 532);
+            Controls.Add(buttonAgregar);
             Controls.Add(buttonMostrar);
             Controls.Add(textBoxBuscador);
             Controls.Add(label7);
@@ -160,5 +181,6 @@
         private TextBox textBoxBuscador;
         private Label label7;
         private DataGridView dataGridItems;
+        private Button buttonAgregar;
     }
 }

@@ -16,9 +16,11 @@ namespace PrimerParcial.UI
 {
     public partial class FormBestiario : Form
     {
-        public FormBestiario()
+        private FormContenedor mdiParentForm;
+        public FormBestiario(FormContenedor parentForm)
         {
             InitializeComponent();
+            mdiParentForm = parentForm;
 
         }
 
@@ -47,7 +49,7 @@ namespace PrimerParcial.UI
 
         private void FormBestiario_Load(object sender, EventArgs e)
         {
-            dataGridBestiario_Actualizar(Elemento.LeerInfoArchivo("monsters-en-prueba"));
+            dataGridBestiario_Actualizar(Elemento.LeerInfoArchivo("monsters-en-prueba"));           
         }
 
 
@@ -55,27 +57,33 @@ namespace PrimerParcial.UI
         {
             bool mostrarBotonEditar = true;
             bool mostrarBotonAgregarNuevo = false;
-
-            DataGridViewRow selectedRow = dataGridBestiario.SelectedRows[0];
-            Dictionary<string, object> dictDatosFilas = new Dictionary<string, object>();
-            for (int i = 0; i < selectedRow.Cells.Count; i++)
+            try
             {
-                var datosCelda = selectedRow.Cells[i].Value;
-                string nombreColumna = dataGridBestiario.Columns[i].HeaderText;
+                DataGridViewRow selectedRow = dataGridBestiario.SelectedRows[0];
+                Dictionary<string, object> dictDatosFilas = new Dictionary<string, object>();
+                for (int i = 0; i < selectedRow.Cells.Count; i++)
+                {
+                    var datosCelda = selectedRow.Cells[i].Value;
+                    string nombreColumna = dataGridBestiario.Columns[i].HeaderText;
 
-                dictDatosFilas.Add(nombreColumna, datosCelda);
+                    dictDatosFilas.Add(nombreColumna, datosCelda);
+                }
+
+                Enemigo enemigo = new Enemigo(0, "");
+                AgregarInfoEnemigo(enemigo, dictDatosFilas);
+
+                FormStatBlock statBlock = new FormStatBlock((Enemigo)enemigo, mostrarBotonAgregarNuevo, mostrarBotonEditar);
+
+                statBlock.MdiParent = mdiParentForm;
+                statBlock.WindowState = FormWindowState.Normal;
+
+
+                statBlock.Show();
             }
-
-            Enemigo enemigo = new Enemigo(0, "");
-            AgregarInfoEnemigo(enemigo,dictDatosFilas);
-
-            FormStatBlock statBlock = new FormStatBlock((Enemigo)enemigo, mostrarBotonAgregarNuevo, mostrarBotonEditar);
-
-            /*statBlock.MdiParent = FormContenedor;
-            statBlock.WindowState = FormWindowState.Normal;
-            */
-           
-            statBlock.Show();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Debe seleccionar una fila para mostrar");
+            }
         }
 
         private void buttonAgregar_Click(object sender, EventArgs e)
@@ -85,12 +93,12 @@ namespace PrimerParcial.UI
 
             int idFinal = dataGridBestiario.Rows.Count;
 
-            
+
             Dictionary<string, object> dictDatosFilas = new Dictionary<string, object>();
             foreach (DataGridViewColumn column in dataGridBestiario.Columns)
             {
-                dictDatosFilas[column.Name] = "Contenido provisorio"; 
-                switch(column.HeaderText)
+                dictDatosFilas[column.Name] = "Contenido provisorio";
+                switch (column.HeaderText)
                 {
                     case "id":
                         dictDatosFilas[column.Name] = idFinal++.ToString();
@@ -131,7 +139,7 @@ namespace PrimerParcial.UI
                         dictDatosFilas[column.Name] = "{\"texto1\":0,\"texto2\":0}";
                         break;
                 }
-                
+
             }
 
 
@@ -139,16 +147,16 @@ namespace PrimerParcial.UI
             AgregarInfoEnemigo(enemigo, dictDatosFilas);
 
             FormStatBlock statBlock = new FormStatBlock((Enemigo)enemigo, mostrarBotonAgregarNuevo, mostrarBotonEditar);
-           
-            /*statBlock.MdiParent = FormContenedor;
+
+            statBlock.MdiParent = mdiParentForm;
             statBlock.WindowState = FormWindowState.Normal;
-            */
-           
+            
+
             statBlock.Show();
 
         }
 
-        private void AgregarInfoEnemigo(Enemigo enemigo, Dictionary<string, object> dictDatosFilas)
+        public static void AgregarInfoEnemigo(Enemigo enemigo, Dictionary<string, object> dictDatosFilas)
         {
             enemigo.id = int.Parse((string)dictDatosFilas["id"]);
             enemigo.name = (string)dictDatosFilas["name"];
@@ -214,8 +222,10 @@ namespace PrimerParcial.UI
             enemigo.size = (string)dictDatosFilas["size"];
             enemigo.type = (string)dictDatosFilas["type"];
             enemigo.alignment = (string)dictDatosFilas["alignment"];
-            
+
             enemigo.source = JsonSerializer.Deserialize<Dictionary<string, object>>((string)dictDatosFilas["source"]);
         }
+
+        
     }
 }

@@ -1,4 +1,4 @@
-﻿using PrimerParcial.EntcolumnaUnoades.Models;
+﻿using PrimerParcial.Entidades.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,9 +17,10 @@ namespace PrimerParcial.UI
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.Manual;
-            this.Location = new Point(1250, 0);
+            this.Location = new Point(1125, 300);
             this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
             this.Dock = DockStyle.Right;
+
         }
 
         private void buttonOrdenar_Click(object sender, EventArgs e)
@@ -36,5 +37,16 @@ namespace PrimerParcial.UI
         {
 
         }
+
+        private void buttonTirar_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridSeguidorIniciativa.RowCount - 1; i++)
+            {
+                Random rnd = new Random();
+                dataGridSeguidorIniciativa.Rows[i].Cells[0].Value = rnd.Next(1, 20);
+            }
+        }
+
+        
     }
 }

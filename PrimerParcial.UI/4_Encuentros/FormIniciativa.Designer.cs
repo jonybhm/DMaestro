@@ -36,7 +36,7 @@
             Nombre = new DataGridViewTextBoxColumn();
             AC = new DataGridViewTextBoxColumn();
             HP = new DataGridViewTextBoxColumn();
-            buttonGuardar = new Button();
+            buttonTirar = new Button();
             buttonOrdenar = new Button();
             pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridSeguidorIniciativa).BeginInit();
@@ -109,23 +109,24 @@
             HP.Name = "HP";
             HP.Width = 53;
             // 
-            // buttonGuardar
+            // buttonTirar
             // 
-            buttonGuardar.BackColor = Color.Transparent;
-            buttonGuardar.BackgroundImage = Properties.Resources.boton2;
-            buttonGuardar.BackgroundImageLayout = ImageLayout.Zoom;
-            buttonGuardar.FlatAppearance.BorderSize = 0;
-            buttonGuardar.FlatAppearance.CheckedBackColor = Color.Transparent;
-            buttonGuardar.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            buttonGuardar.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            buttonGuardar.FlatStyle = FlatStyle.Flat;
-            buttonGuardar.Font = new Font("Universal Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonGuardar.Location = new Point(20, 517);
-            buttonGuardar.Name = "buttonGuardar";
-            buttonGuardar.Size = new Size(155, 28);
-            buttonGuardar.TabIndex = 2;
-            buttonGuardar.Text = "Guardar";
-            buttonGuardar.UseVisualStyleBackColor = false;
+            buttonTirar.BackColor = Color.Transparent;
+            buttonTirar.BackgroundImage = Properties.Resources.boton2;
+            buttonTirar.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonTirar.FlatAppearance.BorderSize = 0;
+            buttonTirar.FlatAppearance.CheckedBackColor = Color.Transparent;
+            buttonTirar.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            buttonTirar.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            buttonTirar.FlatStyle = FlatStyle.Flat;
+            buttonTirar.Font = new Font("Universal Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonTirar.Location = new Point(20, 517);
+            buttonTirar.Name = "buttonTirar";
+            buttonTirar.Size = new Size(155, 28);
+            buttonTirar.TabIndex = 2;
+            buttonTirar.Text = "Tirar";
+            buttonTirar.UseVisualStyleBackColor = false;
+            buttonTirar.Click += buttonTirar_Click;
             // 
             // buttonOrdenar
             // 
@@ -166,7 +167,7 @@
             BackColor = Color.FromArgb(37, 41, 48);
             ClientSize = new Size(357, 573);
             Controls.Add(buttonOrdenar);
-            Controls.Add(buttonGuardar);
+            Controls.Add(buttonTirar);
             Controls.Add(dataGridSeguidorIniciativa);
             Controls.Add(pictureBox1);
             Name = "FormIniciativa";
@@ -180,7 +181,7 @@
         #endregion
 
         private DataGridView dataGridSeguidorIniciativa;
-        private Button buttonGuardar;
+        private Button buttonTirar;
         private Button buttonOrdenar;
         private DataGridViewTextBoxColumn Iniciativa;
         private DataGridViewTextBoxColumn Nombre;

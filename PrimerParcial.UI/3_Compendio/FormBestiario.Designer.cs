@@ -43,6 +43,7 @@
             // 
             // dataGridBestiario
             // 
+            dataGridBestiario.AllowDrop = true;
             dataGridBestiario.AllowUserToAddRows = false;
             dataGridBestiario.AllowUserToDeleteRows = false;
             dataGridBestiario.AllowUserToResizeColumns = false;

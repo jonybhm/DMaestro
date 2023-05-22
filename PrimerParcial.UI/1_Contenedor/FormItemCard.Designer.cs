@@ -39,6 +39,21 @@
             richTextBoxDescripcion = new RichTextBox();
             textBoxNombre = new TextBox();
             textBoxCategoria = new TextBox();
+            textBoxId = new TextBox();
+            buttonAdd = new Button();
+            buttonEdit = new Button();
+            textBoxPeso = new TextBox();
+            label2 = new Label();
+            label1 = new Label();
+            textBoxClasificacion = new TextBox();
+            label3 = new Label();
+            textBoxDaño = new TextBox();
+            labelSigilo = new Label();
+            textBoxSigilo = new TextBox();
+            label5 = new Label();
+            textBoxAC = new TextBox();
+            textBoxDañoTipo = new TextBox();
+            label4 = new Label();
             SuspendLayout();
             // 
             // labelDescripcion
@@ -136,7 +151,7 @@
             richTextBoxDescripcion.ForeColor = Color.White;
             richTextBoxDescripcion.Location = new Point(12, 214);
             richTextBoxDescripcion.Name = "richTextBoxDescripcion";
-            richTextBoxDescripcion.Size = new Size(331, 224);
+            richTextBoxDescripcion.Size = new Size(331, 119);
             richTextBoxDescripcion.TabIndex = 77;
             richTextBoxDescripcion.Text = "";
             // 
@@ -146,7 +161,7 @@
             textBoxNombre.BorderStyle = BorderStyle.None;
             textBoxNombre.Font = new Font("Universal Serif", 18F, FontStyle.Bold, GraphicsUnit.Point);
             textBoxNombre.ForeColor = Color.White;
-            textBoxNombre.Location = new Point(13, 16);
+            textBoxNombre.Location = new Point(12, 51);
             textBoxNombre.Name = "textBoxNombre";
             textBoxNombre.Size = new Size(331, 29);
             textBoxNombre.TabIndex = 76;
@@ -163,12 +178,202 @@
             textBoxCategoria.TabIndex = 75;
             textBoxCategoria.TextAlign = HorizontalAlignment.Center;
             // 
+            // textBoxId
+            // 
+            textBoxId.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxId.BorderStyle = BorderStyle.None;
+            textBoxId.ForeColor = Color.White;
+            textBoxId.Location = new Point(14, 17);
+            textBoxId.Name = "textBoxId";
+            textBoxId.Size = new Size(79, 16);
+            textBoxId.TabIndex = 89;
+            textBoxId.TextAlign = HorizontalAlignment.Center;
+            // 
+            // buttonAdd
+            // 
+            buttonAdd.BackColor = Color.Transparent;
+            buttonAdd.BackgroundImage = Properties.Resources.boton2;
+            buttonAdd.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonAdd.FlatAppearance.BorderSize = 0;
+            buttonAdd.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            buttonAdd.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            buttonAdd.FlatStyle = FlatStyle.Flat;
+            buttonAdd.Font = new Font("Universal Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonAdd.ForeColor = Color.White;
+            buttonAdd.Location = new Point(99, 11);
+            buttonAdd.Name = "buttonAdd";
+            buttonAdd.Size = new Size(120, 34);
+            buttonAdd.TabIndex = 88;
+            buttonAdd.Text = "Agregar";
+            buttonAdd.UseVisualStyleBackColor = false;
+            buttonAdd.Click += buttonAdd_Click;
+            // 
+            // buttonEdit
+            // 
+            buttonEdit.BackColor = Color.Transparent;
+            buttonEdit.BackgroundImage = Properties.Resources.boton2;
+            buttonEdit.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonEdit.FlatAppearance.BorderSize = 0;
+            buttonEdit.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            buttonEdit.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            buttonEdit.FlatStyle = FlatStyle.Flat;
+            buttonEdit.Font = new Font("Universal Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonEdit.ForeColor = Color.White;
+            buttonEdit.Location = new Point(225, 11);
+            buttonEdit.Name = "buttonEdit";
+            buttonEdit.Size = new Size(120, 34);
+            buttonEdit.TabIndex = 87;
+            buttonEdit.Text = "Editar";
+            buttonEdit.UseVisualStyleBackColor = false;
+            buttonEdit.Click += buttonEdit_Click;
+            // 
+            // textBoxPeso
+            // 
+            textBoxPeso.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxPeso.BorderStyle = BorderStyle.None;
+            textBoxPeso.ForeColor = Color.White;
+            textBoxPeso.Location = new Point(57, 339);
+            textBoxPeso.Name = "textBoxPeso";
+            textBoxPeso.Size = new Size(286, 16);
+            textBoxPeso.TabIndex = 90;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(14, 339);
+            label2.Name = "label2";
+            label2.Size = new Size(41, 16);
+            label2.TabIndex = 91;
+            label2.Text = "Peso:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(14, 361);
+            label1.Name = "label1";
+            label1.Size = new Size(84, 16);
+            label1.TabIndex = 93;
+            label1.Text = "Clasificación:";
+            // 
+            // textBoxClasificacion
+            // 
+            textBoxClasificacion.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxClasificacion.BorderStyle = BorderStyle.None;
+            textBoxClasificacion.ForeColor = Color.White;
+            textBoxClasificacion.Location = new Point(99, 361);
+            textBoxClasificacion.Name = "textBoxClasificacion";
+            textBoxClasificacion.Size = new Size(244, 16);
+            textBoxClasificacion.TabIndex = 92;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(14, 383);
+            label3.Name = "label3";
+            label3.Size = new Size(41, 16);
+            label3.TabIndex = 95;
+            label3.Text = "Daño:";
+            // 
+            // textBoxDaño
+            // 
+            textBoxDaño.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxDaño.BorderStyle = BorderStyle.None;
+            textBoxDaño.ForeColor = Color.White;
+            textBoxDaño.Location = new Point(53, 383);
+            textBoxDaño.Name = "textBoxDaño";
+            textBoxDaño.Size = new Size(121, 16);
+            textBoxDaño.TabIndex = 94;
+            // 
+            // labelSigilo
+            // 
+            labelSigilo.AutoSize = true;
+            labelSigilo.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            labelSigilo.ForeColor = Color.White;
+            labelSigilo.Location = new Point(14, 405);
+            labelSigilo.Name = "labelSigilo";
+            labelSigilo.Size = new Size(43, 16);
+            labelSigilo.TabIndex = 97;
+            labelSigilo.Text = "Sigilo:";
+            // 
+            // textBoxSigilo
+            // 
+            textBoxSigilo.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxSigilo.BorderStyle = BorderStyle.None;
+            textBoxSigilo.ForeColor = Color.White;
+            textBoxSigilo.Location = new Point(57, 405);
+            textBoxSigilo.Name = "textBoxSigilo";
+            textBoxSigilo.Size = new Size(286, 16);
+            textBoxSigilo.TabIndex = 96;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(14, 427);
+            label5.Name = "label5";
+            label5.Size = new Size(29, 16);
+            label5.TabIndex = 99;
+            label5.Text = "AC:";
+            // 
+            // textBoxAC
+            // 
+            textBoxAC.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxAC.BorderStyle = BorderStyle.None;
+            textBoxAC.ForeColor = Color.White;
+            textBoxAC.Location = new Point(57, 427);
+            textBoxAC.Name = "textBoxAC";
+            textBoxAC.Size = new Size(286, 16);
+            textBoxAC.TabIndex = 98;
+            // 
+            // textBoxDañoTipo
+            // 
+            textBoxDañoTipo.BackColor = Color.FromArgb(37, 41, 48);
+            textBoxDañoTipo.BorderStyle = BorderStyle.None;
+            textBoxDañoTipo.ForeColor = Color.White;
+            textBoxDañoTipo.Location = new Point(213, 383);
+            textBoxDañoTipo.Name = "textBoxDañoTipo";
+            textBoxDañoTipo.Size = new Size(130, 16);
+            textBoxDañoTipo.TabIndex = 100;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(177, 383);
+            label4.Name = "label4";
+            label4.Size = new Size(35, 16);
+            label4.TabIndex = 101;
+            label4.Text = "Tipo:";
+            // 
             // FormItemCard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(37, 41, 48);
-            ClientSize = new Size(357, 450);
+            ClientSize = new Size(357, 454);
+            Controls.Add(label4);
+            Controls.Add(textBoxDañoTipo);
+            Controls.Add(label5);
+            Controls.Add(textBoxAC);
+            Controls.Add(labelSigilo);
+            Controls.Add(textBoxSigilo);
+            Controls.Add(label3);
+            Controls.Add(textBoxDaño);
+            Controls.Add(label1);
+            Controls.Add(textBoxClasificacion);
+            Controls.Add(label2);
+            Controls.Add(textBoxPeso);
+            Controls.Add(textBoxId);
+            Controls.Add(buttonAdd);
+            Controls.Add(buttonEdit);
             Controls.Add(labelDescripcion);
             Controls.Add(labelPropiedades);
             Controls.Add(labelCosto);
@@ -200,5 +405,20 @@
         private RichTextBox richTextBoxDescripcion;
         private TextBox textBoxNombre;
         private TextBox textBoxCategoria;
+        private TextBox textBoxId;
+        private Button buttonAdd;
+        private Button buttonEdit;
+        private TextBox textBoxPeso;
+        private Label label2;
+        private Label label1;
+        private TextBox textBoxClasificacion;
+        private Label label3;
+        private TextBox textBoxDaño;
+        private Label labelSigilo;
+        private TextBox textBoxSigilo;
+        private Label label5;
+        private TextBox textBoxAC;
+        private TextBox textBoxDañoTipo;
+        private Label label4;
     }
 }

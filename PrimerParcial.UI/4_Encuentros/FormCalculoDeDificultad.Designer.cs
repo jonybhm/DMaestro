@@ -59,6 +59,7 @@
             label10 = new Label();
             label11 = new Label();
             textBoxBuscador = new TextBox();
+            buttonMostrar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridEnemigos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridTablaReferencia).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridNivelDificultad).BeginInit();
@@ -121,11 +122,11 @@
             label1.FlatStyle = FlatStyle.Flat;
             label1.Font = new Font("Universal Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.Lavender;
-            label1.Location = new Point(444, 57);
+            label1.Location = new Point(246, 80);
             label1.Name = "label1";
-            label1.Size = new Size(27, 13);
+            label1.Size = new Size(117, 13);
             label1.TabIndex = 6;
-            label1.Text = "CR:";
+            label1.Text = "CR por enemigo:";
             // 
             // label2
             // 
@@ -135,7 +136,7 @@
             label2.FlatStyle = FlatStyle.Flat;
             label2.Font = new Font("Universal Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Lavender;
-            label2.Location = new Point(444, 115);
+            label2.Location = new Point(246, 122);
             label2.Name = "label2";
             label2.Size = new Size(72, 13);
             label2.TabIndex = 7;
@@ -146,7 +147,7 @@
             textBoxResultadoXP.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBoxResultadoXP.BackColor = Color.LavenderBlush;
             textBoxResultadoXP.Font = new Font("Universal Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            textBoxResultadoXP.Location = new Point(444, 131);
+            textBoxResultadoXP.Location = new Point(246, 138);
             textBoxResultadoXP.Name = "textBoxResultadoXP";
             textBoxResultadoXP.ReadOnly = true;
             textBoxResultadoXP.Size = new Size(99, 20);
@@ -160,7 +161,7 @@
             label3.FlatStyle = FlatStyle.Flat;
             label3.Font = new Font("Universal Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.Lavender;
-            label3.Location = new Point(555, 115);
+            label3.Location = new Point(357, 122);
             label3.Name = "label3";
             label3.Size = new Size(75, 13);
             label3.TabIndex = 10;
@@ -171,7 +172,7 @@
             textBoxResultadoXPporPC.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBoxResultadoXPporPC.BackColor = Color.LavenderBlush;
             textBoxResultadoXPporPC.Font = new Font("Universal Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            textBoxResultadoXPporPC.Location = new Point(555, 131);
+            textBoxResultadoXPporPC.Location = new Point(357, 138);
             textBoxResultadoXPporPC.Name = "textBoxResultadoXPporPC";
             textBoxResultadoXPporPC.ReadOnly = true;
             textBoxResultadoXPporPC.Size = new Size(99, 20);
@@ -179,6 +180,7 @@
             // 
             // dataGridEnemigos
             // 
+            dataGridEnemigos.AllowDrop = true;
             dataGridViewCellStyle1.BackColor = Color.RosyBrown;
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = Color.Firebrick;
@@ -204,7 +206,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridEnemigos.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridEnemigos.GridColor = Color.Linen;
-            dataGridEnemigos.Location = new Point(665, 57);
+            dataGridEnemigos.Location = new Point(474, 57);
             dataGridEnemigos.Name = "dataGridEnemigos";
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = Color.FromArgb(37, 41, 48);
@@ -224,7 +226,7 @@
             dataGridEnemigos.RowTemplate.DefaultCellStyle.SelectionForeColor = Color.OrangeRed;
             dataGridEnemigos.RowTemplate.Height = 25;
             dataGridEnemigos.ScrollBars = ScrollBars.None;
-            dataGridEnemigos.Size = new Size(524, 568);
+            dataGridEnemigos.Size = new Size(371, 480);
             dataGridEnemigos.TabIndex = 10;
             // 
             // dataGridTablaReferencia
@@ -242,7 +244,7 @@
             dataGridTablaReferencia.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridTablaReferencia.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridTablaReferencia.GridColor = Color.Linen;
-            dataGridTablaReferencia.Location = new Point(12, 420);
+            dataGridTablaReferencia.Location = new Point(12, 315);
             dataGridTablaReferencia.Name = "dataGridTablaReferencia";
             dataGridTablaReferencia.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewCellStyle7.BackColor = Color.RosyBrown;
@@ -251,7 +253,7 @@
             dataGridTablaReferencia.RowsDefaultCellStyle = dataGridViewCellStyle7;
             dataGridTablaReferencia.RowTemplate.Height = 25;
             dataGridTablaReferencia.ScrollBars = ScrollBars.None;
-            dataGridTablaReferencia.Size = new Size(210, 205);
+            dataGridTablaReferencia.Size = new Size(148, 222);
             dataGridTablaReferencia.TabIndex = 11;
             // 
             // label4
@@ -262,7 +264,7 @@
             label4.FlatStyle = FlatStyle.Flat;
             label4.Font = new Font("Universal Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.Lavender;
-            label4.Location = new Point(12, 404);
+            label4.Location = new Point(12, 299);
             label4.Name = "label4";
             label4.Size = new Size(94, 13);
             label4.TabIndex = 14;
@@ -279,13 +281,13 @@
             dataGridNivelDificultad.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridNivelDificultad.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridNivelDificultad.GridColor = Color.Linen;
-            dataGridNivelDificultad.Location = new Point(228, 420);
+            dataGridNivelDificultad.Location = new Point(166, 315);
             dataGridNivelDificultad.Name = "dataGridNivelDificultad";
             dataGridNivelDificultad.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridNivelDificultad.RowsDefaultCellStyle = dataGridViewCellStyle7;
             dataGridNivelDificultad.RowTemplate.Height = 25;
             dataGridNivelDificultad.ScrollBars = ScrollBars.None;
-            dataGridNivelDificultad.Size = new Size(210, 205);
+            dataGridNivelDificultad.Size = new Size(148, 222);
             dataGridNivelDificultad.TabIndex = 12;
             // 
             // dataGridCantidadModificador
@@ -299,13 +301,13 @@
             dataGridCantidadModificador.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridCantidadModificador.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridCantidadModificador.GridColor = Color.Linen;
-            dataGridCantidadModificador.Location = new Point(444, 420);
+            dataGridCantidadModificador.Location = new Point(320, 315);
             dataGridCantidadModificador.Name = "dataGridCantidadModificador";
             dataGridCantidadModificador.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridCantidadModificador.RowsDefaultCellStyle = dataGridViewCellStyle7;
             dataGridCantidadModificador.RowTemplate.Height = 25;
             dataGridCantidadModificador.ScrollBars = ScrollBars.None;
-            dataGridCantidadModificador.Size = new Size(210, 205);
+            dataGridCantidadModificador.Size = new Size(148, 222);
             dataGridCantidadModificador.TabIndex = 13;
             // 
             // label5
@@ -316,11 +318,11 @@
             label5.FlatStyle = FlatStyle.Flat;
             label5.Font = new Font("Universal Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.Lavender;
-            label5.Location = new Point(228, 404);
+            label5.Location = new Point(166, 299);
             label5.Name = "label5";
-            label5.Size = new Size(176, 13);
+            label5.Size = new Size(131, 13);
             label5.TabIndex = 17;
-            label5.Text = "Tabla NIVEL/DIFICULTAD";
+            label5.Text = "NIVEL/DIFICULTAD";
             // 
             // label6
             // 
@@ -330,21 +332,21 @@
             label6.FlatStyle = FlatStyle.Flat;
             label6.Font = new Font("Universal Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.Lavender;
-            label6.Location = new Point(444, 404);
+            label6.Location = new Point(322, 299);
             label6.Name = "label6";
-            label6.Size = new Size(216, 13);
+            label6.Size = new Size(111, 13);
             label6.TabIndex = 18;
-            label6.Text = "Tabla cantidad/modificador";
+            label6.Text = "cantidad/mod";
             // 
             // label7
             // 
-            label7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            label7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             label7.AutoSize = true;
             label7.BackColor = Color.Transparent;
             label7.FlatStyle = FlatStyle.Flat;
             label7.Font = new Font("Universal Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label7.ForeColor = Color.Lavender;
-            label7.Location = new Point(665, 21);
+            label7.Location = new Point(474, 6);
             label7.Name = "label7";
             label7.Size = new Size(126, 22);
             label7.TabIndex = 19;
@@ -361,7 +363,7 @@
             buttonCalcualrCR.FlatStyle = FlatStyle.Flat;
             buttonCalcualrCR.Font = new Font("Universal Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             buttonCalcualrCR.ForeColor = Color.White;
-            buttonCalcualrCR.Location = new Point(228, 82);
+            buttonCalcualrCR.Location = new Point(246, 18);
             buttonCalcualrCR.Name = "buttonCalcualrCR";
             buttonCalcualrCR.Size = new Size(210, 44);
             buttonCalcualrCR.TabIndex = 5;
@@ -374,7 +376,7 @@
             textBoxResultadoCR.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBoxResultadoCR.BackColor = Color.LavenderBlush;
             textBoxResultadoCR.Font = new Font("Universal Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            textBoxResultadoCR.Location = new Point(444, 73);
+            textBoxResultadoCR.Location = new Point(246, 96);
             textBoxResultadoCR.Name = "textBoxResultadoCR";
             textBoxResultadoCR.ReadOnly = true;
             textBoxResultadoCR.Size = new Size(210, 20);
@@ -391,9 +393,9 @@
             label8.ForeColor = Color.Lavender;
             label8.Location = new Point(12, 2);
             label8.Name = "label8";
-            label8.Size = new Size(88, 13);
+            label8.Size = new Size(155, 13);
             label8.TabIndex = 22;
-            label8.Text = "Cantida PC:";
+            label8.Text = "Cantidad Jugadores:";
             // 
             // label9
             // 
@@ -405,9 +407,9 @@
             label9.ForeColor = Color.Lavender;
             label9.Location = new Point(12, 41);
             label9.Name = "label9";
-            label9.Size = new Size(69, 13);
+            label9.Size = new Size(134, 13);
             label9.TabIndex = 23;
-            label9.Text = "Nivel PC:";
+            label9.Text = "Nivel Personajes:";
             // 
             // label10
             // 
@@ -442,12 +444,32 @@
             textBoxBuscador.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             textBoxBuscador.BackColor = Color.LavenderBlush;
             textBoxBuscador.Font = new Font("Universal Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            textBoxBuscador.Location = new Point(926, 21);
+            textBoxBuscador.Location = new Point(474, 31);
             textBoxBuscador.Name = "textBoxBuscador";
             textBoxBuscador.PlaceholderText = "BUSCAR POR NOMBRE...";
-            textBoxBuscador.Size = new Size(263, 20);
+            textBoxBuscador.Size = new Size(192, 20);
             textBoxBuscador.TabIndex = 9;
             textBoxBuscador.TextChanged += textBoxBuscador_TextChanged;
+            // 
+            // buttonMostrar
+            // 
+            buttonMostrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonMostrar.BackColor = Color.Transparent;
+            buttonMostrar.BackgroundImage = Properties.Resources.boton2;
+            buttonMostrar.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonMostrar.FlatAppearance.BorderSize = 0;
+            buttonMostrar.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            buttonMostrar.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            buttonMostrar.FlatStyle = FlatStyle.Flat;
+            buttonMostrar.Font = new Font("Universal Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonMostrar.ForeColor = Color.White;
+            buttonMostrar.Location = new Point(687, 9);
+            buttonMostrar.Name = "buttonMostrar";
+            buttonMostrar.Size = new Size(157, 45);
+            buttonMostrar.TabIndex = 26;
+            buttonMostrar.Text = "Mostrar";
+            buttonMostrar.UseVisualStyleBackColor = false;
+            buttonMostrar.Click += buttonMostrar_Click;
             // 
             // FormCalculoDeDificultad
             // 
@@ -457,7 +479,8 @@
             BackColor = Color.FromArgb(37, 41, 48);
             BackgroundImage = Properties.Resources.blindaje_1_;
             BackgroundImageLayout = ImageLayout.Zoom;
-            ClientSize = new Size(1200, 643);
+            ClientSize = new Size(856, 549);
+            Controls.Add(buttonMostrar);
             Controls.Add(textBoxBuscador);
             Controls.Add(label11);
             Controls.Add(label10);
@@ -520,5 +543,6 @@
         private Label label10;
         private Label label11;
         private TextBox textBoxBuscador;
+        private Button buttonMostrar;
     }
 }
