@@ -58,15 +58,10 @@
 
 
 
-| Cartas de Hechizos/Spell Cards                                              |
-| :-------------------------------------------------------------------:       |
-<img src="Assets/Readme/SpellCard.png" title="Spell Card" width="75%">        |
+| Cartas de Hechizos/Spell Cards                                              |Iniciativa/Initiative                                                       |
+| :-------------------------------------------------------------------:       |:-------------------------------------------------------------------:       | 
+<img src="Assets/Readme/SpellCard.png" title="Spell Card" width="75%">        |<img src="Assets/Readme/Iniciativa.png" title="Initiative" width="75%">      |
 
-
-
-| Iniciativa/Initiative                                                       |
-| :-------------------------------------------------------------------:       | 
-|<img src="Assets/Readme/Iniciativa.png" title="Initiative" width="75%">      |
 
 
 </details>
