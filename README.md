@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="https://github.com/GITHUB_USERNAME/REPO_SLUG">
-    <img src="Assets/Readme/logo_text.png" alt="Logo" width="500" height="100">
+    <img src="Assets/Readme/logo_text.png" alt="Logo" width="600" height="100">
   </a>
 </h1>
 
