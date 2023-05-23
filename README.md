@@ -52,17 +52,17 @@
 | <img src="Assets/Readme/MenuPrincipal.png" title="Main Menu" width="100%">  | 
 
 
-|                           Calculadora Dados/Dice Calculator                 |                        
-|  :-------------------------------------------------------------------:      | 
-| <img src="Assets/Readme/Calculadora.png" title="Calculator" width="50%">    |
+|                           Calculadora Dados/Dice Calculator                 |                            Bloque Stats/Stat Block                              |                    
+|  :-------------------------------------------------------------------:      | :-------------------------------------------------------------------:       |
+| <img src="Assets/Readme/Calculadora.png" title="Calculator" width="50%">    |<img src="Assets/Readme/StatBlock.png" title="Main Menu" width="50%">       | 
+
+
 
 | Cartas de Hechizos/Spell Cards                                              |
 | :-------------------------------------------------------------------:       |
 <img src="Assets/Readme/SpellCard.png" title="Spell Card" width="75%">        |
 
-|                        Bloque Stats/Stat Block                              |                           
-| :-------------------------------------------------------------------:       | 
-| <img src="Assets/Readme/StatBlock.png" title="Main Menu" width="50%">       |  
+
 
 | Iniciativa/Initiative                                                       |
 | :-------------------------------------------------------------------:       | 
@@ -99,15 +99,9 @@
 > The repository can be downloaded from <>Code -> Download ZIP.
 
 
-|                        Descarga/Download                       |                        Descarga/Download                                |
-| :-------------------------------------------------------------------: | :--------------------------------------------------------------------: |
-| <img src="docs/images/python_install_1.png" title="Main Menu" width="100%">  | <img src="docs/images/python_install_2.png" title="Gameplay" width="100%">  |
-|                           Instalacion Python/Python Install       |                         Instalacion Pygame/Pygame Install                           |
-|  |  |
-| <img src="docs/images/python_install_3.png" title="Rankings" width="100%">    | <img src="docs/images/pygame_install.png" title="Gameplay" width="100%">  |
-|                              Repositorio/Repository           |                 Carpetas/Folders                            |
-| | |
-| <img src="docs/images/Screenshot_repositorio.png" title="Main Menu" width="100%">| <img src="docs/images/folders.png" title="Gameplay" width="100%">  |
+|                        Descarga/Download                       |      
+| :-------------------------------------------------------------------: | 
+| <img src="Assets/Readme/Instalacion.png" title="Download" width="100%">  | 
 
 ## Utilización / Usage
 
