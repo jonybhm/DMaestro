@@ -47,15 +47,15 @@
 <br>
 
 
-|                        Menu Principal/Main Menu                       |                         Iniciativa/Initiative                           |
-| :-------------------------------------------------------------------: | :--------------------------------------------------------------------: |
-| <img src="Assets/Readme/MenuPrincipal.png" title="Main Menu" width="100%">  | <img src="Assets/Readme/Iniciativa.png" title="Initiative" width="100%">  |
+|                        Menu Principal/Main Menu                       |    
+| :-------------------------------------------------------------------: | 
+| <img src="Assets/Readme/MenuPrincipal.png" title="Main Menu" width="100%">  | 
 |                           Calculadora Dados/Dice Calculator            |                         Cartas de Hechizos/Spell Cards                         |
 |  |  |
 | <img src="Assets/Readme/Calculadora.png" title="Calculator" width="50%">    | <img src="Assets/Readme/SpellCard.png" title="Spell Card" width="50%">  |
-|                        Bloque Stats/Stat Block                          |                                               |
+|                        Bloque Stats/Stat Block                          |                            Iniciativa/Initiative                                                                   |
 | | |
-| <img src="Assets/Readme/StatBlock.png" title="Main Menu" width="50%">| 
+| <img src="Assets/Readme/StatBlock.png" title="Main Menu" width="50%">| <img src="Assets/Readme/Iniciativa.png" title="Initiative" width="100%">  |
 
 
 </details>
