@@ -95,7 +95,7 @@ namespace PrimerParcial.UI
                 Hechizo hechizo = new Hechizo(0, "");
                 AgregarInfoHechizo(hechizo, dictDatosFilas);
 
-                FormSpellCard spellCard = new FormSpellCard((Hechizo)hechizo, mostrarBotonEditar, mostrarBotonAgregarNuevo);
+                FormSpellCard spellCard = new FormSpellCard((Hechizo)hechizo, mostrarBotonAgregarNuevo, mostrarBotonEditar);
 
                 spellCard.MdiParent = mdiParentForm;
                 spellCard.WindowState = FormWindowState.Normal;

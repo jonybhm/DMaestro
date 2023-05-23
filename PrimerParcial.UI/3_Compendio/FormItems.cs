@@ -95,7 +95,7 @@ namespace PrimerParcial.UI
                 Item item = new Item(0, "");
                 AgregarInfoItem(item, dictDatosFilas);
 
-                FormItemCard itemCard = new FormItemCard((Item)item, mostrarBotonEditar, mostrarBotonAgregarNuevo);
+                FormItemCard itemCard = new FormItemCard((Item)item, mostrarBotonAgregarNuevo, mostrarBotonEditar);
                 itemCard.MdiParent = mdiParentForm;
                 itemCard.WindowState = FormWindowState.Normal;
                 itemCard.Show();

@@ -23,7 +23,7 @@ namespace PrimerParcial.UI
         /// <summary>
         /// Inicializa una nueva instania de la clase FormCampaña.
         /// </summary>
-        public FormCampaña(Campaña datosCampaña, bool MostrarBotonAgregar, bool MostrarBotonEditar)
+        public FormCampaña(Campaña datosCampaña, bool MostrarBotonEditar, bool MostrarBotonAgregar)
         {
             InitializeComponent();
             this.datosCampaña = datosCampaña;
@@ -55,6 +55,7 @@ namespace PrimerParcial.UI
             textBoxID.Text = datosCampaña.id.ToString();
             textBoxLugar.Text = datosCampaña.place;
             pictureBoxCabecera.ImageLocation = datosCampaña.imageUrl;
+            richTextBoxNotas.Text = datosCampaña.notes;
 
             dataGrid_Actualizar(datosCampaña.characters, dataGridPersonajes);
             dataGrid_Actualizar(datosCampaña.adventures, dataGridAventuras);
@@ -113,8 +114,9 @@ namespace PrimerParcial.UI
             datosCampaña.id = int.Parse(textBoxID.Text);
             datosCampaña.name = textBoxNombre.Text;
             datosCampaña.place = textBoxLugar.Text;
-         
-         
+            datosCampaña.notes = richTextBoxNotas.Text;
+
+
         }
     }
 }

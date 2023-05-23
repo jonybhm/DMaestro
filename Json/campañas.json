@@ -1,70 +1,66 @@
-
 [
-	{
-		"id":0,
-		"name":"Calaveras y Orquitos",
-		"place":"Nivia",
-		"imageUrl":"https://cdn.vox-cdn.com/thumbor/mO_a8Y2vaxq9KkBHpkUKn05VAy4=/0x0:2048x1488/1200x800/filters:focal(858x439:1184x765)/cdn.vox-cdn.com/uploads/chorus_image/image/70744372/Party_Art.6.jpg",
-		"characters":		
-		[
-			{
-				"name":"Sun",
-				"level":7,
-				"class":"Monje",
-				"hp":54,
-				"ac":15
-			},
-			{
-				"name":"Xonan",
-				"level":7,
-				"class":"Druida",
-				"hp":45,
-				"ac":13
-			}
-		],
-		"adventures":
-		[
-			{
-				"name":"Viaje a Tybra",
-				"level":3,
-				"npcs":["Erik","Cervezanegra"],
-				"notes":"Los personajes viajan a tybra"
-			}
-		],
-		"combats":
-		[
-			{
-				"name":"",
-				"level":0,
-				"cr":"",
-				"enemies":
-				[
-					{
-						"enemy":"Wererat",
-						"quantity":"5",
-						"ac":15,
-						"hp":10
-					}
-				]
-			}
-		],
-		"encounters":
-		[
-			{
-				"name":"",
-				"content":"",
-				"puzzles":""
-			}
-		],
-		"treasure":
-		[
-			{
-				"name":"bag of holding",
-				"description":"",
-				"quantity":1,
-				"cost":1000
-			}
-		],
-		"notes":""
-	}
+  {
+    "place": "Nivia",
+    "imageUrl": "https://cdn.vox-cdn.com/thumbor/mO_a8Y2vaxq9KkBHpkUKn05VAy4=/0x0:2048x1488/1200x800/filters:focal(858x439:1184x765)/cdn.vox-cdn.com/uploads/chorus_image/image/70744372/Party_Art.6.jpg",
+    "characters": [
+      {
+        "name": "Sun",
+        "level": 7,
+        "class": "Monje",
+        "hp": 54,
+        "ac": 15
+      },
+      {
+        "name": "Xonan",
+        "level": 7,
+        "class": "Druida",
+        "hp": 45,
+        "ac": 13
+      }
+    ],
+    "adventures": [
+      {
+        "name": "Viaje a Tybra",
+        "level": 3,
+        "npcs": [
+          "Erik",
+          "Cervezanegra"
+        ],
+        "notes": "Los personajes viajan a tybra"
+      }
+    ],
+    "combats": [
+      {
+        "name": "",
+        "level": 0,
+        "cr": "",
+        "enemies": [
+          {
+            "enemy": "Wererat",
+            "quantity": "5",
+            "ac": 15,
+            "hp": 10
+          }
+        ]
+      }
+    ],
+    "encounters": [
+      {
+        "name": "",
+        "content": "",
+        "puzzles": ""
+      }
+    ],
+    "treasure": [
+      {
+        "name": "bag of holding",
+        "description": "",
+        "quantity": 1,
+        "cost": 1000
+      }
+    ],
+    "notes": "nah mentira",
+    "id": 0,
+    "name": "Calaveras y Orquitos"
+  }
 ]
