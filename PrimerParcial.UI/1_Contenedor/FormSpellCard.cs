@@ -78,7 +78,7 @@ namespace PrimerParcial.UI._1_Contenedor
         {
             CrearDatosJsonEnBaseAHechizo();
             Elemento.AgregarInfoEnArchivo(datosFilaHechizos, "spells-en-prueba");
-            MessageBox.Show("Hechizo Agregado");
+            MessageBox.Show("Hechizo Agregado", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace PrimerParcial.UI._1_Contenedor
         {
             CrearDatosJsonEnBaseAHechizo();
             Elemento.ModificarInfoEnArchivo(datosFilaHechizos, "spells-en-prueba", datosFilaHechizos.id);
-            MessageBox.Show("Hechizo Editado");
+            MessageBox.Show("Hechizo Editado", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
         }
 

@@ -44,12 +44,12 @@ namespace PrimerParcial.UI._1_Contenedor
                 }
                 usuarioNuevo = new Usuario(userIdLast++, userFirstLastName, userName, userPassword, userRoleAdmin);
                 Elemento.AgregarInfoEnArchivo(usuarioNuevo, "usuarios");
-                MessageBox.Show("Usuario agregado");
+                MessageBox.Show("Usuario agregado", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
             }
             else
             {
-                MessageBox.Show("Faltan valores");
+                MessageBox.Show("Faltan valores", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
@@ -67,9 +67,9 @@ namespace PrimerParcial.UI._1_Contenedor
             {
                 if (item.UserName == textBoxUsuario.Text)
                 {
-                    MessageBox.Show("El usuario ya existe");
+                    MessageBox.Show("El usuario ya existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     usuarioExistente = true;
-                    
+
                 }
                 else
                 {
@@ -81,11 +81,11 @@ namespace PrimerParcial.UI._1_Contenedor
             if (textBoxContraseñaConfirm.Text == textBoxContraseña.Text)
             {
                 contraseñaCoincidente = true;
-                
+
             }
             else
             {
-                MessageBox.Show("La contraseña no coincide");
+                MessageBox.Show("La contraseña no coincide", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 contraseñaCoincidente = false;
             }
 
@@ -93,7 +93,7 @@ namespace PrimerParcial.UI._1_Contenedor
             {
                 casillasVerifican = true;
             }
-            
+
 
             return casillasVerifican;
         }

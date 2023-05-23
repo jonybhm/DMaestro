@@ -13,6 +13,10 @@ namespace PrimerParcial.UI
 {
     public partial class FormIniciativa : Form
     {
+
+        /// <summary>
+        /// Inicializa una nueva instania de la clase FormIniciativa.
+        /// </summary>
         public FormIniciativa()
         {
             InitializeComponent();
@@ -23,21 +27,22 @@ namespace PrimerParcial.UI
 
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton Ordenar.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonOrdenar_Click(object sender, EventArgs e)
         {
             dataGridSeguidorIniciativa.Sort(dataGridSeguidorIniciativa.Columns["Iniciativa"], ListSortDirection.Ascending);
         }
 
-        private void dataGridSeguidorIniciativa_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
-
-        private void FormIniciativa_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton Tirar.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonTirar_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < dataGridSeguidorIniciativa.RowCount - 1; i++)

@@ -79,7 +79,7 @@
             dataGridSeguidorIniciativa.ScrollBars = ScrollBars.None;
             dataGridSeguidorIniciativa.Size = new Size(355, 306);
             dataGridSeguidorIniciativa.TabIndex = 0;
-            dataGridSeguidorIniciativa.CellContentClick += dataGridSeguidorIniciativa_CellContentClick;
+            //dataGridSeguidorIniciativa.CellContentClick += dataGridSeguidorIniciativa_CellContentClick;
             // 
             // Iniciativa
             // 
@@ -172,7 +172,7 @@
             Controls.Add(pictureBox1);
             Name = "FormIniciativa";
             Text = "FormCrearCombate";
-            Load += FormIniciativa_Load;
+            //Load += FormIniciativa_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridSeguidorIniciativa).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

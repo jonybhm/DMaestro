@@ -76,7 +76,7 @@ namespace PrimerParcial.UI._1_Contenedor
         {
             CrearDatosJsonEnBaseAItem();
             Elemento.AgregarInfoEnArchivo(datosItem, "items-en-prueba");
-            MessageBox.Show("Item Agregado");            
+            MessageBox.Show("Item Agregado", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);            
         }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace PrimerParcial.UI._1_Contenedor
         {
             CrearDatosJsonEnBaseAItem();
             Elemento.ModificarInfoEnArchivo(datosItem, "items-en-prueba", datosItem.id);
-            MessageBox.Show("Item Editado");            
+            MessageBox.Show("Item Editado", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);            
         }
 
         /// <summary>

@@ -16,6 +16,10 @@ namespace PrimerParcial.UI
     public partial class FormCalculoDeDificultad : Form
     {
         private FormContenedor mdiParentForm;
+
+        /// <summary>
+        /// Inicializa una nueva instania de la clase FormCalculoDeDificultad.
+        /// </summary>
         public FormCalculoDeDificultad(FormContenedor parentForm)
         {
             InitializeComponent();
@@ -23,15 +27,24 @@ namespace PrimerParcial.UI
 
         }
 
-        private void dataGridEnemigos_Actualizar(List<object> ListaDiccionarios)
+        /// <summary>
+        /// Actualiza el datagrid con la informacion de una lista.
+        /// </summary>
+        /// <param name="ListaDiccionarios">Lista de diccionarios con la informacion para el Data Grid.</param>
+        private void dataGrid_Actualizar(List<object> ListaDiccionarios, DataGridView dataGrid)
         {
-            dataGridEnemigos.DataSource = null;
+            dataGrid.DataSource = null;
 
-            var bestiario = Elemento.ArmarTablaParaDataGrid(ListaDiccionarios);
+            var tabla = Elemento.ArmarTablaParaDataGrid(ListaDiccionarios);
 
-            dataGridEnemigos.DataSource = bestiario;
+            dataGrid.DataSource = tabla;
         }
 
+        /// <summary>
+        /// Busca informacion en el data grid con respecto al texto en Text Box CR.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void textBoxResultadoCR_TextChanged(object sender, EventArgs e)
         {
             BindingSource bindingSource = new BindingSource();
@@ -48,89 +61,11 @@ namespace PrimerParcial.UI
 
         }
 
-
-        private void dataGridTablaReferencia_Actualizar(List<object> ListaDiccionarios)
-        {
-            dataGridTablaReferencia.DataSource = null;
-
-            var tablaUno = Elemento.ArmarTablaParaDataGrid(ListaDiccionarios);
-
-            dataGridTablaReferencia.DataSource = tablaUno;
-        }
-
-        private void dataGridNivelDificultad_Actualizar(List<object> ListaDiccionarios)
-        {
-            dataGridNivelDificultad.DataSource = null;
-
-            var tablaDos = Elemento.ArmarTablaParaDataGrid(ListaDiccionarios);
-
-            dataGridNivelDificultad.DataSource = tablaDos;
-        }
-
-        private void dataGridCantidadModificador_Actualizar(List<object> ListaDiccionarios)
-        {
-            dataGridCantidadModificador.DataSource = null;
-
-            var tablaTres = Elemento.ArmarTablaParaDataGrid(ListaDiccionarios);
-
-            dataGridCantidadModificador.DataSource = tablaTres;
-        }
-        private void FormCombateDificultad_Load_1(object sender, EventArgs e)
-        {
-            comboBoxDificultad.SelectedIndex = 0;
-
-            dataGridEnemigos_Actualizar(Elemento.LeerInfoArchivo("monsters-en"));
-            dataGridTablaReferencia_Actualizar(Elemento.LeerInfoArchivo("tabla1"));
-            dataGridNivelDificultad_Actualizar(Elemento.LeerInfoArchivo("tabla2"));
-            dataGridCantidadModificador_Actualizar(Elemento.LeerInfoArchivo("tabla3"));
-        }
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int XP = Enemigo.CalcularXP(int.Parse(textBoxNivelPC.Text), int.Parse(textBoxCantidadPC.Text), int.Parse(textBoxCantidadEnemigos.Text),
-                    comboBoxDificultad.Text, Elemento.LeerInfoArchivo("tabla2"), Elemento.LeerInfoArchivo("tabla3"));
-                textBoxResultadoXP.Text = XP.ToString();
-                textBoxResultadoXPporPC.Text = (XP / int.Parse(textBoxCantidadPC.Text)).ToString();
-
-                string CR = Enemigo.CalcularCR(XP, Elemento.LeerInfoArchivo("tabla1"));
-                textBoxResultadoCR.Text = CR;
-            }
-            catch (Exception c)
-            {
-                MessageBox.Show("Falta ingresar campos");
-            }
-
-        }
-
-        private void textBoxCantidadPC_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //la caja de texto acepta solo numeros y teclas de control
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void textBoxNivelPC_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-
-        }
-
-        private void textBoxCantidadEnemigos_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
+        /// <summary>
+        /// Busca informacion en el data grid con respecto al texto en Text Box Buscador.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void textBoxBuscador_TextChanged(object sender, EventArgs e)
         {
             BindingSource bindingSource = new BindingSource();
@@ -146,6 +81,51 @@ namespace PrimerParcial.UI
             dataGridEnemigos.DataSource = bindingSource;
         }
 
+        /// <summary>
+        /// Evento de carga de formulario
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
+        private void FormCombateDificultad_Load_1(object sender, EventArgs e)
+        {
+            comboBoxDificultad.SelectedIndex = 0;
+
+            dataGrid_Actualizar(Elemento.LeerInfoArchivo("monsters-en"), dataGridEnemigos);
+            dataGrid_Actualizar(Elemento.LeerInfoArchivo("tabla1"), dataGridTablaReferencia);
+            dataGrid_Actualizar(Elemento.LeerInfoArchivo("tabla2"), dataGridNivelDificultad);
+            dataGrid_Actualizar(Elemento.LeerInfoArchivo("tabla3"), dataGridCantidadModificador);
+        }
+
+
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton Calcular.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
+        private void buttonCalcualrCR_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int XP = Enemigo.CalcularXP(int.Parse(textBoxNivelPC.Text), int.Parse(textBoxCantidadPC.Text), int.Parse(textBoxCantidadEnemigos.Text),
+                    comboBoxDificultad.Text, Elemento.LeerInfoArchivo("tabla2"), Elemento.LeerInfoArchivo("tabla3"));
+                textBoxResultadoXP.Text = XP.ToString();
+                textBoxResultadoXPporPC.Text = (XP / int.Parse(textBoxCantidadPC.Text)).ToString();
+
+                string CR = Enemigo.CalcularCR(XP, Elemento.LeerInfoArchivo("tabla1"));
+                textBoxResultadoCR.Text = CR;
+            }
+            catch (Exception c)
+            {
+                MessageBox.Show("Falta ingresar campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton Mostrar.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonMostrar_Click(object sender, EventArgs e)
         {
             bool mostrarBotonEditar = false;
@@ -174,9 +154,51 @@ namespace PrimerParcial.UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar una fila para mostrar");
+                MessageBox.Show("Debe seleccionar una fila para mostrar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        /// <summary>
+        /// Limita el tipo de texto a ingresar a numeros y teclas de control
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Objeto que representa al iniciador del evento.</param>
+        private void textBoxCantidadPC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //la caja de texto acepta solo numeros y teclas de control
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        /// <summary>
+        /// Limita el tipo de texto a ingresar a numeros y teclas de control
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Objeto que representa al iniciador del evento.</param>
+        private void textBoxNivelPC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+        }
+        /// <summary>
+        /// Limita el tipo de texto a ingresar a numeros y teclas de control
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Objeto que representa al iniciador del evento.</param>
+        private void textBoxCantidadEnemigos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+      
+
 
 
     }

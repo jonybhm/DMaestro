@@ -17,6 +17,10 @@ namespace PrimerParcial.UI
     public partial class FormBestiario : Form
     {
         private FormContenedor mdiParentForm;
+
+        /// <summary>
+        /// Inicializa una nueva instania de la clase FormBestiario.
+        /// </summary>
         public FormBestiario(FormContenedor parentForm)
         {
             InitializeComponent();
@@ -24,6 +28,10 @@ namespace PrimerParcial.UI
 
         }
 
+        /// <summary>
+        /// Actualiza el datagrid con la informacion de una lista.
+        /// </summary>
+        /// <param name="ListaDiccionarios">Lista de diccionarios con la informacion para el Data Grid.</param>
         private void dataGridBestiario_Actualizar(List<object> ListaDiccionarios)
         {
             dataGridBestiario.DataSource = null;
@@ -32,6 +40,12 @@ namespace PrimerParcial.UI
 
             dataGridBestiario.DataSource = bestiario;
         }
+
+        /// <summary>
+        /// Busca informacion en el data grid con respecto al texto en Text Box Buscador.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void textBoxBuscador_TextChanged(object sender, EventArgs e)
         {
             BindingSource bindingSource = new BindingSource();
@@ -47,12 +61,22 @@ namespace PrimerParcial.UI
             dataGridBestiario.DataSource = bindingSource;
         }
 
+        /// <summary>
+        /// Evento de carga de formulario
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void FormBestiario_Load(object sender, EventArgs e)
         {
             dataGridBestiario_Actualizar(Elemento.LeerInfoArchivo("monsters-en-prueba"));           
         }
 
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton Mostrar.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonMostrar_Click(object sender, EventArgs e)
         {
             bool mostrarBotonEditar = true;
@@ -82,10 +106,15 @@ namespace PrimerParcial.UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar una fila para mostrar");
+                MessageBox.Show("Debe seleccionar una fila para mostrar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton Agregar.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
             bool mostrarBotonEditar = false;
@@ -156,6 +185,11 @@ namespace PrimerParcial.UI
 
         }
 
+        /// <summary>
+        /// Carga los parametros para la instancia del objeto enemigo.
+        /// </summary>
+        /// <param name="enemigo">Objeto de tipo Enemigo sin valores pasados.</param>
+        /// <param name="dictDatosFilas">Diccionario con la informacion de de las filas.</param>
         public static void AgregarInfoEnemigo(Enemigo enemigo, Dictionary<string, object> dictDatosFilas)
         {
             enemigo.id = int.Parse((string)dictDatosFilas["id"]);

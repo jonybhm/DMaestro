@@ -369,7 +369,7 @@
             buttonCalcualrCR.TabIndex = 5;
             buttonCalcualrCR.Text = "Calcular CR";
             buttonCalcualrCR.UseVisualStyleBackColor = false;
-            buttonCalcualrCR.Click += button1_Click;
+            buttonCalcualrCR.Click += buttonCalcualrCR_Click;
             // 
             // textBoxResultadoCR
             // 

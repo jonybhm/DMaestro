@@ -19,6 +19,10 @@ namespace PrimerParcial.UI
         private Campaña datosCampaña;
         private bool AgregarHabilitado;
         private bool EditarHabilitado;
+
+        /// <summary>
+        /// Inicializa una nueva instania de la clase FormCampaña.
+        /// </summary>
         public FormCampaña(Campaña datosCampaña, bool MostrarBotonAgregar, bool MostrarBotonEditar)
         {
             InitializeComponent();
@@ -30,6 +34,11 @@ namespace PrimerParcial.UI
 
         }
 
+        /// <summary>
+        /// Evento de carga de formulario
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void FormCampaña_Load(object sender, EventArgs e)
         {
             if (AgregarHabilitado && !EditarHabilitado)
@@ -52,12 +61,15 @@ namespace PrimerParcial.UI
             dataGrid_Actualizar(datosCampaña.combats, dataGridCombates);
             dataGrid_Actualizar(datosCampaña.encounters, dataGridEncuentros);
             dataGrid_Actualizar(datosCampaña.treasure, dataGridTesoros);
-            //dataGrid_Actualizar(JsonSerializer.Deserialize<List<Dictionary<string, object>>>(datosCampaña.adventures), dataGridAventuras);
-            //dataGrid_Actualizar(JsonSerializer.Deserialize<List<Dictionary<string, object>>>(datosCampaña.combats), dataGridCombates);
-            //dataGrid_Actualizar(JsonSerializer.Deserialize<List<Dictionary<string, object>>>(datosCampaña.encounters), dataGridEncuentros);
-            //dataGrid_Actualizar(JsonSerializer.Deserialize<List<Dictionary<string, object>>>(datosCampaña.treasure), dataGridTesoros);
 
         }
+
+
+        /// <summary>
+        /// Actualiza el datagrid con la informacion de una lista.
+        /// </summary>
+        /// <param name="ListaDict">Lista de diccionarios con la informacion para el Data Grid.</param>
+        /// <param name="dataGrid">Data Grid.</param>
         private void dataGrid_Actualizar(List<Dictionary<string, object>> ListaDict, DataGridView dataGrid)
         {
             dataGrid.DataSource = null;
@@ -67,34 +79,42 @@ namespace PrimerParcial.UI
             var tabla = Elemento.ArmarTablaParaDataGrid(ListaDiccionarios);
 
             dataGrid.DataSource = tabla;
-
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton Agregar.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
             CrearDatosJsonEnBaseAItem();
             Elemento.AgregarInfoEnArchivo(datosCampaña, "campañas");
-            MessageBox.Show("Campaña Agregada");
+            MessageBox.Show("Campaña Agregada", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton Editar.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonEditar_Click(object sender, EventArgs e)
         {
             CrearDatosJsonEnBaseAItem();
             Elemento.ModificarInfoEnArchivo(datosCampaña, "campañas", datosCampaña.id);
-            MessageBox.Show("Campaña Editada");
+            MessageBox.Show("Campaña Editada", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        /// <summary>
+        /// Carga valores en un objeto item en base a los valores de los TextBox.
+        /// </summary>
         private void CrearDatosJsonEnBaseAItem()
         {
             datosCampaña.id = int.Parse(textBoxID.Text);
             datosCampaña.name = textBoxNombre.Text;
             datosCampaña.place = textBoxLugar.Text;
-            
-            /*datosCampaña.characters = 
-            datosCampaña.adventures = 
-            datosCampaña.combats = 
-            datosCampaña.encounters = 
-            datosCampaña.treasure = */
-
+         
+         
         }
     }
 }

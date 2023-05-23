@@ -123,8 +123,9 @@
             textBoxContraseña.Size = new Size(286, 20);
             textBoxContraseña.TabIndex = 16;
             // 
-            // FormGuardarFatosEditados
+            // FormGuardarDatosEditados
             // 
+            AcceptButton = buttonGuardar;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(37, 41, 48);
@@ -136,7 +137,7 @@
             Controls.Add(buttonGuardar);
             Controls.Add(labelLogin);
             Controls.Add(textBoxContraseña);
-            Name = "FormGuardarFatosEditados";
+            Name = "FormGuardarDatosEditados";
             Text = "FormGuardarFatosEditados";
             ResumeLayout(false);
             PerformLayout();

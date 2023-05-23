@@ -16,13 +16,20 @@ namespace PrimerParcial.UI
     public partial class FormHechizos : Form
     {
         private FormContenedor mdiParentForm;
+
+        /// <summary>
+        /// Inicializa una nueva instania de la clase FormHechizos.
+        /// </summary>
         public FormHechizos(FormContenedor parentForm)
         {
             InitializeComponent();
             mdiParentForm = parentForm;
-
         }
 
+        /// <summary>
+        /// Actualiza el datagrid con la informacion de una lista.
+        /// </summary>
+        /// <param name="ListaDiccionarios">Lista de diccionarios con la informacion para el Data Grid.</param>
         private void dataGridHechizos_Actualizar(List<object> ListaDiccionarios)
         {
             dataGridHechizos.DataSource = null;
@@ -31,6 +38,12 @@ namespace PrimerParcial.UI
 
             dataGridHechizos.DataSource = hechizos;
         }
+
+        /// <summary>
+        /// Busca informacion en el data grid con respecto al texto en Text Box Buscador.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void textBoxBuscador_TextChanged(object sender, EventArgs e)
         {
             BindingSource bindingSource = new BindingSource();
@@ -46,11 +59,22 @@ namespace PrimerParcial.UI
             dataGridHechizos.DataSource = bindingSource;
         }
 
+
+        /// <summary>
+        /// Evento de carga de formulario
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void FormHechizos_Load(object sender, EventArgs e)
         {
             dataGridHechizos_Actualizar(Elemento.LeerInfoArchivo("spells-en-prueba"));
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton Mostrar.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonMostrar_Click(object sender, EventArgs e)
         {
             bool mostrarBotonEditar = true;
@@ -80,10 +104,15 @@ namespace PrimerParcial.UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar una fila para mostrar");
+                MessageBox.Show("Debe seleccionar una fila para mostrar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-}
+        }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton Agregar.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
             bool mostrarBotonEditar = false;
@@ -113,8 +142,6 @@ namespace PrimerParcial.UI
                 }
 
             }
-
-
             Hechizo hechizo = new Hechizo(idFinal++, "");
             AgregarInfoHechizo(hechizo, dictDatosFilas);
 
@@ -126,6 +153,11 @@ namespace PrimerParcial.UI
             spellCard.Show();
         }
 
+        /// <summary>
+        /// Carga los parametros para la instancia del objeto Hechizo.
+        /// </summary>
+        /// <param name="hechizo">Objeto de tipo Hechizo sin valores pasados.</param>
+        /// <param name="dictDatosFilas">Diccionario con la informacion de de las filas.</param>
         private void AgregarInfoHechizo(Hechizo hechizo, Dictionary<string, object> dictDatosFilas)
         {
             hechizo.id = int.Parse((string)dictDatosFilas["id"]);

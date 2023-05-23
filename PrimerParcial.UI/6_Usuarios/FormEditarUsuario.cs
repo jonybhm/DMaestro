@@ -14,6 +14,10 @@ namespace PrimerParcial.UI._6_Usuarios
     public partial class FormEditarUsuario : Form
     {
         private List<Usuario> _usuarios;
+
+        /// <summary>
+        /// Inicializa una nueva instania de la clase FormEditarUsuario.
+        /// </summary>
         public FormEditarUsuario(List<Usuario> usuarios)
         {
             InitializeComponent();
@@ -21,31 +25,27 @@ namespace PrimerParcial.UI._6_Usuarios
             this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
             _usuarios = usuarios;
         }
-        private void FormUsuarioNuevo_Load(object sender, EventArgs e)
-        {
-            //comboBoxTipoUsuario.SelectedIndex = 0;
-        }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton Editar.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonEditar_Click(object sender, EventArgs e)
         {
+            Usuario.UsuarioExiste(textBoxUsuario.Text, out Usuario usuarioEncontrado, _usuarios);
 
-            if (VerificarCasillas())
+            if (usuarioEncontrado is not null)
             {
                 bool userRoleAdmin = false;
-                //string userFirstLastName = textBoxNombreApellido.Text;
                 string userName = textBoxUsuario.Text;
-                //string userPassword = textBoxContraseña.Text;
-                //if (comboBoxTipoUsuario.Text == "administrativo")
-                //{
-                //    userRoleAdmin = true;
-                //}
+
                 foreach (Usuario usuario in _usuarios)
                 {
                     if (usuario.UserName == textBoxUsuario.Text)
                     {
                         Usuario usuarioNuevo = usuario;
                         var hijo = new FormGuardarDatosEditados(usuarioNuevo);
-                        //hijo.MdiParent = this;
                         hijo.WindowState = FormWindowState.Normal;
                         hijo.Show();
                         this.Hide();
@@ -55,55 +55,12 @@ namespace PrimerParcial.UI._6_Usuarios
             }
             else
             {
-                MessageBox.Show("Faltan valores");
-
+                MessageBox.Show("Usuario No Existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+            
         }
 
-        private bool VerificarCasillas()
-        {
-            bool casillasVerifican = false;
-
-            bool usuarioExistente = false;
-
-            bool contraseñaCoincidente = false;
-
-            foreach (Usuario item in _usuarios)
-            {
-                if (item.UserName == textBoxUsuario.Text)
-                {
-                    usuarioExistente = true;
-                    break;
-                }
-                else
-                {
-                    
-                    usuarioExistente = false;
-                }
-            }
-
-            /*if (textBoxContraseñaConfirm.Text == textBoxContraseña.Text)
-            {
-                contraseñaCoincidente = true;
-            }
-            else
-            {
-                MessageBox.Show("La contraseña no coincide");
-                contraseñaCoincidente = false;
-            }*/
-
-            if (usuarioExistente)
-            {
-                casillasVerifican = true;
-            }
-            else
-            {
-                MessageBox.Show("El usuario no existe");
-            }
-
-            return casillasVerifican;
-        }
+        
 
     }
 }

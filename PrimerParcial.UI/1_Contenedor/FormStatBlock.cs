@@ -19,6 +19,10 @@ namespace PrimerParcial.UI._1_Contenedor
         private Enemigo datosEnemigo;
         private bool AgregarHabilitado;
         private bool EditarHabilitado;
+
+        /// <summary>
+        /// Inicializa una nueva instania de la clase FormStatBlock.
+        /// </summary>
         public FormStatBlock(Enemigo datosEnemigo, bool MostrarBotonAgregar, bool MostrarBotonEditar)
         {
             InitializeComponent();
@@ -29,6 +33,11 @@ namespace PrimerParcial.UI._1_Contenedor
             this.EditarHabilitado = MostrarBotonEditar;
         }
 
+        /// <summary>
+        /// Evento de carga de formulario
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void FormStatBlock_Load(object sender, EventArgs e)
         {
             if (AgregarHabilitado && !EditarHabilitado)
@@ -85,20 +94,33 @@ namespace PrimerParcial.UI._1_Contenedor
 
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton Agregar.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             CrearDatosJsonEnBaseAEnemigo();
             Elemento.AgregarInfoEnArchivo(datosEnemigo, "monsters-en-prueba");
-            MessageBox.Show("Monstruo Agregado");
+            MessageBox.Show("Monstruo Agregado", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton Editar.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             CrearDatosJsonEnBaseAEnemigo();
             Elemento.ModificarInfoEnArchivo(datosEnemigo, "monsters-en-prueba", datosEnemigo.id);
-            MessageBox.Show("Monstruo Editado");
+            MessageBox.Show("Monstruo Editado", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        /// <summary>
+        /// Carga valores en un objeto item en base a los valores de los TextBox.
+        /// </summary>
         private void CrearDatosJsonEnBaseAEnemigo()
         {
             datosEnemigo.name = textBoxNombre.Text;

@@ -12,6 +12,9 @@ namespace PrimerParcial.UI
 {
     public partial class FormRazas : Form
     {
+        /// <summary>
+        /// Inicializa una nueva instania de la clase FormRazas.
+        /// </summary>
         public FormRazas()
         {
             InitializeComponent();

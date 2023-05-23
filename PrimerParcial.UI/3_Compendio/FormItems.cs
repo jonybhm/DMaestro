@@ -17,12 +17,20 @@ namespace PrimerParcial.UI
     {
         private FormContenedor mdiParentForm;
 
+        /// <summary>
+        /// Inicializa una nueva instania de la clase FormItems.
+        /// </summary>
         public FormItems(FormContenedor parentForm)
         {
             InitializeComponent();
             mdiParentForm = parentForm;
 
         }
+
+        /// <summary>
+        /// Actualiza el datagrid con la informacion de una lista.
+        /// </summary>
+        /// <param name="ListaDiccionarios">Lista de diccionarios con la informacion para el Data Grid.</param>
         private void dataGridItems_Actualizar(List<object> ListaDiccionarios)
         {
             dataGridItems.DataSource = null;
@@ -31,6 +39,12 @@ namespace PrimerParcial.UI
 
             dataGridItems.DataSource = items;
         }
+
+        /// <summary>
+        /// Busca informacion en el data grid con respecto al texto en Text Box Buscador.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void textBoxBuscador_TextChanged(object sender, EventArgs e)
         {
             BindingSource bindingSource = new BindingSource();
@@ -46,16 +60,21 @@ namespace PrimerParcial.UI
             dataGridItems.DataSource = bindingSource;
         }
 
+        /// <summary>
+        /// Evento de carga de formulario
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void FormItems_Load(object sender, EventArgs e)
         {
             dataGridItems_Actualizar(Elemento.LeerInfoArchivo("items-en-prueba"));
         }
 
-        private void dataGridItems_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton Mostrar.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonMostrar_Click(object sender, EventArgs e)
         {
             bool mostrarBotonEditar = true;
@@ -83,10 +102,15 @@ namespace PrimerParcial.UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar una fila para mostrar");
+                MessageBox.Show("Debe seleccionar una fila para mostrar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton Agregar.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
             bool mostrarBotonEditar = false;
@@ -118,8 +142,6 @@ namespace PrimerParcial.UI
                 }
 
             }
-
-
             Item item = new Item(idFinal++, "");
             AgregarInfoItem(item, dictDatosFilas);
 
@@ -130,6 +152,13 @@ namespace PrimerParcial.UI
             itemCard.Show();
 
         }
+
+
+        /// <summary>
+        /// Carga los parametros para la instancia del objeto Item.
+        /// </summary>
+        /// <param name="item">Objeto de tipo Item sin valores pasados.</param>
+        /// <param name="dictDatosFilas">Diccionario con la informacion de de las filas.</param>
         private void AgregarInfoItem(Item item, Dictionary<string, object> dictDatosFilas)
         {
             item.id = int.Parse((string)dictDatosFilas["id"]);
