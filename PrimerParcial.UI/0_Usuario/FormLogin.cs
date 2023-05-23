@@ -18,23 +18,31 @@ namespace PrimerParcial.UI
     public partial class FormLogin : Form
     {
         private List<Usuario> _usuarios;
+
+        /// <summary>
+        /// Inicializa una nueva instania de la clase FormLogin.
+        /// </summary>
         public FormLogin()
         {
             InitializeComponent();
             _usuarios = new List<Usuario>();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
-            //this.Location = new Point(0, 0);
-            //this.Dock = DockStyle.Right;
+            
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton Ingresar.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonIngresar_Click(object sender, EventArgs e)
         {
-            UsuarioExiste(textUsuario.Text, out Usuario usuarioEncontrado);
+            Usuario.UsuarioExiste(textUsuario.Text, out Usuario usuarioEncontrado, _usuarios);
 
             if (usuarioEncontrado is not null)
             {
-                if (ContraseñaCoincide(textContraseña.Text))
+                if (Usuario.ContraseñaCoincide(textContraseña.Text,_usuarios))
                 {
                     MessageBox.Show($"ID del usuario: {usuarioEncontrado!.Id.ToString()}");
                     var sistema = new FormContenedor(usuarioEncontrado.IsAdmin, _usuarios);
@@ -54,10 +62,16 @@ namespace PrimerParcial.UI
             }
         }
 
+        /// <summary>
+        /// Evento que sucede al cargar el Form.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void FormLogin_Load(object sender, EventArgs e)
         {
-                      
-            string[] arrayDeUsuarios = _usuarios.Select(user => user.UserName).ToArray();
+
+            //string[] arrayDeUsuarios = _usuarios.Select(user => user.UserName).ToArray();
+            string[] arrayDeUsuarios = { "admin","user1","user2"};
             textUsuario.AutoCompleteCustomSource.AddRange(arrayDeUsuarios);
 
             var jsonArray = Elemento.LeerInfoDocumento("usuarios");
@@ -69,35 +83,7 @@ namespace PrimerParcial.UI
 
         }
 
-        private bool UsuarioExiste(string usuario, out Usuario usuarioEncontrado)
-        {
-            usuarioEncontrado = null;
-            foreach (Usuario item in _usuarios)
-            {
-                if (item.UserName == usuario)
-                {
-                    usuarioEncontrado = item;
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        private bool ContraseñaCoincide(string contraseña)
-        {
-            bool contraseñaCoincide = false;
-
-            foreach (Usuario item in _usuarios)
-            {
-                if (item.Password == contraseña)
-                {
-                    contraseñaCoincide = true;
-
-                }
-            }
-
-            return contraseñaCoincide;
-        }
+        
 
 
     }

@@ -75,12 +75,26 @@ namespace PrimerParcial.Entidades.Models
         public Dictionary<string, object> source
         { get;set;}
 
+        /// <summary>
+        /// Inicializa una nueva instania de la clase Enemigo.
+        /// </summary>
+        /// <param name="id">identificador numerico.</param>
+        /// <param name="name">nombre de la campaña.</param>
         public Enemigo(int id, string name) : base(id, name)
         {
 
         }
-        
 
+        /// <summary>
+        /// Calcual los puntos de experiencia a otorgar de acuerdo al enemigo y los personajes jugables.
+        /// </summary>
+        /// <param name="nivelPromedio">int que representa el nivel promedio de los personajes jugables.</param>
+        /// <param name="cantPersonajes">int que representa la cantidad de personajes jugables.</param>
+        /// <param name="cantEnemigos">int que representa la cantidad de enemigos.</param>
+        /// <param name="dificultad">string que representa la dificultad del combate.</param>
+        /// <param name="tablaDos">Lista de datos de la segunda tabla de referencia.</param>
+        /// <param name="tablaTres">Lista de datos de la tercer tabla de referencia.</param>
+        /// <returns>Numero que representa los puntos de experienca otorgados.</returns>
         public static int CalcularXP(int nivelPromedio, int cantPersonajes, int cantEnemigos, string dificultad, List<object> tablaDos, List<object> tablaTres)
         {
             int XP = 0;
@@ -108,7 +122,12 @@ namespace PrimerParcial.Entidades.Models
             return XP;                
         }
 
-        
+        /// <summary>
+        /// Calcular el "challenge rating" en base a los puntos de experiencia.
+        /// </summary>
+        /// <param name="puntosExperiencia">Numero que reprenseta los puntos de experiencia otorgados por el combate.</param>
+        /// <param name="tablaUno">Primer tabla de referencia de donde se toma el CR final.</param>
+        /// <returns>Numero en formato string que representa el Challenge Rating del combate.</returns>
         public static string CalcularCR(int puntosExperiencia, List<object> tablaUno)
         {
             string CR = "";

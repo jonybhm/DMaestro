@@ -1,5 +1,24 @@
 [
   {
+    "id": 0,
+    "name": "Leather",
+    "description": "The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials.",
+    "category": "Armor",
+    "ac": "11 \u002B Dex",
+    "rarity": "Common",
+    "cost": 1000,
+    "weight": 10,
+    "classification": "Light Armor",
+    "stealth": "",
+    "damage": "",
+    "damageType": "",
+    "properties": [],
+    "source": {
+      "name": "SRD under the CC-BY-4.0 License",
+      "link": "https://www.dndbeyond.com/attachments/39j2li89/SRD5.1-CCBY4.0License.pdf"
+    }
+  },
+  {
     "id": 1,
     "name": "Leather",
     "description": "The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials.",

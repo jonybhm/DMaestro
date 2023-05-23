@@ -10782,5 +10782,29 @@
     },
     "id": 381,
     "name": "Contenido provisorio"
+  },
+  {
+    "casting_time": "Contenido provisorio",
+    "classes": [
+      "Contenido1",
+      "Contenido2"
+    ],
+    "components": {
+      "raw": ""
+    },
+    "description": "Contenido provisorio",
+    "duration": "Contenido provisorio",
+    "higher_levels": "Contenido provisorio",
+    "level": "Contenido provisorio",
+    "range": "Contenido provisorio",
+    "ritual": false,
+    "school": "Contenido provisorio",
+    "type": "Contenido provisorio",
+    "source": {
+      "name": "",
+      "link": ""
+    },
+    "id": 382,
+    "name": "carta prueba"
   }
 ]

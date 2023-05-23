@@ -38,6 +38,11 @@ namespace PrimerParcial.Entidades.Models
         public Dictionary<string, object> source
         { get;set;}
 
+        /// <summary>
+        /// Inicializa una nueva instania de la clase Hechizo.
+        /// </summary>
+        /// <param name="id">identificador numerico.</param>
+        /// <param name="name">nombre del hechizo.</param>
         public Hechizo(int id, string name) : base(id, name)
         {
 

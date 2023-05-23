@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PrimerParcial.Entidades.Models
 {
-    public class Persona
+    public abstract class Persona
     {
         private int _id;
         private string _name;
@@ -24,12 +24,17 @@ namespace PrimerParcial.Entidades.Models
             set => _name = value;
         }
 
+        /// <summary>
+        /// Inicializa una nueva instania de la clase Persona.
+        /// </summary>
+        /// <param name="id">identificador numerico.</param>
+        /// <param name="name">nombre de la persona.</param>
         public Persona(int id, string name)
         {
             _id = id;
             _name = name;
         }
+               
 
-        
     }
 }

@@ -74,12 +74,14 @@ namespace PrimerParcial.UI
         {
             CrearDatosJsonEnBaseAItem();
             Elemento.AgregarInfoEnArchivo(datosCampaña, "campañas");
+            MessageBox.Show("Campaña Agregada");
         }
 
         private void buttonEditar_Click(object sender, EventArgs e)
         {
             CrearDatosJsonEnBaseAItem();
-            Elemento.ModificarInfoEnArchivo(datosCampaña, "campañas");
+            Elemento.ModificarInfoEnArchivo(datosCampaña, "campañas", datosCampaña.id);
+            MessageBox.Show("Campaña Editada");
         }
         private void CrearDatosJsonEnBaseAItem()
         {

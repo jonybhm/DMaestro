@@ -599,7 +599,6 @@
             Controls.Add(buttonD2);
             Name = "FormCalculadoraDados";
             Text = "Calculadora Dados";
-            Load += FormCalculadoraDados_Load;
             ResumeLayout(false);
             PerformLayout();
         }

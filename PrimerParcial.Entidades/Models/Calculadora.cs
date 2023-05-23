@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace PrimerParcial.Entidades.Models
 {
-    public class Calculadora
+    public static class Calculadora
     {
-        public double Cuenta(string cajaNumeros)
+        /// <summary>
+        /// Realiza las cuentas de suma y resta de dados y modificadores.
+        /// </summary>
+        /// <param name="cajaNumeros">String que representa la cuenta.</param>
+        /// <returns>El resultado de la cuenta.</returns>
+        public static double CalcularDadosYModificadores(string cajaNumeros)
         {
             Random random = new Random();
             double resultado = 0;

@@ -18,6 +18,10 @@ namespace PrimerParcial.UI._1_Contenedor
         private Item datosItem;
         private bool AgregarHabilitado;
         private bool EditarHabilitado;
+        
+        /// <summary>
+        /// Inicializa una nueva instania de la clase FormItemCard.
+        /// </summary>
         public FormItemCard(Item datosItem, bool MostrarBotonAgregar, bool MostrarBotonEditar)
         {
             InitializeComponent();
@@ -28,6 +32,11 @@ namespace PrimerParcial.UI._1_Contenedor
             this.EditarHabilitado = MostrarBotonEditar;
         }
 
+        /// <summary>
+        /// Evento de carga de formulario
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void FormItemCard_Load(object sender, EventArgs e)
         {
             if (AgregarHabilitado && !EditarHabilitado)
@@ -58,18 +67,33 @@ namespace PrimerParcial.UI._1_Contenedor
 
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton Agregar.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             CrearDatosJsonEnBaseAItem();
             Elemento.AgregarInfoEnArchivo(datosItem, "items-en-prueba");
+            MessageBox.Show("Item Agregado");            
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton Editar.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             CrearDatosJsonEnBaseAItem();
-            Elemento.ModificarInfoEnArchivo(datosItem, "items-en-prueba");
+            Elemento.ModificarInfoEnArchivo(datosItem, "items-en-prueba", datosItem.id);
+            MessageBox.Show("Item Editado");            
         }
 
+        /// <summary>
+        /// Carga valores en un objeto item en base a los valores de los TextBox.
+        /// </summary>
         private void CrearDatosJsonEnBaseAItem()
         {
             datosItem.id = int.Parse(textBoxId.Text) ;

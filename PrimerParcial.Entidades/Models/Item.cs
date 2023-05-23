@@ -38,6 +38,11 @@ namespace PrimerParcial.Entidades.Models
         public Dictionary<string, object> source
         { get;set;}
 
+        /// <summary>
+        /// Inicializa una nueva instania de la clase Item.
+        /// </summary>
+        /// <param name="id">identificador numerico.</param>
+        /// <param name="name">nombre del item.</param>
         public Item(int id, string name) : base(id, name)
         {
 

@@ -34,11 +34,11 @@ namespace PrimerParcial.UI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormContenedor));
-            button3_Dices = new Button();
+            buttonDados = new Button();
             menuStrip1 = new MenuStrip();
             DadosToolStripMenuItem = new ToolStripMenuItem();
             reglasToolStripMenuItem = new ToolStripMenuItem();
-            verPantallaDMToolStripMenuItem = new ToolStripMenuItem();
+            stripMenuPantallaDM = new ToolStripMenuItem();
             ReglasStripMenuItem = new ToolStripMenuItem();
             mecanicasToolStripMenuItem = new ToolStripMenuItem();
             VentajaYDesventaja = new ToolStripMenuItem();
@@ -90,44 +90,45 @@ namespace PrimerParcial.UI
             Planos = new ToolStripMenuItem();
             Mitologia = new ToolStripMenuItem();
             compendioToolStripMenuItem = new ToolStripMenuItem();
-            bestiarioToolStripMenuItem = new ToolStripMenuItem();
-            hechizosToolStripMenuItem = new ToolStripMenuItem();
-            objetosYTesorosToolStripMenuItem = new ToolStripMenuItem();
-            campañasToolStripMenuItem = new ToolStripMenuItem();
-            encuentrosToolStripMenuItem = new ToolStripMenuItem();
-            cálculoDeDificultadToolStripMenuItem1 = new ToolStripMenuItem();
-            iniciativaToolStripMenuItem = new ToolStripMenuItem();
-            usuarioToolStripMenuItem = new ToolStripMenuItem();
-            crearUsuarioToolStripMenuItem = new ToolStripMenuItem();
-            salirToolStripMenuItem = new ToolStripMenuItem();
+            stripMenuBestiario = new ToolStripMenuItem();
+            stripMenuHechizos = new ToolStripMenuItem();
+            stripMenusObjetosYTesoros = new ToolStripMenuItem();
             toolStripMenuItem2 = new ToolStripMenuItem();
-            toolStripMenuItem3 = new ToolStripMenuItem();
-            toolStripMenuItem4 = new ToolStripMenuItem();
+            stripMenuClasesCompendio = new ToolStripMenuItem();
+            stripMenusRazasCompendio = new ToolStripMenuItem();
+            stripMenuCampañas = new ToolStripMenuItem();
+            encuentrosToolStripMenuItem = new ToolStripMenuItem();
+            stripMenuCalculoDificultad = new ToolStripMenuItem();
+            stripMenuIniciativa = new ToolStripMenuItem();
+            usuarioToolStripMenuItem = new ToolStripMenuItem();
+            stripMenuCrearUsuario = new ToolStripMenuItem();
+            stripMenuEditarUsuario = new ToolStripMenuItem();
+            stripMenuCambiarUsuario = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // button3_Dices
+            // buttonDados
             // 
-            button3_Dices.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button3_Dices.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button3_Dices.BackColor = Color.Transparent;
-            button3_Dices.Cursor = Cursors.Hand;
-            button3_Dices.FlatAppearance.BorderSize = 0;
-            button3_Dices.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            button3_Dices.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            button3_Dices.FlatStyle = FlatStyle.Flat;
-            button3_Dices.Font = new Font("Universal Serif", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            button3_Dices.ForeColor = Color.Black;
-            button3_Dices.Image = (Image)resources.GetObject("button3_Dices.Image");
-            button3_Dices.ImageAlign = ContentAlignment.MiddleLeft;
-            button3_Dices.Location = new Point(843, 497);
-            button3_Dices.Name = "button3_Dices";
-            button3_Dices.Size = new Size(154, 71);
-            button3_Dices.TabIndex = 1;
-            button3_Dices.Text = "Dados";
-            button3_Dices.TextAlign = ContentAlignment.MiddleRight;
-            button3_Dices.UseVisualStyleBackColor = false;
-            button3_Dices.Click += button3_Dices_Click;
+            buttonDados.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonDados.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            buttonDados.BackColor = Color.Transparent;
+            buttonDados.Cursor = Cursors.Hand;
+            buttonDados.FlatAppearance.BorderSize = 0;
+            buttonDados.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            buttonDados.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            buttonDados.FlatStyle = FlatStyle.Flat;
+            buttonDados.Font = new Font("Universal Serif", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonDados.ForeColor = Color.Black;
+            buttonDados.Image = (Image)resources.GetObject("buttonDados.Image");
+            buttonDados.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonDados.Location = new Point(1088, 523);
+            buttonDados.Name = "buttonDados";
+            buttonDados.Size = new Size(154, 71);
+            buttonDados.TabIndex = 1;
+            buttonDados.Text = "Dados";
+            buttonDados.TextAlign = ContentAlignment.MiddleRight;
+            buttonDados.UseVisualStyleBackColor = false;
+            buttonDados.Click += buttonDados_Click;
             // 
             // menuStrip1
             // 
@@ -136,10 +137,10 @@ namespace PrimerParcial.UI
             menuStrip1.BackgroundImageLayout = ImageLayout.Zoom;
             menuStrip1.Dock = DockStyle.Left;
             menuStrip1.Font = new Font("Universal Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { DadosToolStripMenuItem, reglasToolStripMenuItem, compendioToolStripMenuItem, campañasToolStripMenuItem, encuentrosToolStripMenuItem, usuarioToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { DadosToolStripMenuItem, reglasToolStripMenuItem, compendioToolStripMenuItem, stripMenuCampañas, encuentrosToolStripMenuItem, usuarioToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(139, 580);
+            menuStrip1.Size = new Size(139, 606);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -151,11 +152,11 @@ namespace PrimerParcial.UI
             DadosToolStripMenuItem.Name = "DadosToolStripMenuItem";
             DadosToolStripMenuItem.Size = new Size(126, 20);
             DadosToolStripMenuItem.Text = "Dados";
-            DadosToolStripMenuItem.Click += button3_Dices_Click;
+            DadosToolStripMenuItem.Click += buttonDados_Click;
             // 
             // reglasToolStripMenuItem
             // 
-            reglasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { verPantallaDMToolStripMenuItem, ReglasStripMenuItem });
+            reglasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { stripMenuPantallaDM, ReglasStripMenuItem });
             reglasToolStripMenuItem.ForeColor = Color.Lavender;
             reglasToolStripMenuItem.Image = Properties.Resources.reglas1;
             reglasToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
@@ -163,12 +164,12 @@ namespace PrimerParcial.UI
             reglasToolStripMenuItem.Size = new Size(126, 20);
             reglasToolStripMenuItem.Text = "Reglas";
             // 
-            // verPantallaDMToolStripMenuItem
+            // stripMenuPantallaDM
             // 
-            verPantallaDMToolStripMenuItem.Name = "verPantallaDMToolStripMenuItem";
-            verPantallaDMToolStripMenuItem.Size = new Size(190, 22);
-            verPantallaDMToolStripMenuItem.Text = "pantalla DM";
-            verPantallaDMToolStripMenuItem.Click += verPantallaDMToolStripMenuItem_Click;
+            stripMenuPantallaDM.Name = "stripMenuPantallaDM";
+            stripMenuPantallaDM.Size = new Size(190, 22);
+            stripMenuPantallaDM.Text = "pantalla DM";
+            stripMenuPantallaDM.Click += stripMenuPantallaDM_Click;
             // 
             // ReglasStripMenuItem
             // 
@@ -522,7 +523,7 @@ namespace PrimerParcial.UI
             // 
             // compendioToolStripMenuItem
             // 
-            compendioToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { bestiarioToolStripMenuItem, hechizosToolStripMenuItem, objetosYTesorosToolStripMenuItem, toolStripMenuItem2 });
+            compendioToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { stripMenuBestiario, stripMenuHechizos, stripMenusObjetosYTesoros, toolStripMenuItem2 });
             compendioToolStripMenuItem.ForeColor = Color.Lavender;
             compendioToolStripMenuItem.Image = Properties.Resources.compendio1;
             compendioToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
@@ -530,40 +531,61 @@ namespace PrimerParcial.UI
             compendioToolStripMenuItem.Size = new Size(126, 20);
             compendioToolStripMenuItem.Text = "Compendio";
             // 
-            // bestiarioToolStripMenuItem
+            // stripMenuBestiario
             // 
-            bestiarioToolStripMenuItem.Name = "bestiarioToolStripMenuItem";
-            bestiarioToolStripMenuItem.Size = new Size(243, 22);
-            bestiarioToolStripMenuItem.Text = "Bestiario";
-            bestiarioToolStripMenuItem.Click += bestiarioToolStripMenuItem_Click;
+            stripMenuBestiario.Name = "stripMenuBestiario";
+            stripMenuBestiario.Size = new Size(243, 22);
+            stripMenuBestiario.Text = "Bestiario";
+            stripMenuBestiario.Click += stripMenuBestiario_Click;
             // 
-            // hechizosToolStripMenuItem
+            // stripMenuHechizos
             // 
-            hechizosToolStripMenuItem.Name = "hechizosToolStripMenuItem";
-            hechizosToolStripMenuItem.Size = new Size(243, 22);
-            hechizosToolStripMenuItem.Text = "Hechizos";
-            hechizosToolStripMenuItem.Click += hechizosToolStripMenuItem_Click;
+            stripMenuHechizos.Name = "stripMenuHechizos";
+            stripMenuHechizos.Size = new Size(243, 22);
+            stripMenuHechizos.Text = "Hechizos";
+            stripMenuHechizos.Click += stripMenuHechizos_Click;
             // 
-            // objetosYTesorosToolStripMenuItem
+            // stripMenusObjetosYTesoros
             // 
-            objetosYTesorosToolStripMenuItem.Name = "objetosYTesorosToolStripMenuItem";
-            objetosYTesorosToolStripMenuItem.Size = new Size(243, 22);
-            objetosYTesorosToolStripMenuItem.Text = "Objetos y tesoros";
-            objetosYTesorosToolStripMenuItem.Click += objetosYTesorosToolStripMenuItem_Click;
+            stripMenusObjetosYTesoros.Name = "stripMenusObjetosYTesoros";
+            stripMenusObjetosYTesoros.Size = new Size(243, 22);
+            stripMenusObjetosYTesoros.Text = "Objetos y tesoros";
+            stripMenusObjetosYTesoros.Click += stripMenusObjetosYTesoros_Click;
             // 
-            // campañasToolStripMenuItem
+            // toolStripMenuItem2
             // 
-            campañasToolStripMenuItem.ForeColor = Color.Lavender;
-            campañasToolStripMenuItem.Image = Properties.Resources.Campañas1;
-            campañasToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
-            campañasToolStripMenuItem.Name = "campañasToolStripMenuItem";
-            campañasToolStripMenuItem.Size = new Size(126, 20);
-            campañasToolStripMenuItem.Text = "Campañas";
-            campañasToolStripMenuItem.Click += listaCampañasCreadasToolStripMenuItem_Click;
+            toolStripMenuItem2.DropDownItems.AddRange(new ToolStripItem[] { stripMenuClasesCompendio, stripMenusRazasCompendio });
+            toolStripMenuItem2.Name = "toolStripMenuItem2";
+            toolStripMenuItem2.Size = new Size(243, 22);
+            toolStripMenuItem2.Text = "Personajes";
+            // 
+            // stripMenuClasesCompendio
+            // 
+            stripMenuClasesCompendio.Name = "stripMenuClasesCompendio";
+            stripMenuClasesCompendio.Size = new Size(136, 22);
+            stripMenuClasesCompendio.Text = "Clases";
+            stripMenuClasesCompendio.Click += stripMenuClasesCompendio_Click;
+            // 
+            // stripMenusRazasCompendio
+            // 
+            stripMenusRazasCompendio.Name = "stripMenusRazasCompendio";
+            stripMenusRazasCompendio.Size = new Size(136, 22);
+            stripMenusRazasCompendio.Text = "Razas";
+            stripMenusRazasCompendio.Click += stripMenusRazasCompendio_Click;
+            // 
+            // stripMenuCampañas
+            // 
+            stripMenuCampañas.ForeColor = Color.Lavender;
+            stripMenuCampañas.Image = Properties.Resources.Campañas1;
+            stripMenuCampañas.ImageAlign = ContentAlignment.MiddleLeft;
+            stripMenuCampañas.Name = "stripMenuCampañas";
+            stripMenuCampañas.Size = new Size(126, 20);
+            stripMenuCampañas.Text = "Campañas";
+            stripMenuCampañas.Click += stripMenuCampañas_Click;
             // 
             // encuentrosToolStripMenuItem
             // 
-            encuentrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cálculoDeDificultadToolStripMenuItem1, iniciativaToolStripMenuItem });
+            encuentrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { stripMenuCalculoDificultad, stripMenuIniciativa });
             encuentrosToolStripMenuItem.ForeColor = Color.Lavender;
             encuentrosToolStripMenuItem.Image = Properties.Resources.Encuentros1;
             encuentrosToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
@@ -571,23 +593,23 @@ namespace PrimerParcial.UI
             encuentrosToolStripMenuItem.Size = new Size(126, 20);
             encuentrosToolStripMenuItem.Text = "Combate";
             // 
-            // cálculoDeDificultadToolStripMenuItem1
+            // stripMenuCalculoDificultad
             // 
-            cálculoDeDificultadToolStripMenuItem1.Name = "cálculoDeDificultadToolStripMenuItem1";
-            cálculoDeDificultadToolStripMenuItem1.Size = new Size(274, 22);
-            cálculoDeDificultadToolStripMenuItem1.Text = "Cálculo de dificultad";
-            cálculoDeDificultadToolStripMenuItem1.Click += cálculoDeDificultadToolStripMenuItem_Click;
+            stripMenuCalculoDificultad.Name = "stripMenuCalculoDificultad";
+            stripMenuCalculoDificultad.Size = new Size(274, 22);
+            stripMenuCalculoDificultad.Text = "Cálculo de dificultad";
+            stripMenuCalculoDificultad.Click += stripMenuCalculoDificultad_Click;
             // 
-            // iniciativaToolStripMenuItem
+            // stripMenuIniciativa
             // 
-            iniciativaToolStripMenuItem.Name = "iniciativaToolStripMenuItem";
-            iniciativaToolStripMenuItem.Size = new Size(274, 22);
-            iniciativaToolStripMenuItem.Text = "Iniciativa";
-            iniciativaToolStripMenuItem.Click += crearCombateToolStripMenuItem_Click;
+            stripMenuIniciativa.Name = "stripMenuIniciativa";
+            stripMenuIniciativa.Size = new Size(274, 22);
+            stripMenuIniciativa.Text = "Iniciativa";
+            stripMenuIniciativa.Click += stripMenuIniciativa_Click;
             // 
             // usuarioToolStripMenuItem
             // 
-            usuarioToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { crearUsuarioToolStripMenuItem, salirToolStripMenuItem });
+            usuarioToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { stripMenuCrearUsuario, stripMenuEditarUsuario, stripMenuCambiarUsuario });
             usuarioToolStripMenuItem.ForeColor = Color.Lavender;
             usuarioToolStripMenuItem.Image = Properties.Resources.usuario1;
             usuarioToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
@@ -595,51 +617,37 @@ namespace PrimerParcial.UI
             usuarioToolStripMenuItem.Size = new Size(126, 20);
             usuarioToolStripMenuItem.Text = "Usuario";
             // 
-            // crearUsuarioToolStripMenuItem
+            // stripMenuCrearUsuario
             // 
-            crearUsuarioToolStripMenuItem.Name = "crearUsuarioToolStripMenuItem";
-            crearUsuarioToolStripMenuItem.Size = new Size(223, 22);
-            crearUsuarioToolStripMenuItem.Text = "Crear Usuario";
-            crearUsuarioToolStripMenuItem.Click += crearUsuarioToolStripMenuItem_Click;
+            stripMenuCrearUsuario.Name = "stripMenuCrearUsuario";
+            stripMenuCrearUsuario.Size = new Size(223, 22);
+            stripMenuCrearUsuario.Text = "Crear Usuario";
+            stripMenuCrearUsuario.Click += stripMenuCrearUsuario_Click;
             // 
-            // salirToolStripMenuItem
+            // stripMenuEditarUsuario
             // 
-            salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(223, 22);
-            salirToolStripMenuItem.Text = "Cambiar Usuario";
-            salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
+            stripMenuEditarUsuario.Name = "stripMenuEditarUsuario";
+            stripMenuEditarUsuario.Size = new Size(223, 22);
+            stripMenuEditarUsuario.Text = "EDITAR USUARIO";
+            stripMenuEditarUsuario.Click += stripMenuEditarUsuario_Click;
             // 
-            // toolStripMenuItem2
+            // stripMenuCambiarUsuario
             // 
-            toolStripMenuItem2.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem3, toolStripMenuItem4 });
-            toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(243, 22);
-            toolStripMenuItem2.Text = "Personajes";
-            // 
-            // toolStripMenuItem3
-            // 
-            toolStripMenuItem3.Name = "toolStripMenuItem3";
-            toolStripMenuItem3.Size = new Size(180, 22);
-            toolStripMenuItem3.Text = "Clases";
-            toolStripMenuItem3.Click += clasesToolStripMenuItem_Click;
-            // 
-            // toolStripMenuItem4
-            // 
-            toolStripMenuItem4.Name = "toolStripMenuItem4";
-            toolStripMenuItem4.Size = new Size(180, 22);
-            toolStripMenuItem4.Text = "Razas";
-            toolStripMenuItem4.Click += razasToolStripMenuItem_Click;
+            stripMenuCambiarUsuario.Name = "stripMenuCambiarUsuario";
+            stripMenuCambiarUsuario.Size = new Size(223, 22);
+            stripMenuCambiarUsuario.Text = "Cambiar Usuario";
+            stripMenuCambiarUsuario.Click += stripMenuCambiarUsuario_Click;
             // 
             // FormContenedor
             // 
-            AcceptButton = button3_Dices;
+            AcceptButton = buttonDados;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(37, 41, 48);
             BackgroundImage = Properties.Resources.continuar;
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(1009, 580);
-            Controls.Add(button3_Dices);
+            ClientSize = new Size(1254, 606);
+            Controls.Add(buttonDados);
             Controls.Add(menuStrip1);
             DoubleBuffered = true;
             ForeColor = SystemColors.ActiveCaptionText;
@@ -655,24 +663,24 @@ namespace PrimerParcial.UI
         }
 
         #endregion
-        private Button button3_Dices;
+        private Button buttonDados;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem reglasToolStripMenuItem;
         private ToolStripMenuItem compendioToolStripMenuItem;
         private ToolStripMenuItem encuentrosToolStripMenuItem;
         private ToolStripMenuItem usuarioToolStripMenuItem;
-        private ToolStripMenuItem verPantallaDMToolStripMenuItem;
-        private ToolStripMenuItem bestiarioToolStripMenuItem;
-        private ToolStripMenuItem hechizosToolStripMenuItem;
-        private ToolStripMenuItem objetosYTesorosToolStripMenuItem;
+        private ToolStripMenuItem stripMenuPantallaDM;
+        private ToolStripMenuItem stripMenuBestiario;
+        private ToolStripMenuItem stripMenuHechizos;
+        private ToolStripMenuItem stripMenusObjetosYTesoros;
         private ToolStripMenuItem personajesToolStripMenuItem;
         private ToolStripMenuItem clasesToolStripMenuItem;
         private ToolStripMenuItem razasToolStripMenuItem;
         private ToolStripMenuItem trasfondosToolStripMenuItem;
         private ToolStripMenuItem featsToolStripMenuItem;
         private ToolStripMenuItem cambiarUsuarioToolStripMenuItem;
-        private ToolStripMenuItem crearUsuarioToolStripMenuItem;
-        private ToolStripMenuItem salirToolStripMenuItem;
+        private ToolStripMenuItem stripMenuCrearUsuario;
+        private ToolStripMenuItem stripMenuCambiarUsuario;
         private ToolStripMenuItem ReglasStripMenuItem;
         private ToolStripMenuItem alineamientoToolStripMenuItem;
         private ToolStripMenuItem mecanicasToolStripMenuItem;
@@ -756,12 +764,14 @@ namespace PrimerParcial.UI
         private ToolStripMenuItem Mitologia;
         private ToolStripMenuItem otrosToolStripMenuItem;
         private ToolStripMenuItem Clases;
-        private ToolStripMenuItem cálculoDeDificultadToolStripMenuItem1;
-        private ToolStripMenuItem iniciativaToolStripMenuItem;
+        private ToolStripMenuItem stripMenuCalculoDificultad;
+        private ToolStripMenuItem stripMenuIniciativa;
         private ToolStripMenuItem DadosToolStripMenuItem;
-        private ToolStripMenuItem campañasToolStripMenuItem;
+        private ToolStripMenuItem stripMenuCampañas;
         private ToolStripMenuItem toolStripMenuItem2;
-        private ToolStripMenuItem toolStripMenuItem3;
-        private ToolStripMenuItem toolStripMenuItem4;
+        private ToolStripMenuItem stripMenuClasesCompendio;
+        private ToolStripMenuItem stripMenusRazasCompendio;
+        private PictureBox pictureBox1;
+        private ToolStripMenuItem stripMenuEditarUsuario;
     }
 }

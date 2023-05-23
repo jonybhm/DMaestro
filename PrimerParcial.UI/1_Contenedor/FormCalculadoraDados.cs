@@ -15,6 +15,9 @@ namespace PrimerParcial.UI
 {
     public partial class FormCalculadoraDados : Form
     {
+        /// <summary>
+        /// Inicializa una nueva instania de la clase FormCalculadoraDados.
+        /// </summary>
         public FormCalculadoraDados()
         {
             InitializeComponent();
@@ -24,125 +27,236 @@ namespace PrimerParcial.UI
             this.Dock = DockStyle.Right;
         }
 
-
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton 1.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void button1_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "1";
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton 2.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void button2_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "2";
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton 3.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void button3_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "3";
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton 4.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void button4_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "4";
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton 5.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void button5_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "5";
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton 6.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void button6_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "6";
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton 7.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void button7_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "7";
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton 8.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void button8_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "8";
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton 9.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void button9_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "9";
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton 0.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void button0_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "0";
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton d2.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonD2_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "+d2";
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton d4.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonD4_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "+d4";
         }
 
-        private void FormCalculadoraDados_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton d8.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonD8_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "+d8";
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton d10.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonD10_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "+d10";
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton d12.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonD12_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "+d12";
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton d20.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonD20_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "+d20";
         }
+
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton d100.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonD100_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "+d100";
 
         }
+
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton d6.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonD6_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "+d6";
         }
+
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton dx.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonDX_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "+d";
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton Tirar. 
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonTirar_Click(object sender, EventArgs e)
         {
             SoundPlayer sonidoDados = new SoundPlayer(@"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Assets\dados\Rolling-Dice.wav");
             sonidoDados.Play();
-            Calculadora calculadora = new Calculadora();
-            double resultadoTirada = calculadora.Cuenta(BoxCalculo.Text);
+            double resultadoTirada = Calculadora.CalcularDadosYModificadores(BoxCalculo.Text);
             BoxResultado.Text = resultadoTirada.ToString();
 
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton +.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonPlus_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "+";
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton -.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonMinus_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "-";
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton <- (borrar).
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             string texto = BoxCalculo.Text;
@@ -157,6 +271,11 @@ namespace PrimerParcial.UI
             }
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton C (limpiar).
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonClear_Click(object sender, EventArgs e)
         {
             string texto = BoxCalculo.Text;

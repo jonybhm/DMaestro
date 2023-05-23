@@ -27,6 +27,11 @@ namespace PrimerParcial.Entidades.Models
         public string notes
         { get;set;}
 
+        /// <summary>
+        /// Inicializa una nueva instania de la clase Campaña.
+        /// </summary>
+        /// <param name="id">identificador numerico.</param>
+        /// <param name="name">nombre de la campaña.</param>
         public Campaña(int id, string name) :base(id,name)
         {
         }

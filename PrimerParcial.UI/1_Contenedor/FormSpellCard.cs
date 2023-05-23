@@ -13,13 +13,16 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PrimerParcial.UI._1_Contenedor
 {
+
     public partial class FormSpellCard : Form
     {
-        //private Dictionary<string, string> datosFilaHechizos;
         private Hechizo datosFilaHechizos;
         private bool AgregarHabilitado;
         private bool EditarHabilitado;
 
+        /// <summary>
+        /// Inicializa una nueva instania de la clase FormSpellCard.
+        /// </summary>
         public FormSpellCard(Hechizo datosFilaHechizos, bool MostrarBotonAgregar, bool MostrarBotonEditar)
         {
             InitializeComponent();
@@ -30,6 +33,11 @@ namespace PrimerParcial.UI._1_Contenedor
             this.EditarHabilitado = MostrarBotonEditar;
         }
 
+        /// <summary>
+        /// Evento de carga de formulario
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void FormSpellCard_Load(object sender, EventArgs e)
         {
             if (AgregarHabilitado && !EditarHabilitado)
@@ -56,23 +64,39 @@ namespace PrimerParcial.UI._1_Contenedor
 
             if (!string.IsNullOrWhiteSpace(datosFilaHechizos.components.ToString()))
             {
-                //Dictionary<string, object> dict = JsonSerializer.Deserialize<Dictionary<string, object>>(datosFilaHechizos.components.ToString());
                 textBoxComponentes.Text = datosFilaHechizos.components["raw"].ToString();
             }
         }
 
+
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton Agregar.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             CrearDatosJsonEnBaseAHechizo();
             Elemento.AgregarInfoEnArchivo(datosFilaHechizos, "spells-en-prueba");
+            MessageBox.Show("Hechizo Agregado");
         }
 
+        /// <summary>
+        /// Evento que sucede al hacer click en el boton Editar.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             CrearDatosJsonEnBaseAHechizo();
-            Elemento.ModificarInfoEnArchivo(datosFilaHechizos, "spells-en-prueba");
+            Elemento.ModificarInfoEnArchivo(datosFilaHechizos, "spells-en-prueba", datosFilaHechizos.id);
+            MessageBox.Show("Hechizo Editado");
+            
         }
 
+        /// <summary>
+        /// Carga valores en un objeto item en base a los valores de los TextBox.
+        /// </summary>
         private void CrearDatosJsonEnBaseAHechizo()
         {
             datosFilaHechizos.id = int.Parse(textBoxId.Text);

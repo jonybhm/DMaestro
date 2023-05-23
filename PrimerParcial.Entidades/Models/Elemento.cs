@@ -24,7 +24,11 @@ namespace PrimerParcial.Entidades.Models
         {
             get; set;
         }
-
+        /// <summary>
+        /// Inicializa una nueva instania de la clase Elemento.
+        /// </summary>
+        /// <param name="id">identificador numerico.</param>
+        /// <param name="name">nombre del elemento.</param>
         public Elemento(int id, string name) 
         { 
 
@@ -32,7 +36,11 @@ namespace PrimerParcial.Entidades.Models
 
         
       
-       
+       /// <summary>
+       /// Inicializa un DataTable con la informacion de una lista de diccionarios, donde cada columna representa una key.
+       /// </summary>
+       /// <param name="ListaDiccionarios">Lista de diccionarios con datos para la tabla.</param>
+       /// <returns>La tabla con datos en las celdas y encabezado de columnas.</returns>
         public static object ArmarTablaParaDataGrid(List<object> ListaDiccionarios)
         {
             DataTable tabla = new DataTable();
@@ -83,6 +91,11 @@ namespace PrimerParcial.Entidades.Models
        
         //Metodos para generar strings desde listas y diccionarios para mostrar en tarjetas
 
+        /// <summary>
+        /// Genera un string con un formato determinado para mostrar en pantalla.
+        /// </summary>
+        /// <param name="dict">Diccionaro con datos a mostrar.</param>
+        /// <returns>String que se mostrará en pantalla.</returns>
         public static string generarStringDesdeDict(Dictionary<string, object> dict)
         {
             string textoBox = "";
@@ -93,7 +106,12 @@ namespace PrimerParcial.Entidades.Models
             return textoBox.ToString();
         }
 
-        
+
+        /// <summary>
+        /// Genera un string con un formato determinado para mostrar en pantalla.
+        /// </summary>
+        /// <param name="dict">Lista con datos a mostrar.</param>
+        /// <returns>String que se mostrará en pantalla.</returns>
         public static string generarStringDesdeList(List<string> list)
         {
             string textoBox = "";
@@ -103,6 +121,12 @@ namespace PrimerParcial.Entidades.Models
             }
             return textoBox.ToString();
         }
+
+        /// <summary>
+        /// Genera un string con un formato determinado para mostrar en pantalla.
+        /// </summary>
+        /// <param name="dict">Lista de Diccionaros con datos a mostrar.</param>
+        /// <returns>String que se mostrará en pantalla.</returns>
         public static string generarStringDesdeListDict(List<Dictionary<string,object>> formatoDict)
         {
             string textoFinal = "";
@@ -118,6 +142,12 @@ namespace PrimerParcial.Entidades.Models
         }
 
         //Metodos para generar listas y diccionarios desde strings para guardar en jsons
+
+        /// <summary>
+        /// Genera una Lista desde un string para guardar info en json.
+        /// </summary>
+        /// <param name="textBox">string con info en Text Box</param>
+        /// <returns>Lista para guardar info en json.</returns>
         public static List<string> generarListDesdeString(string textBox)
         {
 
@@ -133,6 +163,11 @@ namespace PrimerParcial.Entidades.Models
             return list;
         }
 
+        /// <summary>
+        /// Genera un Diccionario desde un string para guardar info en json.
+        /// </summary>
+        /// <param name="textBox">string con info en Text Box</param>
+        /// <returns>Diccionario para guardar info en json.</returns>
         public static Dictionary<string, object> generarDictDesdeString(string textBox)
         {
 
@@ -159,6 +194,11 @@ namespace PrimerParcial.Entidades.Models
             return dict;
         }
 
+        /// <summary>
+        /// Genera una Lista de Diccionarios desde un string para guardar info en json.
+        /// </summary>
+        /// <param name="textBox">string con info en Text Box</param>
+        /// <returns>Lista de Diccionarios para guardar info en json.</returns>
         public static List<Dictionary<string, object>> generarListDeDictDesdeString(string textBox)
         {
 
@@ -189,6 +229,11 @@ namespace PrimerParcial.Entidades.Models
 
         //Metodos para leer y escribir archivos json
 
+        /// <summary>
+        /// Leer info de archivo Json en formato de Array para procesar informacion en tablas.
+        /// </summary>
+        /// <param name="nombreArchivo">string con el nombre del archivo sin extension.</param>
+        /// <returns>Lista de Diccionarios con los datos del Json.</returns>
         public static List<object> LeerInfoArchivo(string nombreArchivo)
         {
             string ruta = $@"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Json\{nombreArchivo}.json";
@@ -205,6 +250,12 @@ namespace PrimerParcial.Entidades.Models
             return lista;
 
         }
+
+        /// <summary>
+        /// Leer y parsear info de archivo Json en formato JsonElement.
+        /// </summary>
+        /// <param name="nombreArchivo">string con el nombre del archivo sin extension.</param>
+        /// <returns>JsonElemnt con los datos del Json.</returns>
         public static JsonElement LeerInfoDocumento(string nombreArchivo)
         {
             string ruta = $@"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Json\{nombreArchivo}.json";
@@ -214,6 +265,11 @@ namespace PrimerParcial.Entidades.Models
             return jsonarray;
         }
 
+        /// <summary>
+        /// Agrega nueva entrada en el Json al final del mismo.
+        /// </summary>
+        /// <param name="elemento">Objeto a agregar al Json.</param>
+        /// <param name="nombreArchivo">string con el nombre del archivo Json.</param>
         public static void AgregarInfoEnArchivo(object elemento, string nombreArchivo)
         {
             string ruta = $@"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Json\{nombreArchivo}.json";
@@ -225,11 +281,17 @@ namespace PrimerParcial.Entidades.Models
 
         }
 
-        public static void ModificarInfoEnArchivo(Elemento elemento, string nombreArchivo)
+        /// <summary>
+        /// Modifica entrada en el Json dada una id del mismo.
+        /// </summary>
+        /// <param name="elemento">Objeto a agregar al Json.</param>
+        /// <param name="nombreArchivo">string con el nombre del archivo Json.</param>
+        /// <param name="id">int con la posicion de la entrada en el Json.</param>
+        public static void ModificarInfoEnArchivo(object elemento, string nombreArchivo, int id)
         {
             string ruta = $@"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Json\{nombreArchivo}.json";
             var jsonExistente = LeerInfoArchivo(nombreArchivo);
-            int posicionJson = elemento.id;
+            int posicionJson = id;
             jsonExistente[posicionJson] = elemento;
 
 

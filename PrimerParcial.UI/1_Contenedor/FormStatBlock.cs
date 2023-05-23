@@ -89,12 +89,14 @@ namespace PrimerParcial.UI._1_Contenedor
         {
             CrearDatosJsonEnBaseAEnemigo();
             Elemento.AgregarInfoEnArchivo(datosEnemigo, "monsters-en-prueba");
+            MessageBox.Show("Monstruo Agregado");
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             CrearDatosJsonEnBaseAEnemigo();
-            Elemento.ModificarInfoEnArchivo(datosEnemigo, "monsters-en-prueba");
+            Elemento.ModificarInfoEnArchivo(datosEnemigo, "monsters-en-prueba", datosEnemigo.id);
+            MessageBox.Show("Monstruo Editado");
         }
 
         private void CrearDatosJsonEnBaseAEnemigo()
