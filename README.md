@@ -49,12 +49,12 @@
 
 |                        Menu Principal/Main Menu                             |    
 | :-------------------------------------------------------------------:       | 
-| <img src="Assets/Readme/MenuPrincipal.png" title="Main Menu" width="100%">  | 
+| <img src="Assets/Readme/MenuPrincipal.png" align="center" title="Main Menu" width="100%">  | 
 
 
 |                           Calculadora Dados/Dice Calculator                 |                        
 |  :-------------------------------------------------------------------:      | 
-| <img src="Assets/Readme/Calculadora.png" title="Calculator" width="50%">    |
+| <img src="Assets/Readme/Calculadora.png" align="center" title="Calculator" width="50%">    |
 
 | Cartas de Hechizos/Spell Cards                                              |
 | :-------------------------------------------------------------------:       |
