@@ -107,9 +107,9 @@
 
 ## Contribuciones / Contributing
 
-Si desean contribuir por favor lea las [pautas de contribución](docs/CONTRIBUTING.md).Desde ya cualquier tipo de contribución es **muy apreciada**.
+Si desean contribuir por favor lea las [pautas de contribución](CONTRIBUTING.md).Desde ya cualquier tipo de contribución es **muy apreciada**.
 
-If you would like to contribute please read the [contribution guidelines](docs/CONTRIBUTING.md). Any tyoe of contribution is **greatly appreciated**.
+If you would like to contribute please read the [contribution guidelines](CONTRIBUTING.md). Any tyoe of contribution is **greatly appreciated**.
 
 ## Autores y contribuyentes / Authors & contributors
 
