@@ -14,16 +14,18 @@ namespace PrimerParcial.UI._6_Usuarios
     public partial class FormEditarUsuario : Form
     {
         private List<Usuario> _usuarios;
+        private FormContenedor mdiParentForm;
 
         /// <summary>
         /// Inicializa una nueva instania de la clase FormEditarUsuario.
         /// </summary>
-        public FormEditarUsuario(List<Usuario> usuarios)
+        public FormEditarUsuario(List<Usuario> usuarios, FormContenedor mdiParentForm)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
             _usuarios = usuarios;
+            this.mdiParentForm = mdiParentForm;
         }
 
         /// <summary>
@@ -45,9 +47,10 @@ namespace PrimerParcial.UI._6_Usuarios
                     if (usuario.UserName == textBoxUsuario.Text)
                     {
                         Usuario usuarioNuevo = usuario;
-                        var hijo = new FormGuardarDatosEditados(usuarioNuevo);
-                        hijo.WindowState = FormWindowState.Normal;
-                        hijo.Show();
+                        FormGuardarDatosEditados guardarBorrarDatos = new FormGuardarDatosEditados(usuarioNuevo);
+                        guardarBorrarDatos.MdiParent = mdiParentForm;
+                        guardarBorrarDatos.WindowState = FormWindowState.Normal;
+                        guardarBorrarDatos.Show();
                         this.Hide();
                     }
                 }
@@ -57,10 +60,10 @@ namespace PrimerParcial.UI._6_Usuarios
             {
                 MessageBox.Show("Usuario No Existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
-        
+
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using PrimerParcial.Entidades.Models;
+using PrimerParcial.Entidades.SQL.ElementosDB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,14 +20,17 @@ namespace PrimerParcial.UI._1_Contenedor
         private Hechizo datosFilaHechizos;
         private bool AgregarHabilitado;
         private bool EditarHabilitado;
+        private DataGridView dataGridHechizos;
+
 
         /// <summary>
         /// Inicializa una nueva instania de la clase FormSpellCard.
         /// </summary>
-        public FormSpellCard(Hechizo datosFilaHechizos, bool MostrarBotonAgregar, bool MostrarBotonEditar)
+        public FormSpellCard(Hechizo datosFilaHechizos, bool MostrarBotonAgregar, bool MostrarBotonEditar, DataGridView dataGridHechizos)
         {
             InitializeComponent();
             this.datosFilaHechizos = datosFilaHechizos;
+            this.dataGridHechizos = dataGridHechizos;
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
             this.AgregarHabilitado = MostrarBotonAgregar;
@@ -54,18 +58,15 @@ namespace PrimerParcial.UI._1_Contenedor
             textBoxId.Text = datosFilaHechizos.id.ToString();
             textBoxNombre.Text = datosFilaHechizos.name;
             textBoxNivel.Text = datosFilaHechizos.level;
-            textBoxClases.Text = Elemento.generarStringDesdeList(datosFilaHechizos.classes);
+            textBoxClases.Text = datosFilaHechizos.classes;
             textBoxTiempo.Text = datosFilaHechizos.casting_time;
             textBoxRango.Text = datosFilaHechizos.range;
             textBoxDuracion.Text = datosFilaHechizos.duration;
             richTextBoxDescripcion.Text = datosFilaHechizos.description;
             richTextBoxEscuela.Text = datosFilaHechizos.school;
             richTextBoxNivelSuperior.Text = datosFilaHechizos.higher_levels;
-
-            if (!string.IsNullOrWhiteSpace(datosFilaHechizos.components.ToString()))
-            {
-                textBoxComponentes.Text = datosFilaHechizos.components["raw"].ToString();
-            }
+            textBoxComponentes.Text = datosFilaHechizos.components.ToString();
+            
         }
 
 
@@ -76,8 +77,10 @@ namespace PrimerParcial.UI._1_Contenedor
         /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            CrearDatosJsonEnBaseAHechizo();
-            Elemento.AgregarInfoEnArchivo(datosFilaHechizos, "spells-en-prueba");
+            Dictionary<string, object> dictHechizo = CrearDictConDatosHechizo();
+            var hechizoDB = new HechizosDB();
+            hechizoDB.InsertarDatos(dictHechizo);
+            FormAux.dataGrid_Actualizar(hechizoDB.Traer(), dataGridHechizos);
             MessageBox.Show("Hechizo Agregado", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -88,8 +91,10 @@ namespace PrimerParcial.UI._1_Contenedor
         /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            CrearDatosJsonEnBaseAHechizo();
-            Elemento.ModificarInfoEnArchivo(datosFilaHechizos, "spells-en-prueba", datosFilaHechizos.id);
+            Dictionary<string, object> dictHechizo = CrearDictConDatosHechizo();
+            var hechizoDB = new HechizosDB();
+            hechizoDB.ActualizarDatos(dictHechizo);
+            FormAux.dataGrid_Actualizar(hechizoDB.Traer(), dataGridHechizos);
             MessageBox.Show("Hechizo Editado", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
         }
@@ -97,22 +102,23 @@ namespace PrimerParcial.UI._1_Contenedor
         /// <summary>
         /// Carga valores en un objeto item en base a los valores de los TextBox.
         /// </summary>
-        private void CrearDatosJsonEnBaseAHechizo()
+        private Dictionary<string, object> CrearDictConDatosHechizo()
         {
             datosFilaHechizos.id = int.Parse(textBoxId.Text);
             datosFilaHechizos.name = textBoxNombre.Text;
             datosFilaHechizos.level = textBoxNivel.Text;
-            datosFilaHechizos.classes = Elemento.generarListDesdeString(textBoxClases.Text);
-
-            Dictionary<string, object> componentes = new Dictionary<string, object>();
-            componentes["raw"] = textBoxComponentes.Text.ToString();
-            datosFilaHechizos.components = componentes;
+            datosFilaHechizos.classes = textBoxClases.Text;
+            datosFilaHechizos.components = textBoxComponentes.Text.ToString(); ;
             datosFilaHechizos.casting_time = textBoxTiempo.Text;
             datosFilaHechizos.range = textBoxRango.Text;
             datosFilaHechizos.duration = textBoxDuracion.Text;
             datosFilaHechizos.description = richTextBoxDescripcion.Text;
             datosFilaHechizos.school = richTextBoxEscuela.Text;
             datosFilaHechizos.higher_levels = richTextBoxNivelSuperior.Text;
+
+            Dictionary<string, object> dictDatosHechizo = Elemento.CrearDictConDatos(datosFilaHechizos);
+
+            return dictDatosHechizo;
         }
     }
 }

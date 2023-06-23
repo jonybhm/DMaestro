@@ -1,4 +1,6 @@
 ﻿using PrimerParcial.Entidades.Models;
+using PrimerParcial.Entidades.SQL;
+using PrimerParcial.Entidades.SQL.ElementosDB;
 using PrimerParcial.UI._1_Contenedor;
 using System;
 using System.Collections.Generic;
@@ -27,18 +29,18 @@ namespace PrimerParcial.UI
 
         }
 
-        /// <summary>
+        /*/// <summary>
         /// Actualiza el datagrid con la informacion de una lista.
         /// </summary>
         /// <param name="ListaDiccionarios">Lista de diccionarios con la informacion para el Data Grid.</param>
-        private void dataGridItems_Actualizar(List<object> ListaDiccionarios)
+        private void dataGridItems_Actualizar(List<Dictionary<string,object>> ListaDiccionarios)
         {
             dataGridItems.DataSource = null;
 
             var items = Elemento.ArmarTablaParaDataGrid(ListaDiccionarios);
 
             dataGridItems.DataSource = items;
-        }
+        }*/
 
         /// <summary>
         /// Busca informacion en el data grid con respecto al texto en Text Box Buscador.
@@ -67,7 +69,8 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void FormItems_Load(object sender, EventArgs e)
         {
-            dataGridItems_Actualizar(Elemento.LeerInfoArchivo("items-en-prueba"));
+            var itemsDB = new ItemsDB();
+            FormAux.dataGrid_Actualizar(itemsDB.Traer(), dataGridItems);
         }
 
         /// <summary>
@@ -79,9 +82,9 @@ namespace PrimerParcial.UI
         {
             bool mostrarBotonEditar = true;
             bool mostrarBotonAgregarNuevo = false;
-            try 
-            { 
-                DataGridViewRow selectedRow = dataGridItems.SelectedRows[0];
+            try
+            {
+                /*DataGridViewRow selectedRow = dataGridItems.SelectedRows[0];
                 Dictionary<string, object> dictDatosFilas = new Dictionary<string, object>();
 
                 for (int i = 0; i < selectedRow.Cells.Count; i++)
@@ -91,11 +94,11 @@ namespace PrimerParcial.UI
 
                     dictDatosFilas.Add(nombreColumna, datosCelda);
 
-                }
+                }*/
                 Item item = new Item(0, "");
-                AgregarInfoItem(item, dictDatosFilas);
+                item.AgregarInfo(FormAux.ArmarDictEnBaseAFila(dataGridItems));
 
-                FormItemCard itemCard = new FormItemCard((Item)item, mostrarBotonAgregarNuevo, mostrarBotonEditar);
+                FormItemCard itemCard = new FormItemCard((Item)item, mostrarBotonAgregarNuevo, mostrarBotonEditar, dataGridItems);
                 itemCard.MdiParent = mdiParentForm;
                 itemCard.WindowState = FormWindowState.Normal;
                 itemCard.Show();
@@ -104,7 +107,7 @@ namespace PrimerParcial.UI
             {
                 MessageBox.Show("Debe seleccionar una fila para mostrar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-}
+        }
 
         /// <summary>
         /// Evento que sucede al hacer click en el boton Agregar.
@@ -122,30 +125,25 @@ namespace PrimerParcial.UI
             Dictionary<string, object> dictDatosFilas = new Dictionary<string, object>();
             foreach (DataGridViewColumn column in dataGridItems.Columns)
             {
-                dictDatosFilas[column.Name] = "Contenido provisorio";
+                //dictDatosFilas[column.Name] = "Contenido provisorio";
                 switch (column.HeaderText)
                 {
                     case "id":
-                        dictDatosFilas[column.Name] = idFinal++.ToString();
-                        break;
                     case "cost":
                     case "weight":
                         dictDatosFilas[column.Name] = 0.ToString();
                         break;
-                    case "properties":
-                        dictDatosFilas[column.Name] = "[\"Contenido1\",\"Contenido2\"]";
-                        break;
-                    case "source":
-                        dictDatosFilas[column.Name] = "{\"name\":\"\",\"link\":\"\"}";
+                    default:
+                        dictDatosFilas[column.Name] = "COMPLETAR...";
                         break;
 
                 }
 
             }
             Item item = new Item(idFinal++, "");
-            AgregarInfoItem(item, dictDatosFilas);
+            item.AgregarInfo(dictDatosFilas);
 
-            FormItemCard itemCard = new FormItemCard((Item)item, mostrarBotonAgregarNuevo, mostrarBotonEditar);
+            FormItemCard itemCard = new FormItemCard((Item)item, mostrarBotonAgregarNuevo, mostrarBotonEditar, dataGridItems);
             itemCard.MdiParent = mdiParentForm;
             itemCard.WindowState = FormWindowState.Normal;
 
@@ -153,29 +151,22 @@ namespace PrimerParcial.UI
 
         }
 
-
-        /// <summary>
-        /// Carga los parametros para la instancia del objeto Item.
-        /// </summary>
-        /// <param name="item">Objeto de tipo Item sin valores pasados.</param>
-        /// <param name="dictDatosFilas">Diccionario con la informacion de de las filas.</param>
-        private void AgregarInfoItem(Item item, Dictionary<string, object> dictDatosFilas)
+        private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            item.id = int.Parse((string)dictDatosFilas["id"]);
-            item.name = (string)dictDatosFilas["name"];
-            item.description = (string)dictDatosFilas["description"];
-            item.category = (string)dictDatosFilas["category"];
-            item.ac = (string)dictDatosFilas["ac"];
-            item.rarity = (string)dictDatosFilas["rarity"];
-            item.cost = int.Parse((string)dictDatosFilas["cost"]);
-            item.weight = int.Parse((string)dictDatosFilas["weight"]);
-            item.stealth = (string)dictDatosFilas["stealth"];
-            item.damage = (string)dictDatosFilas["damage"];
-            item.damageType = (string)dictDatosFilas["damageType"];
+            try
+            {
+                DataGridViewRow selectedRow = dataGridItems.SelectedRows[0];
+                var idItem = selectedRow.Cells[0].Value;
+                var itemDB = new ItemsDB();
+                itemDB.EliminarDatos(idItem);
+                FormAux.dataGrid_Actualizar(itemDB.Traer(), dataGridItems);
+                MessageBox.Show("Item Eliminado", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
-            item.properties = JsonSerializer.Deserialize<List<string>>((string)dictDatosFilas["properties"]);
-            item.source = JsonSerializer.Deserialize<Dictionary<string, object>>((string)dictDatosFilas["source"]);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Debe seleccionar una fila para eliminar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

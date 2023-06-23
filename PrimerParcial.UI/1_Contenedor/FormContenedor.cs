@@ -29,7 +29,7 @@ namespace PrimerParcial.UI
         private void FormContenedor_Load(object sender, EventArgs e)
         {
             IsMdiContainer = true;
-            if (!esAdministrador)
+            if (esAdministrador == false)
             {
                 encuentrosToolStripMenuItem.Enabled = false;
                 stripMenuCrearUsuario.Enabled = false;
@@ -280,7 +280,7 @@ namespace PrimerParcial.UI
                     this.MdiChildren[i].Close();
                 }
             }
-            var hijo = new FormEditarUsuario(_listaUsuario);
+            var hijo = new FormEditarUsuario(_listaUsuario, this);
             hijo.MdiParent = this;
             hijo.WindowState = FormWindowState.Normal;
             hijo.Show();
@@ -741,6 +741,6 @@ namespace PrimerParcial.UI
 
 
 
-        
+
     }
 }

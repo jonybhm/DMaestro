@@ -38,6 +38,7 @@
             label7 = new Label();
             buttonMostrar = new Button();
             buttonAgregar = new Button();
+            buttonEliminar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridBestiario).BeginInit();
             SuspendLayout();
             // 
@@ -75,7 +76,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridBestiario.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridBestiario.GridColor = Color.Linen;
-            dataGridBestiario.Location = new Point(-1, 78);
+            dataGridBestiario.Location = new Point(-1, 100);
             dataGridBestiario.Name = "dataGridBestiario";
             dataGridBestiario.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -91,7 +92,7 @@
             dataGridViewCellStyle5.SelectionBackColor = Color.DarkRed;
             dataGridBestiario.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dataGridBestiario.RowTemplate.Height = 25;
-            dataGridBestiario.Size = new Size(510, 456);
+            dataGridBestiario.Size = new Size(510, 434);
             dataGridBestiario.TabIndex = 14;
             // 
             // textBoxBuscador
@@ -157,12 +158,32 @@
             buttonAgregar.UseVisualStyleBackColor = false;
             buttonAgregar.Click += buttonAgregar_Click;
             // 
+            // buttonEliminar
+            // 
+            buttonEliminar.BackColor = Color.Transparent;
+            buttonEliminar.BackgroundImage = Properties.Resources.boton2;
+            buttonEliminar.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonEliminar.FlatAppearance.BorderSize = 0;
+            buttonEliminar.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            buttonEliminar.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            buttonEliminar.FlatStyle = FlatStyle.Flat;
+            buttonEliminar.Font = new Font("Universal Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonEliminar.ForeColor = Color.White;
+            buttonEliminar.Location = new Point(344, 66);
+            buttonEliminar.Name = "buttonEliminar";
+            buttonEliminar.Size = new Size(153, 34);
+            buttonEliminar.TabIndex = 24;
+            buttonEliminar.Text = "Eliminar";
+            buttonEliminar.UseVisualStyleBackColor = false;
+            buttonEliminar.Click += buttonEliminar_Click;
+            // 
             // FormBestiario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(37, 41, 48);
             ClientSize = new Size(509, 537);
+            Controls.Add(buttonEliminar);
             Controls.Add(buttonAgregar);
             Controls.Add(buttonMostrar);
             Controls.Add(textBoxBuscador);
@@ -183,5 +204,6 @@
         private Label label7;
         private Button buttonMostrar;
         private Button buttonAgregar;
+        private Button buttonEliminar;
     }
 }

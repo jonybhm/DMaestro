@@ -6,7 +6,9 @@ using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
+
 
 namespace PrimerParcial.Entidades.Models
 {
@@ -52,19 +54,19 @@ namespace PrimerParcial.Entidades.Models
         {get;set;}
         public int speedFly
         {get;set;}
-        public List<string > senses
+        public string senses
         {get;set;}
-        public List<string> languages
+        public string languages
         {get;set;}
-        public List<Dictionary<string, object>> traits
+        public string traits
         {get;set;}
-        public List<Dictionary<string, object>> actions
+        public string actions
         {get;set;}
-        public List<Dictionary<string, object>> legendaryActions
+        public string legendaryActions
         { get;set;}
-        public Dictionary<string, object> savingThrows
+        public string savingThrows
         { get;set;}
-        public Dictionary<string, object> skills
+        public string skills
         { get;set;}
         public string size
         { get;set;}
@@ -72,7 +74,7 @@ namespace PrimerParcial.Entidades.Models
         {get;set;}
         public string alignment
         { get;set;}
-        public Dictionary<string, object> source
+        public string source
         { get;set;}
 
         /// <summary>
@@ -95,7 +97,7 @@ namespace PrimerParcial.Entidades.Models
         /// <param name="tablaDos">Lista de datos de la segunda tabla de referencia.</param>
         /// <param name="tablaTres">Lista de datos de la tercer tabla de referencia.</param>
         /// <returns>Numero que representa los puntos de experienca otorgados.</returns>
-        public static int CalcularXP(int nivelPromedio, int cantPersonajes, int cantEnemigos, string dificultad, List<object> tablaDos, List<object> tablaTres)
+        public static int CalcularXP(int nivelPromedio, int cantPersonajes, int cantEnemigos, string dificultad, List<Dictionary<string, object>> tablaDos, List<Dictionary<string, object>> tablaTres)
         {
             int XP = 0;
             foreach (Dictionary<string, object> dict in tablaDos)
@@ -128,7 +130,7 @@ namespace PrimerParcial.Entidades.Models
         /// <param name="puntosExperiencia">Numero que reprenseta los puntos de experiencia otorgados por el combate.</param>
         /// <param name="tablaUno">Primer tabla de referencia de donde se toma el CR final.</param>
         /// <returns>Numero en formato string que representa el Challenge Rating del combate.</returns>
-        public static string CalcularCR(int puntosExperiencia, List<object> tablaUno)
+        public static string CalcularCR(int puntosExperiencia, List<Dictionary<string, object>> tablaUno)
         {
             string CR = "";
             
@@ -161,6 +163,50 @@ namespace PrimerParcial.Entidades.Models
             }
             return CR;
         }
+
+        /// <summary>
+        /// Carga los parametros para la instancia del objeto enemigo.
+        /// </summary>
+        /// <param name="enemigo">Objeto de tipo Enemigo sin valores pasados.</param>
+        /// <param name="dictDatosFilas">Diccionario con la informacion de de las filas.</param>
+        public override void AgregarInfo(Dictionary<string, object> dictDatosFilas)
+        {
+            this.id = int.Parse((string)dictDatosFilas["id"]);
+            this.name = (string)dictDatosFilas["name"];
+            this.meta = (string)dictDatosFilas["meta"];
+            this.challenge = (string)dictDatosFilas["challenge"];
+            this.xp = int.Parse((string)dictDatosFilas["xp"]);
+            this.ac = (string)dictDatosFilas["ac"];
+            this.hp = (string)dictDatosFilas["hp"];
+
+            this.str = int.Parse((string)dictDatosFilas["str"]);
+            this.dex = int.Parse((string)dictDatosFilas["dex"]);
+            this.con = int.Parse((string)dictDatosFilas["con"]);
+            this.@int = int.Parse((string)dictDatosFilas["int"]);
+            this.wis = int.Parse((string)dictDatosFilas["wis"]);
+            this.cha = int.Parse((string)dictDatosFilas["cha"]);
+            this.strMod = int.Parse((string)dictDatosFilas["strMod"]);
+            this.dexMod = int.Parse((string)dictDatosFilas["dexMod"]);
+            this.conMod = int.Parse((string)dictDatosFilas["conMod"]);
+            this.intMod = int.Parse((string)dictDatosFilas["intMod"]);
+            this.wisMod = int.Parse((string)dictDatosFilas["wisMod"]);
+            this.chaMod = int.Parse((string)dictDatosFilas["chaMod"]);
+            this.speedRun = int.Parse((string)dictDatosFilas["speedRun"]);
+            this.speedSwim = int.Parse((string)dictDatosFilas["speedSwim"]);
+            this.speedFly = int.Parse((string)dictDatosFilas["speedFly"]);
+            this.senses = (string)dictDatosFilas["senses"];
+            this.languages = (string)dictDatosFilas["languages"];
+            this.traits = (string)dictDatosFilas["traits"];
+            this.actions = (string)dictDatosFilas["actions"];
+            this.savingThrows = (string)dictDatosFilas["savingThrows"];
+            this.skills = (string)dictDatosFilas["skills"];
+            this.legendaryActions = (string)dictDatosFilas["legendaryActions"];
+            this.size = (string)dictDatosFilas["size"];
+            this.type = (string)dictDatosFilas["type"];
+            this.alignment = (string)dictDatosFilas["alignment"];
+            this.source = (string)dictDatosFilas["source"];
+        }
+
 
 
     }

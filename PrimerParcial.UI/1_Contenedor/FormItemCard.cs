@@ -1,4 +1,5 @@
 ﻿using PrimerParcial.Entidades.Models;
+using PrimerParcial.Entidades.SQL.ElementosDB;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,14 +19,17 @@ namespace PrimerParcial.UI._1_Contenedor
         private Item datosItem;
         private bool AgregarHabilitado;
         private bool EditarHabilitado;
-        
+        private DataGridView dataGridItems;
+
+
         /// <summary>
         /// Inicializa una nueva instania de la clase FormItemCard.
         /// </summary>
-        public FormItemCard(Item datosItem, bool MostrarBotonAgregar, bool MostrarBotonEditar)
+        public FormItemCard(Item datosItem, bool MostrarBotonAgregar, bool MostrarBotonEditar, DataGridView dataGridItems)
         {
             InitializeComponent();
             this.datosItem = datosItem;
+            this.dataGridItems = dataGridItems;
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
             this.AgregarHabilitado = MostrarBotonAgregar;
@@ -56,7 +60,7 @@ namespace PrimerParcial.UI._1_Contenedor
             textBoxCosto.Text = datosItem.cost.ToString();
             textBoxRareza.Text = datosItem.rarity;
             richTextBoxDescripcion.Text = datosItem.description;
-            textBoxPropiedades.Text = Elemento.generarStringDesdeList(datosItem.properties);
+            textBoxPropiedades.Text = datosItem.properties;
             textBoxPeso.Text = datosItem.weight.ToString();
 
             textBoxClasificacion.Text = datosItem.classification;
@@ -74,8 +78,10 @@ namespace PrimerParcial.UI._1_Contenedor
         /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            CrearDatosJsonEnBaseAItem();
-            Elemento.AgregarInfoEnArchivo(datosItem, "items-en-prueba");
+            Dictionary<string, object> dictItem = CrearDictConDatosItem();
+            var itemDB = new ItemsDB();
+            itemDB.InsertarDatos(dictItem);
+            FormAux.dataGrid_Actualizar(itemDB.Traer(), dataGridItems);
             MessageBox.Show("Item Agregado", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);            
         }
 
@@ -86,15 +92,17 @@ namespace PrimerParcial.UI._1_Contenedor
         /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            CrearDatosJsonEnBaseAItem();
-            Elemento.ModificarInfoEnArchivo(datosItem, "items-en-prueba", datosItem.id);
+            Dictionary<string, object> dictItem = CrearDictConDatosItem();
+            var itemDB = new ItemsDB();
+            itemDB.ActualizarDatos(dictItem);
+            FormAux.dataGrid_Actualizar(itemDB.Traer(), dataGridItems);
             MessageBox.Show("Item Editado", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);            
         }
 
         /// <summary>
         /// Carga valores en un objeto item en base a los valores de los TextBox.
         /// </summary>
-        private void CrearDatosJsonEnBaseAItem()
+        private Dictionary<string, object> CrearDictConDatosItem()
         {
             datosItem.id = int.Parse(textBoxId.Text) ;
             datosItem.name = textBoxNombre.Text;
@@ -102,13 +110,17 @@ namespace PrimerParcial.UI._1_Contenedor
             datosItem.cost = int.Parse(textBoxCosto.Text);
             datosItem.rarity = textBoxRareza.Text;
             datosItem.description = richTextBoxDescripcion.Text;
-            datosItem.properties = Elemento.generarListDesdeString(textBoxPropiedades.Text);
+            datosItem.properties = textBoxPropiedades.Text;
             datosItem.weight = int.Parse(textBoxPeso.Text);
             datosItem.classification = textBoxClasificacion.Text;
             datosItem.damage = textBoxDaño.Text;
             datosItem.damageType = textBoxDañoTipo.Text;
             datosItem.stealth = textBoxSigilo.Text;
             datosItem.ac = textBoxAC.Text;
+
+            Dictionary<string, object> dictDatosItem = Elemento.CrearDictConDatos(datosItem);
+
+            return dictDatosItem;
         }
     }
 }

@@ -38,6 +38,7 @@
             label7 = new Label();
             dataGridItems = new DataGridView();
             buttonAgregar = new Button();
+            buttonEliminar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridItems).BeginInit();
             SuspendLayout();
             // 
@@ -118,7 +119,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridItems.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridItems.GridColor = Color.Linen;
-            dataGridItems.Location = new Point(0, 80);
+            dataGridItems.Location = new Point(0, 110);
             dataGridItems.Name = "dataGridItems";
             dataGridItems.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -134,7 +135,7 @@
             dataGridViewCellStyle5.SelectionBackColor = Color.DarkRed;
             dataGridItems.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dataGridItems.RowTemplate.Height = 25;
-            dataGridItems.Size = new Size(507, 452);
+            dataGridItems.Size = new Size(507, 422);
             dataGridItems.TabIndex = 27;
             // 
             // buttonAgregar
@@ -156,12 +157,32 @@
             buttonAgregar.UseVisualStyleBackColor = false;
             buttonAgregar.Click += buttonAgregar_Click;
             // 
+            // buttonEliminar
+            // 
+            buttonEliminar.BackColor = Color.Transparent;
+            buttonEliminar.BackgroundImage = Properties.Resources.boton2;
+            buttonEliminar.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonEliminar.FlatAppearance.BorderSize = 0;
+            buttonEliminar.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            buttonEliminar.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            buttonEliminar.FlatStyle = FlatStyle.Flat;
+            buttonEliminar.Font = new Font("Universal Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonEliminar.ForeColor = Color.White;
+            buttonEliminar.Location = new Point(341, 70);
+            buttonEliminar.Name = "buttonEliminar";
+            buttonEliminar.Size = new Size(153, 34);
+            buttonEliminar.TabIndex = 32;
+            buttonEliminar.Text = "Eliminar";
+            buttonEliminar.UseVisualStyleBackColor = false;
+            buttonEliminar.Click += buttonEliminar_Click;
+            // 
             // FormItems
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(37, 41, 48);
             ClientSize = new Size(507, 532);
+            Controls.Add(buttonEliminar);
             Controls.Add(buttonAgregar);
             Controls.Add(buttonMostrar);
             Controls.Add(textBoxBuscador);
@@ -182,5 +203,6 @@
         private Label label7;
         private DataGridView dataGridItems;
         private Button buttonAgregar;
+        private Button buttonEliminar;
     }
 }

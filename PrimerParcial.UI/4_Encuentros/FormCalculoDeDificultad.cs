@@ -1,4 +1,6 @@
 ﻿using PrimerParcial.Entidades.Models;
+using PrimerParcial.Entidades.SQL;
+using PrimerParcial.Entidades.SQL.ElementosDB;
 using PrimerParcial.UI._1_Contenedor;
 using System;
 using System.Collections.Generic;
@@ -31,7 +33,7 @@ namespace PrimerParcial.UI
         /// Actualiza el datagrid con la informacion de una lista.
         /// </summary>
         /// <param name="ListaDiccionarios">Lista de diccionarios con la informacion para el Data Grid.</param>
-        private void dataGrid_Actualizar(List<object> ListaDiccionarios, DataGridView dataGrid)
+        private void dataGrid_Actualizar(List<Dictionary<string,object>> ListaDiccionarios, DataGridView dataGrid)
         {
             dataGrid.DataSource = null;
 
@@ -89,8 +91,8 @@ namespace PrimerParcial.UI
         private void FormCombateDificultad_Load_1(object sender, EventArgs e)
         {
             comboBoxDificultad.SelectedIndex = 0;
-
-            dataGrid_Actualizar(Elemento.LeerInfoArchivo("monsters-en"), dataGridEnemigos);
+            var enemigoDB = new EnemigosDB();
+            dataGrid_Actualizar(enemigoDB.Traer(), dataGridEnemigos);
             dataGrid_Actualizar(Elemento.LeerInfoArchivo("tabla1"), dataGridTablaReferencia);
             dataGrid_Actualizar(Elemento.LeerInfoArchivo("tabla2"), dataGridNivelDificultad);
             dataGrid_Actualizar(Elemento.LeerInfoArchivo("tabla3"), dataGridCantidadModificador);
@@ -143,9 +145,9 @@ namespace PrimerParcial.UI
                 }
 
                 Enemigo enemigo = new Enemigo(0, "");
-                FormBestiario.AgregarInfoEnemigo(enemigo, dictDatosFilas);
+                enemigo.AgregarInfo(dictDatosFilas);
 
-                FormStatBlock statBlock = new FormStatBlock((Enemigo)enemigo, mostrarBotonAgregarNuevo, mostrarBotonEditar);
+                FormStatBlock statBlock = new FormStatBlock((Enemigo)enemigo, mostrarBotonAgregarNuevo, mostrarBotonEditar, dataGridEnemigos);
 
                 statBlock.MdiParent = mdiParentForm;
                 statBlock.WindowState = FormWindowState.Normal;

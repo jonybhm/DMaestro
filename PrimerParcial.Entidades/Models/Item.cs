@@ -6,6 +6,7 @@ using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace PrimerParcial.Entidades.Models
@@ -32,10 +33,10 @@ namespace PrimerParcial.Entidades.Models
         { get;set;}
         public string damageType
         { get; set; }
-        public List<string> properties
+        public string properties
         { get; set; }
 
-        public Dictionary<string, object> source
+        public string source
         { get;set;}
 
         /// <summary>
@@ -46,6 +47,30 @@ namespace PrimerParcial.Entidades.Models
         public Item(int id, string name) : base(id, name)
         {
 
-        }      
+        }
+
+
+
+        /// <summary>
+        /// Carga los parametros para la instancia del objeto Item.
+        /// </summary>
+        /// <param name="item">Objeto de tipo Item sin valores pasados.</param>
+        /// <param name="dictDatosFilas">Diccionario con la informacion de de las filas.</param>
+        public override void AgregarInfo(Dictionary<string, object> dictDatosFilas)
+        {
+            this.id = int.Parse((string)dictDatosFilas["id"]);
+            this.name = (string)dictDatosFilas["name"];
+            this.description = (string)dictDatosFilas["description"];
+            this.category = (string)dictDatosFilas["category"];
+            this.ac = (string)dictDatosFilas["ac"];
+            this.rarity = (string)dictDatosFilas["rarity"];
+            this.cost = int.Parse((string)dictDatosFilas["cost"]);
+            this.weight = int.Parse((string)dictDatosFilas["weight"]);
+            this.stealth = (string)dictDatosFilas["stealth"];
+            this.damage = (string)dictDatosFilas["damage"];
+            this.damageType = (string)dictDatosFilas["damageType"];
+            this.properties = (string)dictDatosFilas["properties"];
+            this.source = (string)dictDatosFilas["source"];
+        }
     }
 }

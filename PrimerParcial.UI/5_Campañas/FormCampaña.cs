@@ -60,7 +60,6 @@ namespace PrimerParcial.UI
             dataGrid_Actualizar(datosCampaña.characters, dataGridPersonajes);
             dataGrid_Actualizar(datosCampaña.adventures, dataGridAventuras);
             dataGrid_Actualizar(datosCampaña.combats, dataGridCombates);
-            dataGrid_Actualizar(datosCampaña.encounters, dataGridEncuentros);
             dataGrid_Actualizar(datosCampaña.treasure, dataGridTesoros);
 
         }
@@ -75,7 +74,7 @@ namespace PrimerParcial.UI
         {
             dataGrid.DataSource = null;
 
-            List<object> ListaDiccionarios = new List<object>(ListaDict.Cast<object>());
+            List<Dictionary<string, object>> ListaDiccionarios = new List<Dictionary<string, object>>(ListaDict.Cast<Dictionary<string, object>>());
 
             var tabla = Elemento.ArmarTablaParaDataGrid(ListaDiccionarios);
 
@@ -90,7 +89,7 @@ namespace PrimerParcial.UI
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
             CrearDatosJsonEnBaseAItem();
-            Elemento.AgregarInfoEnArchivo(datosCampaña, "campañas");
+            //Elemento.AgregarInfoEnArchivo(datosCampaña, "campañas");
             MessageBox.Show("Campaña Agregada", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -102,7 +101,7 @@ namespace PrimerParcial.UI
         private void buttonEditar_Click(object sender, EventArgs e)
         {
             CrearDatosJsonEnBaseAItem();
-            Elemento.ModificarInfoEnArchivo(datosCampaña, "campañas", datosCampaña.id);
+            //Elemento.ModificarInfoEnArchivo(datosCampaña, "campañas", datosCampaña.id);
             MessageBox.Show("Campaña Editada", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 

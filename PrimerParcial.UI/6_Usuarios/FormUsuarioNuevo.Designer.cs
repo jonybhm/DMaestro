@@ -64,6 +64,7 @@
             buttonAgregar.TabIndex = 6;
             buttonAgregar.Text = "Agregar Usuario";
             buttonAgregar.UseVisualStyleBackColor = false;
+            buttonAgregar.Click += buttonAgregar_Click;
             // 
             // labelLogin
             // 

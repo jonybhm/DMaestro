@@ -6,6 +6,7 @@ using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace PrimerParcial.Entidades.Models
@@ -14,9 +15,9 @@ namespace PrimerParcial.Entidades.Models
     {
         public string casting_time
         { get;set;}        
-        public List<string> classes
+        public string classes
         { get; set; }
-        public Dictionary<string, object> components
+        public string components
         { get;set;}
         public string description
         { get;set;}
@@ -28,14 +29,12 @@ namespace PrimerParcial.Entidades.Models
         { get;set;}
         public string range
         { get;set;}
-        public bool ritual
-        { get;set;}
         public string school
         { get;set;}
         public string type
         { get;set;}        
 
-        public Dictionary<string, object> source
+        public string source
         { get;set;}
 
         /// <summary>
@@ -46,6 +45,30 @@ namespace PrimerParcial.Entidades.Models
         public Hechizo(int id, string name) : base(id, name)
         {
 
-        }      
+        }
+
+        /// <summary>
+        /// Carga los parametros para la instancia del objeto Hechizo.
+        /// </summary>
+        /// <param name="hechizo">Objeto de tipo Hechizo sin valores pasados.</param>
+        /// <param name="dictDatosFilas">Diccionario con la informacion de de las filas.</param>
+        public override void AgregarInfo(Dictionary<string, object> dictDatosFilas)
+        {
+            this.id = int.Parse((string)dictDatosFilas["id"]);
+            this.name = (string)dictDatosFilas["name"];
+            this.casting_time = (string)dictDatosFilas["casting_time"];
+            this.classes = (string)dictDatosFilas["classes"];
+            this.components = (string)dictDatosFilas["components"];
+            this.description = (string)dictDatosFilas["description"];
+            this.duration = (string)dictDatosFilas["duration"];
+            this.higher_levels = (string)dictDatosFilas["higher_levels"];
+            this.level = (string)dictDatosFilas["level"];
+            this.range = (string)dictDatosFilas["range"];
+            this.school = (string)dictDatosFilas["school"];
+            this.type = (string)dictDatosFilas["type"];
+            this.source = (string)dictDatosFilas["source"];
+
+
+        }
     }
 }

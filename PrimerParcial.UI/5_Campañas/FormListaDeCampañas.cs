@@ -1,4 +1,6 @@
 ﻿using PrimerParcial.Entidades.Models;
+using PrimerParcial.Entidades.SQL;
+using PrimerParcial.Entidades.SQL.ElementosDB;
 using PrimerParcial.UI._1_Contenedor;
 using System;
 using System.Collections.Generic;
@@ -31,7 +33,7 @@ namespace PrimerParcial.UI
         /// Actualiza el datagrid con la informacion de una lista.
         /// </summary>
         /// <param name="ListaDiccionarios">Lista de diccionarios con la informacion para el Data Grid.</param>
-        private void dataGridCampañas_Actualizar(List<object> ListaDiccionarios)
+        private void dataGridCampañas_Actualizar(List<Dictionary<string, object>> ListaDiccionarios)
         {
             dataGridCampañas.DataSource = null;
 
@@ -67,7 +69,8 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void FormListaCampañas_Load(object sender, EventArgs e)
         {
-            dataGridCampañas_Actualizar(Elemento.LeerInfoArchivo("campañas"));
+            var campañaDB = new CampañasDB();
+            dataGridCampañas_Actualizar(campañaDB.Traer());
         }
 
         /// <summary>
@@ -92,10 +95,20 @@ namespace PrimerParcial.UI
                     dictDatosFilas.Add(nombreColumna, datosCelda);
 
                 }
+                var campañaDB = new CampañasDB();
 
+                List<Dictionary<string, object>> personajesCampaña = campañaDB.TraerPersonajes();
+                List<Dictionary<string, object>> aventurasCampaña = campañaDB.TraerAventuras();
+                List<Dictionary<string, object>> combatesCampaña = campañaDB.TraerCombates();
+                List<Dictionary<string, object>> itemsCampaña = campañaDB.TraerItems();
                 Campaña campaña = new Campaña(0,"");
-                AgregarInfoCampaña(campaña, dictDatosFilas);
-                                
+                campaña.AgregarInfo(dictDatosFilas);
+                campaña.characters = personajesCampaña;
+                campaña.adventures = aventurasCampaña;
+                campaña.combats = combatesCampaña;
+                campaña.treasure = itemsCampaña;
+
+
                 FormCampaña formCampaña = new FormCampaña((Campaña)campaña, mostrarBotonEditar, mostrarBotonAgregarNuevo);
                 
                 formCampaña.MdiParent = mdiParentForm;
@@ -144,7 +157,7 @@ namespace PrimerParcial.UI
 
 
             Campaña campaña = new Campaña(idFinal++, "");
-            AgregarInfoCampaña(campaña, dictDatosFilas);
+            campaña.AgregarInfo(dictDatosFilas);
 
             FormCampaña formCampaña = new FormCampaña((Campaña)campaña, mostrarBotonEditar, mostrarBotonAgregarNuevo);
 
@@ -152,30 +165,7 @@ namespace PrimerParcial.UI
             formCampaña.WindowState = FormWindowState.Normal;
 
             formCampaña.Show();
-        }
-
-        /// <summary>
-        /// Carga los parametros para la instancia del objeto campaña.
-        /// </summary>
-        /// <param name="campaña">Objeto de tipo Campaña sin valores pasados.</param>
-        /// <param name="dictDatosFilas">Diccionario con la informacion de de las filas.</param>
-        private void AgregarInfoCampaña(Campaña campaña, Dictionary<string, object> dictDatosFilas)
-        {
-            campaña.id = int.Parse((string)dictDatosFilas["id"]);
-            campaña.name = (string)dictDatosFilas["name"];
-            campaña.place = (string)dictDatosFilas["place"];
-            campaña.imageUrl = (string)dictDatosFilas["imageUrl"];
-
-            campaña.characters = JsonSerializer.Deserialize<List<Dictionary<string, object>>>((string)dictDatosFilas["characters"]);
-            campaña.adventures = JsonSerializer.Deserialize<List<Dictionary<string, object>>>((string)dictDatosFilas["adventures"]);
-            campaña.combats = JsonSerializer.Deserialize<List<Dictionary<string, object>>>((string)dictDatosFilas["combats"]);
-            campaña.encounters = JsonSerializer.Deserialize<List<Dictionary<string, object>>>((string)dictDatosFilas["encounters"]);
-            campaña.treasure = JsonSerializer.Deserialize<List<Dictionary<string, object>>>((string)dictDatosFilas["treasure"]);
-
-            campaña.notes = (string)dictDatosFilas["notes"];
-
-
-        }
+        }        
 
     }
 }

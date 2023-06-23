@@ -7,12 +7,13 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System.Drawing;
-
+using PrimerParcial.Entidades.SQL;
+using System.Reflection;
 
 
 namespace PrimerParcial.Entidades.Models
 {
-    public class Elemento
+    public abstract class Elemento
     {
         
         public int id
@@ -41,7 +42,7 @@ namespace PrimerParcial.Entidades.Models
        /// </summary>
        /// <param name="ListaDiccionarios">Lista de diccionarios con datos para la tabla.</param>
        /// <returns>La tabla con datos en las celdas y encabezado de columnas.</returns>
-        public static object ArmarTablaParaDataGrid(List<object> ListaDiccionarios)
+        public static object ArmarTablaParaDataGrid(List<Dictionary<string,object>> ListaDiccionarios)
         {
             DataTable tabla = new DataTable();
 
@@ -229,27 +230,31 @@ namespace PrimerParcial.Entidades.Models
 
         //Metodos para leer y escribir archivos json
 
+        
+
         /// <summary>
         /// Leer info de archivo Json en formato de Array para procesar informacion en tablas.
         /// </summary>
         /// <param name="nombreArchivo">string con el nombre del archivo sin extension.</param>
         /// <returns>Lista de Diccionarios con los datos del Json.</returns>
-        public static List<object> LeerInfoArchivo(string nombreArchivo)
+        public static List<Dictionary<string, object>> LeerInfoArchivo(string nombreArchivo)
         {
             string ruta = $@"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Json\{nombreArchivo}.json";
 
-            var lista = new List<object>();
+            var lista = new List<Dictionary<string, object>>();
             var rta = File.ReadAllText(ruta);
             var jsonarray = JsonArray.Parse(rta);
             foreach (var item in jsonarray!.AsArray())
-                {
+            {
                 Dictionary<string, object> dict = JsonSerializer.Deserialize<Dictionary<string, object>>(item);
                 lista.Add(dict);
-                    
-                }                     
+
+            }
             return lista;
 
         }
+
+
 
         /// <summary>
         /// Leer y parsear info de archivo Json en formato JsonElement.
@@ -270,7 +275,7 @@ namespace PrimerParcial.Entidades.Models
         /// </summary>
         /// <param name="elemento">Objeto a agregar al Json.</param>
         /// <param name="nombreArchivo">string con el nombre del archivo Json.</param>
-        public static void AgregarInfoEnArchivo(object elemento, string nombreArchivo)
+        public static void AgregarInfoEnArchivo(Dictionary<string,object> elemento, string nombreArchivo)
         {
             string ruta = $@"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Json\{nombreArchivo}.json";
             var jsonExistente = LeerInfoArchivo(nombreArchivo);
@@ -287,7 +292,7 @@ namespace PrimerParcial.Entidades.Models
         /// <param name="elemento">Objeto a agregar al Json.</param>
         /// <param name="nombreArchivo">string con el nombre del archivo Json.</param>
         /// <param name="id">int con la posicion de la entrada en el Json.</param>
-        public static void ModificarInfoEnArchivo(object elemento, string nombreArchivo, int id)
+        public static void ModificarInfoEnArchivo(Dictionary<string, object> elemento, string nombreArchivo, int id)
         {
             string ruta = $@"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Json\{nombreArchivo}.json";
             var jsonExistente = LeerInfoArchivo(nombreArchivo);
@@ -298,6 +303,33 @@ namespace PrimerParcial.Entidades.Models
             string contenidoNuevo = JsonSerializer.Serialize(jsonExistente, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(ruta, contenidoNuevo);
 
+        }
+
+        public abstract void AgregarInfo(Dictionary<string, object> dictDatosFilas);
+
+        /// <summary>
+        /// Carga valores en un diccionario en base a los valores de un objeto.
+        /// </summary>
+        public static Dictionary<string, object> CrearDictConDatos(Elemento datosElemento)
+        {
+
+            Dictionary<string, object> dictDatosElemento = new Dictionary<string, object>();
+
+            PropertyInfo[] propiedades = datosElemento.GetType().GetProperties();
+            bool flagPrimerVuelta = false;
+            foreach (PropertyInfo prop in propiedades)
+            {
+                if (flagPrimerVuelta)
+                {
+                    flagPrimerVuelta = false;
+                    continue;
+                }
+                string nombrePropiedad = prop.Name;
+                object valorPropiedad = prop.GetValue(datosElemento);
+                dictDatosElemento.Add(nombrePropiedad, valorPropiedad);
+            }
+
+            return dictDatosElemento;
         }
 
     }

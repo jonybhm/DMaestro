@@ -35,6 +35,7 @@
             buttonGuardar = new Button();
             labelLogin = new Label();
             textBoxContraseña = new TextBox();
+            buttonBorrar = new Button();
             SuspendLayout();
             // 
             // comboBoxTipoUsuario
@@ -123,6 +124,25 @@
             textBoxContraseña.Size = new Size(286, 20);
             textBoxContraseña.TabIndex = 16;
             // 
+            // buttonBorrar
+            // 
+            buttonBorrar.BackColor = Color.Transparent;
+            buttonBorrar.BackgroundImage = Properties.Resources.boton2;
+            buttonBorrar.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonBorrar.Dock = DockStyle.Bottom;
+            buttonBorrar.FlatAppearance.BorderSize = 0;
+            buttonBorrar.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            buttonBorrar.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            buttonBorrar.FlatStyle = FlatStyle.Flat;
+            buttonBorrar.Font = new Font("Universal Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonBorrar.Location = new Point(0, 192);
+            buttonBorrar.Name = "buttonBorrar";
+            buttonBorrar.Size = new Size(344, 35);
+            buttonBorrar.TabIndex = 21;
+            buttonBorrar.Text = "Borrar";
+            buttonBorrar.UseVisualStyleBackColor = false;
+            buttonBorrar.Click += buttonBorrar_Click;
+            // 
             // FormGuardarDatosEditados
             // 
             AcceptButton = buttonGuardar;
@@ -130,6 +150,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(37, 41, 48);
             ClientSize = new Size(344, 262);
+            Controls.Add(buttonBorrar);
             Controls.Add(comboBoxTipoUsuario);
             Controls.Add(textBoxNombreApellido);
             Controls.Add(textBoxContraseñaConfirm);
@@ -152,5 +173,6 @@
         private Button buttonGuardar;
         private Label labelLogin;
         private TextBox textBoxContraseña;
+        private Button buttonBorrar;
     }
 }

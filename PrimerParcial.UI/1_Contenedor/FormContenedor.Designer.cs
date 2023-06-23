@@ -620,21 +620,21 @@ namespace PrimerParcial.UI
             // stripMenuCrearUsuario
             // 
             stripMenuCrearUsuario.Name = "stripMenuCrearUsuario";
-            stripMenuCrearUsuario.Size = new Size(223, 22);
+            stripMenuCrearUsuario.Size = new Size(286, 22);
             stripMenuCrearUsuario.Text = "Crear Usuario";
             stripMenuCrearUsuario.Click += stripMenuCrearUsuario_Click;
             // 
             // stripMenuEditarUsuario
             // 
             stripMenuEditarUsuario.Name = "stripMenuEditarUsuario";
-            stripMenuEditarUsuario.Size = new Size(223, 22);
-            stripMenuEditarUsuario.Text = "EDITAR USUARIO";
+            stripMenuEditarUsuario.Size = new Size(286, 22);
+            stripMenuEditarUsuario.Text = "EDITAR/BORRAR USUARIO";
             stripMenuEditarUsuario.Click += stripMenuEditarUsuario_Click;
             // 
             // stripMenuCambiarUsuario
             // 
             stripMenuCambiarUsuario.Name = "stripMenuCambiarUsuario";
-            stripMenuCambiarUsuario.Size = new Size(223, 22);
+            stripMenuCambiarUsuario.Size = new Size(286, 22);
             stripMenuCambiarUsuario.Text = "Cambiar Usuario";
             stripMenuCambiarUsuario.Click += stripMenuCambiarUsuario_Click;
             // 

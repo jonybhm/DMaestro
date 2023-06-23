@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
 using PrimerParcial.Entidades.Models;
+using PrimerParcial.Entidades.SQL.ElementosDB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -69,18 +70,20 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void FormLogin_Load(object sender, EventArgs e)
         {
+            UsuariosDB usuariosDB = new UsuariosDB();
+            var usersArray = usuariosDB.Traer();
 
-            //string[] arrayDeUsuarios = _usuarios.Select(user => user.UserName).ToArray();
-            string[] arrayDeUsuarios = { "admin","user1","user2"};
-            textUsuario.AutoCompleteCustomSource.AddRange(arrayDeUsuarios);
-
-            var jsonArray = Elemento.LeerInfoDocumento("usuarios");
-
-            foreach (JsonElement item in jsonArray.EnumerateArray())
+            foreach (Dictionary<string,object> item in usersArray)
             {
                 _usuarios.Add(Usuario.Parse(item));
             }
 
+            string[] arrayDeUsuarios = new string[]{};
+            foreach (Usuario usuario in  _usuarios)
+            {
+                arrayDeUsuarios = arrayDeUsuarios.Append(usuario.UserName).ToArray();
+            }
+            textUsuario.AutoCompleteCustomSource.AddRange(arrayDeUsuarios);
         }
 
         

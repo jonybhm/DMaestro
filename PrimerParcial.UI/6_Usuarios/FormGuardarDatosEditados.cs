@@ -1,4 +1,5 @@
 ﻿using PrimerParcial.Entidades.Models;
+using PrimerParcial.Entidades.SQL.ElementosDB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace PrimerParcial.UI._6_Usuarios
 {
@@ -31,13 +33,45 @@ namespace PrimerParcial.UI._6_Usuarios
         /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
-            usuarioEditado.Password = textBoxContraseña.Text;
-            usuarioEditado.Name = textBoxNombreApellido.Text;
-            usuarioEditado.IsAdmin = usuarioEditado.IsAdmin;
-            usuarioEditado.UserName = textBoxUsuario.Text;
-            Elemento.ModificarInfoEnArchivo(usuarioEditado, "usuarios", usuarioEditado.Id);
+            bool userRoleAdmin = false;
+            string userPassword = textBoxContraseña.Text;
+            string userFirstLastName = textBoxNombreApellido.Text;
+            string userName = textBoxUsuario.Text;
+            if (comboBoxTipoUsuario.Text == "administrador")
+            {
+                userRoleAdmin = true;
+            }
+            
+            UsuariosDB usuariosDB = new UsuariosDB();
+            usuariosDB.ActualizarDatos(Usuario.ArmarDiccionarioDeUsuario(usuarioEditado.Id,userFirstLastName, userName, userPassword, userRoleAdmin));
             MessageBox.Show("Usuario Editado", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
+        }
+
+        private void buttonBorrar_Click(object sender, EventArgs e)
+        {
+            bool userRoleAdmin = false;
+            string userPassword = textBoxContraseña.Text;
+            string userFirstLastName = textBoxNombreApellido.Text;
+            string userName = textBoxUsuario.Text;
+            if (comboBoxTipoUsuario.Text == "administrador")
+            {
+                userRoleAdmin = true;
+            }
+            
+            UsuariosDB usuariosDB = new UsuariosDB();
+            DialogResult confirmacion = MessageBox.Show("¿Seguro desea Borrar?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if(confirmacion == DialogResult.Yes)
+            {
+                usuariosDB.EliminarDatos(usuarioEditado.Id);
+                MessageBox.Show("Usuario Eliminado", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+
+            }
+            this.Close();
+
         }
     }
 }

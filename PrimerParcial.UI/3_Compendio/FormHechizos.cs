@@ -1,4 +1,6 @@
 ﻿using PrimerParcial.Entidades.Models;
+using PrimerParcial.Entidades.SQL;
+using PrimerParcial.Entidades.SQL.ElementosDB;
 using PrimerParcial.UI._1_Contenedor;
 using System;
 using System.Collections.Generic;
@@ -25,19 +27,19 @@ namespace PrimerParcial.UI
             InitializeComponent();
             mdiParentForm = parentForm;
         }
-
+        /*
         /// <summary>
         /// Actualiza el datagrid con la informacion de una lista.
         /// </summary>
         /// <param name="ListaDiccionarios">Lista de diccionarios con la informacion para el Data Grid.</param>
-        private void dataGridHechizos_Actualizar(List<object> ListaDiccionarios)
+        private void dataGridHechizos_Actualizar(List<Dictionary<string,object>> ListaDiccionarios)
         {
             dataGridHechizos.DataSource = null;
 
             var hechizos = Elemento.ArmarTablaParaDataGrid(ListaDiccionarios);
 
             dataGridHechizos.DataSource = hechizos;
-        }
+        }*/
 
         /// <summary>
         /// Busca informacion en el data grid con respecto al texto en Text Box Buscador.
@@ -67,7 +69,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void FormHechizos_Load(object sender, EventArgs e)
         {
-            dataGridHechizos_Actualizar(Elemento.LeerInfoArchivo("spells-en-prueba"));
+            var hechizoDB = new HechizosDB();
+            FormAux.dataGrid_Actualizar(hechizoDB.Traer(), dataGridHechizos);
+
         }
 
         /// <summary>
@@ -79,27 +83,14 @@ namespace PrimerParcial.UI
         {
             bool mostrarBotonEditar = true;
             bool mostrarBotonAgregarNuevo = false;
-            try 
-            { 
-                DataGridViewRow selectedRow = dataGridHechizos.SelectedRows[0];
-                Dictionary<string, object> dictDatosFilas = new Dictionary<string, object>();
-
-                for (int i = 0; i < selectedRow.Cells.Count; i++)
-                {
-                    string datosCelda = selectedRow.Cells[i].Value.ToString();
-                    string nombreColumna = dataGridHechizos.Columns[i].HeaderText;
-
-                    dictDatosFilas.Add(nombreColumna, datosCelda);
-
-                }
+            try
+            {
                 Hechizo hechizo = new Hechizo(0, "");
-                AgregarInfoHechizo(hechizo, dictDatosFilas);
+                hechizo.AgregarInfo(FormAux.ArmarDictEnBaseAFila(dataGridHechizos));
 
-                FormSpellCard spellCard = new FormSpellCard((Hechizo)hechizo, mostrarBotonAgregarNuevo, mostrarBotonEditar);
-
+                FormSpellCard spellCard = new FormSpellCard((Hechizo)hechizo, mostrarBotonAgregarNuevo, mostrarBotonEditar, dataGridHechizos);
                 spellCard.MdiParent = mdiParentForm;
                 spellCard.WindowState = FormWindowState.Normal;
-
                 spellCard.Show();
             }
             catch (Exception ex)
@@ -124,28 +115,21 @@ namespace PrimerParcial.UI
             Dictionary<string, object> dictDatosFilas = new Dictionary<string, object>();
             foreach (DataGridViewColumn column in dataGridHechizos.Columns)
             {
-                dictDatosFilas[column.Name] = "Contenido provisorio";
                 switch (column.HeaderText)
                 {
                     case "id":
-                        dictDatosFilas[column.Name] = idFinal++.ToString();
+                        dictDatosFilas[column.Name] = 0.ToString();
                         break;
-                    case "classes":
-                        dictDatosFilas[column.Name] = "[\"Contenido1\",\"Contenido2\"]";
-                        break;
-                    case "source":
-                        dictDatosFilas[column.Name] = "{\"name\":\"\",\"link\":\"\"}";
-                        break;
-                    case "components":
-                        dictDatosFilas[column.Name] = "{\"raw\":\"\"}";
+                    default:
+                        dictDatosFilas[column.Name] = "COMPLETAR...";
                         break;
                 }
 
             }
             Hechizo hechizo = new Hechizo(idFinal++, "");
-            AgregarInfoHechizo(hechizo, dictDatosFilas);
+            hechizo.AgregarInfo(dictDatosFilas);
 
-            FormSpellCard spellCard = new FormSpellCard((Hechizo)hechizo, mostrarBotonAgregarNuevo, mostrarBotonEditar);
+            FormSpellCard spellCard = new FormSpellCard((Hechizo)hechizo, mostrarBotonAgregarNuevo, mostrarBotonEditar, dataGridHechizos);
 
             spellCard.MdiParent = mdiParentForm;
             spellCard.WindowState = FormWindowState.Normal;
@@ -153,40 +137,21 @@ namespace PrimerParcial.UI
             spellCard.Show();
         }
 
-        /// <summary>
-        /// Carga los parametros para la instancia del objeto Hechizo.
-        /// </summary>
-        /// <param name="hechizo">Objeto de tipo Hechizo sin valores pasados.</param>
-        /// <param name="dictDatosFilas">Diccionario con la informacion de de las filas.</param>
-        private void AgregarInfoHechizo(Hechizo hechizo, Dictionary<string, object> dictDatosFilas)
+        private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            hechizo.id = int.Parse((string)dictDatosFilas["id"]);
-            hechizo.name = (string)dictDatosFilas["name"];
-            hechizo.casting_time = (string)dictDatosFilas["casting_time"];
-            hechizo.classes = JsonSerializer.Deserialize<List<string>>((string)dictDatosFilas["classes"]);
-            if (!string.IsNullOrEmpty((string)dictDatosFilas["components"]))
+            try
             {
-                hechizo.components = JsonSerializer.Deserialize<Dictionary<string, object>>((string)dictDatosFilas["components"]);
+                DataGridViewRow selectedRow = dataGridHechizos.SelectedRows[0];
+                var idHechizo = selectedRow.Cells[0].Value;
+                var hechizoDB = new HechizosDB();
+                hechizoDB.EliminarDatos(idHechizo);
+                FormAux.dataGrid_Actualizar(hechizoDB.Traer(), dataGridHechizos);
+                MessageBox.Show("Hechizo Eliminado", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
+            catch (Exception ex)
             {
-                hechizo.components = new Dictionary<string, object>();
+                MessageBox.Show("Debe seleccionar una fila para eliminar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
-            hechizo.description = (string)dictDatosFilas["description"];
-            hechizo.duration = (string)dictDatosFilas["duration"];
-            hechizo.higher_levels = (string)dictDatosFilas["higher_levels"];
-
-            hechizo.level = (string)dictDatosFilas["level"];
-            hechizo.range = (string)dictDatosFilas["range"];
-            hechizo.ritual = false;
-
-            hechizo.school = (string)dictDatosFilas["school"];
-            hechizo.type = (string)dictDatosFilas["type"];
-
-            hechizo.source = JsonSerializer.Deserialize<Dictionary<string, object>>((string)dictDatosFilas["source"]);
-
-
         }
     }
 }

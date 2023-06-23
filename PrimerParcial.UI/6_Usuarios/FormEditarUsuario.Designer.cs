@@ -56,9 +56,9 @@
             buttonEditar.Font = new Font("Universal Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             buttonEditar.Location = new Point(0, 227);
             buttonEditar.Name = "buttonEditar";
-            buttonEditar.Size = new Size(344, 35);
+            buttonEditar.Size = new Size(350, 35);
             buttonEditar.TabIndex = 13;
-            buttonEditar.Text = "Editar";
+            buttonEditar.Text = "Editar/Borrar";
             buttonEditar.UseVisualStyleBackColor = false;
             buttonEditar.Click += buttonEditar_Click;
             // 
@@ -69,11 +69,11 @@
             labelLogin.FlatStyle = FlatStyle.Flat;
             labelLogin.Font = new Font("Universal Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labelLogin.ForeColor = Color.Lavender;
-            labelLogin.Location = new Point(41, 11);
+            labelLogin.Location = new Point(0, 9);
             labelLogin.Name = "labelLogin";
-            labelLogin.Size = new Size(262, 18);
+            labelLogin.Size = new Size(348, 18);
             labelLogin.TabIndex = 12;
-            labelLogin.Text = "Ingrese Usuario a Editar";
+            labelLogin.Text = "Ingrese Usuario a Editar/Borrar";
             labelLogin.TextAlign = ContentAlignment.MiddleCenter;
             labelLogin.UseMnemonic = false;
             // 
@@ -82,7 +82,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(37, 41, 48);
-            ClientSize = new Size(344, 262);
+            ClientSize = new Size(350, 262);
             Controls.Add(textBoxUsuario);
             Controls.Add(buttonEditar);
             Controls.Add(labelLogin);

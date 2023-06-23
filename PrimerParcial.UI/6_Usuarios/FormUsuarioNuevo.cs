@@ -1,4 +1,5 @@
 ﻿using PrimerParcial.Entidades.Models;
+using PrimerParcial.Entidades.SQL.ElementosDB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,22 +29,21 @@ namespace PrimerParcial.UI._1_Contenedor
         {
             comboBoxTipoUsuario.SelectedIndex = 0;
         }
-        private void buttonGuardar_Click(object sender, EventArgs e)
-        {
 
+        private void buttonAgregar_Click(object sender, EventArgs e)
+        {
             if (VerificarCasillas())
             {
                 bool userRoleAdmin = false;
-                int userIdLast = _usuarios.Count;
                 string userFirstLastName = textBoxNombreApellido.Text;
                 string userName = textBoxUsuario.Text;
                 string userPassword = textBoxContraseña.Text;
-                if (comboBoxTipoUsuario.Text == "administrativo")
+                if (comboBoxTipoUsuario.Text == "administrador")
                 {
                     userRoleAdmin = true;
                 }
-                usuarioNuevo = new Usuario(userIdLast++, userFirstLastName, userName, userPassword, userRoleAdmin);
-                Elemento.AgregarInfoEnArchivo(usuarioNuevo, "usuarios");
+                UsuariosDB usuariosDB = new UsuariosDB();
+                usuariosDB.InsertarDatos(Usuario.ArmarDiccionarioDeUsuario(0,userFirstLastName, userName, userPassword, userRoleAdmin));
                 MessageBox.Show("Usuario agregado", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
             }
@@ -98,6 +98,6 @@ namespace PrimerParcial.UI._1_Contenedor
             return casillasVerifican;
         }
 
-
+        
     }
 }

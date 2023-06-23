@@ -33,8 +33,7 @@ namespace PrimerParcial.Entidades.Models
         {
             _id = id;
             _name = name;
-        }
-               
+        } 
 
     }
 }
