@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using PrimerParcial.Entidades.Models;
+using PrimerParcial.Entidades.SQL.ElementosDB;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PrimerParcial.UI
@@ -19,11 +20,13 @@ namespace PrimerParcial.UI
         private Campaña datosCampaña;
         private bool AgregarHabilitado;
         private bool EditarHabilitado;
+        private DataGridView dataGridCampañas;
+
 
         /// <summary>
         /// Inicializa una nueva instania de la clase FormCampaña.
         /// </summary>
-        public FormCampaña(Campaña datosCampaña, bool MostrarBotonEditar, bool MostrarBotonAgregar)
+        public FormCampaña(Campaña datosCampaña, bool MostrarBotonEditar, bool MostrarBotonAgregar, DataGridView dataGridCampañas)
         {
             InitializeComponent();
             this.datosCampaña = datosCampaña;
@@ -31,7 +34,7 @@ namespace PrimerParcial.UI
             this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
             this.AgregarHabilitado = MostrarBotonAgregar;
             this.EditarHabilitado = MostrarBotonEditar;
-
+            this.dataGridCampañas = dataGridCampañas;
         }
 
         /// <summary>
@@ -55,31 +58,16 @@ namespace PrimerParcial.UI
             textBoxID.Text = datosCampaña.id.ToString();
             textBoxLugar.Text = datosCampaña.place;
             pictureBoxCabecera.ImageLocation = datosCampaña.imageUrl;
+            textBoxURL.Text = datosCampaña.imageUrl;
             richTextBoxNotas.Text = datosCampaña.notes;
 
-            dataGrid_Actualizar(datosCampaña.characters, dataGridPersonajes);
-            dataGrid_Actualizar(datosCampaña.adventures, dataGridAventuras);
-            dataGrid_Actualizar(datosCampaña.combats, dataGridCombates);
-            dataGrid_Actualizar(datosCampaña.treasure, dataGridTesoros);
+            FormAux.dataGrid_Actualizar(datosCampaña.characters, dataGridPersonajes);
+            FormAux.dataGrid_Actualizar(datosCampaña.adventures, dataGridAventuras);
+            FormAux.dataGrid_Actualizar(datosCampaña.combats, dataGridCombates);
+            FormAux.dataGrid_Actualizar(datosCampaña.items, dataGridTesoros);
 
         }
 
-
-        /// <summary>
-        /// Actualiza el datagrid con la informacion de una lista.
-        /// </summary>
-        /// <param name="ListaDict">Lista de diccionarios con la informacion para el Data Grid.</param>
-        /// <param name="dataGrid">Data Grid.</param>
-        private void dataGrid_Actualizar(List<Dictionary<string, object>> ListaDict, DataGridView dataGrid)
-        {
-            dataGrid.DataSource = null;
-
-            List<Dictionary<string, object>> ListaDiccionarios = new List<Dictionary<string, object>>(ListaDict.Cast<Dictionary<string, object>>());
-
-            var tabla = Elemento.ArmarTablaParaDataGrid(ListaDiccionarios);
-
-            dataGrid.DataSource = tabla;
-        }
 
         /// <summary>
         /// Evento que sucede al hacer click en el boton Agregar.
@@ -88,8 +76,10 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
-            CrearDatosJsonEnBaseAItem();
-            //Elemento.AgregarInfoEnArchivo(datosCampaña, "campañas");
+            Dictionary<string, object> dictCampaña = CrearDictConDatosCampaña();
+            var campañaDB = new CampañasDB();
+            campañaDB.InsertarDatos(dictCampaña);
+            FormAux.dataGrid_Actualizar(campañaDB.Traer(), dataGridCampañas);
             MessageBox.Show("Campaña Agregada", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -100,22 +90,28 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonEditar_Click(object sender, EventArgs e)
         {
-            CrearDatosJsonEnBaseAItem();
-            //Elemento.ModificarInfoEnArchivo(datosCampaña, "campañas", datosCampaña.id);
+            Dictionary<string, object> dictCampaña = CrearDictConDatosCampaña();
+            var campañaDB = new CampañasDB();
+            campañaDB.ActualizarDatos(dictCampaña);
+            FormAux.dataGrid_Actualizar(campañaDB.Traer(), dataGridCampañas);
+            FormCampaña_Load(sender, e);
             MessageBox.Show("Campaña Editada", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>
         /// Carga valores en un objeto item en base a los valores de los TextBox.
         /// </summary>
-        private void CrearDatosJsonEnBaseAItem()
+        private Dictionary<string, object> CrearDictConDatosCampaña()
         {
             datosCampaña.id = int.Parse(textBoxID.Text);
             datosCampaña.name = textBoxNombre.Text;
             datosCampaña.place = textBoxLugar.Text;
             datosCampaña.notes = richTextBoxNotas.Text;
+            datosCampaña.imageUrl = textBoxURL.Text;
 
+            Dictionary<string, object> dictDatosCampaña = Elemento.CrearDictConDatos(datosCampaña);
 
+            return dictDatosCampaña;
         }
     }
 }

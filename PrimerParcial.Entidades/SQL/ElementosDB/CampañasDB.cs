@@ -31,11 +31,11 @@ namespace PrimerParcial.Entidades.SQL.ElementosDB
             string consulta = "SELECT * FROM campaigns";
 
 
-            var enemigos = new List<Dictionary<string, object>>();
+            var campaigns = new List<Dictionary<string, object>>();
 
-            enemigos = EjecutarConsulta(consulta);
+            campaigns = EjecutarConsulta(consulta);
 
-            return enemigos;
+            return campaigns;
         }
 
         public List<Dictionary<string, object>> TraerPersonajes()
@@ -44,11 +44,11 @@ namespace PrimerParcial.Entidades.SQL.ElementosDB
                 "FROM campaigns AS c LEFT JOIN campaigns_characters AS cch ON c.id = cch.id_campaign LEFT JOIN characters AS ch ON cch.id_character= ch.id";
 
 
-            var enemigos = new List<Dictionary<string, object>>();
+            var campaigns = new List<Dictionary<string, object>>();
 
-            enemigos = EjecutarConsulta(consulta);
+            campaigns = EjecutarConsulta(consulta);
 
-            return enemigos;
+            return campaigns;
         }
 
         public List<Dictionary<string, object>> TraerAventuras()
@@ -57,11 +57,11 @@ namespace PrimerParcial.Entidades.SQL.ElementosDB
                 "FROM campaigns AS c LEFT JOIN campaigns_adventures AS ca ON c.id = ca.id_campaign LEFT JOIN adventures AS ad ON ca.id_adventure = ad.id";
 
 
-            var enemigos = new List<Dictionary<string, object>>();
+            var campaigns = new List<Dictionary<string, object>>();
 
-            enemigos = EjecutarConsulta(consulta);
+            campaigns = EjecutarConsulta(consulta);
 
-            return enemigos;
+            return campaigns;
         }
 
         public List<Dictionary<string, object>> TraerCombates()
@@ -70,11 +70,11 @@ namespace PrimerParcial.Entidades.SQL.ElementosDB
                 "FROM campaigns AS c LEFT JOIN campaigns_combats AS cco ON c.id = cco.id_campaign LEFT JOIN combats AS co ON cco.id_combat = co.id";
 
 
-            var enemigos = new List<Dictionary<string, object>>();
+            var campaigns = new List<Dictionary<string, object>>();
 
-            enemigos = EjecutarConsulta(consulta);
+            campaigns = EjecutarConsulta(consulta);
 
-            return enemigos;
+            return campaigns;
         }
 
         public List<Dictionary<string, object>> TraerItems()
@@ -83,11 +83,11 @@ namespace PrimerParcial.Entidades.SQL.ElementosDB
                 "FROM campaigns AS c LEFT JOIN campaigns_items ci ON c.id = ci.id_campaign LEFT JOIN items AS i ON ci.id_item = i.id";
 
 
-            var enemigos = new List<Dictionary<string, object>>();
+            var campaigns = new List<Dictionary<string, object>>();
 
-            enemigos = EjecutarConsulta(consulta);
+            campaigns = EjecutarConsulta(consulta);
 
-            return enemigos;
+            return campaigns;
         }
 
         public Campaña Traer(int id)
@@ -95,17 +95,22 @@ namespace PrimerParcial.Entidades.SQL.ElementosDB
             throw new NotImplementedException();
         }
 
-        public void InsertarDatos()
+        public void InsertarDatos(Dictionary<string, object> campaign)
         {
-            string comando = "";
 
-            var enemigos = new List<Campaña>();
+            EjecutarNonQuery(ArmarStringComandoNonQueryInsert(campaign, "campaigns"));
 
-            foreach (Campaña enemigo in enemigos)
-            {
-                EjecutarNonQuery(comando);
-            }
 
+        }
+        public void ActualizarDatos(Dictionary<string, object> campaign)
+        {
+            EjecutarNonQuery(ArmarStringComandoNonQueryUpdate(campaign, "campaigns"));
+
+        }
+
+        public void EliminarDatos(object idEnemigo)
+        {
+            EjecutarNonQuery(ArmarStringComandoNonQueryDelete(idEnemigo, "campaigns"));
 
         }
     }

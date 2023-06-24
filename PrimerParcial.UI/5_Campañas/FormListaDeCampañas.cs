@@ -28,7 +28,7 @@ namespace PrimerParcial.UI
             mdiParentForm = parentForm;
 
         }
-
+        /*
         /// <summary>
         /// Actualiza el datagrid con la informacion de una lista.
         /// </summary>
@@ -40,7 +40,7 @@ namespace PrimerParcial.UI
             var listaCampañas = Elemento.ArmarTablaParaDataGrid(ListaDiccionarios);
 
             dataGridCampañas.DataSource = listaCampañas;
-        }
+        }*/
 
         /// <summary>
         /// Busca informacion en el data grid con respecto al texto en Text Box Buscador.
@@ -70,7 +70,7 @@ namespace PrimerParcial.UI
         private void FormListaCampañas_Load(object sender, EventArgs e)
         {
             var campañaDB = new CampañasDB();
-            dataGridCampañas_Actualizar(campañaDB.Traer());
+            FormAux.dataGrid_Actualizar(campañaDB.Traer(), dataGridCampañas);
         }
 
         /// <summary>
@@ -82,8 +82,9 @@ namespace PrimerParcial.UI
         {
             bool mostrarBotonEditar = true;
             bool mostrarBotonAgregarNuevo = false;
-            try { 
-
+            try
+            {
+                /*
                 DataGridViewRow selectedRow = dataGridCampañas.SelectedRows[0];
                 Dictionary<string, object> dictDatosFilas = new Dictionary<string, object>();
 
@@ -94,26 +95,33 @@ namespace PrimerParcial.UI
 
                     dictDatosFilas.Add(nombreColumna, datosCelda);
 
-                }
-                var campañaDB = new CampañasDB();
+                }*/
 
+
+                var campañaDB = new CampañasDB();
+                Dictionary<string, object> dictCampaña = FormAux.ArmarDictEnBaseAFila(dataGridCampañas);
+                dictCampaña["characters"] = campañaDB.TraerPersonajes();
+                dictCampaña["adventures"] = campañaDB.TraerAventuras();
+                dictCampaña["combats"] = campañaDB.TraerCombates();
+                dictCampaña["items"] = campañaDB.TraerItems();
+                /*
                 List<Dictionary<string, object>> personajesCampaña = campañaDB.TraerPersonajes();
                 List<Dictionary<string, object>> aventurasCampaña = campañaDB.TraerAventuras();
                 List<Dictionary<string, object>> combatesCampaña = campañaDB.TraerCombates();
                 List<Dictionary<string, object>> itemsCampaña = campañaDB.TraerItems();
-                Campaña campaña = new Campaña(0,"");
-                campaña.AgregarInfo(dictDatosFilas);
+                */
+                Campaña campaña = new Campaña(0, "");
+                campaña.AgregarInfo(dictCampaña);
+                /*
                 campaña.characters = personajesCampaña;
                 campaña.adventures = aventurasCampaña;
                 campaña.combats = combatesCampaña;
                 campaña.treasure = itemsCampaña;
+                */
 
-
-                FormCampaña formCampaña = new FormCampaña((Campaña)campaña, mostrarBotonEditar, mostrarBotonAgregarNuevo);
-                
+                FormCampaña formCampaña = new FormCampaña((Campaña)campaña, mostrarBotonEditar, mostrarBotonAgregarNuevo, dataGridCampañas);
                 formCampaña.MdiParent = mdiParentForm;
                 formCampaña.WindowState = FormWindowState.Normal;
-
                 formCampaña.Show();
             }
             catch (Exception ex)
@@ -132,40 +140,98 @@ namespace PrimerParcial.UI
             bool mostrarBotonEditar = false;
             bool mostrarBotonAgregarNuevo = true;
 
-            int idFinal = dataGridCampañas.Rows.Count;
+            //var idFinal = dataGridCampañas.Rows[dataGridCampañas.Rows.Count-1].Cells[0];
 
 
             Dictionary<string, object> dictDatosFilas = new Dictionary<string, object>();
             foreach (DataGridViewColumn column in dataGridCampañas.Columns)
             {
-                dictDatosFilas[column.Name] = "Contenido provisorio";
+                //dictDatosFilas[column.Name] = "Contenido provisorio";
                 switch (column.HeaderText)
                 {
                     case "id":
-                        dictDatosFilas[column.Name] = idFinal++.ToString();
+                        dictDatosFilas[column.Name] = 0.ToString();
                         break;
-                    case "characters":
-                    case "adventures":
-                    case "combats":
-                    case "encounters":
-                    case "treasure":
-                        dictDatosFilas[column.Name] = "[{\"name\":\"Contenido provisorio\"},{\"name\":\"Contenido provisorio\"}]";
-                        break;                    
+                    default:
+                        dictDatosFilas[column.Name] = "COMPLETAR...";
+                        break;
                 }
 
             }
+            dictDatosFilas["characters"] = new List<Dictionary<string, object>>()            
+            {
+                new Dictionary<string, object>
+                {
+                    { "id", 0},
+                    { "name", "provisorio" },
+                    { "level", 0 },
+                    { "class", "provisorio" },
+                    { "hp", 0 },
+                    { "ac", 0 }
+                }
+            };
+            dictDatosFilas["adventures"] = new List<Dictionary<string, object>>()
+            {
+                new Dictionary<string, object>
+                {
+                    { "id", 0},
+                    { "name", "provisorio" },
+                    { "npcs", "provisorio" },
+                    { "notes", "provisorio" }
+                }
+            };
+            dictDatosFilas["combats"] = new List<Dictionary<string, object>>()
+            {
+                new Dictionary<string, object>
+                {
+                    { "id", 0},
+                    { "name", "provisorio" },
+                    { "level", 0 },
+                    { "class", "provisorio" },
+                    { "hp", 0 },
+                    { "ac", 0 }
+                }
+            };
+            dictDatosFilas["items"] = new List<Dictionary<string, object>>()
+            {
+                new Dictionary<string, object>
+                {
+                    { "id", 0},
+                    { "name", "provisorio" },
+                    { "description", "provisorio" },
+                    { "rarity", "provisorio" },
+                    { "cost", 0 }
+                }
+            };
 
 
-            Campaña campaña = new Campaña(idFinal++, "");
+            Campaña campaña = new Campaña(0, "");
             campaña.AgregarInfo(dictDatosFilas);
 
-            FormCampaña formCampaña = new FormCampaña((Campaña)campaña, mostrarBotonEditar, mostrarBotonAgregarNuevo);
+            FormCampaña formCampaña = new FormCampaña((Campaña)campaña, mostrarBotonEditar, mostrarBotonAgregarNuevo, dataGridCampañas);
 
             formCampaña.MdiParent = mdiParentForm;
             formCampaña.WindowState = FormWindowState.Normal;
 
             formCampaña.Show();
-        }        
+        }
 
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataGridViewRow selectedRow = dataGridCampañas.SelectedRows[0];
+                var idCampaña = selectedRow.Cells[0].Value;
+                var campañaDB = new CampañasDB();
+                campañaDB.EliminarDatos(idCampaña);
+                FormAux.dataGrid_Actualizar(campañaDB.Traer(), dataGridCampañas);
+                MessageBox.Show("Campaña Eliminada", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Debe seleccionar una fila para eliminar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
     }
 }

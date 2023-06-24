@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             buttonOpen = new Button();
             textBoxBuscador = new TextBox();
             label7 = new Label();
             dataGridCampañas = new DataGridView();
             buttonNew = new Button();
+            buttonEliminar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridCampañas).BeginInit();
             SuspendLayout();
             // 
@@ -91,50 +92,50 @@
             dataGridCampañas.AllowUserToDeleteRows = false;
             dataGridCampañas.AllowUserToResizeColumns = false;
             dataGridCampañas.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = Color.RosyBrown;
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = Color.Firebrick;
-            dataGridViewCellStyle6.SelectionForeColor = Color.White;
-            dataGridCampañas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = Color.RosyBrown;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Firebrick;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridCampañas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridCampañas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridCampañas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
             dataGridCampañas.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllHeaders;
             dataGridCampañas.BackgroundColor = Color.IndianRed;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(37, 41, 48);
-            dataGridViewCellStyle7.Font = new Font("Universal Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = SystemColors.Menu;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dataGridCampañas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(37, 41, 48);
+            dataGridViewCellStyle2.Font = new Font("Universal Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.Menu;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridCampañas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridCampañas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(37, 41, 48);
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dataGridCampañas.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(37, 41, 48);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dataGridCampañas.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridCampañas.GridColor = Color.Linen;
-            dataGridCampañas.Location = new Point(-2, 83);
+            dataGridCampañas.Location = new Point(-2, 110);
             dataGridCampañas.Name = "dataGridCampañas";
             dataGridCampañas.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = Color.FromArgb(37, 41, 48);
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = SystemColors.Menu;
-            dataGridViewCellStyle9.SelectionBackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dataGridCampañas.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            dataGridViewCellStyle10.BackColor = Color.RosyBrown;
-            dataGridViewCellStyle10.ForeColor = Color.Black;
-            dataGridViewCellStyle10.SelectionBackColor = Color.DarkRed;
-            dataGridCampañas.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(37, 41, 48);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.Menu;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridCampañas.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.BackColor = Color.RosyBrown;
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.DarkRed;
+            dataGridCampañas.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dataGridCampañas.RowTemplate.Height = 50;
-            dataGridCampañas.Size = new Size(510, 424);
+            dataGridCampañas.Size = new Size(510, 397);
             dataGridCampañas.TabIndex = 27;
             // 
             // buttonNew
@@ -156,12 +157,32 @@
             buttonNew.UseVisualStyleBackColor = false;
             buttonNew.Click += buttonNew_Click;
             // 
+            // buttonEliminar
+            // 
+            buttonEliminar.BackColor = Color.Transparent;
+            buttonEliminar.BackgroundImage = Properties.Resources.boton2;
+            buttonEliminar.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonEliminar.FlatAppearance.BorderSize = 0;
+            buttonEliminar.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            buttonEliminar.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            buttonEliminar.FlatStyle = FlatStyle.Flat;
+            buttonEliminar.Font = new Font("Universal Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonEliminar.ForeColor = Color.White;
+            buttonEliminar.Location = new Point(343, 70);
+            buttonEliminar.Name = "buttonEliminar";
+            buttonEliminar.Size = new Size(153, 34);
+            buttonEliminar.TabIndex = 33;
+            buttonEliminar.Text = "Eliminar";
+            buttonEliminar.UseVisualStyleBackColor = false;
+            buttonEliminar.Click += buttonEliminar_Click;
+            // 
             // FormListaDeCampañas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(37, 41, 48);
             ClientSize = new Size(506, 505);
+            Controls.Add(buttonEliminar);
             Controls.Add(buttonNew);
             Controls.Add(buttonOpen);
             Controls.Add(textBoxBuscador);
@@ -182,5 +203,6 @@
         private Label label7;
         private DataGridView dataGridCampañas;
         private Button buttonNew;
+        private Button buttonEliminar;
     }
 }

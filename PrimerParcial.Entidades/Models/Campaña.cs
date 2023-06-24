@@ -21,7 +21,7 @@ namespace PrimerParcial.Entidades.Models
         { get;set;}
         public List<Dictionary<string,object>> combats
         { get;set;}
-        public List<Dictionary<string,object>> treasure
+        public List<Dictionary<string,object>> items
         { get;set;}
         public string notes
         { get;set;}
@@ -47,10 +47,10 @@ namespace PrimerParcial.Entidades.Models
             this.place = (string)dictDatosFilas["place"];
             this.imageUrl = (string)dictDatosFilas["imageUrl"];
 
-            //this.characters = JsonSerializer.Deserialize<List<Dictionary<string, object>>>((string)dictDatosFilas["characters"]);
-            //this.adventures = JsonSerializer.Deserialize<List<Dictionary<string, object>>>((string)dictDatosFilas["adventures"]);
-            //this.combats = JsonSerializer.Deserialize<List<Dictionary<string, object>>>((string)dictDatosFilas["combats"]);
-            //this.treasure = JsonSerializer.Deserialize<List<Dictionary<string, object>>>((string)dictDatosFilas["treasure"]);
+            this.characters = (List<Dictionary<string, object>>)dictDatosFilas["characters"];
+            this.adventures = (List<Dictionary<string, object>>)dictDatosFilas["adventures"];
+            this.combats = (List<Dictionary<string, object>>)dictDatosFilas["combats"];
+            this.items = (List<Dictionary<string, object>>)dictDatosFilas["items"];
 
             this.notes = (string)dictDatosFilas["notes"];
         }

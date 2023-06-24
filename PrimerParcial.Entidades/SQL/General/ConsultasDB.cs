@@ -70,9 +70,20 @@ namespace PrimerParcial.Entidades.SQL.General
 
             foreach (KeyValuePair<string, object> par in item)
             {
+                /*
                 if (par.Key == "id")
                 {
                     continue;
+                }*/
+                switch(par.Key)
+                {
+                    case "id":
+                    case "characters":
+                    case "adventures":
+                    case "combats":
+                    case "items": 
+                        continue;
+                        break;
                 }
                 comandoInsert.Append(par.Key + ",");
 
@@ -103,9 +114,20 @@ namespace PrimerParcial.Entidades.SQL.General
 
             foreach (KeyValuePair<string, object> par in item)
             {
+                /*
                 if (par.Key == "id")
                 {
                     continue;
+                }*/
+                switch (par.Key)
+                {
+                    case "id":
+                    case "characters":
+                    case "adventures":
+                    case "combats":
+                    case "items":
+                        continue;
+                        break;
                 }
                 comandoSet.Append(par.Key + "=");
 

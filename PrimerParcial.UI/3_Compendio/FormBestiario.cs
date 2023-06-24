@@ -99,7 +99,7 @@ namespace PrimerParcial.UI
             bool mostrarBotonEditar = false;
             bool mostrarBotonAgregarNuevo = true;
 
-            int idFinal = dataGridBestiario.Rows.Count;
+            //int idFinal = dataGridBestiario.Rows.Count;
 
 
             Dictionary<string, object> dictDatosFilas = new Dictionary<string, object>();           
@@ -135,7 +135,7 @@ namespace PrimerParcial.UI
 
             }
 
-            Enemigo enemigo = new Enemigo(idFinal++, "");
+            Enemigo enemigo = new Enemigo(0, "");
             enemigo.AgregarInfo(dictDatosFilas);
 
             FormStatBlock statBlock = new FormStatBlock((Enemigo)enemigo, mostrarBotonAgregarNuevo, mostrarBotonEditar,dataGridBestiario);
