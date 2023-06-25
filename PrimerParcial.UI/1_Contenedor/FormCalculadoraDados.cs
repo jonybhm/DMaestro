@@ -268,12 +268,17 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonTirar_Click(object sender, EventArgs e)
         {
-            SoundPlayer sonidoDados = new SoundPlayer(@"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Assets\dados\Rolling-Dice.wav");
-            sonidoDados.Play();
+            ReproductorDeSonido("Rolling-Dice");
             DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
             DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "Tirar");
             double resultadoTirada = Calculadora.CalcularDadosYModificadores(BoxCalculo.Text);
             BoxResultado.Text = resultadoTirada.ToString();
+
+            if (BoxCalculo.Text == "+d20" && BoxResultado.Text == "20")
+            {
+                Detector20Nat.veinteNatural += ReproductorDeSonido;
+                Detector20Nat.DetectarVeinteNatural("Exito");
+            }
 
         }
 
@@ -344,6 +349,10 @@ namespace PrimerParcial.UI
             DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "Limpiar");
         }
 
-
+        public static void ReproductorDeSonido(string nombreSonido)
+        {
+            SoundPlayer sonidoDados = new SoundPlayer($@"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Assets\Sonidos\{nombreSonido}.wav");
+            sonidoDados.Play();
+        }
     }
 }

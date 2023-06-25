@@ -25,7 +25,9 @@ namespace PrimerParcial.Entidades.Models
                     try
                     {
 
-                    resultado += random.Next(1, Convert.ToInt32(c.Remove(0,1))+1);               
+                        resultado += random.Next(1, Convert.ToInt32(c.Remove(0,1))+1); 
+                        
+
                     }
                     catch (Exception e) 
                     {
@@ -67,5 +69,7 @@ namespace PrimerParcial.Entidades.Models
             }
             return resultado;
         }
+
     }
+
 }
