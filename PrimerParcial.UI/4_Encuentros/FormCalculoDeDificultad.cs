@@ -93,9 +93,9 @@ namespace PrimerParcial.UI
             comboBoxDificultad.SelectedIndex = 0;
             var enemigoDB = new EnemigosDB();
             dataGrid_Actualizar(enemigoDB.Traer(), dataGridEnemigos);
-            dataGrid_Actualizar(Elemento.LeerInfoArchivo("tabla1"), dataGridTablaReferencia);
-            dataGrid_Actualizar(Elemento.LeerInfoArchivo("tabla2"), dataGridNivelDificultad);
-            dataGrid_Actualizar(Elemento.LeerInfoArchivo("tabla3"), dataGridCantidadModificador);
+            dataGrid_Actualizar(Archivos.LeerInfoArchivo("tabla1"), dataGridTablaReferencia);
+            dataGrid_Actualizar(Archivos.LeerInfoArchivo("tabla2"), dataGridNivelDificultad);
+            dataGrid_Actualizar(Archivos.LeerInfoArchivo("tabla3"), dataGridCantidadModificador);
         }
 
 
@@ -109,11 +109,11 @@ namespace PrimerParcial.UI
             try
             {
                 int XP = Enemigo.CalcularXP(int.Parse(textBoxNivelPC.Text), int.Parse(textBoxCantidadPC.Text), int.Parse(textBoxCantidadEnemigos.Text),
-                    comboBoxDificultad.Text, Elemento.LeerInfoArchivo("tabla2"), Elemento.LeerInfoArchivo("tabla3"));
+                    comboBoxDificultad.Text, Archivos.LeerInfoArchivo("tabla2"), Archivos.LeerInfoArchivo("tabla3"));
                 textBoxResultadoXP.Text = XP.ToString();
                 textBoxResultadoXPporPC.Text = (XP / int.Parse(textBoxCantidadPC.Text)).ToString();
 
-                string CR = Enemigo.CalcularCR(XP, Elemento.LeerInfoArchivo("tabla1"));
+                string CR = Enemigo.CalcularCR(XP, Archivos.LeerInfoArchivo("tabla1"));
                 textBoxResultadoCR.Text = CR;
             }
             catch (Exception c)

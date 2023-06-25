@@ -32,72 +32,40 @@ namespace PrimerParcial.UI._1_Contenedor
 
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
-            if (VerificarCasillas())
+            try
             {
-                bool userRoleAdmin = false;
-                string userFirstLastName = textBoxNombreApellido.Text;
-                string userName = textBoxUsuario.Text;
-                string userPassword = textBoxContraseña.Text;
-                if (comboBoxTipoUsuario.Text == "administrador")
+
+                switch (Usuario.VerificarCasillas(_usuarios, textBoxUsuario.Text, textBoxContraseñaConfirm.Text, textBoxContraseña.Text))
                 {
-                    userRoleAdmin = true;
+                    case "usuario existente":
+                        MessageBox.Show("El usuario ya existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case "contraseña no coincidente":
+                        MessageBox.Show("La contraseña no coincide", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case "casillas verifican":
+                        bool userRoleAdmin = false;
+                        string userFirstLastName = textBoxNombreApellido.Text;
+                        string userName = textBoxUsuario.Text;
+                        string userPassword = textBoxContraseña.Text;
+                        if (comboBoxTipoUsuario.Text == "administrador")
+                        {
+                            userRoleAdmin = true;
+                        }
+                        UsuariosDB usuariosDB = new UsuariosDB();
+                        usuariosDB.InsertarDatos(Usuario.ArmarDiccionarioDeUsuario(0, userFirstLastName, userName, userPassword, userRoleAdmin));
+                        MessageBox.Show("Usuario agregado", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Hide();
+                        break;                   
                 }
-                UsuariosDB usuariosDB = new UsuariosDB();
-                usuariosDB.InsertarDatos(Usuario.ArmarDiccionarioDeUsuario(0,userFirstLastName, userName, userPassword, userRoleAdmin));
-                MessageBox.Show("Usuario agregado", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Hide();
             }
-            else
+            catch
             {
                 MessageBox.Show("Faltan valores", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
 
         }
-
-        private bool VerificarCasillas()
-        {
-            bool casillasVerifican = false;
-
-            bool usuarioExistente = false;
-
-            bool contraseñaCoincidente = false;
-
-            foreach (Usuario item in _usuarios)
-            {
-                if (item.UserName == textBoxUsuario.Text)
-                {
-                    MessageBox.Show("El usuario ya existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    usuarioExistente = true;
-
-                }
-                else
-                {
-                    usuarioExistente = false;
-                    break;
-                }
-            }
-
-            if (textBoxContraseñaConfirm.Text == textBoxContraseña.Text)
-            {
-                contraseñaCoincidente = true;
-
-            }
-            else
-            {
-                MessageBox.Show("La contraseña no coincide", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                contraseñaCoincidente = false;
-            }
-
-            if (contraseñaCoincidente && !usuarioExistente)
-            {
-                casillasVerifican = true;
-            }
-
-
-            return casillasVerifican;
-        }
-
+        
         
     }
 }

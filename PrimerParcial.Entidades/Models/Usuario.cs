@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic;
+﻿using Microsoft.IdentityModel.Tokens;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -118,6 +119,48 @@ namespace PrimerParcial.Entidades.Models
             return dictUsuario;
         }
 
+
+
+        public static string VerificarCasillas(List<Usuario> _usuarios, string textBoxUsuario, string textBoxContraseñaConfirm, string textBoxContraseña)
+        {
+            string resultadoVerificacion = "";
+
+            bool usuarioExistente = false;
+
+            bool contraseñaCoincidente = false;
+
+            foreach (Usuario item in _usuarios)
+            {
+                if (item.UserName == textBoxUsuario)
+                {
+                    usuarioExistente = true;
+                    break;
+                }
+            }
+
+            if (textBoxContraseñaConfirm == textBoxContraseña)
+            {
+                contraseñaCoincidente = true;
+            }
+
+            if (contraseñaCoincidente && !usuarioExistente)
+            {
+                resultadoVerificacion = "casillas verifican";
+            }
+            else if (!contraseñaCoincidente)
+            {
+                resultadoVerificacion = "contraseña no coincidente";
+
+            }
+            else if (usuarioExistente)
+            {
+                resultadoVerificacion = "usuario existente";
+            }
+
+            return resultadoVerificacion;
+        }
+
+        
 
     }
 }

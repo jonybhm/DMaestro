@@ -45,19 +45,19 @@ namespace PrimerParcial.Entidades.SQL.ElementosDB
         public void InsertarDatos(Dictionary<string, object> enemigo)
         {
 
-            EjecutarNonQuery(ArmarStringComandoNonQueryInsert(enemigo, "spells"));
+            EjecutarNonQuery(ComandosDB.ArmarStringComandoNonQueryInsert(enemigo, "spells"));
 
 
         }
         public void ActualizarDatos(Dictionary<string, object> enemigo)
         {
-            EjecutarNonQuery(ArmarStringComandoNonQueryUpdate(enemigo, "spells"));
+            EjecutarNonQuery(ComandosDB.ArmarStringComandoNonQueryUpdate(enemigo, "spells"));
 
         }
 
         public void EliminarDatos(object idEnemigo)
         {
-            EjecutarNonQuery(ArmarStringComandoNonQueryDelete(idEnemigo, "spells"));
+            EjecutarNonQuery(ComandosDB.ArmarStringComandoNonQueryDelete(idEnemigo, "spells"));
 
         }
     }

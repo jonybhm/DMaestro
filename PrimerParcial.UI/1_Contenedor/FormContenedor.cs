@@ -6,17 +6,17 @@ namespace PrimerParcial.UI
 {
     public partial class FormContenedor : Form
     {
-        bool esAdministrador;
+        public Usuario usuarioActual;
         private List<Usuario> _listaUsuario;
 
         /// <summary>
         /// Inicializa una nueva instania de la clase FormContenedor.
         /// </summary>
-        public FormContenedor(bool esAdmin, List<Usuario> listaUsuario)
+        public FormContenedor(Usuario usuarioActual, List<Usuario> listaUsuario)
         {
             InitializeComponent();
 
-            this.esAdministrador = esAdmin;
+            this.usuarioActual = usuarioActual;
             _listaUsuario = listaUsuario;
 
         }
@@ -29,7 +29,7 @@ namespace PrimerParcial.UI
         private void FormContenedor_Load(object sender, EventArgs e)
         {
             IsMdiContainer = true;
-            if (esAdministrador == false)
+            if (usuarioActual.IsAdmin == false)
             {
                 encuentrosToolStripMenuItem.Enabled = false;
                 stripMenuCrearUsuario.Enabled = false;
@@ -49,20 +49,18 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void stripMenuPantallaDM_Click(object sender, EventArgs e)
         {
+            string nombreForm = "FormPantallaDM";
+            CerrarFormsConMismoNombre("FormPantallaDM");
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
 
-            for (int i = 0; i < this.MdiChildren.Length; i++)
-            {
-                if (this.MdiChildren[i].Name == "FormPantallaDM")
-                {
-                    this.MdiChildren[i].Close();
-                }
-            }
             var hijo = new FormPantallaDM();
             hijo.MdiParent = this;
             hijo.WindowState = FormWindowState.Maximized;
             hijo.Show();
         }
 
+       
 
         /// <summary>
         /// Evento que sucede al hacer click en alguno de los botones de Dados.
@@ -71,14 +69,12 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonDados_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < this.MdiChildren.Length; i++)
-            {
-                if (this.MdiChildren[i].Name == "FormCalculadoraDados")
-                {
-                    this.MdiChildren[i].Close();
-                }
-            }
-            var calculadora = new FormCalculadoraDados();
+            string nombreForm = "FormCalculadoraDados";
+            CerrarFormsConMismoNombre(nombreForm);
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
+            
+            var calculadora = new FormCalculadoraDados(this);
             calculadora.MdiParent = this;
             calculadora.WindowState = FormWindowState.Normal;
             calculadora.Show();
@@ -91,13 +87,11 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void stripMenuBestiario_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < this.MdiChildren.Length; i++)
-            {
-                if (this.MdiChildren[i].Name == "FormBestiario")
-                {
-                    this.MdiChildren[i].Close();
-                }
-            }
+            
+            string nombreForm = "FormBestiario";
+            CerrarFormsConMismoNombre(nombreForm);
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             var hijo = new FormBestiario(this);
             hijo.MdiParent = this;
             hijo.WindowState = FormWindowState.Normal;
@@ -111,13 +105,10 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void stripMenuHechizos_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < this.MdiChildren.Length; i++)
-            {
-                if (this.MdiChildren[i].Name == "FormHechizos")
-                {
-                    this.MdiChildren[i].Close();
-                }
-            }
+            string nombreForm = "FormHechizos";
+            CerrarFormsConMismoNombre(nombreForm);
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             var hijo = new FormHechizos(this);
             hijo.MdiParent = this;
             hijo.WindowState = FormWindowState.Normal;
@@ -132,13 +123,11 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void stripMenusObjetosYTesoros_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < this.MdiChildren.Length; i++)
-            {
-                if (this.MdiChildren[i].Name == "FormobjetosYTesoros")
-                {
-                    this.MdiChildren[i].Close();
-                }
-            }
+            
+            string nombreForm = "FormobjetosYTesoros";
+            CerrarFormsConMismoNombre(nombreForm);
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             var hijo = new FormItems(this);
             hijo.MdiParent = this;
             hijo.WindowState = FormWindowState.Normal;
@@ -152,13 +141,11 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void stripMenuClasesCompendio_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < this.MdiChildren.Length; i++)
-            {
-                if (this.MdiChildren[i].Name == "FormClases")
-                {
-                    this.MdiChildren[i].Close();
-                }
-            }
+           
+            string nombreForm = "FormClases";
+            CerrarFormsConMismoNombre(nombreForm);
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             var hijo = new FormClases();
             hijo.MdiParent = this;
             hijo.WindowState = FormWindowState.Normal;
@@ -172,13 +159,11 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void stripMenusRazasCompendio_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < this.MdiChildren.Length; i++)
-            {
-                if (this.MdiChildren[i].Name == "FormRazas")
-                {
-                    this.MdiChildren[i].Close();
-                }
-            }
+            
+            string nombreForm = "FormRazas";
+            CerrarFormsConMismoNombre(nombreForm);
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             var hijo = new FormRazas();
             hijo.MdiParent = this;
             hijo.WindowState = FormWindowState.Normal;
@@ -192,13 +177,10 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void stripMenuCampañas_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < this.MdiChildren.Length; i++)
-            {
-                if (this.MdiChildren[i].Name == "FormListaDeCampañas")
-                {
-                    this.MdiChildren[i].Close();
-                }
-            }
+            string nombreForm = "FormListaDeCampañas";
+            CerrarFormsConMismoNombre(nombreForm);
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             var hijo = new FormListaDeCampañas(this);
             hijo.MdiParent = this;
             hijo.WindowState = FormWindowState.Normal;
@@ -212,13 +194,10 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void stripMenuCalculoDificultad_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < this.MdiChildren.Length; i++)
-            {
-                if (this.MdiChildren[i].Name == "FormCombateDificultad")
-                {
-                    this.MdiChildren[i].Close();
-                }
-            }
+            string nombreForm = "FormCombateDificultad";
+            CerrarFormsConMismoNombre(nombreForm);
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             var hijo = new FormCalculoDeDificultad(this);
             hijo.MdiParent = this;
             hijo.WindowState = FormWindowState.Normal;
@@ -232,13 +211,10 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void stripMenuIniciativa_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < this.MdiChildren.Length; i++)
-            {
-                if (this.MdiChildren[i].Name == "FormIniciativa")
-                {
-                    this.MdiChildren[i].Close();
-                }
-            }
+            string nombreForm = "FormIniciativa";
+            CerrarFormsConMismoNombre(nombreForm);
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             var hijo = new FormIniciativa();
             hijo.MdiParent = this;
             hijo.WindowState = FormWindowState.Normal;
@@ -253,13 +229,10 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void stripMenuCrearUsuario_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < this.MdiChildren.Length; i++)
-            {
-                if (this.MdiChildren[i].Name == "FormUsuarioNuevo")
-                {
-                    this.MdiChildren[i].Close();
-                }
-            }
+            string nombreForm = "FormUsuarioNuevo";
+            CerrarFormsConMismoNombre(nombreForm);
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             var hijo = new FormUsuarioNuevo(_listaUsuario);
             hijo.MdiParent = this;
             hijo.WindowState = FormWindowState.Normal;
@@ -273,13 +246,10 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void stripMenuEditarUsuario_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < this.MdiChildren.Length; i++)
-            {
-                if (this.MdiChildren[i].Name == "FormEditarUsuario")
-                {
-                    this.MdiChildren[i].Close();
-                }
-            }
+            string nombreForm = "FormEditarUsuario";
+            CerrarFormsConMismoNombre(nombreForm);
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             var hijo = new FormEditarUsuario(_listaUsuario, this);
             hijo.MdiParent = this;
             hijo.WindowState = FormWindowState.Normal;
@@ -294,6 +264,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void stripMenuCambiarUsuario_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Login";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             this.Close();
             var login = new FormLogin();
             login.Show();
@@ -309,6 +282,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Alineamientos_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Alineamiento";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Alineamientos);
         }
 
@@ -321,6 +297,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void VentajaYDesventaja_Click(object sender, EventArgs e)
         {
+            string nombreForm = "VentajaYDesventaja";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(VentajaYDesventaja);
         }
 
@@ -331,6 +310,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void CombatirBajoElAgua_Click(object sender, EventArgs e)
         {
+            string nombreForm = "CombatirBajoElAgua";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(CombatirBajoElAgua);
         }
 
@@ -341,6 +323,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Competencia_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Competencia";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Competencia);
         }
 
@@ -351,6 +336,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Estados_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Estados";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Estados);
         }
 
@@ -361,6 +349,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Inspiracion_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Inspiracion";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Inspiracion);
         }
 
@@ -371,6 +362,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Feats_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Feats";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Feats);
         }
 
@@ -381,6 +375,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Enfermedades_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Enfermedades";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Enfermedades);
         }
 
@@ -391,6 +388,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Locura_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Locura";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Locura);
         }
 
@@ -401,6 +401,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Trampas_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Trampas";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Trampas);
         }
 
@@ -411,6 +414,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Venenos_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Venenos";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Venenos);
         }
 
@@ -421,6 +427,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void AccionesEnCombate_Click(object sender, EventArgs e)
         {
+            string nombreForm = "AccionesEnCombate";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(AccionesEnCombate);
         }
 
@@ -431,6 +440,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void RealizarUnAtaque_Click(object sender, EventArgs e)
         {
+            string nombreForm = "RealizarUnAtaque";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(RealizarUnAtaque);
         }
 
@@ -441,6 +453,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void MovimientoYPosicion_Click(object sender, EventArgs e)
         {
+            string nombreForm = "MovimientoYPosicion";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(MovimientoYPosicion);
         }
 
@@ -451,6 +466,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void OrdenDeCombate_Click(object sender, EventArgs e)
         {
+            string nombreForm = "OrdenDeCombate";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(OrdenDeCombate);
         }
 
@@ -461,6 +479,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Cobertura_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Cobertura";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Cobertura);
         }
 
@@ -471,6 +492,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void CombatirDesdeMontura_Click(object sender, EventArgs e)
         {
+            string nombreForm = "CombatirDesdeMontura";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(CombatirDesdeMontura);
         }
 
@@ -481,6 +505,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Clases_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Clases";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Clases);
         }
 
@@ -491,6 +518,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Razas_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Razas";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Razas);
         }
 
@@ -501,6 +531,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Idiomas_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Idiomas";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Idiomas);
         }
 
@@ -511,6 +544,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Trasfondos_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Trasfondos";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Trasfondos);
         }
 
@@ -521,6 +557,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Multiclaseo_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Multiclaseo";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Multiclaseo);
         }
 
@@ -531,6 +570,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void NPC_Click(object sender, EventArgs e)
         {
+            string nombreForm = "NPC";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(NPC);
         }
 
@@ -541,6 +583,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void QueEsUnConjuro_Click(object sender, EventArgs e)
         {
+            string nombreForm = "QueEsUnConjuro";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(QueEsUnConjuro);
         }
 
@@ -552,6 +597,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void LanzarUnConjuro_Click(object sender, EventArgs e)
         {
+            string nombreForm = "LanzarUnConjuro";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(LanzarUnConjuro);
         }
 
@@ -562,6 +610,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Armadura_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Armadura";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Armadura);
         }
 
@@ -572,6 +623,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Armas_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Armas";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Armas);
         }
 
@@ -582,6 +636,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void EquipoDeAventuras_Click(object sender, EventArgs e)
         {
+            string nombreForm = "EquipoDeAventuras";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(EquipoDeAventuras);
         }
 
@@ -592,6 +649,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Herramientas_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Herramientas";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Herramientas);
         }
 
@@ -602,6 +662,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Monedas_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Monedas";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Monedas);
         }
 
@@ -612,6 +675,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Monturas_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Monturas";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Monturas);
         }
 
@@ -622,6 +688,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void PacksIniciales_Click(object sender, EventArgs e)
         {
+            string nombreForm = "PacksIniciales";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(PacksIniciales);
         }
 
@@ -632,6 +701,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void ProductosComerciales_Click(object sender, EventArgs e)
         {
+            string nombreForm = "ProductosComerciales";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(ProductosComerciales);
         }
 
@@ -642,6 +714,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Objetos_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Objetos";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Objetos);
         }
 
@@ -652,6 +727,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void ObjetosMagicos_Click(object sender, EventArgs e)
         {
+            string nombreForm = "ObjetosMagicos";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(ObjetosMagicos);
         }
 
@@ -662,6 +740,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void EntreAventuras_Click(object sender, EventArgs e)
         {
+            string nombreForm = "EntreAventuras";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(EntreAventuras);
         }
 
@@ -672,6 +753,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Descansar_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Descansar";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Descansar);
         }
 
@@ -682,6 +766,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Entorno_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Entorno";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Entorno);
         }
 
@@ -692,6 +779,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Movimiento_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Movimiento";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Movimiento);
         }
 
@@ -702,6 +792,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Tiempo_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Tiempo";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Tiempo);
         }
 
@@ -712,6 +805,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Planos_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Planos";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Planos);
         }
 
@@ -722,6 +818,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void Mitologia_Click(object sender, EventArgs e)
         {
+            string nombreForm = "Mitologia";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
             MostrarRegla(Mitologia);
         }
 
@@ -739,7 +838,17 @@ namespace PrimerParcial.UI
         }
 
 
+        public void CerrarFormsConMismoNombre(string nombreForm)
+        {
 
+            for (int i = 0; i < this.MdiChildren.Length; i++)
+            {
+                if (this.MdiChildren[i].Name == nombreForm)
+                {
+                    this.MdiChildren[i].Close();
+                }
+            }
+        }
 
 
     }

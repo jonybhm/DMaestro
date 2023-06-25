@@ -30,7 +30,7 @@ namespace PrimerParcial.UI
 
         }
         
-
+        
         /// <summary>
         /// Busca informacion en el data grid con respecto al texto en Text Box Buscador.
         /// </summary>
@@ -81,6 +81,8 @@ namespace PrimerParcial.UI
                 statBlock.MdiParent = mdiParentForm;
                 statBlock.WindowState = FormWindowState.Normal;
                 statBlock.Show();
+                DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+                DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "Mostrar");
 
             }
             catch (Exception ex)
@@ -146,6 +148,8 @@ namespace PrimerParcial.UI
 
             statBlock.Show();
 
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "Agregar");
 
         }
 
@@ -159,6 +163,8 @@ namespace PrimerParcial.UI
                 enemigoDB.EliminarDatos(idEnemigo);
                 FormAux.dataGrid_Actualizar(enemigoDB.Traer(), dataGridBestiario);
                 MessageBox.Show("Monstruo Eliminado", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+                DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "Eliminar");
 
             }
             catch (Exception ex)

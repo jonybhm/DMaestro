@@ -15,12 +15,16 @@ namespace PrimerParcial.UI
 {
     public partial class FormCalculadoraDados : Form
     {
+        private FormContenedor mdiParentForm;
+
         /// <summary>
         /// Inicializa una nueva instania de la clase FormCalculadoraDados.
         /// </summary>
-        public FormCalculadoraDados()
+        public FormCalculadoraDados(FormContenedor parentForm)
         {
             InitializeComponent();
+            mdiParentForm = parentForm;
+
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(1500, 100);
             this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
@@ -35,6 +39,9 @@ namespace PrimerParcial.UI
         private void button1_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "1";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "1");
+
         }
 
         /// <summary>
@@ -45,6 +52,8 @@ namespace PrimerParcial.UI
         private void button2_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "2";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "2");
         }
 
         /// <summary>
@@ -55,6 +64,8 @@ namespace PrimerParcial.UI
         private void button3_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "3";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "3");
         }
 
         /// <summary>
@@ -65,6 +76,8 @@ namespace PrimerParcial.UI
         private void button4_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "4";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "4");
         }
 
         /// <summary>
@@ -75,6 +88,8 @@ namespace PrimerParcial.UI
         private void button5_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "5";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "5");
         }
 
         /// <summary>
@@ -85,6 +100,8 @@ namespace PrimerParcial.UI
         private void button6_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "6";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "6");
         }
 
         /// <summary>
@@ -95,6 +112,8 @@ namespace PrimerParcial.UI
         private void button7_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "7";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "7");
         }
 
         /// <summary>
@@ -105,6 +124,8 @@ namespace PrimerParcial.UI
         private void button8_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "8";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "8");
         }
 
         /// <summary>
@@ -115,6 +136,8 @@ namespace PrimerParcial.UI
         private void button9_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "9";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "9");
         }
 
         /// <summary>
@@ -125,6 +148,8 @@ namespace PrimerParcial.UI
         private void button0_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "0";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "0");
         }
 
         /// <summary>
@@ -135,6 +160,8 @@ namespace PrimerParcial.UI
         private void buttonD2_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "+d2";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "d2");
         }
 
         /// <summary>
@@ -145,6 +172,8 @@ namespace PrimerParcial.UI
         private void buttonD4_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "+d4";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "d4");
         }
 
         /// <summary>
@@ -155,6 +184,8 @@ namespace PrimerParcial.UI
         private void buttonD8_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "+d8";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "d8");
         }
 
         /// <summary>
@@ -165,6 +196,8 @@ namespace PrimerParcial.UI
         private void buttonD10_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "+d10";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "d10");
         }
 
         /// <summary>
@@ -175,6 +208,8 @@ namespace PrimerParcial.UI
         private void buttonD12_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "+d12";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "d12");
         }
 
         /// <summary>
@@ -185,6 +220,8 @@ namespace PrimerParcial.UI
         private void buttonD20_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "+d20";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "d20");
         }
 
         /// <summary>
@@ -195,6 +232,8 @@ namespace PrimerParcial.UI
         private void buttonD100_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "+d100";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "d100");
 
         }
 
@@ -206,6 +245,8 @@ namespace PrimerParcial.UI
         private void buttonD6_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "+d6";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "d6");
         }
 
         /// <summary>
@@ -216,6 +257,8 @@ namespace PrimerParcial.UI
         private void buttonDX_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "+d";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "d");
         }
 
         /// <summary>
@@ -227,6 +270,8 @@ namespace PrimerParcial.UI
         {
             SoundPlayer sonidoDados = new SoundPlayer(@"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Assets\dados\Rolling-Dice.wav");
             sonidoDados.Play();
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "Tirar");
             double resultadoTirada = Calculadora.CalcularDadosYModificadores(BoxCalculo.Text);
             BoxResultado.Text = resultadoTirada.ToString();
 
@@ -240,6 +285,8 @@ namespace PrimerParcial.UI
         private void buttonPlus_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "+";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "+");
         }
 
         /// <summary>
@@ -250,6 +297,8 @@ namespace PrimerParcial.UI
         private void buttonMinus_Click(object sender, EventArgs e)
         {
             BoxCalculo.Text += "-";
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "-");
         }
 
         /// <summary>
@@ -269,6 +318,8 @@ namespace PrimerParcial.UI
             {
                 Console.WriteLine(ex.Message);
             }
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "Borrar");
         }
 
         /// <summary>
@@ -289,6 +340,8 @@ namespace PrimerParcial.UI
                 Console.WriteLine(ex.Message);
             }
 
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "Limpiar");
         }
 
 

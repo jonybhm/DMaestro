@@ -46,7 +46,7 @@ namespace PrimerParcial.UI
                 if (Usuario.ContraseñaCoincide(textContraseña.Text,_usuarios))
                 {
                     MessageBox.Show($"ID del usuario: {usuarioEncontrado!.Id.ToString()}");
-                    var sistema = new FormContenedor(usuarioEncontrado.IsAdmin, _usuarios);
+                    var sistema = new FormContenedor(usuarioEncontrado, _usuarios);
                     sistema.Show();
                     sistema.WindowState = FormWindowState.Maximized;
                     this.Hide();
