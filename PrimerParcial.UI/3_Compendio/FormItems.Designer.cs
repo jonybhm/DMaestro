@@ -39,6 +39,7 @@
             dataGridItems = new DataGridView();
             buttonAgregar = new Button();
             buttonEliminar = new Button();
+            buttonExportar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridItems).BeginInit();
             SuspendLayout();
             // 
@@ -53,9 +54,9 @@
             buttonMostrar.FlatStyle = FlatStyle.Flat;
             buttonMostrar.Font = new Font("Universal Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             buttonMostrar.ForeColor = Color.White;
-            buttonMostrar.Location = new Point(341, 38);
+            buttonMostrar.Location = new Point(256, 43);
             buttonMostrar.Name = "buttonMostrar";
-            buttonMostrar.Size = new Size(153, 34);
+            buttonMostrar.Size = new Size(116, 34);
             buttonMostrar.TabIndex = 30;
             buttonMostrar.Text = "Mostrar";
             buttonMostrar.UseVisualStyleBackColor = false;
@@ -69,7 +70,7 @@
             textBoxBuscador.Location = new Point(9, 47);
             textBoxBuscador.Name = "textBoxBuscador";
             textBoxBuscador.PlaceholderText = "BUSCAR POR NOMBRE...";
-            textBoxBuscador.Size = new Size(263, 20);
+            textBoxBuscador.Size = new Size(233, 20);
             textBoxBuscador.TabIndex = 28;
             textBoxBuscador.TextChanged += textBoxBuscador_TextChanged;
             // 
@@ -149,9 +150,9 @@
             buttonAgregar.FlatStyle = FlatStyle.Flat;
             buttonAgregar.Font = new Font("Universal Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             buttonAgregar.ForeColor = Color.White;
-            buttonAgregar.Location = new Point(341, 7);
+            buttonAgregar.Location = new Point(256, 12);
             buttonAgregar.Name = "buttonAgregar";
-            buttonAgregar.Size = new Size(153, 34);
+            buttonAgregar.Size = new Size(116, 34);
             buttonAgregar.TabIndex = 31;
             buttonAgregar.Text = "Agregar";
             buttonAgregar.UseVisualStyleBackColor = false;
@@ -168,13 +169,32 @@
             buttonEliminar.FlatStyle = FlatStyle.Flat;
             buttonEliminar.Font = new Font("Universal Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             buttonEliminar.ForeColor = Color.White;
-            buttonEliminar.Location = new Point(341, 70);
+            buttonEliminar.Location = new Point(379, 12);
             buttonEliminar.Name = "buttonEliminar";
-            buttonEliminar.Size = new Size(153, 34);
+            buttonEliminar.Size = new Size(116, 34);
             buttonEliminar.TabIndex = 32;
             buttonEliminar.Text = "Eliminar";
             buttonEliminar.UseVisualStyleBackColor = false;
             buttonEliminar.Click += buttonEliminar_Click;
+            // 
+            // buttonExportar
+            // 
+            buttonExportar.BackColor = Color.Transparent;
+            buttonExportar.BackgroundImage = Properties.Resources.boton2;
+            buttonExportar.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonExportar.FlatAppearance.BorderSize = 0;
+            buttonExportar.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            buttonExportar.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            buttonExportar.FlatStyle = FlatStyle.Flat;
+            buttonExportar.Font = new Font("Universal Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonExportar.ForeColor = Color.White;
+            buttonExportar.Location = new Point(379, 43);
+            buttonExportar.Name = "buttonExportar";
+            buttonExportar.Size = new Size(116, 34);
+            buttonExportar.TabIndex = 33;
+            buttonExportar.Text = "Exportar";
+            buttonExportar.UseVisualStyleBackColor = false;
+            buttonExportar.Click += buttonExportar_Click;
             // 
             // FormItems
             // 
@@ -182,6 +202,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(37, 41, 48);
             ClientSize = new Size(507, 532);
+            Controls.Add(buttonExportar);
             Controls.Add(buttonEliminar);
             Controls.Add(buttonAgregar);
             Controls.Add(buttonMostrar);
@@ -204,5 +225,6 @@
         private DataGridView dataGridItems;
         private Button buttonAgregar;
         private Button buttonEliminar;
+        private Button buttonExportar;
     }
 }

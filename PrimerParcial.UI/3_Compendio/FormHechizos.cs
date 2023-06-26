@@ -137,6 +137,11 @@ namespace PrimerParcial.UI
             spellCard.Show();
         }
 
+        /// <summary>
+        /// Elimina la fila de la base de datos
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -152,6 +157,21 @@ namespace PrimerParcial.UI
             {
                 MessageBox.Show("Debe seleccionar una fila para eliminar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        /// <summary>
+        /// Exporta la info del datagrid a un archivo json.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
+        private void buttonExportar_Click(object sender, EventArgs e)
+        {
+            var hechizoDB = new HechizosDB();
+            List<Dictionary<string, object>> listaDatosAExportar = hechizoDB.Traer();
+            Archivos.ExportarAJSON(listaDatosAExportar, "Hechizos");
+            MessageBox.Show("Datos Exportados", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "Exportar a json");
         }
     }
 }

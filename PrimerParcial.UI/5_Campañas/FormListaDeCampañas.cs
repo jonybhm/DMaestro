@@ -158,7 +158,7 @@ namespace PrimerParcial.UI
                 }
 
             }
-            dictDatosFilas["characters"] = new List<Dictionary<string, object>>()            
+            dictDatosFilas["characters"] = new List<Dictionary<string, object>>()
             {
                 new Dictionary<string, object>
                 {
@@ -215,7 +215,11 @@ namespace PrimerParcial.UI
 
             formCampaña.Show();
         }
-
+        /// <summary>
+        /// Elimina la fila de la base de datos
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -232,6 +236,21 @@ namespace PrimerParcial.UI
             {
                 MessageBox.Show("Debe seleccionar una fila para eliminar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        /// <summary>
+        /// Exporta la info del datagrid a un archivo json.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
+        private void buttonExportar_Click(object sender, EventArgs e)
+        {
+            var campañaDB = new CampañasDB();
+            List<Dictionary<string, object>> listaDatosAExportar = campañaDB.Traer();
+            Archivos.ExportarAJSON(listaDatosAExportar, "Campañas");
+            MessageBox.Show("Datos Exportados", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "Exportar a json");
         }
     }
 }

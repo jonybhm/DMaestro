@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Leather1",
+    "description": "The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials.",
+    "category": "Armor",
+    "ac": "11 \u002B Dex",
+    "rarity": "Common",
+    "cost": 1000,
+    "weight": 10,
+    "classification": "",
+    "stealth": "",
+    "damage": "",
+    "damageType": "",
+    "properties": "",
+    "source": "\u0022name\u0022: \u0022SRD under the CC-BY-4.0 License\u0022, \u0022link\u0022: \u0022https://www.dndbeyond.com/attachments/39j2li89/SRD5.1-CCBY4.0License.pdf\u0022"
+  },
+  {
+    "id": 3,
+    "name": "COMPLETAR...",
+    "description": "COMPLETAR...",
+    "category": "COMPLETAR...",
+    "ac": "COMPLETAR...",
+    "rarity": "COMPLETAR...",
+    "cost": 0,
+    "weight": 0,
+    "classification": "",
+    "stealth": "COMPLETAR...",
+    "damage": "COMPLETAR...",
+    "damageType": "COMPLETAR...",
+    "properties": "COMPLETAR...",
+    "source": "COMPLETAR..."
+  }
+]

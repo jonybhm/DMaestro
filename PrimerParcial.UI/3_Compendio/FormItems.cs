@@ -151,6 +151,11 @@ namespace PrimerParcial.UI
 
         }
 
+        /// <summary>
+        /// Elimina la fila de la base de datos
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -167,6 +172,21 @@ namespace PrimerParcial.UI
             {
                 MessageBox.Show("Debe seleccionar una fila para eliminar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        /// <summary>
+        /// Exporta la info del datagrid a un archivo json.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
+        private void buttonExportar_Click(object sender, EventArgs e)
+        {
+            var itemDB = new ItemsDB();
+            List<Dictionary<string, object>> listaDatosAExportar = itemDB.Traer();
+            Archivos.ExportarAJSON(listaDatosAExportar, "Items");
+            MessageBox.Show("Datos Exportados", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "Exportar a json");
         }
     }
 }

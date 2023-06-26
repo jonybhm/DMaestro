@@ -29,8 +29,8 @@ namespace PrimerParcial.UI
             mdiParentForm = parentForm;
 
         }
-        
-        
+
+
         /// <summary>
         /// Busca informacion en el data grid con respecto al texto en Text Box Buscador.
         /// </summary>
@@ -104,7 +104,7 @@ namespace PrimerParcial.UI
             //int idFinal = dataGridBestiario.Rows.Count;
 
 
-            Dictionary<string, object> dictDatosFilas = new Dictionary<string, object>();           
+            Dictionary<string, object> dictDatosFilas = new Dictionary<string, object>();
             foreach (DataGridViewColumn column in dataGridBestiario.Columns)
             {
 
@@ -128,11 +128,11 @@ namespace PrimerParcial.UI
                     case "source":
                         dictDatosFilas[column.Name] = "COMPLETAR...";
                         break;
-                    
+
                     default:
                         dictDatosFilas[column.Name] = 0.ToString();
-                        break;                  
-                    
+                        break;
+
                 }
 
             }
@@ -140,7 +140,7 @@ namespace PrimerParcial.UI
             Enemigo enemigo = new Enemigo(0, "");
             enemigo.AgregarInfo(dictDatosFilas);
 
-            FormStatBlock statBlock = new FormStatBlock((Enemigo)enemigo, mostrarBotonAgregarNuevo, mostrarBotonEditar,dataGridBestiario);
+            FormStatBlock statBlock = new FormStatBlock((Enemigo)enemigo, mostrarBotonAgregarNuevo, mostrarBotonEditar, dataGridBestiario);
 
             statBlock.MdiParent = mdiParentForm;
             statBlock.WindowState = FormWindowState.Normal;
@@ -153,6 +153,11 @@ namespace PrimerParcial.UI
 
         }
 
+        /// <summary>
+        /// Elimina la fila de la base de datos
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -172,6 +177,21 @@ namespace PrimerParcial.UI
                 MessageBox.Show("Debe seleccionar una fila para eliminar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
+        }
+
+        /// <summary>
+        /// Exporta la info del datagrid a un archivo json.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
+        private void buttonExportar_Click(object sender, EventArgs e)
+        {
+            var enemigoDB = new EnemigosDB();
+            List<Dictionary<string, object>> listaDatosAExportar = enemigoDB.Traer();
+            Archivos.ExportarAJSON(listaDatosAExportar, "Bestiario");
+            MessageBox.Show("Datos Exportados", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
+            DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "Exportar a json");
         }
     }
 }

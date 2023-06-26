@@ -225,13 +225,29 @@ namespace PrimerParcial.Entidades.Models
             File.WriteAllText(ruta, contenidoNuevo);
 
         }
-
+        /// <summary>
+        /// Exporta un string en formato .txt
+        /// </summary>
+        /// <param name="nombreArchivo"></param>
+        /// <param name="texto"></param>
         public static void CrearArchivoTXT(string nombreArchivo, string texto)
         {
             using (var writer = new StreamWriter(nombreArchivo, true))
                 {
                     writer.WriteLine(texto);
                 }
+        }
+
+        /// <summary>
+        /// Exportar info de lista de diccionarios a archivo json.
+        /// </summary>
+        /// <param name="listaDiccionarios"></param>
+        /// <param name="nombreArchivo"></param>
+        public static void ExportarAJSON(List<Dictionary<string, object>> listaDiccionarios, string nombreArchivo)
+        {
+            string path = $@"C:\Users\JONY\Desktop\Programación\2 do Cuatri\Programacion 2\Proyectos\DeCastro_PrimerParcial\Json_Exportados\{nombreArchivo}.json";
+            string jsonData = JsonSerializer.Serialize(listaDiccionarios, new JsonSerializerOptions{WriteIndented = true});
+            File.WriteAllText(path, jsonData);
         }
 
     }

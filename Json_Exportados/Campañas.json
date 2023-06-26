@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Calaveras \u0026 Orquitos",
+    "place": "Continente de Nivia",
+    "imageUrl": "https://assetsio.reedpopcdn.com/dnd-5e-strixhaven-curriculum-of-chaos-artwork-3.jpg?width=1600\u0026height=900\u0026fit=crop\u0026quality=100\u0026format=png\u0026enable=upscale\u0026auto=webp",
+    "notes": "los personajes tuvieron un vombate con un aboleth"
+  },
+  {
+    "id": 3,
+    "name": "Tumba de aniquilacion",
+    "place": "Peninsula de \u0022Chult\u0022",
+    "imageUrl": "https://cdn.vox-cdn.com/thumbor/hqm0ykl-cvUeRvHwyrywaPHNOsY=/0x0:1500x990/1400x1400/filters:focal(939x310:1179x550):format(jpeg)/cdn.vox-cdn.com/uploads/chorus_image/image/55351641/ToA_cover_RGB.0.jpg",
+    "notes": "tumba de aniquilacion"
+  }
+]
