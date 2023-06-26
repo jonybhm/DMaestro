@@ -36,36 +36,34 @@ namespace PrimerParcial.Entidades.Models
 
 
                 }
-                else
+                else if(c.Contains("-"))
                 {
-                    if(c.Contains("-"))
-                    {
-                        var moduloResta = c.Split('-').ToList();
-                        resultado += Convert.ToDouble(moduloResta[0]);
-                        foreach (var d in moduloResta.Skip(1))
-                        {
-                            try
-                            {
-                                resultado -= Convert.ToDouble(d);
-                            }
-                            catch (Exception e)
-                            {
-                                Console.WriteLine(e.ToString());
-                            }
-                        }
-                    }
-                    else
+                    var moduloResta = c.Split('-').ToList();
+                    resultado += Convert.ToDouble(moduloResta[0]);
+                    foreach (var d in moduloResta.Skip(1))
                     {
                         try
                         {
-                            resultado += Convert.ToDouble(c);
+                            resultado -= Convert.ToDouble(d);
                         }
-                        catch(Exception e)
+                        catch (Exception e)
                         {
                             Console.WriteLine(e.ToString());
                         }
                     }
                 }
+                else
+                {
+                    try
+                    {
+                        resultado += Convert.ToDouble(c);
+                    }
+                    catch(Exception e)
+                    {
+                        Console.WriteLine(e.ToString());
+                    }
+                }
+                
             }
             return resultado;
         }

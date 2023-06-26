@@ -33,7 +33,7 @@ namespace PrimerParcial.UI
         /// Actualiza el datagrid con la informacion de una lista.
         /// </summary>
         /// <param name="ListaDiccionarios">Lista de diccionarios con la informacion para el Data Grid.</param>
-        private void dataGrid_Actualizar(List<Dictionary<string,object>> ListaDiccionarios, DataGridView dataGrid)
+        private void dataGrid_Actualizar(List<Dictionary<string, object>> ListaDiccionarios, DataGridView dataGrid)
         {
             dataGrid.DataSource = null;
 
@@ -50,7 +50,7 @@ namespace PrimerParcial.UI
         private void textBoxResultadoCR_TextChanged(object sender, EventArgs e)
         {
             BindingSource bindingSource = new BindingSource();
-            bindingSource.DataSource = dataGridEnemigos.DataSource;
+            bindingSource.DataSource = dataGridBestiario.DataSource;
             if (string.IsNullOrEmpty(textBoxResultadoCR.Text))
             {
                 bindingSource.RemoveFilter();
@@ -59,7 +59,7 @@ namespace PrimerParcial.UI
             {
                 bindingSource.Filter = $"challenge LIKE '{textBoxResultadoCR.Text}'";
             }
-            dataGridEnemigos.DataSource = bindingSource;
+            dataGridBestiario.DataSource = bindingSource;
 
         }
 
@@ -71,7 +71,7 @@ namespace PrimerParcial.UI
         private void textBoxBuscador_TextChanged(object sender, EventArgs e)
         {
             BindingSource bindingSource = new BindingSource();
-            bindingSource.DataSource = dataGridEnemigos.DataSource;
+            bindingSource.DataSource = dataGridBestiario.DataSource;
             if (string.IsNullOrEmpty(textBoxBuscador.Text))
             {
                 bindingSource.RemoveFilter();
@@ -80,7 +80,7 @@ namespace PrimerParcial.UI
             {
                 bindingSource.Filter = $"Name LIKE '%{textBoxBuscador.Text}%'";
             }
-            dataGridEnemigos.DataSource = bindingSource;
+            dataGridBestiario.DataSource = bindingSource;
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace PrimerParcial.UI
         {
             comboBoxDificultad.SelectedIndex = 0;
             var enemigoDB = new EnemigosDB();
-            dataGrid_Actualizar(enemigoDB.Traer(), dataGridEnemigos);
+            dataGrid_Actualizar(enemigoDB.Traer(), dataGridBestiario);
             dataGrid_Actualizar(Archivos.LeerInfoArchivo("tabla1"), dataGridTablaReferencia);
             dataGrid_Actualizar(Archivos.LeerInfoArchivo("tabla2"), dataGridNivelDificultad);
             dataGrid_Actualizar(Archivos.LeerInfoArchivo("tabla3"), dataGridCantidadModificador);
@@ -134,12 +134,12 @@ namespace PrimerParcial.UI
             bool mostrarBotonAgregarNuevo = false;
             try
             {
-                DataGridViewRow selectedRow = dataGridEnemigos.SelectedRows[0];
+                DataGridViewRow selectedRow = dataGridBestiario.SelectedRows[0];
                 Dictionary<string, object> dictDatosFilas = new Dictionary<string, object>();
                 for (int i = 0; i < selectedRow.Cells.Count; i++)
                 {
                     var datosCelda = selectedRow.Cells[i].Value;
-                    string nombreColumna = dataGridEnemigos.Columns[i].HeaderText;
+                    string nombreColumna = dataGridBestiario.Columns[i].HeaderText;
 
                     dictDatosFilas.Add(nombreColumna, datosCelda);
                 }
@@ -147,7 +147,7 @@ namespace PrimerParcial.UI
                 Enemigo enemigo = new Enemigo(0, "");
                 enemigo.AgregarInfo(dictDatosFilas);
 
-                FormStatBlock statBlock = new FormStatBlock((Enemigo)enemigo, mostrarBotonAgregarNuevo, mostrarBotonEditar, dataGridEnemigos);
+                FormStatBlock statBlock = new FormStatBlock((Enemigo)enemigo, mostrarBotonAgregarNuevo, mostrarBotonEditar, dataGridBestiario);
 
                 statBlock.MdiParent = mdiParentForm;
                 statBlock.WindowState = FormWindowState.Normal;
@@ -199,7 +199,7 @@ namespace PrimerParcial.UI
             }
         }
 
-      
+
 
 
 

@@ -35,6 +35,9 @@
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             textBoxCantidadPC = new TextBox();
             comboBoxDificultad = new ComboBox();
             textBoxNivelPC = new TextBox();
@@ -44,7 +47,6 @@
             textBoxResultadoXP = new TextBox();
             label3 = new Label();
             textBoxResultadoXPporPC = new TextBox();
-            dataGridEnemigos = new DataGridView();
             dataGridTablaReferencia = new DataGridView();
             label4 = new Label();
             dataGridNivelDificultad = new DataGridView();
@@ -60,10 +62,11 @@
             label11 = new Label();
             textBoxBuscador = new TextBox();
             buttonMostrar = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridEnemigos).BeginInit();
+            dataGridBestiario = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridTablaReferencia).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridNivelDificultad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridCantidadModificador).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridBestiario).BeginInit();
             SuspendLayout();
             // 
             // textBoxCantidadPC
@@ -178,16 +181,17 @@
             textBoxResultadoXPporPC.Size = new Size(99, 20);
             textBoxResultadoXPporPC.TabIndex = 8;
             // 
-            // dataGridEnemigos
+            // dataGridTablaReferencia
             // 
-            dataGridEnemigos.AllowDrop = true;
             dataGridViewCellStyle1.BackColor = Color.RosyBrown;
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = Color.Firebrick;
             dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dataGridEnemigos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridEnemigos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridEnemigos.BackgroundColor = Color.IndianRed;
+            dataGridTablaReferencia.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridTablaReferencia.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            dataGridTablaReferencia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridTablaReferencia.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridTablaReferencia.BackgroundColor = Color.IndianRed;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(37, 41, 48);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -195,8 +199,8 @@
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientActiveCaption;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridEnemigos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridEnemigos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridTablaReferencia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridTablaReferencia.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.FromArgb(37, 41, 48);
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -204,10 +208,10 @@
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.InactiveCaption;
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dataGridEnemigos.DefaultCellStyle = dataGridViewCellStyle3;
-            dataGridEnemigos.GridColor = Color.Linen;
-            dataGridEnemigos.Location = new Point(474, 57);
-            dataGridEnemigos.Name = "dataGridEnemigos";
+            dataGridTablaReferencia.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridTablaReferencia.GridColor = Color.Linen;
+            dataGridTablaReferencia.Location = new Point(12, 315);
+            dataGridTablaReferencia.Name = "dataGridTablaReferencia";
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = Color.FromArgb(37, 41, 48);
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -215,42 +219,11 @@
             dataGridViewCellStyle4.SelectionBackColor = SystemColors.InactiveCaption;
             dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dataGridEnemigos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridTablaReferencia.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewCellStyle5.BackColor = Color.RosyBrown;
             dataGridViewCellStyle5.ForeColor = Color.Black;
             dataGridViewCellStyle5.SelectionBackColor = Color.DarkRed;
-            dataGridEnemigos.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridEnemigos.RowTemplate.DefaultCellStyle.BackColor = Color.Linen;
-            dataGridEnemigos.RowTemplate.DefaultCellStyle.ForeColor = Color.Black;
-            dataGridEnemigos.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.PeachPuff;
-            dataGridEnemigos.RowTemplate.DefaultCellStyle.SelectionForeColor = Color.OrangeRed;
-            dataGridEnemigos.RowTemplate.Height = 25;
-            dataGridEnemigos.ScrollBars = ScrollBars.None;
-            dataGridEnemigos.Size = new Size(371, 480);
-            dataGridEnemigos.TabIndex = 10;
-            // 
-            // dataGridTablaReferencia
-            // 
-            dataGridViewCellStyle6.BackColor = Color.RosyBrown;
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = Color.Firebrick;
-            dataGridViewCellStyle6.SelectionForeColor = Color.White;
-            dataGridTablaReferencia.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
-            dataGridTablaReferencia.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            dataGridTablaReferencia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridTablaReferencia.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridTablaReferencia.BackgroundColor = Color.IndianRed;
-            dataGridTablaReferencia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridTablaReferencia.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridTablaReferencia.DefaultCellStyle = dataGridViewCellStyle3;
-            dataGridTablaReferencia.GridColor = Color.Linen;
-            dataGridTablaReferencia.Location = new Point(12, 315);
-            dataGridTablaReferencia.Name = "dataGridTablaReferencia";
-            dataGridTablaReferencia.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle7.BackColor = Color.RosyBrown;
-            dataGridViewCellStyle7.ForeColor = Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = Color.DarkRed;
-            dataGridTablaReferencia.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridTablaReferencia.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dataGridTablaReferencia.RowTemplate.Height = 25;
             dataGridTablaReferencia.ScrollBars = ScrollBars.None;
             dataGridTablaReferencia.Size = new Size(148, 222);
@@ -272,7 +245,7 @@
             // 
             // dataGridNivelDificultad
             // 
-            dataGridNivelDificultad.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridNivelDificultad.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridNivelDificultad.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             dataGridNivelDificultad.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridNivelDificultad.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
@@ -284,7 +257,7 @@
             dataGridNivelDificultad.Location = new Point(166, 315);
             dataGridNivelDificultad.Name = "dataGridNivelDificultad";
             dataGridNivelDificultad.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridNivelDificultad.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridNivelDificultad.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dataGridNivelDificultad.RowTemplate.Height = 25;
             dataGridNivelDificultad.ScrollBars = ScrollBars.None;
             dataGridNivelDificultad.Size = new Size(148, 222);
@@ -292,7 +265,7 @@
             // 
             // dataGridCantidadModificador
             // 
-            dataGridCantidadModificador.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridCantidadModificador.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridCantidadModificador.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             dataGridCantidadModificador.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridCantidadModificador.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
@@ -304,7 +277,7 @@
             dataGridCantidadModificador.Location = new Point(320, 315);
             dataGridCantidadModificador.Name = "dataGridCantidadModificador";
             dataGridCantidadModificador.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridCantidadModificador.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridCantidadModificador.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dataGridCantidadModificador.RowTemplate.Height = 25;
             dataGridCantidadModificador.ScrollBars = ScrollBars.None;
             dataGridCantidadModificador.Size = new Size(148, 222);
@@ -471,6 +444,59 @@
             buttonMostrar.UseVisualStyleBackColor = false;
             buttonMostrar.Click += buttonMostrar_Click;
             // 
+            // dataGridBestiario
+            // 
+            dataGridBestiario.AllowDrop = true;
+            dataGridBestiario.AllowUserToAddRows = false;
+            dataGridBestiario.AllowUserToDeleteRows = false;
+            dataGridBestiario.AllowUserToResizeColumns = false;
+            dataGridBestiario.AllowUserToResizeRows = false;
+            dataGridViewCellStyle6.BackColor = Color.RosyBrown;
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = Color.Firebrick;
+            dataGridViewCellStyle6.SelectionForeColor = Color.White;
+            dataGridBestiario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridBestiario.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridBestiario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            dataGridBestiario.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllHeaders;
+            dataGridBestiario.BackgroundColor = Color.IndianRed;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(37, 41, 48);
+            dataGridViewCellStyle7.Font = new Font("Universal Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = SystemColors.Menu;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridBestiario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridBestiario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(37, 41, 48);
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dataGridBestiario.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridBestiario.GridColor = Color.Linen;
+            dataGridBestiario.Location = new Point(474, 57);
+            dataGridBestiario.Name = "dataGridBestiario";
+            dataGridBestiario.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(37, 41, 48);
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle9.ForeColor = SystemColors.Menu;
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dataGridBestiario.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.BackColor = Color.RosyBrown;
+            dataGridViewCellStyle10.ForeColor = Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = Color.DarkRed;
+            dataGridBestiario.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridBestiario.RowTemplate.Height = 25;
+            dataGridBestiario.Size = new Size(370, 480);
+            dataGridBestiario.TabIndex = 27;
+            // 
             // FormCalculoDeDificultad
             // 
             AcceptButton = buttonCalcualrCR;
@@ -480,6 +506,7 @@
             BackgroundImage = Properties.Resources.blindaje_1_;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(856, 549);
+            Controls.Add(dataGridBestiario);
             Controls.Add(buttonMostrar);
             Controls.Add(textBoxBuscador);
             Controls.Add(label11);
@@ -495,7 +522,6 @@
             Controls.Add(dataGridNivelDificultad);
             Controls.Add(label4);
             Controls.Add(dataGridTablaReferencia);
-            Controls.Add(dataGridEnemigos);
             Controls.Add(textBoxResultadoXPporPC);
             Controls.Add(label3);
             Controls.Add(textBoxResultadoXP);
@@ -509,10 +535,10 @@
             Name = "FormCalculoDeDificultad";
             Text = "FormCombateDificultad";
             Load += FormCombateDificultad_Load_1;
-            ((System.ComponentModel.ISupportInitialize)dataGridEnemigos).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridTablaReferencia).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridNivelDificultad).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridCantidadModificador).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridBestiario).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -544,5 +570,6 @@
         private Label label11;
         private TextBox textBoxBuscador;
         private Button buttonMostrar;
+        private DataGridView dataGridBestiario;
     }
 }

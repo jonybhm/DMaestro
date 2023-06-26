@@ -108,6 +108,15 @@ namespace PrimerParcial.Entidades.Models
             return contraseñaCoincide;
         }
 
+        /// <summary>
+        /// Arma un diccionario en base a un objeto Usuario.
+        /// </summary>
+        /// <param name="id">int que representa la id.</param>
+        /// <param name="nombreApellido">string que representa el nombre de pila del usuario.</param>
+        /// <param name="nombreUsuario">string que representa el nombre alias de usuario.</param>
+        /// <param name="contraseña">string que representa la contraseña para ingreso.</param>
+        /// <param name="rolUsuario">booleano que indica si el usuario tiene permismos administrativos o no.</param>
+        /// <returns>Diccionario con los datos ordenaso con sus llaves y valores.</returns>
         public static Dictionary<string,object> ArmarDiccionarioDeUsuario(int id,string nombreApellido,string nombreUsuario, string contraseña, bool rolUsuario)
         {
             Dictionary<string, object> dictUsuario = new Dictionary<string, object>();
@@ -120,7 +129,15 @@ namespace PrimerParcial.Entidades.Models
         }
 
 
-
+        /// <summary>
+        /// Verifica si los valores ingresados por el usuario estan bien. 
+        /// En particular si la contraseña coincide y el usuario no se repite.
+        /// </summary>
+        /// <param name="_usuarios">>Lista con los usuarios obtenida de la base de datos.</param>
+        /// <param name="textBoxUsuario">Nombre de usuario ingresado por el admin.</param>
+        /// <param name="textBoxContraseñaConfirm">Confirmacion de contraseña ingresado por el admin.</param>
+        /// <param name="textBoxContraseña">Contraseña ingresada por el admin.</param>
+        /// <returns></returns>
         public static string VerificarCasillas(List<Usuario> _usuarios, string textBoxUsuario, string textBoxContraseñaConfirm, string textBoxContraseña)
         {
             string resultadoVerificacion = "";
