@@ -11,21 +11,10 @@ namespace PrimerParcial.Entidades.SQL.ElementosDB
 {
     public class CampañasDB : ConsultasDB, IManipulable<Campaña>
     {
-        public int Agregar(Campaña objeto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Eliminar(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Modificar(Campaña objeto)
-        {
-            throw new NotImplementedException();
-        }
-
+        /// <summary>
+        /// Trae datos de la tabla en la base de datos.
+        /// </summary>
+        /// <returns>Devuelve una liasta de diccionarios con los datos de la tabla.</returns>
         public List<Dictionary<string, object>> Traer()
         {
             string consulta = "SELECT * FROM campaigns";
@@ -37,6 +26,7 @@ namespace PrimerParcial.Entidades.SQL.ElementosDB
 
             return campaigns;
         }
+
 
         public List<Dictionary<string, object>> TraerPersonajes()
         {
@@ -90,11 +80,10 @@ namespace PrimerParcial.Entidades.SQL.ElementosDB
             return campaigns;
         }
 
-        public Campaña Traer(int id)
-        {
-            throw new NotImplementedException();
-        }
-
+        /// <summary>
+        /// Inserta datos en la tabla de la base de datos
+        /// </summary>
+        /// <param name="campaign">Diccionario con los datos de la fila a insertar en tabla.</param>
         public void InsertarDatos(Dictionary<string, object> campaign)
         {
 
@@ -102,15 +91,24 @@ namespace PrimerParcial.Entidades.SQL.ElementosDB
 
 
         }
+
+        /// <summary>
+        /// Actualiza datos en la tabla de la base de datos
+        /// </summary>
+        /// <param name="campaign">Diccionario con los datos de la fila a modificar en tabla.</param>
         public void ActualizarDatos(Dictionary<string, object> campaign)
         {
             EjecutarNonQuery(ComandosDB.ArmarStringComandoNonQueryUpdate(campaign, "campaigns"));
 
         }
 
-        public void EliminarDatos(object idEnemigo)
+        /// <summary>
+        /// Elimina datos en la tabla de la base de datos
+        /// </summary>
+        /// <param name="idCampaña">id el item a eliminar de la tabla.</param>
+        public void EliminarDatos(object idCampaña)
         {
-            EjecutarNonQuery(ComandosDB.ArmarStringComandoNonQueryDelete(idEnemigo, "campaigns"));
+            EjecutarNonQuery(ComandosDB.ArmarStringComandoNonQueryDelete(idCampaña, "campaigns"));
 
         }
     }

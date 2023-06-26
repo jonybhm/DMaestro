@@ -160,6 +160,7 @@ namespace PrimerParcial.UI
             }
             dictDatosFilas["characters"] = new List<Dictionary<string, object>>()
             {
+
                 new Dictionary<string, object>
                 {
                     { "id", 0},

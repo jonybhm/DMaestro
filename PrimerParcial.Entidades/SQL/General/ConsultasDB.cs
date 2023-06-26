@@ -13,6 +13,10 @@ namespace PrimerParcial.Entidades.SQL.General
 {
     public class ConsultasDB : ConexionDB
     {
+        /// <summary>
+        /// Inicializa una nueva instania de la clase ConsultasDB.
+        /// </summary>
+        /// <param name="stringDeConexion">string que representa el string necesario para conectar a la base de datos.</param>
         public ConsultasDB(string stringDeConexion) : base(stringDeConexion)
         {
 
@@ -20,6 +24,11 @@ namespace PrimerParcial.Entidades.SQL.General
 
         public ConsultasDB() : base(@"Server=.;Database=monsters_en;Trusted_Connection=True;TrustServerCertificate=true;") { }
 
+        /// <summary>
+        /// 
+        /// Ejecuta la consulta en en la base de datos.
+        /// </summary>
+        /// <param name="consulta">string que representa la consulta.</param>
         protected List<Dictionary<string, object>> EjecutarConsulta(string consulta)
         {
             AbrirConexion();
@@ -49,6 +58,11 @@ namespace PrimerParcial.Entidades.SQL.General
 
         }
 
+        /// <summary>
+        /// 
+        /// Ejecuta el Non Query en en la base de datos.
+        /// </summary>
+        /// <param name="consulta">string que representa la consulta.</param>
         protected void EjecutarNonQuery(string consulta)
         {
             AbrirConexion();

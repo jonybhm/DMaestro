@@ -12,13 +12,16 @@ namespace PrimerParcial.Entidades.Models
 
         public static event ClickBotonHandler ClickBoton;
 
+        /// <summary>
+        /// Detectar un boton e invocar a un evento al realizarse esta accion. 
+        /// </summary>
+        /// <param name="usuario">string que representa el nombre usuario.</param>
+        /// <param name="nombreBoton">string que representa el nombre del boton presionado.</param>
         public static void DetectarBotonPresionadoPorUsuario(string usuario, string nombreBoton)
         {
             
             ClickBoton?.Invoke(usuario, nombreBoton);
-
-            //ClickBotonEvento += Informe.RegistrarYGuardarAccionUsuarioEnLog;
-            
+           
         }
 
 

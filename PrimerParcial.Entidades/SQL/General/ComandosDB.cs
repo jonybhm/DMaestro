@@ -8,6 +8,12 @@ namespace PrimerParcial.Entidades.SQL.General
 {
     public static class ComandosDB
     {
+        /// <summary>
+        /// Arma el comando que se utilizara en el Non Query en formato string para insertar datos en tabla.
+        /// </summary>
+        /// <param name="item">Diccionario con el elemento al que corresponde la tabla.</param>
+        /// <param name="nombreTabla">string que representa el nombre de la tabla.</param>
+        /// <returns></returns>
         public static string ArmarStringComandoNonQueryInsert(Dictionary<string, object> item, string nombreTabla)
         {
             StringBuilder comandoInsert = new StringBuilder();
@@ -18,11 +24,7 @@ namespace PrimerParcial.Entidades.SQL.General
 
             foreach (KeyValuePair<string, object> par in item)
             {
-                /*
-                if (par.Key == "id")
-                {
-                    continue;
-                }*/
+              
                 switch (par.Key)
                 {
                     case "id":
@@ -51,6 +53,12 @@ namespace PrimerParcial.Entidades.SQL.General
             return comandoInsert.ToString() + comandoValues.ToString();
         }
 
+        /// <summary>
+        /// Arma el comando que se utilizara en el Non Query en formato string para actualizar datos en tabla.
+        /// </summary>
+        /// <param name="item">Diccionario con el elemento al que corresponde la tabla.</param>
+        /// <param name="nombreTabla">string que representa el nombre de la tabla.</param>
+        /// <returns></returns>
         public static string ArmarStringComandoNonQueryUpdate(Dictionary<string, object> item, string nombreTabla)
         {
             string comandoUpdate = $"UPDATE {nombreTabla} ";
@@ -62,11 +70,7 @@ namespace PrimerParcial.Entidades.SQL.General
 
             foreach (KeyValuePair<string, object> par in item)
             {
-                /*
-                if (par.Key == "id")
-                {
-                    continue;
-                }*/
+                
                 switch (par.Key)
                 {
                     case "id":
@@ -94,6 +98,12 @@ namespace PrimerParcial.Entidades.SQL.General
             return comandoUpdate + comandoSet.ToString() + comandoWhere;
         }
 
+        /// <summary>
+        /// Arma el comando que se utilizara en el Non Query en formato string para eliminar datos en tabla.
+        /// </summary>
+        /// <param name="item">Diccionario con el elemento al que corresponde la tabla.</param>
+        /// <param name="nombreTabla">string que representa el nombre de la tabla.</param>
+        /// <returns></returns>
         public static string ArmarStringComandoNonQueryDelete(object idItem, string nombreTabla)
         {
             string comandoDelete = $"DELETE {nombreTabla} WHERE id={idItem}";

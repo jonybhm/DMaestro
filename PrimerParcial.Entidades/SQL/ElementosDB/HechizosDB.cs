@@ -10,21 +10,10 @@ namespace PrimerParcial.Entidades.SQL.ElementosDB
 {
     public class HechizosDB : ConsultasDB, IManipulable<Hechizo>
     {
-        public int Agregar(Hechizo objeto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Eliminar(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Modificar(Hechizo objeto)
-        {
-            throw new NotImplementedException();
-        }
-
+        /// <summary>
+        /// Trae datos de la tabla en la base de datos.
+        /// </summary>
+        /// <returns>Devuelve una liasta de diccionarios con los datos de la tabla.</returns>
         public List<Dictionary<string, object>> Traer()
         {
             string consulta = "SELECT * FROM spells";
@@ -36,28 +25,35 @@ namespace PrimerParcial.Entidades.SQL.ElementosDB
 
             return hechizos;
         }
-
-        public Hechizo Traer(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void InsertarDatos(Dictionary<string, object> enemigo)
+        /// <summary>
+        /// Inserta datos en la tabla de la base de datos
+        /// </summary>
+        /// <param name="hechizo">Diccionario con los datos de la fila a insertar en tabla.</param>
+        public void InsertarDatos(Dictionary<string, object> hechizo)
         {
 
-            EjecutarNonQuery(ComandosDB.ArmarStringComandoNonQueryInsert(enemigo, "spells"));
+            EjecutarNonQuery(ComandosDB.ArmarStringComandoNonQueryInsert(hechizo, "spells"));
 
-
-        }
-        public void ActualizarDatos(Dictionary<string, object> enemigo)
-        {
-            EjecutarNonQuery(ComandosDB.ArmarStringComandoNonQueryUpdate(enemigo, "spells"));
 
         }
 
-        public void EliminarDatos(object idEnemigo)
+        /// <summary>
+        /// Inserta datos en la tabla de la base de datos
+        /// </summary>
+        /// <param name="hechizo">Diccionario con los datos de la fila a modificar en tabla.</param>
+        public void ActualizarDatos(Dictionary<string, object> hechizo)
         {
-            EjecutarNonQuery(ComandosDB.ArmarStringComandoNonQueryDelete(idEnemigo, "spells"));
+            EjecutarNonQuery(ComandosDB.ArmarStringComandoNonQueryUpdate(hechizo, "spells"));
+
+        }
+
+        /// <summary>
+        /// Elimina datos en la tabla de la base de datos
+        /// </summary>
+        /// <param name="idHechizo">id el item a eliminar de la tabla.</param>
+        public void EliminarDatos(object idHechizo)
+        {
+            EjecutarNonQuery(ComandosDB.ArmarStringComandoNonQueryDelete(idHechizo, "spells"));
 
         }
     }

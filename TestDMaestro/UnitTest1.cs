@@ -40,7 +40,7 @@ namespace TestDMaestro
     }
 
     [TestClass]
-    public class UnitTestCalculadoraChallengeRating
+    public class UnitTestCalculadoraPuntosExperiencia
     {
 
         List<Dictionary<string, object>> tablaDos = Archivos.LeerInfoArchivo("tabla2");
@@ -71,5 +71,32 @@ namespace TestDMaestro
         }
     }
 
-    
+    [TestClass]
+    public class UnitTestCalculadoraChallengeRating
+    {
+
+        List<Dictionary<string, object>> tablaUno = Archivos.LeerInfoArchivo("tabla1");
+
+        [TestMethod]
+        public void TestCalculopCR()
+        {
+            int puntosExperencia = 800;
+
+            string result = Enemigo.CalcularCR(puntosExperencia, tablaUno);
+
+            Assert.AreEqual("3", result);
+        }
+
+        [TestMethod]
+        public void TestCalculopCRPuntosNegativos()
+        {
+            int puntosExperencia = -800;
+
+            string result = Enemigo.CalcularCR(puntosExperencia, tablaUno);
+
+            Assert.AreEqual("", result);
+        }
+    }
+
+
 }
