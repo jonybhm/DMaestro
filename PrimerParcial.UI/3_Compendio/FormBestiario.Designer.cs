@@ -40,6 +40,7 @@
             buttonAgregar = new Button();
             buttonEliminar = new Button();
             buttonExportar = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridBestiario).BeginInit();
             SuspendLayout();
             // 
@@ -197,12 +198,31 @@
             buttonExportar.UseVisualStyleBackColor = false;
             buttonExportar.Click += buttonExportar_Click;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.Transparent;
+            button1.BackgroundImage = Properties.Resources.boton2;
+            button1.BackgroundImageLayout = ImageLayout.Zoom;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Universal Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(122, 8);
+            button1.Name = "button1";
+            button1.Size = new Size(120, 34);
+            button1.TabIndex = 26;
+            button1.Text = "+ Iniciativa";
+            button1.UseVisualStyleBackColor = false;
+            // 
             // FormBestiario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(37, 41, 48);
             ClientSize = new Size(509, 537);
+            Controls.Add(button1);
             Controls.Add(buttonExportar);
             Controls.Add(buttonEliminar);
             Controls.Add(buttonAgregar);
@@ -227,5 +247,6 @@
         private Button buttonAgregar;
         private Button buttonEliminar;
         private Button buttonExportar;
+        private Button button1;
     }
 }
