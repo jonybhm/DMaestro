@@ -32,9 +32,9 @@ namespace PrimerParcial.UI
         /// <param name="e">Representa a los argumentos del evento</param>
         private void FormPantallaDM_Load(object sender, EventArgs e)
         {
-            CargarArchivoRTF(richTextBoxIzquierda, "Pantalla Izquierda");
-            CargarArchivoRTF(richTextBoxCentro, "Pantalla Centro");
-            CargarArchivoRTF(richTextBoxDerecha, "Pantalla Derecha");
+            //CargarArchivoRTF(richTextBoxIzquierda, "Pantalla Izquierda");
+            //CargarArchivoRTF(richTextBoxCentro, "Pantalla Centro");
+            //CargarArchivoRTF(richTextBoxDerecha, "Pantalla Derecha");
         }
         /// <summary>
         /// Carga el archivo de texto en formato enriquecido para mostrarlo en un RichTextBox
