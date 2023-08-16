@@ -119,10 +119,10 @@ namespace PrimerParcial.UI
                 campaña.treasure = itemsCampaña;
                 */
 
-                FormCampaña formCampaña = new FormCampaña((Campaña)campaña, mostrarBotonEditar, mostrarBotonAgregarNuevo, dataGridCampañas);
-                formCampaña.MdiParent = mdiParentForm;
+                //FormCampaña formCampaña = new FormCampaña((Campaña)campaña, mostrarBotonEditar, mostrarBotonAgregarNuevo, dataGridCampañas);
+                /*formCampaña.MdiParent = mdiParentForm;
                 formCampaña.WindowState = FormWindowState.Normal;
-                formCampaña.Show();
+                formCampaña.Show();*/
             }
             catch (Exception ex)
             {

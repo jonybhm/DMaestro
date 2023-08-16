@@ -19,6 +19,7 @@ namespace PrimerParcial.UI
     public partial class FormBestiario : Form
     {
         private FormContenedor mdiParentForm;
+        private FormIniciativa formIniciativa;
 
         /// <summary>
         /// Inicializa una nueva instania de la clase FormBestiario.
@@ -27,6 +28,7 @@ namespace PrimerParcial.UI
         {
             InitializeComponent();
             mdiParentForm = parentForm;
+            formIniciativa = new FormIniciativa(mdiParentForm);
 
         }
 
@@ -192,6 +194,38 @@ namespace PrimerParcial.UI
             MessageBox.Show("Datos Exportados", "Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
             DetectorBoton.DetectarBotonPresionadoPorUsuario(mdiParentForm.usuarioActual.UserName, "Exportar a json");
+        }
+
+        /// <summary>
+        /// Despliega los botones del menu.
+        /// </summary>
+        /// <param name="sender">Objeto que representa al iniciador del evento.</param>
+        /// <param name="e">Representa a los argumentos del evento</param>
+        private void buttonPlus_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanelBotones.FlowDirection = FlowDirection.LeftToRight;
+            flowLayoutPanelBotones.Visible = !flowLayoutPanelBotones.Visible;
+
+            if (flowLayoutPanelBotones.Visible)
+            {
+                buttonPlus.Text = "-";
+            }
+            else
+            {
+                buttonPlus.Text = "+";
+            }
+
+
+        }
+
+        private void buttonAddIniciativa_Click(object sender, EventArgs e)
+        {
+            DataGridViewSelectedRowCollection selectedRowCollection = dataGridBestiario.SelectedRows;
+            formIniciativa.MdiParent = mdiParentForm;
+
+            formIniciativa.CargarDatos(selectedRowCollection);
+            formIniciativa.Show();
+
         }
     }
 }

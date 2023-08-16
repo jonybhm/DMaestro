@@ -215,7 +215,7 @@ namespace PrimerParcial.UI
             CerrarFormsConMismoNombre(nombreForm);
             DetectorBoton.ClickBoton += Informe.RegistrarYGuardarAccionUsuarioEnLog;
             DetectorBoton.DetectarBotonPresionadoPorUsuario(usuarioActual.UserName, nombreForm);
-            var hijo = new FormIniciativa();
+            var hijo = new FormIniciativa(this);
             hijo.MdiParent = this;
             hijo.WindowState = FormWindowState.Normal;
             hijo.Show();

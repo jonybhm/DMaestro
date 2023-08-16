@@ -13,13 +13,15 @@ namespace PrimerParcial.UI
 {
     public partial class FormIniciativa : Form
     {
+        private FormContenedor mdiParentForm;
 
         /// <summary>
         /// Inicializa una nueva instania de la clase FormIniciativa.
         /// </summary>
-        public FormIniciativa()
+        public FormIniciativa(FormContenedor parentForm)
         {
             InitializeComponent();
+            mdiParentForm = parentForm;
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(1125, 300);
             this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
@@ -49,6 +51,14 @@ namespace PrimerParcial.UI
             {
                 Random rnd = new Random();
                 dataGridSeguidorIniciativa.Rows[i].Cells[0].Value = rnd.Next(1, 20);
+            }
+        }
+
+        public void CargarDatos(DataGridViewSelectedRowCollection selectedRowCollection)
+        {
+            foreach(DataGridViewRow row in selectedRowCollection)
+            {
+                dataGridSeguidorIniciativa.Rows.Add(row.Cells[0].Value, row.Cells[1].Value, row.Cells[5].Value, row.Cells[6].Value);
             }
         }
 

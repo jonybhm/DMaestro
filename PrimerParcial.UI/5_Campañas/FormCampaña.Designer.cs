@@ -55,6 +55,7 @@
             DataGridViewCellStyle dataGridViewCellStyle25 = new DataGridViewCellStyle();
             tabControlCampaña = new TabControl();
             tabGeneral = new TabPage();
+            label7 = new Label();
             textBoxURL = new TextBox();
             pictureBoxCabecera = new PictureBox();
             textBoxLugar = new TextBox();
@@ -96,7 +97,7 @@
             richTextBoxNotas = new RichTextBox();
             buttonAgregar = new Button();
             buttonEditar = new Button();
-            label7 = new Label();
+            buttonAddIniciativa = new Button();
             tabControlCampaña.SuspendLayout();
             tabGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCabecera).BeginInit();
@@ -160,6 +161,16 @@
             tabGeneral.Size = new Size(742, 593);
             tabGeneral.TabIndex = 0;
             tabGeneral.Text = "General";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.ForeColor = Color.WhiteSmoke;
+            label7.Location = new Point(10, 574);
+            label7.Name = "label7";
+            label7.Size = new Size(87, 14);
+            label7.TabIndex = 66;
+            label7.Text = "Image URL:";
             // 
             // textBoxURL
             // 
@@ -245,6 +256,7 @@
             // tabPersonajes
             // 
             tabPersonajes.BackColor = Color.FromArgb(37, 41, 48);
+            tabPersonajes.Controls.Add(buttonAddIniciativa);
             tabPersonajes.Controls.Add(labelDetallePersonajes);
             tabPersonajes.Controls.Add(labelPersonajes);
             tabPersonajes.Controls.Add(dataGridPersonajes);
@@ -868,15 +880,24 @@
             buttonEditar.UseVisualStyleBackColor = false;
             buttonEditar.Click += buttonEditar_Click;
             // 
-            // label7
+            // buttonAddIniciativa
             // 
-            label7.AutoSize = true;
-            label7.ForeColor = Color.WhiteSmoke;
-            label7.Location = new Point(10, 574);
-            label7.Name = "label7";
-            label7.Size = new Size(87, 14);
-            label7.TabIndex = 66;
-            label7.Text = "Image URL:";
+            buttonAddIniciativa.BackColor = Color.Transparent;
+            buttonAddIniciativa.BackgroundImage = Properties.Resources.boton2;
+            buttonAddIniciativa.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonAddIniciativa.FlatAppearance.BorderSize = 0;
+            buttonAddIniciativa.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            buttonAddIniciativa.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            buttonAddIniciativa.FlatStyle = FlatStyle.Flat;
+            buttonAddIniciativa.Font = new Font("Universal Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonAddIniciativa.ForeColor = Color.White;
+            buttonAddIniciativa.Location = new Point(424, 79);
+            buttonAddIniciativa.Name = "buttonAddIniciativa";
+            buttonAddIniciativa.Size = new Size(120, 34);
+            buttonAddIniciativa.TabIndex = 33;
+            buttonAddIniciativa.Text = "+ Iniciativa";
+            buttonAddIniciativa.UseVisualStyleBackColor = false;
+            //buttonAddIniciativa.Click += buttonAddIniciativa_Click;
             // 
             // FormCampaña
             // 
@@ -970,5 +991,6 @@
         private Button buttonEditar;
         private TextBox textBoxURL;
         private Label label7;
+        private Button buttonAddIniciativa;
     }
 }
